@@ -42,7 +42,8 @@ INSTALLED_APPS = [
 
     'account',
     'project',
-    'transaction'
+    'stock',
+    'transaction',
 ]
 
 MIDDLEWARE = [
