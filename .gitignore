@@ -1,6 +1,9 @@
 ### Virtual Environement
 TF/
 
+### Graph models ###
+graph_models/
+
 ### Django ###
 *.log
 *.pot

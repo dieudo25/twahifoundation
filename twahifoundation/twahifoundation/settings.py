@@ -122,3 +122,21 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Django Extensions - Grap models
+# Command for the entire project :
+#   python manage.py graph_models -a -g -o graph_models/tf_visualization.png
+# Command for twahifoundation model :
+#   python manage.py graph_models -a -X LogEntry,ContentType,Session,AbstractBaseSession -o graph_models/sub_tf_visualization.png
+# Command for twahifoundation model whitout edge model:
+#   python manage.py graph_models -a --hide-edge-labels -X LogEntry,ContentType,Session,AbstractBaseSession -o graph_models/no_edge_sub_tf_visualization.png
+
+GRAPH_MODELS = {
+    'all_applications': True,
+    'group_models': True,
+}
+
+# Custom User Model
+
+AUTH_USER_MODEL = 'account.user'
