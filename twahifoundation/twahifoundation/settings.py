@@ -141,6 +141,7 @@ GRAPH_MODELS = {
     'group_models': True,
 }
 
+
 # Custom User Model
 
 AUTH_USER_MODEL = 'account.user'
