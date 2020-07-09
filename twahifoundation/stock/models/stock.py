@@ -16,7 +16,7 @@ class Stock(models.Model):
     )
     products = models.ManyToManyField(
         Product,
-        through='ProductStock',
+        through='ProductStockTransfert',
     )
     date_created = models.DateField(
         auto_now_add=True,
@@ -36,7 +36,7 @@ class Stock(models.Model):
         ordering = ['-date_created']
 
 
-class ProductStock(models.Model):
+class ProductStockTransfert(models.Model):
     """
     ProductStock model definition
     """

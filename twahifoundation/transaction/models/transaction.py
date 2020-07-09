@@ -3,13 +3,18 @@ from django.conf import settings
 
 from project.models.project import Project
 from stock.models.product import Product
-from contact.models.person import Donor, Supplier
+from contact.models.person import Person
 
 
 class Transaction(models.Model):
     """
     Base class of the Transaction model 
     """
+    TYPE_CHOICES = [
+        ('Donation', 'Donation'),
+        ('Purchase', 'Purchase'),
+        ('Sell', 'Sell'),
+    ]
 
     project = models.ForeignKey(
         Project,
@@ -23,26 +28,24 @@ class Transaction(models.Model):
         limit_choices_to={'is_staff': True},
         verbose_name="Responsable"
     )
-    donor = models.ForeignKey(
-        Donor,
+    person = models.ForeignKey(
+        Person,
         on_delete=models.PROTECT,
-        verbose_name="Donateur",
+        verbose_name="Personne",
         blank=True,
-        null='NO DONOR',
-    )
-    supplier = models.ForeignKey(
-        Supplier,
-        on_delete=models.PROTECT,
-        verbose_name="Fournisseur",
-        blank=True,
-        null='NO SUPPLIER'
+        null='NULL',
     )
     products = models.ManyToManyField(
         Product,
         through='ProductTransactionLine',
         verbose_name="Liste de produits",
         blank=True,
-        null='NO PRODUCT'
+    )
+    transaction_type = models.CharField(
+        max_length=10,
+        choices=TYPE_CHOICES,
+        default=TYPE_CHOICES[0][0],
+        verbose_name="Type de transfert"
     )
     date_created = models.DateField(
         auto_now_add=True,
