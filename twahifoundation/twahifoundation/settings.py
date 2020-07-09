@@ -40,11 +40,11 @@ INSTALLED_APPS = [
 
     'django_extensions',
 
-    'account',
-    'contact',
-    'project',
-    'stock',
-    'transaction',
+    'account.apps.AccountConfig',
+    'contact.apps.ContactConfig',
+    'project.apps.ProjectConfig',
+    'stock.apps.StockConfig',
+    'transaction.apps.TransactionConfig',
 ]
 
 MIDDLEWARE = [

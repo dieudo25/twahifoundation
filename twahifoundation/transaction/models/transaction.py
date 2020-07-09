@@ -60,8 +60,8 @@ class Transaction(models.Model):
         Meta definition for Transaction.
         """
 
-        verbose_name = 'Achat'
-        verbose_name_plural = 'Achats'
+        verbose_name = 'Transaction'
+        verbose_name_plural = 'Transactions'
         ordering = ['-date_created']
 
     def __str__(self):
