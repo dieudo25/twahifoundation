@@ -27,4 +27,5 @@ class User(AbstractUser):
         default=LANGUAGE_CHOICES[0][0],
         verbose_name="Langue"
     )
-    avatar = models.ImageField(null=True, blank=True)
+    avatar = models.ImageField(
+        null=True, blank=True, upload_to='account/user/avatar/%Y/%m/%D')
