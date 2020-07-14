@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     'account.apps.AccountConfig',
     'contact.apps.ContactConfig',
+    'page.apps.PageConfig',
     'project.apps.ProjectConfig',
     'stock.apps.StockConfig',
     'transaction.apps.TransactionConfig',
@@ -126,6 +127,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
 
 # Django Extensions - Grap models
