@@ -1,0 +1,88 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("/static/page/fonts/poppins/Poppins-Regular.ttf");
+}
+
+body {
+  background-color: #f9f9f9;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
+/* Navbar */
+
+nav {
+  background-color: #fff;
+  min-height: 70px;
+}
+
+a.nav-link {
+  padding: 15px 10px !important;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+a.navbar-brand {
+  padding: 15px 20px 19px !important;
+  font-weight: 700;
+  font-size: 20px;
+  font-variant: small-caps;
+}
+
+a span.btn-involved {
+  padding: 10px;
+  background-color: #05721d;
+  color: white;
+}
+
+.header-img {
+  background-image: url(img/home_header.jpg);
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  filter: brightness(0.8);
+  display: flex;
+  align-items: center;
+}
+
+.header-p {
+  margin: 0 auto;
+  width: 960px;
+  color: white;
+  text-align: center;
+  position: relative;
+  margin-top: 230px;
+}
+
+.header-p h1 {
+  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.header-p small {
+  text-transform: none;
+}
+
+.header-btn {
+  width: 600px;
+  margin: 0 auto;
+  padding-top: 138px;
+}
+
+.header-btn span {
+  padding: 18px 22px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.btn-learn-more {
+  background-color: #064f5d;
+}
+
+.btn-involved-2 {
+  background-color: #05721d;
+}
