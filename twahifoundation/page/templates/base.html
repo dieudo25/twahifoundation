@@ -15,26 +15,26 @@
   </head>
   <body>
       
-    <div class="container">
+    <div id="navbar">
 
       {% include 'components/navbar.html' %}
 
     </div>
+    <div id="header">
 
-    {% block header %}
-      <div class="header-img"></div>
-      <div class="header-p">
-        <h1>Together for welfare, advocacy, harmony and innovation </br></br><small>Improving the level of life of the African population through our various actions</small> </h1>
-        <div class="d-flex justify-content-around header-btn mt-5">
-          <a><span class="btn-learn-more">Learn more</span></a>
-          <a><span class="btn-involved-2">Get involved</span></a>
-        </div>
-      </div>
-    {% endblock header %}
+      {% block header %}{% endblock header %}
 
-    <div>
-      {% block content %}{% endblock content%}
     </div>
+    <div id='content'>
+
+      {% block content %}{% endblock content%}
+
+    </div>
+    <footer id="footer">
+
+      {% include 'components/footer.html' %}
+      
+    </footer>
     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
