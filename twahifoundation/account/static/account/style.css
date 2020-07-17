@@ -1,0 +1,30 @@
+/* HEADER */
+
+.header-1 {
+  background-image: url(img/home_header.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 50px;
+}
+
+/* LOGIN FORM */
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 30px;
+}
+
+.login-form .control-group {
+  margin-bottom: 20px;
+}
+
+.login-form button {
+  border: none;
+  padding: 10px;
+  width: 100%;
+  margin: 10px 0px;
+  color: white;
+}

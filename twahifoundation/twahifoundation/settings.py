@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'crispy_forms',
     'django_extensions',
 
     'account.apps.AccountConfig',
@@ -148,3 +149,7 @@ GRAPH_MODELS = {
 # Custom User Model
 
 AUTH_USER_MODEL = 'account.user'
+
+# Crispy Forms configuration
+
+CRISPY_TEMPLATES_PACK = 'bootstrap4'

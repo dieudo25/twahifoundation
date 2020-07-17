@@ -27,6 +27,14 @@ img {
   object-fit: cover;
 }
 
+.text-green {
+  color: #05721d;
+}
+
+.text-blue {
+  color: #064f5d;
+}
+
 .btn-blue {
   background-color: #064f5d;
   color: white;
@@ -340,7 +348,9 @@ a span.btn-involved {
 /* SOCIAL */
 
 #sidebar-social {
-  padding: 20px 0 0 20px;
+  margin: 0 auto;
+  width: 300px;
+
   text-align: center;
 }
 
@@ -509,6 +519,7 @@ footer #newsletters-title h2 {
   #events-section {
     width: 700px;
     margin: 0 auto;
+    display: flex;
   }
 
   .events-wrapper {
@@ -610,7 +621,6 @@ footer #newsletters-title h2 {
   /* EVENTS */
 
   #events-section {
-    display: flex;
     width: 930px;
   }
 
@@ -624,6 +634,10 @@ footer #newsletters-title h2 {
 
   .events-card img {
     height: 200px;
+  }
+
+  .events-description {
+    height: 135px;
   }
 
   /* FOOTER */
