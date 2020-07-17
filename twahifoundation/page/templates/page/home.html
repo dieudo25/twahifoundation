@@ -43,22 +43,27 @@
       <img src="{% static 'page/img/welcome_2.jpg' %}">
     </div>
   </section>
-  <section id="news-section">
+  <section id="projects-section">
     <div id="sidebar">
       
       {% include 'components/navmenu.html' %}
 
     </div>
-    <div class="news-wrapper">
-
-      {% include 'components/news_list.html' %}
-
-    </div>
-  </section>
-  <section>
     <div class="projects-wrapper">
 
       {% include 'components/projects_list.html' %}
+
+    </div>
+  </section>
+  <section id="events-section">
+    <div class="events-wrapper">
+      
+      {% include 'components/events_list.html' %}
+
+    </div>
+    <div id="sidebar-social">
+      
+      {% include 'components/social_page_plugin.html' %}
 
     </div>
   </section>
