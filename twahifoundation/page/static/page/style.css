@@ -565,8 +565,7 @@ footer #newsletters-title h2 {
     margin: 0 auto;
   }
 
-  #navbarNavDropdown {
-    display: flex;
+  #navbar #navbarNavDropdown {
     justify-content: space-between;
   }
 
@@ -577,6 +576,7 @@ footer #newsletters-title h2 {
 
   .nav-item.dropdown-menu {
     left: -63px;
+    top: 58px;
     text-align: right;
   }
 
