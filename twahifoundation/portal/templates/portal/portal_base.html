@@ -1,0 +1,22 @@
+{% extends '../base.html'%}
+
+{% block title %} Protal Base {% endblock title %}
+
+{% block body %}
+
+  {% block portal_navbar %}
+    <section id="portal-navbar">
+
+      {% include 'components/portal-navbar.html' %}
+
+    </section>
+  {% endblock portal_navbar %}
+
+  {% block portal_sidebar %}
+  
+  {% endblock portal_sidebar %}
+
+  {% block portal_content %}{% endblock portal_content %}
+  
+  
+{% endblock body %} 

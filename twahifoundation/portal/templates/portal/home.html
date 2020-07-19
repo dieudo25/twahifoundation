@@ -1,0 +1,54 @@
+{% extends './portal_base.html'%}
+
+{% load static %}
+
+{% block title %} Portal | Home {% endblock title %}
+
+{% block portal_content %}
+  <section id="portal-home">
+    <div class="wrapper">
+      <div class="app-list">
+        <a href="#" class="app-link">
+          <div class="app-item bg-green-light">
+            <div class="img-wrapper">
+              <img src="{% static 'portal/img/user.svg' %}">
+            </div>
+            <p>Users and Permissions</p>
+          </div>
+        </a>
+        <a href="#" class="app-link">
+          <div class="app-item bg-blue-light">
+            <div class="img-wrapper">
+              <img src="{% static 'portal/img/transaction2.svg' %}">
+            </div>
+            <p>Transaction</p>
+          </div>
+        </a>
+        <a href="#" class="app-link">
+          <div class="app-item bg-red-light">
+            <div class="img-wrapper">
+              <img src="{% static 'portal/img/project.svg' %}">
+            </div>
+            <p>Project</p>
+          </div>
+        </a>
+        <a href="#" class="app-link">
+          <div class="app-item bg-orange-light">
+            <div class="img-wrapper">
+              <img src="{% static 'portal/img/contact.svg' %}">
+            </div>
+            <p>Contact</p>
+          </div>
+        </a>
+        <a href="#" class="app-link">
+          <div class="app-item bg-black">
+            <div class="img-wrapper">
+              <img src="{% static 'portal/img/stock.svg' %}">
+            </div>
+            <p>Stock</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+{% endblock portal_content %}
