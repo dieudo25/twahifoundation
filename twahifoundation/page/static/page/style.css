@@ -8,6 +8,11 @@
   src: url("/static/page/fonts/poppins/Poppins-Thin.ttf");
 }
 
+@font-face {
+  font-family: "Poppins-extraBold";
+  src: url("/static/page/fonts/poppins/Poppins-ExtraBold.ttf");
+}
+
 body {
   background-color: #f9f9f9;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
@@ -33,6 +38,14 @@ img {
 
 .text-blue {
   color: #064f5d;
+}
+
+.text-red {
+  color: #971507;
+}
+
+.text-grey {
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .btn-blue {
@@ -83,19 +96,18 @@ a.nav-link {
   text-transform: uppercase;
 }
 
+a.nav-link.dropdown-toggle {
+  text-align: left;
+}
+
+.nav-item.dropdown-menu {
+  border: none;
+}
+
 a.navbar-brand {
-  padding: 15px 15px 19px !important;
   font-weight: 700;
   font-size: 20px;
   font-variant: small-caps;
-}
-
-.navbar-nav {
-  text-align: center;
-}
-
-.nav-column-2 {
-  text-align: center;
 }
 
 a span.btn-involved {
@@ -106,7 +118,7 @@ a span.btn-involved {
 /* HEADER */
 
 #header {
-  height: calc(100vh - 80px);
+  height: calc(100vh - 70px);
   width: 100vw;
   max-width: 100%;
 }
@@ -121,7 +133,7 @@ a span.btn-involved {
   height: 100%;
   filter: brightness(0.8);
   position: relative;
-  top: -80px;
+  top: -70px;
   z-index: -1;
   object-fit: cover;
 }
@@ -294,6 +306,7 @@ a span.btn-involved {
 
 #events-section {
   background-color: #f9f9f9;
+  margin-bottom: 40px;
 }
 
 .events-wrapper {
@@ -534,6 +547,7 @@ footer #newsletters-title h2 {
   .events-list {
     display: flex;
     flex-wrap: wrap;
+    width: 310px;
   }
 
   /* FOOTER */
@@ -559,6 +573,15 @@ footer #newsletters-title h2 {
   .nav-column-2 {
     display: flex;
     align-items: center;
+  }
+
+  .nav-item.dropdown-menu {
+    left: -63px;
+    text-align: right;
+  }
+
+  a.dropdown-item.nav-link {
+    padding: 15px 26px 15px 10px !important;
   }
 
   /* HEADER */
@@ -626,6 +649,7 @@ footer #newsletters-title h2 {
 
   .events-list {
     display: block;
+    width: unset;
   }
 
   .events-item {
@@ -638,6 +662,12 @@ footer #newsletters-title h2 {
 
   .events-description {
     height: 135px;
+  }
+
+  /* SOCIAL */
+
+  #sidebar-social {
+    margin: 0 0 0 auto;
   }
 
   /* FOOTER */

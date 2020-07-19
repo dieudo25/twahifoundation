@@ -8,6 +8,7 @@ class CustomUserAdmin(UserAdmin):
     """
     class UserAdmin definition
     """
+    readonly_fields = ["slug"]
 
     fieldsets = (
         (None, {
@@ -16,12 +17,14 @@ class CustomUserAdmin(UserAdmin):
                 'username',
                 'password',
                 'avatar',
+                'slug',
             ),
         }),
         ('Informations personelles', {
             "fields": (
                 'first_name',
                 'last_name',
+                'email',
                 'language',
             ),
         }),

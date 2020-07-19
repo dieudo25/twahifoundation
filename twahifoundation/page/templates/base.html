@@ -10,33 +10,38 @@
 
     {% load static %}
     <link rel="stylesheet" href="{% static 'page/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'portal/style.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'account/style.css' %}" type="text/css">
 
     <title>{% block title %}{% endblock title %}</title>
   </head>
   <body>
-    <div id="navbar">
+    {% block body %}
 
-      {% include 'components/navbar.html' %}
+      <div id="navbar">
 
-    </div>
-    
-    <div id="banner">
+        {% include 'components/navbar.html' %}
 
-      {% block header %}{% endblock header %}
-
-    </div>
-    
-    <div id='content'>
-
-      {% block content %}{% endblock content%}
-
-    </div>
-    <footer id="footer">
-
-      {% include 'components/footer.html' %}
+      </div>
       
-    </footer>
+      <div id="banner">
+
+        {% block header %}{% endblock header %}
+
+      </div>
+      
+      <div id='content'>
+
+        {% block content %}{% endblock content%}
+
+      </div>
+      <footer id="footer">
+
+        {% include 'components/footer.html' %}
+        
+      </footer>
+
+    {% endblock body %}
     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

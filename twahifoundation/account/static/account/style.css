@@ -1,3 +1,14 @@
+/* DIMENSIONS */
+
+.wrapper {
+  max-width: 290px;
+  margin: 0 auto;
+}
+
+.section {
+  padding: 30px 0;
+}
+
 /* HEADER */
 
 .header-1 {
@@ -5,20 +16,60 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  padding: 50px;
+  height: 120px;
+  filter: brightness(0.7);
+}
+
+.text-header-1::before {
+  color: white;
+  margin: 0;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+  position: absolute;
+  z-index: 1;
+  font-family: Poppins-extraBold;
+  top: 100px;
+}
+
+.profile-header .text-header-1::before {
+  content: "Profile";
+}
+
+.login-header .text-header-1::before {
+  content: "Connexion";
 }
 
 /* LOGIN FORM */
+
+#login-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.login-title {
+  margin: 30px auto;
+}
+
+.login-title h1 {
+  font-variant: small-caps;
+}
 
 .login-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px 30px;
+  margin: 50px auto;
 }
 
 .login-form .control-group {
   margin-bottom: 20px;
+  max-width: 290px;
+}
+
+.login-form .control-group input {
+  max-width: 290px;
 }
 
 .login-form button {
@@ -27,4 +78,163 @@
   width: 100%;
   margin: 10px 0px;
   color: white;
+}
+
+/* PROFILE */
+
+.profile-img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin: 0 auto;
+  border: 5px solid #212529;
+  overflow: hidden;
+}
+
+.profile-img .img-wrapper {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.profile-title {
+  width: 200px;
+  margin: 30px auto 50px;
+}
+
+.profile-title h1 {
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.profile-info-group {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.profile-info-item-1 {
+  font-weight: 600;
+}
+
+@media (min-width: 375px) {
+  .wrapper {
+    max-width: 335px;
+  }
+
+  .login-form .control-group {
+    max-width: unset;
+  }
+
+  .login-form .control-group input {
+    max-width: unset;
+  }
+}
+
+@media (min-width: 425px) {
+  .wrapper {
+    max-width: 385px;
+  }
+}
+
+@media (min-width: 768px) {
+  /* DIMENSIONS */
+
+  .wrapper {
+    max-width: 700px;
+  }
+
+  /* HEADER */
+
+  .text-header-1::before {
+    top: 185px;
+  }
+
+  .header-1 {
+    height: 300px;
+  }
+
+  /* PROFILE */
+
+  .profile-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .profile-card {
+    width: 300px;
+    margin-right: 15px;
+  }
+
+  .profile-info {
+    width: 400px;
+  }
+
+  .profile-info-group {
+    margin-bottom: 30px;
+    display: flex;
+    text-align: unset;
+  }
+
+  .profile-info-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .profile-info-item-1 {
+    width: 120px;
+  }
+}
+
+@media (min-width: 992px) {
+  /* DIMENSIONS */
+
+  .wrapper {
+    max-width: 930px;
+  }
+
+  .clearfix {
+    height: 160px;
+  }
+
+  /* HEADER */
+
+  .text-header-1::before {
+    top: 145px;
+  }
+
+  .header-1 {
+    height: 240px;
+  }
+
+  .b-header {
+    position: absolute;
+    width: 100vw;
+    top: 0;
+    max-width: 100%;
+  }
+
+  /* LOGIN */
+
+  .login-img {
+    width: 450px;
+    background-image: url(img/login.jpg);
+    background-size: cover;
+    height: 100vh;
+  }
+}
+
+@media (min-width: 1200px) {
+  /* DIMENSIONS */
+
+  .wrapper {
+    max-width: 1100px;
+  }
+
+  /* LOGIN */
+
+  .login-img {
+    width: 600px;
+  }
 }

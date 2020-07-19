@@ -5,27 +5,67 @@
 {% block title %} Home {% endblock title %}
 
 {% block header %}
-  
-    <div class="header-img">
-      <img src="{% static "page/img/home_header.jpg" %}" alt="My image">
+    <div class="profile-header b-header">
+      <div class="">
+        <div class="header-1">
+          
+        </div>
+        <div class="text-header-1 wrapper">
+        </div> 
+      </div>
     </div>
-    <div class="absolute">
-      <div class="header-p-wrapper">
-        <div class="header-p">
-          <h1>Together for welfare, advocacy, harmony and innovation
-            </br></br>
-            <small>Let's improve the standard of living of the African population through our different actions</small>
-          </h1>
-          <div class="header-btn">
-            <a href="#"><span class="btn-blue">Learn more</span></a>
-            <a href="#"><span class="btn-green">Get involved</span></a>
+    <div class="clearfix"></div>
+{% endblock header %}
+
+{% block content %}
+  <section class="profile-section section">
+    <div class="wrapper">
+      <div class="profile-wrapper">
+        <div class="profile-card">
+          <div class="profile-img">
+            <div class="img-wrapper">
+              <img src="{{ user_profile.avatar.url }}">
+            </div>
+          </div>
+          <div class="profile-title">
+            <h1>{{ user_profile.username }}</h1>
+          </div>
+        </div>
+        <div class="profile-info">
+          <div class="profile-info-group">
+            <div class="profile-info-item-1">
+              <p>First name :</p>
+            </div>
+            <div class="profile-info-item-2">
+              <p>{{  user_profile.first_name }}</p>
+            </div>
+          </div>
+          <div class="profile-info-group">
+            <div class="profile-info-item-1">
+              <p>Last name :</p>
+            </div>
+            <div class="profile-info-item-2">
+              <p>{{  user_profile.last_name }}</p>
+            </div>
+          </div>
+          <div class="profile-info-group">
+            <div class="profile-info-item-1">
+              <p>Email :</p>
+            </div>
+            <div class="profile-info-item-2">
+              <p>{{  user_profile.email }}</p>
+            </div>
+          </div>
+          <div class="profile-info-group">
+            <div class="profile-info-item-1">
+              <p>Language :</p>
+            </div>
+            <div class="profile-info-item-2">
+              <p>{{  user_profile.language }}</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  
-{% endblock header %}
-
-{% block content %}
-
+  </section>
 {% endblock content %}
