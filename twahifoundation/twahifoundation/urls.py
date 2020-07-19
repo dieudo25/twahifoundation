@@ -21,8 +21,10 @@ from django.views.static import serve
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('portal', include('portal.urls')),
     path('', include('account.urls')),
     path('', include('page.urls')),
+
 
 ]
 
