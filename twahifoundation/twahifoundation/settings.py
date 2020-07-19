@@ -155,7 +155,7 @@ AUTH_USER_MODEL = 'account.user'
 
 LOGIN_URL = 'login'
 
-LOGIN_REDIRECT_URL = 'profile'
+LOGIN_REDIRECT_URL = 'portal-home'
 
 LOGOUT_REDIRECT_URL = 'home'
 
