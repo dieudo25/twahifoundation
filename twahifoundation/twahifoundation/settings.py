@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'contact.apps.ContactConfig',
     'page.apps.PageConfig',
+    'portal.apps.PortalConfig',
     'project.apps.ProjectConfig',
     'stock.apps.StockConfig',
     'transaction.apps.TransactionConfig',
@@ -150,6 +151,19 @@ GRAPH_MODELS = {
 
 AUTH_USER_MODEL = 'account.user'
 
+# Autjetication
+
+LOGIN_URL = 'login'
+
+LOGIN_REDIRECT_URL = 'profile'
+
+LOGOUT_REDIRECT_URL = 'home'
+
 # Crispy Forms configuration
 
 CRISPY_TEMPLATES_PACK = 'bootstrap4'
+
+# Media
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
