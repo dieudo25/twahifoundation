@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.db.models import Q
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
 
@@ -12,6 +13,23 @@ class UserListView(ListView):
     model = get_user_model()
     template_name = 'account/user/list.html'
     context_object_name = 'user_list'
+
+
+class UserListFiltered(ListView):
+    "User list filterd by username, lastname or firstname"
+
+    model = get_user_model()
+    template_name = 'account/user/list_filtered.html'
+    context_object_name = 'filtered_user_list'
+
+    def get_queryset(self):  # new
+        query = self.request.GET.get('search')
+        object_list = User.objects.filter(
+            Q(username=query) |
+            Q(first_name__icontains=query) |
+            Q(last_name__icontains=query)
+        )
+        return object_list
 
 
 class UserDetailView(DetailView):
@@ -31,7 +49,7 @@ class UserUpdateView(UpdateView):
               'last_name',
               'email',
               'language',
-              'avatar']
+              'avatar', ]
 
 
 class UserDeleteView(DeleteView):
@@ -44,7 +62,7 @@ class UserDeleteView(DeleteView):
 
 
 class UserCreateView(CreateView):
-    ""
+    "User create view"
 
     model = get_user_model()
     form_class = UserCreateForm

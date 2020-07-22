@@ -40,7 +40,6 @@ INSTALLED_APPS = [
 
     'crispy_forms',
     'django_extensions',
-    'django_filters',
     'debug_toolbar',
 
     'account.apps.AccountConfig',

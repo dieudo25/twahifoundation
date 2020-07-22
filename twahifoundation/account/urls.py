@@ -1,7 +1,14 @@
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 
-from account.views.user import UserCreateView, UserDetailView, UserDeleteView, UserListView, UserUpdateView
+from account.views.user import (
+    UserCreateView,
+    UserDetailView,
+    UserDeleteView,
+    UserListView,
+    UserListFiltered,
+    UserUpdateView,
+)
 
 app_name = 'account'
 
@@ -14,6 +21,7 @@ urlpatterns = [
 
     # User CRUD
     path('user/list/', UserListView.as_view(), name="user-list"),
+    path('user/list/search', UserListFiltered.as_view(), name="user-list-search"),
     path('user/<slug>/', UserDetailView.as_view(), name="user-detail"),
     path('user/<slug>/update/',
          UserUpdateView.as_view(), name='user-update'),

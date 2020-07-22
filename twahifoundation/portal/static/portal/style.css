@@ -259,7 +259,13 @@ p.help-block {
 }
 
 #avatar-clear_id {
-  margin-left: 4px;
+  margin-left: 10px;
+}
+
+/* PORTA SEARCH RESULT */
+
+#search-no-result {
+  padding-bottom: 4px;
 }
 
 @media (min-width: 768px) {
