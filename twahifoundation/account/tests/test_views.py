@@ -1,4 +1,4 @@
-import json
+""" import json
 
 from django.test import TestCase, Client
 from django.urls import reverse
@@ -29,14 +29,15 @@ class TestViews(TestCase):
         response = self.client.get(self.list_url)
 
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'account/user/list.html')
+        self.assertTemplateUsed(response, 'account/user/list.html') """
 
-    def test_user_detail_GET(self):
-        "Test VIEW UserDetailView"
 
-        response = self.client.get(self.detail_url)
+def test_user_detail_GET(self):
+    "Test VIEW UserDetailView"
 
-        print(response.status_code)
+    response = self.client.get(self.detail_url)
 
-        self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'account/user/detail.html')
+    print(response.status_code)
+
+    self.assertEquals(response.status_code, 200)
+    self.assertTemplateUsed(response, 'account/user/detail.html')
