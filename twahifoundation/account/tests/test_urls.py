@@ -2,11 +2,19 @@ from django.test import SimpleTestCase
 from django.urls import reverse, resolve
 from django.contrib.auth import views as auth_views
 
-from account.views.user import UserListView, UserDetailView, UserUpdateView
+from account.views.user import (
+    UserCreateView,
+    UserDeleteView,
+    UserListView,
+    UserDetailView,
+    UserUpdateView,
+)
 
 
 class TestUrls(SimpleTestCase):
     "Test account app urls"
+
+    # CRUD
 
     def test_user_list_url_resolves(self):
         "Test URL UserListView"
@@ -28,6 +36,22 @@ class TestUrls(SimpleTestCase):
         url = reverse('account:user-update', args=['user1'])
         self.assertEquals(resolve(url).func.__name__,
                           UserUpdateView.as_view().__name__)
+
+    def test_user_create_url_resolves(self):
+        "Test URL UserCreateView"
+
+        url = reverse('account:user-create')
+        self.assertEquals(resolve(url).func.__name__,
+                          UserCreateView.as_view().__name__)
+
+    def test_user_delete_url_resolves(self):
+        "Test URL UserDeleteView"
+
+        url = reverse('account:user-delete', args=['user1'])
+        self.assertEquals(resolve(url).func.__name__,
+                          UserDeleteView.as_view().__name__)
+
+    # Authentification
 
     def test_login_url_resolves(self):
         "Test URL auth_views - LoginView"

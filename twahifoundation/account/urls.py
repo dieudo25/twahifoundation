@@ -12,7 +12,7 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 
 
-    # User
+    # User CRUD
     path('user/list/', UserListView.as_view(), name="user-list"),
     path('user/<slug>/', UserDetailView.as_view(), name="user-detail"),
     path('user/<slug>/update/',
