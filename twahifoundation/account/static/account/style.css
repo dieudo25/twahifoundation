@@ -56,6 +56,16 @@
   font-variant: small-caps;
 }
 
+.login-form .alert.alert-block.alert-error {
+  max-width: 300px;
+  margin: 0 auto 20px;
+}
+
+.login-form .alert.alert-block.alert-error ul {
+  list-style: none;
+  color: #971507;
+}
+
 .login-form {
   display: flex;
   flex-direction: column;
