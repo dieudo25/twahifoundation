@@ -174,8 +174,6 @@ body {
   height: 100px;
 }
 
-/* PORTAL LIST */
-
 /* PORTAL DETAIL */
 
 .portal-wrapper {
@@ -212,6 +210,12 @@ body {
   margin-bottom: 0;
 }
 
+/* PORTAL CREATE */
+
+p.help-block {
+  margin-top: 10px;
+}
+
 /* LIST SEARCH FILTER */
 
 #list-search form {
@@ -244,14 +248,18 @@ body {
   margin: 0 auto;
 }
 
-/* PORTAL FORM */
+/* PORTAL USER FORM */
 
 .portal-update-form-wrapper .control-group {
   margin-bottom: 15px;
 }
 
-.portal-update-form-wrapper input {
+.portal-update-form-wrapper input:not(#avatar-clear_id) {
   width: 100%;
+}
+
+#avatar-clear_id {
+  margin-left: 4px;
 }
 
 @media (min-width: 768px) {
@@ -373,7 +381,7 @@ body {
 
   .portal-update-form-wrapper .control-label {
     margin-right: 20px;
-    min-width: 150px;
+    min-width: 125px;
   }
 
   .portal-update-form-wrapper .controls {

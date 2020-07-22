@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
 
+from account.forms.user import UserCreateForm
 from account.models.user import User
 
 
@@ -29,7 +30,8 @@ class UserUpdateView(UpdateView):
     fields = ['first_name',
               'last_name',
               'email',
-              'language']
+              'language',
+              'avatar']
 
 
 class UserDeleteView(DeleteView):
@@ -45,8 +47,5 @@ class UserCreateView(CreateView):
     ""
 
     model = get_user_model()
+    form_class = UserCreateForm
     template_name = 'account/user/create.html'
-    fields = ['first_name',
-              'last_name',
-              'email',
-              'language']
