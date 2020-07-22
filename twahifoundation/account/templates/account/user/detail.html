@@ -1,0 +1,82 @@
+{% extends 'portal/portal_base_sidebar.html'%}
+
+{% load static %}
+
+{% block title %} Portal | {{ user_profile.username }} {% endblock title %}
+
+{% block header %}
+    <div class="profile-header b-header">
+      <div class="">
+        <div class="header-1">
+          
+        </div>
+        <div class="text-header-1 wrapper">
+        </div> 
+      </div>
+    </div>
+    <div class="clearfix"></div>
+{% endblock header %}
+
+{% block portal_content %}
+  <div class="portal-wrapper profile">
+    <div class="profile-card">
+      <div class="profile-img">
+        <div class="img-wrapper">
+          <img src="{{ user_profile.avatar.url }}">
+        </div>
+      </div>
+      <div class="portal-title">
+        <h1>{{ user_profile.username }}</h1>
+      </div>
+    </div>
+    <div class="profile-info">
+      <div class="profile-info-group">
+        <div class="profile-info-item-1">
+          <p>First name :</p>
+        </div>
+        <div class="profile-info-item-2">
+          <p>{{  user_profile.first_name }}</p>
+        </div>
+      </div>
+      <div class="profile-info-group">
+        <div class="profile-info-item-1">
+          <p>Last name :</p>
+        </div>
+        <div class="profile-info-item-2">
+          <p>{{  user_profile.last_name }}</p>
+        </div>
+      </div>
+      <div class="profile-info-group">
+        <div class="profile-info-item-1">
+          <p>Email :</p>
+        </div>
+        <div class="profile-info-item-2">
+          <p>{{  user_profile.email }}</p>
+        </div>
+      </div>
+      <div class="profile-info-group">
+        <div class="profile-info-item-1">
+          <p>Language :</p>
+        </div>
+        <div class="profile-info-item-2">
+          <p>{{  user_profile.language }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="detail-bar">
+    <div class="detail-bar-col-1">
+      <a href="{% url 'account:user-list' %}">
+        <p class="detail-bar-btn btn-black">Back</p>
+      </a>
+    </div>
+    <div class="detail-bar-col-2">
+      <a href="{% url 'account:user-update' user_profile.slug %}">
+        <p class="detail-bar-btn btn-black">Modifer</p>
+      </a>
+      <a href="{% url 'account:user-delete' user_profile.slug %}">
+        <p class="detail-bar-btn btn-red btn-last">Supprimer</p>
+      </a>
+    </div>
+  </div>
+{% endblock portal_content %}

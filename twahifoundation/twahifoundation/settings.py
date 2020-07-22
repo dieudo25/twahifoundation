@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'crispy_forms',
     'django_extensions',
+    'debug_toolbar',
 
     'account.apps.AccountConfig',
     'contact.apps.ContactConfig',
@@ -58,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'twahifoundation.urls'
@@ -132,6 +134,12 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
+# Media
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
 
 # Django Extensions - Grap models
 # Command for the entire project :
@@ -153,17 +161,18 @@ AUTH_USER_MODEL = 'account.user'
 
 # Autjetication
 
-LOGIN_URL = 'login'
+LOGIN_URL = 'account:login'
 
-LOGIN_REDIRECT_URL = 'portal-home'
+LOGIN_REDIRECT_URL = 'portal:portal-home'
 
-LOGOUT_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'page:home'
 
 # Crispy Forms configuration
 
 CRISPY_TEMPLATES_PACK = 'bootstrap4'
 
-# Media
+# Internal IPS for django-debig-toolbar
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+INTERNAL_IPS = [
+    '127.0.0.1',
+]

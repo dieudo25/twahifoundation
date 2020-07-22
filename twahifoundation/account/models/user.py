@@ -1,6 +1,9 @@
-from django.db import models
+import itertools
 
 from django.contrib.auth.models import AbstractUser
+from django.db import models
+from django.utils.text import slugify
+from django.urls import reverse
 
 
 class User(AbstractUser):
@@ -28,7 +31,7 @@ class User(AbstractUser):
         verbose_name="Langue"
     )
     avatar = models.ImageField(
-        null=True, blank=True, upload_to='account/user/avatar/%Y/%m/%D')
+        null=True, blank=True, upload_to='account/user/avatar/%Y/%m/%D', default='account/user/avatar/default.svg')
 
     slug = models.SlugField(max_length=60, unique=True)
 
@@ -54,3 +57,19 @@ class User(AbstractUser):
             slug_result = f'{slug_original}-{i}'
 
         self.slug = slug_result
+
+    def get_absolute_url(self):
+        "Get the absolute url of the object"
+        return reverse("account:user-detail", kwargs={"slug": self.slug})
+
+    def save(self, *args, **kwargs):
+        """
+        Save method for User.
+
+        Generate a slug based on the username if the user doesn't exist yet.-
+        """
+
+        if not self.pk:
+            self._generate_slug()
+
+        super().save(*args, **kwargs)

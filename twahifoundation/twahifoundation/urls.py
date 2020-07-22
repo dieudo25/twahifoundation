@@ -21,8 +21,8 @@ from django.views.static import serve
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('portal', include('portal.urls')),
-    path('', include('account.urls')),
+    path('portal/', include('portal.urls')),
+    path('account/', include('account.urls')),
     path('', include('page.urls')),
 
 
@@ -30,8 +30,11 @@ urlpatterns = [
 
 
 if settings.DEBUG:
-    urlpatterns += [
-        re_path(r'^media/(?P<path>.*)$', serve, {
-            'document_root': settings.MEDIA_ROOT,
-        }),
-    ]
+
+    import debug_toolbar
+
+    urlpatterns = [
+        re_path(r'^__debug__/', include(debug_toolbar.urls)),
+        re_path(r'^media/(?P<path>.*)$', serve,
+                {'document_root': settings.MEDIA_ROOT, })
+    ] + urlpatterns

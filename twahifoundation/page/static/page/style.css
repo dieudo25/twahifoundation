@@ -70,6 +70,28 @@ img {
   transition: all 0.3s ease-in-out;
 }
 
+.btn-red {
+  background-color: #971507;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-red:hover {
+  background-color: #660a00;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-black {
+  background-color: #212529;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-black:hover {
+  background-color: #212529b3;
+  transition: all 0.3s ease-in-out;
+}
+
 .title-h2 {
   font-weight: 600;
   font-size: 26px;
@@ -460,6 +482,7 @@ footer #newsletters-title h2 {
     display: flex;
     width: 700px;
     margin: 0 auto;
+    justify-content: center;
   }
 
   #welcome-section div {
@@ -470,18 +493,23 @@ footer #newsletters-title h2 {
     border-radius: 50%;
     display: flex;
     align-items: center;
+    height: 200px;
+    width: 200px;
   }
 
   .welcome-p h2 {
-    font-size: 22.5px;
+    font-size: 19px;
   }
 
   #welcome-section .img-wrapper {
-    height: 250px;
+    height: 200px;
+    width: 200px;
     border-radius: 50%;
   }
 
   #welcome-section img {
+    height: 200px;
+    width: 200px;
     border-radius: 50%;
   }
 
@@ -616,6 +644,25 @@ footer #newsletters-title h2 {
 
   #welcome-section div {
     margin: 30px 38.3px;
+  }
+
+  .welcome-p {
+    height: 250px;
+    width: 250px;
+  }
+
+  .welcome-p h2 {
+    font-size: 22.5px;
+  }
+
+  #welcome-section .img-wrapper {
+    height: 250px;
+    width: 250px;
+  }
+
+  #welcome-section img {
+    height: 250px;
+    width: 250px;
   }
 
   /* PROJECTS */

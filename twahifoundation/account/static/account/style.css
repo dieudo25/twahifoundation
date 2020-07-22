@@ -99,20 +99,24 @@
   overflow: hidden;
 }
 
-.profile-title {
+.portal-title {
   width: 200px;
-  margin: 30px auto 50px;
+  margin: 30px auto 44px;
 }
 
-.profile-title h1 {
+.portal-title h1 {
   text-align: center;
   text-transform: capitalize;
   font-weight: 600;
 }
 
-.profile-info-group {
+.profile-info {
   text-align: center;
-  margin-bottom: 30px;
+  padding-bottom: 30px;
+}
+
+.profile-info-group:last-child p {
+  margin: 0;
 }
 
 .profile-info-item-1 {
@@ -158,24 +162,17 @@
 
   /* PROFILE */
 
-  .profile-wrapper {
-    display: flex;
-    justify-content: space-between;
-  }
-
   .profile-card {
-    width: 300px;
     margin-right: 15px;
   }
 
   .profile-info {
-    width: 400px;
+    text-align: unset;
   }
 
   .profile-info-group {
-    margin-bottom: 30px;
     display: flex;
-    text-align: unset;
+    padding: 0 30px;
   }
 
   .profile-info-group:last-child {
@@ -183,7 +180,8 @@
   }
 
   .profile-info-item-1 {
-    width: 120px;
+    font-weight: 600;
+    width: 150px;
   }
 }
 
@@ -222,6 +220,27 @@
     background-image: url(img/login.jpg);
     background-size: cover;
     height: 100vh;
+  }
+
+  /* USER DETAIL */
+
+  .profile.portal-wrapper {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .profile-img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .profile-img .img-wrapper {
+    width: 200px;
+    height: 200px;
+  }
+
+  .profile-info {
+    padding: 30px 0;
   }
 }
 

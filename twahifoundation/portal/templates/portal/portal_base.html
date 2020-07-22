@@ -12,11 +12,18 @@
     </section>
   {% endblock portal_navbar %}
 
-  {% block portal_sidebar %}
-  
-  {% endblock portal_sidebar %}
+  <section id="portal-sidebar-content">
 
-  {% block portal_content %}{% endblock portal_content %}
-  
+    {% block portal_sidebar %}{% endblock portal_sidebar %}
+
+    <section class="portal-section">
+      <div class="content-with-sidebar">
+
+        {% block portal_content %}{% endblock portal_content %}
+        
+      </div>
+    </section>
+
+  </section>
   
 {% endblock body %} 

@@ -1,0 +1,68 @@
+{% load static %}
+
+<div class='portal-sidebar-app-list'>
+  <div class="portal-sidebar-app">
+    <div class="img-text-wrapper">
+      <div class="text-wrapper">
+        Contact
+      </div>
+      <div class="img-wrapper">
+        <img src="{% static 'portal/img/contact.svg' %}">
+      </div>
+    </div>
+  </div>
+  <div class="portal-sidebar-app">
+    <div class="img-text-wrapper">
+      <div class="text-wrapper">
+        Event
+      </div>
+      <div class="img-wrapper">
+        <img src="{% static 'portal/img/event.svg' %}">
+      </div>
+    </div>
+  </div>
+  <div class="portal-sidebar-app">
+    <div class="img-text-wrapper">
+      <div class="text-wrapper">
+        Project
+      </div>
+      <div class="img-wrapper">
+        <img src="{% static 'portal/img/project.svg' %}">
+      </div>
+    </div>
+  </div>
+  <div class="portal-sidebar-app">
+    <div class="img-text-wrapper">
+      <div class="text-wrapper">
+        Stock
+      </div>
+      <div class="img-wrapper">
+        <img src="{% static 'portal/img/stock.svg' %}">
+      </div>
+    </div>
+  </div>
+  <div class="portal-sidebar-app">
+    <div class="img-text-wrapper">
+      <div class="text-wrapper">
+        Task
+      </div>
+      <div class="img-wrapper">
+        <img src="{% static 'portal/img/task.svg' %}">
+      </div>
+    </div>
+  </div>
+  <a href="{% url 'account:user-list' %}">
+    <div class="portal-sidebar-app user-app">
+      <div class="img-text-wrapper">
+        <div class="text-wrapper">
+          User and permissions
+        </div>
+        <div class="img-wrapper">
+          <img src="{% static 'portal/img/user.svg' %}">
+        </div>
+      </div>
+    </div>
+  </a>
+  
+  
+</div>

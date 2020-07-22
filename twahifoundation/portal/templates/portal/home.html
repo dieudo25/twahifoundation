@@ -9,19 +9,19 @@
     <div class="wrapper">
       <div class="app-list">
         <a href="#" class="app-link">
-          <div class="app-item bg-green-light">
+          <div class="app-item bg-orange-light">
             <div class="img-wrapper">
-              <img src="{% static 'portal/img/user.svg' %}">
+              <img src="{% static 'portal/img/contact.svg' %}">
             </div>
-            <p>Users and Permissions</p>
+            <p>Contact</p>
           </div>
         </a>
         <a href="#" class="app-link">
-          <div class="app-item bg-blue-light">
+          <div class="app-item bg-grey">
             <div class="img-wrapper">
-              <img src="{% static 'portal/img/transaction2.svg' %}">
+              <img src="{% static 'portal/img/event.svg' %}">
             </div>
-            <p>Transaction</p>
+            <p>Event</p>
           </div>
         </a>
         <a href="#" class="app-link">
@@ -33,19 +33,35 @@
           </div>
         </a>
         <a href="#" class="app-link">
-          <div class="app-item bg-orange-light">
-            <div class="img-wrapper">
-              <img src="{% static 'portal/img/contact.svg' %}">
-            </div>
-            <p>Contact</p>
-          </div>
-        </a>
-        <a href="#" class="app-link">
           <div class="app-item bg-black">
             <div class="img-wrapper">
               <img src="{% static 'portal/img/stock.svg' %}">
             </div>
             <p>Stock</p>
+          </div>
+        </a>
+        <a href="#" class="app-link">
+          <div class="app-item bg-blue-2">
+            <div class="img-wrapper">
+              <img src="{% static 'portal/img/task.svg' %}">
+            </div>
+            <p>Task</p>
+          </div>
+        </a>
+        <a href="#" class="app-link">
+          <div class="app-item bg-blue-light">
+            <div class="img-wrapper">
+              <img src="{% static 'portal/img/transaction2.svg' %}">
+            </div>
+            <p>Transaction</p>
+          </div>
+        </a>
+        <a href="{% url 'account:user-list' %}" class="app-link">
+          <div class="app-item bg-green-light">
+            <div class="img-wrapper">
+              <img src="{% static 'portal/img/user.svg' %}">
+            </div>
+            <p>Users and Permissions</p>
           </div>
         </a>
       </div>
