@@ -1,16 +1,18 @@
 {% load static %}
 
 <div class='portal-sidebar-app-list'>
-  <div class="portal-sidebar-app">
-    <div class="img-text-wrapper">
-      <div class="text-wrapper">
-        Contact
-      </div>
-      <div class="img-wrapper">
-        <img src="{% static 'portal/img/contact.svg' %}">
+  <a href="{% url 'contact:person-list' %}">
+    <div class="portal-sidebar-app">
+      <div class="img-text-wrapper">
+        <div class="text-wrapper">
+          Contact
+        </div>
+        <div class="img-wrapper">
+          <img src="{% static 'portal/img/contact.svg' %}">
+        </div>
       </div>
     </div>
-  </div>
+  </a>
   <div class="portal-sidebar-app">
     <div class="img-text-wrapper">
       <div class="text-wrapper">
@@ -63,6 +65,4 @@
       </div>
     </div>
   </a>
-  
-  
 </div>

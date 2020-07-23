@@ -2,11 +2,11 @@
 
 {% load static %}
 
-{% block title %} Portal | User list {% endblock title %}
+{% block title %} Portal | Person list {% endblock title %}
 
 {% block portal_content %}
   <div class="portal-content-title">
-    <h1>Manage User and Permissions</h1>
+    <h1>Manage Contacts</h1>
   </div>
   <div class="portal-top-bar">
       <ul class="portal-app-nav">
@@ -14,21 +14,21 @@
           <li class="poratl-app-nav-item">
             <div class="add-text">
               <span class="material-icons">person</span>
-              <span>Users</span>
+              <span>Individual</span>
             </div>
           </li>
         </a>
         <a href="#" class="btn-black">
           <li class="poratl-app-nav-item">
             <div class="add-text">
-              <span class="material-icons">admin_panel_settings</span>
-              <span>Permissions</span>
+              <span class="material-icons">business</span>
+              <span>Company</span>
             </div>
           </li>
         </a>
       </ul>
     <div id="list-search">
-      <form action="{% url 'account:user-list-search' %}" method="GET">
+      <form action="" method="GET">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" name="search">
         </div>
@@ -39,15 +39,15 @@
   <div class="portal-content-body">
     <div class="portal-content-nav">
       <div class="portal-content-nav-title">
-        <h2>Users</h2>
+        <h2>Contacts</h2>
       </div>
       <div class="portal-content-nav-item">
         <ul>
-          <a href="{% url 'account:user-create'%}">
+          <a href="">
             <li class="nav-item-add">
               <div class="add-text">
                 <span class="material-icons">add_circle_outline</span>
-                <span>Add user</span>
+                <span>Add individual</span>
               </div>
             </li>
           </a>
@@ -60,20 +60,26 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th scope="col">Username</th>
-            <th scope="col">Email Address</th>
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone number</th>
+            <th scope="col">Supplier</th>
+            <th scope="col">Donor</th>
+            <th scope="col">Subscriber</th>
           </tr>
         </thead>
         <tbody>
 
-          {% for u in user_list %}
+          {% for person in person_list %}
             <tr class="table">
-              <th scope="row"><a href="{% url 'account:user-detail' u.slug %}">{{ u.username }}</a></th>
-              <td>{{ u.email }}</td>
-              <td>{{ u.first_name }}</td>
-              <td>{{ u.last_name }}</td>
+              <th scope="row"><a href="{% comment %} {% url 'account:person-detail' person.slug %} {% endcomment %}">{{ person.first_name }}</a></th>
+              <td>{{ person.last_name }}</td>
+              <td>{{ person.email}}</td>
+              <td>{{ person.phone_number }}</td>
+              <td>{{ person.is_supplier}}</td>
+              <td>{{ person.is_donor }}</td>
+              <td>{{ person.is_follower }}</td>
             </tr>
           {% endfor %}
 
@@ -82,3 +88,5 @@
     </div>
   </div>
 {% endblock portal_content %}
+
+    
