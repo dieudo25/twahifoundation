@@ -13,7 +13,7 @@ class PersonListView(ListView):
     context_object_name = 'person_list'
 
 
-class PersonListFiltered(ListView):
+class PersonListFilteredView(ListView):
     "Peron list filterd by email, lastname or firstname"
 
     model = Person
@@ -28,3 +28,11 @@ class PersonListFiltered(ListView):
             Q(last_name__icontains=query)
         )
         return object_list
+
+
+class PersonDetailView(DetailView):
+    "Person detail view"
+
+    model = Person
+    template_name = 'contact/person/detail.html'
+    context_object_name = 'person'
