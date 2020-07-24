@@ -12,5 +12,5 @@ class TestUrls(SimpleTestCase):
         "Test URL UserDetailView"
 
         url = reverse('page:home')
-        self.assertEquals(resolve(url).func.__name__,
-                          HomeView.as_view().__name__)
+        self.assertEqual(resolve(url).func.__name__,
+                         HomeView.as_view().__name__)

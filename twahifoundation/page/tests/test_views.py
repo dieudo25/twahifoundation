@@ -22,5 +22,5 @@ class TestViews(TestCase):
 
         print(response.status_code)
 
-        self.assertEquals(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'page/home.html')
