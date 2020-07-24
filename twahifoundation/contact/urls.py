@@ -1,12 +1,13 @@
-from django.urls import path, include
+from django.urls import re_path
 
-from contact.views.person import PersonListView
+from contact.views.person import PersonListView, PersonListFiltered
 
 app_name = 'contact'
 
 urlpatterns = [
 
     # Person CRUD
-    path('person/list/', PersonListView.as_view(), name="person-list"),
-
+    re_path(r'^person/list/$', PersonListView.as_view(), name="person-list"),
+    re_path(r'^person/list/search/$', PersonListFiltered.as_view(),
+            name="person-list-search"),
 ]
