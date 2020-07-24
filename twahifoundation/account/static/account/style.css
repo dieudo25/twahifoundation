@@ -172,6 +172,12 @@
 
   /* PROFILE */
 
+  .portal-wrapper.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .profile-card {
     margin-right: 15px;
   }

@@ -85,10 +85,11 @@ img {
   background-color: #212529;
   color: white;
   transition: all 0.3s ease-in-out;
+  border: none;
 }
 
 .btn-black:hover {
-  background-color: #212529b3;
+  background-color: #666a6f;
   transition: all 0.3s ease-in-out;
 }
 
@@ -383,7 +384,7 @@ a span.btn-involved {
 /* SOCIAL */
 
 #sidebar-social {
-  margin: 0 auto;
+  margin: 0 0 0 auto;
   width: 300px;
 
   text-align: center;
@@ -561,10 +562,11 @@ footer #newsletters-title h2 {
     width: 700px;
     margin: 0 auto;
     display: flex;
+    padding: 30px 0;
   }
 
   .events-wrapper {
-    padding: 20px 20px 0 0;
+    padding: 0 20px 0 0;
   }
 
   .events-item {
@@ -692,6 +694,7 @@ footer #newsletters-title h2 {
 
   #events-section {
     width: 930px;
+    padding: 50px 0;
   }
 
   .events-list {
@@ -712,10 +715,6 @@ footer #newsletters-title h2 {
   }
 
   /* SOCIAL */
-
-  #sidebar-social {
-    margin: 0 0 0 auto;
-  }
 
   /* FOOTER */
 

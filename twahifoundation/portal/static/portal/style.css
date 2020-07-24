@@ -53,6 +53,11 @@ body {
 #portal-sidebar-content a:hover {
   text-decoration: none;
 }
+
+.img-bool .img-wrapper {
+  width: 23px;
+}
+
 /* SIDEBAR */
 
 #portal-sidebar {
@@ -96,7 +101,7 @@ body {
 }
 
 .portal-content-nav-item a:hover {
-  color: #212529b3;
+  color: #666a6f;
 }
 
 .portal-content-nav-item li {
@@ -235,13 +240,11 @@ p.help-block {
 #list-search button {
   width: 38px;
   height: 38px;
-  border: none;
-  color: white;
 }
 
 #list-search .form-control {
   border-radius: unset;
-  border-right-color: #212529;
+  border-right: none;
 }
 
 .search-img {
@@ -346,9 +349,37 @@ p.help-block {
 
   #portal-sidebar {
     width: 230px;
-    padding: 35px 0;
+    padding-bottom: 35px;
     display: unset;
     flex-shrink: 0;
+  }
+
+  .portal-sidebar-toggle {
+    padding: 0 16px;
+    text-align: -webkit-right;
+    height: 20px;
+    margin: 7px 0;
+  }
+
+  #portal-side-bar-minimize-btn {
+    cursor: pointer;
+  }
+
+  .portal-sidebar-toggle span {
+    border: none;
+    padding: 0;
+  }
+
+  #toggle-collapse {
+    width: 20px;
+    height: 20px;
+    background-image: url(img/back.svg);
+    transition: all 0.3s ease-in-out;
+  }
+
+  #toggle-collapse:hover {
+    background-image: url(img/back_hover.svg);
+    transition: all 0.3s ease-in-out;
   }
 
   .portal-sidebar-app {
@@ -356,7 +387,7 @@ p.help-block {
   }
 
   .portal-sidebar-app:hover {
-    background-color: #6e747bb3;
+    background-color: #666a6f;
     transition: all 0.3s ease-in-out;
   }
 
@@ -392,12 +423,16 @@ p.help-block {
 
   /* SIDEBAR MINIMIZED */
 
-  .portal-sidebar-minimized {
-    width: 52px;
+  .portal-sidebar-collapsed {
+    width: 52px !important;
   }
 
   .hide {
     display: none;
+  }
+
+  .rotateY180 {
+    transform: rotateY(180deg);
   }
 
   /* PORTAL TOPBAR */

@@ -1,12 +1,14 @@
 {% extends '../base.html'%}
 
+{% load static %}
+
 {% block title %} Protal Base {% endblock title %}
 
 {% block scripts %}
 
   {{ block.super }}
 
-  <script src="{% static 'portal/js/main.js' %}"></script>
+  <script src="{% static 'portal/main.js' %}"></script>
 {% endblock scripts %}
 
 {% block body %}

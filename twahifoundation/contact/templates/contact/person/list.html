@@ -10,7 +10,7 @@
   </div>
   <div class="portal-top-bar">
       <ul class="portal-app-nav">
-        <a href="#" class="btn-black">
+        <a href{% url 'contact:person-list' %}" class="btn-black">
           <li class="poratl-app-nav-item">
             <div class="add-text">
               <span class="material-icons">person</span>
@@ -28,18 +28,18 @@
         </a>
       </ul>
     <div id="list-search">
-      <form action="" method="GET">
+      <form action="{% url 'contact:person-list-search' %}" method="GET">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" name="search">
         </div>
-        <button type="submit" class="bg-black"><div class="search-img"></button>
+        <button type="submit" class="btn-black"><div class="search-img"></button>
       </form>
     </div>  
   </div>
   <div class="portal-content-body">
     <div class="portal-content-nav">
       <div class="portal-content-nav-title">
-        <h2>Contacts</h2>
+        <h2>Contacts - Individuals</h2>
       </div>
       <div class="portal-content-nav-item">
         <ul>
@@ -77,9 +77,39 @@
               <td>{{ person.last_name }}</td>
               <td>{{ person.email}}</td>
               <td>{{ person.phone_number }}</td>
-              <td>{{ person.is_supplier}}</td>
-              <td>{{ person.is_donor }}</td>
-              <td>{{ person.is_follower }}</td>
+              <td class="img-bool">
+                {% if person.is_donor %}
+                  <div class="img-wrapper">
+                    <img src="{% static 'portal/img/true.svg' %}">
+                  </div>
+                {% else %}
+                  <div class="img-wrapper">
+                    <img src="{% static 'portal/img/false.svg' %}">
+                  </div>
+                {% endif %}
+              </td>
+              <td class="img-bool">
+                {% if person.is_supplier %}
+                  <div class="img-wrapper">
+                    <img src="{% static 'portal/img/true.svg' %}">
+                  </div>
+                {% else %}
+                  <div class="img-wrapper">
+                    <img src="{% static 'portal/img/false.svg' %}">
+                  </div>
+                {% endif %}
+              </td>
+              <td class="img-bool">
+                {% if person.is_follower %}
+                  <div class="img-wrapper">
+                    <img src="{% static 'portal/img/true.svg' %}">
+                  </div>
+                {% else %}
+                  <div class="img-wrapper">
+                    <img src="{% static 'portal/img/false.svg' %}">
+                  </div>
+                {% endif %}
+              </td>
             </tr>
           {% endfor %}
 

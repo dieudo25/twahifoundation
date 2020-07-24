@@ -1,0 +1,127 @@
+{% extends 'portal/portal_base_sidebar.html'%}
+
+{% load static %}
+
+{% block title %} Portal | Person list {% endblock title %}
+
+{% block portal_content %}
+  <div class="portal-content-title">
+    <h1>Manage Contacts</h1>
+  </div>
+  <div class="portal-top-bar">
+    <ul class="portal-app-nav">
+      <a href="{% url 'contact:person-list' %}" class="btn-black">
+        <li class="poratl-app-nav-item">
+          <div class="add-text">
+            <span class="material-icons">person</span>
+            <span>Individual</span>
+          </div>
+        </li>
+      </a>
+      <a href="#" class="btn-black">
+        <li class="poratl-app-nav-item">
+          <div class="add-text">
+            <span class="material-icons">business</span>
+            <span>Company</span>
+          </div>
+        </li>
+      </a>
+    </ul>
+    <div id="list-search">
+      <form method="GET">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="search">
+        </div>
+        <button type="submit" class="btn-black"><div class="search-img"></button>
+      </form>
+    </div>  
+  </div>
+  <div class="portal-content-body">
+    <div class="portal-content-nav">
+      <div class="portal-content-nav-title">
+        <h2>Contacts - Individuals</h2>
+      </div>
+      <div class="portal-content-nav-item">
+        <ul>
+          <a href="">
+            <li class="nav-item-add">
+              <div class="add-text">
+                <span class="material-icons">add_circle_outline</span>
+                <span>Add individual</span>
+              </div>
+            </li>
+          </a>
+        </ul>
+      </div>
+    </div>
+    <div class="portal-content-search">
+    </div>
+    <div class="portal-content-table">
+
+      {% if filtered_person_list %}
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone number</th>
+              <th scope="col">Supplier</th>
+              <th scope="col">Donor</th>
+              <th scope="col">Subscriber</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {% for person in filtered_person_list %}
+              <tr class="table">
+                <th scope="row"><a href="{% comment %} {% url 'account:person-detail' person.slug %} {% endcomment %}">{{ person.first_name }}</a></th>
+                <td>{{ person.last_name }}</td>
+                <td>{{ person.email}}</td>
+                <td>{{ person.phone_number }}</td>
+                <td class="img-bool">
+                  {% if person.is_donor %}
+                    <div class="img-wrapper">
+                      <img src="{% static 'portal/img/true.svg' %}">
+                    </div>
+                  {% else %}
+                    <div class="img-wrapper">
+                      <img src="{% static 'portal/img/false.svg' %}">
+                    </div>
+                  {% endif %}
+                </td>
+                <td class="img-bool">
+                  {% if person.is_supplier %}
+                    <div class="img-wrapper">
+                      <img src="{% static 'portal/img/true.svg' %}">
+                    </div>
+                  {% else %}
+                    <div class="img-wrapper">
+                      <img src="{% static 'portal/img/false.svg' %}">
+                    </div>
+                  {% endif %}
+                </td>
+                <td class="img-bool">
+                  {% if person.is_follower %}
+                    <div class="img-wrapper">
+                      <img src="{% static 'portal/img/true.svg' %}">
+                    </div>
+                  {% else %}
+                    <div class="img-wrapper">
+                      <img src="{% static 'portal/img/false.svg' %}">
+                    </div>
+                  {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+
+          </tbody>
+        </table>
+      {% else %}
+        <div id="search-no-result">
+          <p>No results found</p>
+        </div>
+      {% endif%}
+    </div>
+  </div>
+{% endblock portal_content %}
