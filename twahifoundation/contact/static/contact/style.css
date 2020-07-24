@@ -1,0 +1,18 @@
+@media (min-width: 768px) {
+  /* PERSON DETAIL */
+
+  #person-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (min-width: 992px) {
+  /* PERSON DETAIL */
+
+  #person-detail {
+    flex-direction: unset;
+    justify-content: center;
+  }
+}

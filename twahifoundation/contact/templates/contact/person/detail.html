@@ -1,0 +1,64 @@
+{% extends 'portal/portal_base_sidebar.html'%}
+
+{% load static %}
+
+{% block title %} Portal | {{ person.first_name }} {% endblock title %}
+
+{% block portal_content %}
+  <div class="portal-wrapper" id="person-detail">
+    <div class="profile-card">
+      <div class="portal-title">
+        <h1>{{ person.first_name }} {{ person.last_name }}</h1>
+      </div>
+    </div>
+    <div class="profile-info">
+      <div class="profile-info-group">
+        <div class="profile-info-item-1">
+          <p>First name :</p>
+        </div>
+        <div class="profile-info-item-2">
+          <p>{{  person.first_name }}</p>
+        </div>
+      </div>
+      <div class="profile-info-group">
+        <div class="profile-info-item-1">
+          <p>Last name :</p>
+        </div>
+        <div class="profile-info-item-2">
+          <p>{{  person.last_name }}</p>
+        </div>
+      </div>
+      <div class="profile-info-group">
+        <div class="profile-info-item-1">
+          <p>Email :</p>
+        </div>
+        <div class="profile-info-item-2">
+          <p>{{  person.email }}</p>
+        </div>
+      </div>
+      <div class="profile-info-group">
+        <div class="profile-info-item-1">
+          <p>Phone number :</p>
+        </div>
+        <div class="profile-info-item-2">
+          <p>{{  person.phone_number }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="detail-bar">
+    <div class="detail-bar-col-1">
+      <a href="{% url 'contact:person-list' %}">
+        <p class="detail-bar-btn btn-black">Back</p>
+      </a>
+    </div>
+    <div class="detail-bar-col-2">
+      {% comment %} <a href="{% url 'account:user-update' person.slug %}"> {% endcomment %}
+        <p class="detail-bar-btn btn-black">Modifer</p>
+      </a>
+      {% comment %} <a href="{% url 'account:user-delete' person.slug %}"> {% endcomment %}
+        <p class="detail-bar-btn btn-red btn-last">Supprimer</p>
+      </a>
+    </div>
+  </div>
+{% endblock portal_content %}

@@ -10,7 +10,7 @@
   </div>
   <div class="portal-top-bar">
       <ul class="portal-app-nav">
-        <a href{% url 'contact:person-list' %}" class="btn-black">
+        <a href="{% url 'contact:person-list' %}" class="btn-black">
           <li class="poratl-app-nav-item">
             <div class="add-text">
               <span class="material-icons">person</span>
@@ -39,7 +39,7 @@
   <div class="portal-content-body">
     <div class="portal-content-nav">
       <div class="portal-content-nav-title">
-        <h2>Contacts - Individuals</h2>
+        <h2>Individuals</h2>
       </div>
       <div class="portal-content-nav-item">
         <ul>
@@ -73,7 +73,7 @@
 
           {% for person in person_list %}
             <tr class="table">
-              <th scope="row"><a href="{% comment %} {% url 'account:person-detail' person.slug %} {% endcomment %}">{{ person.first_name }}</a></th>
+              <th scope="row"><a href="{% url 'contact:person-detail' person.slug %}">{{ person.first_name }}</a></th>
               <td>{{ person.last_name }}</td>
               <td>{{ person.email}}</td>
               <td>{{ person.phone_number }}</td>
