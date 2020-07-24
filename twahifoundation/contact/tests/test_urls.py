@@ -1,76 +1,59 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
-from django.contrib.auth import views as auth_views
 
-from account.views.user import (
-    UserCreateView,
-    UserDeleteView,
-    UserListView,
-    UserListFilteredView,
-    UserDetailView,
-    UserUpdateView,
+from contact.views.person import (
+    # PersonCreateView,
+    # PersonDeleteView,
+    PersonListView,
+    PersonListFilteredView,
+    PersonDetailView,
+    # PersonUpdateView,
 )
 
 
 class TestUrls(SimpleTestCase):
-    "Test account app urls"
+    "Test contact app urls"
 
     # CRUD
 
-    def test_user_list_url_resolves(self):
-        "Test URL UserListView"
+    def test_person_list_url_resolves(self):
+        "Test URL PersonListView"
 
-        url = reverse('account:user-list')
+        url = reverse('contact:person-list')
         self.assertEqual(resolve(url).func.__name__,
-                         UserListView.as_view().__name__)
+                         PersonListView.as_view().__name__)
 
-    def test_user_list_filtered_url_resolves(self):
-        "Test URL UserListFilteredView"
+    def test_person_list_filtered_url_resolves(self):
+        "Test URL PersonListFilteredView"
 
-        url = reverse('account:user-list-search')
+        url = reverse('contact:person-list-search')
         self.assertEqual(resolve(url).func.__name__,
-                         UserListFilteredView.as_view().__name__)
+                         PersonListFilteredView.as_view().__name__)
 
-    def test_user_detail_url_resolves(self):
-        "Test URL UserDetailView"
+    def test_person_detail_url_resolves(self):
+        "Test URL PersonDetailView"
 
-        url = reverse('account:user-detail', args=['user1'])
+        url = reverse('contact:person-detail', args=['person1'])
         self.assertEqual(resolve(url).func.__name__,
-                         UserDetailView.as_view().__name__)
+                         PersonDetailView.as_view().__name__)
 
-    def test_user_update_url_resolves(self):
-        "Test URL UserUpdateView"
+    """ def test_person_update_url_resolves(self):
+        "Test URL PersonUpdateView"
 
-        url = reverse('account:user-update', args=['user1'])
+        url = reverse('contact:person-update', args=['person1'])
         self.assertEqual(resolve(url).func.__name__,
-                         UserUpdateView.as_view().__name__)
+                         PersonUpdateView.as_view().__name__)
 
-    def test_user_create_url_resolves(self):
-        "Test URL UserCreateView"
+    def test_person_create_url_resolves(self):
+        "Test URL PersonCreateView"
 
-        url = reverse('account:user-create')
+        url = reverse('contact:person-create')
         self.assertEqual(resolve(url).func.__name__,
-                         UserCreateView.as_view().__name__)
+                         PersonCreateView.as_view().__name__)
 
-    def test_user_delete_url_resolves(self):
-        "Test URL UserDeleteView"
+    def test_person_delete_url_resolves(self):
+        "Test URL PersonDeleteView"
 
-        url = reverse('account:user-delete', args=['user1'])
+        url = reverse('contact:person-delete', args=['person1'])
         self.assertEqual(resolve(url).func.__name__,
-                         UserDeleteView.as_view().__name__)
-
-    # Authentification
-
-    def test_login_url_resolves(self):
-        "Test URL auth_views - LoginView"
-
-        url = reverse('account:login')
-        self.assertEqual(resolve(url).func.__name__,
-                         auth_views.LoginView.as_view().__name__)
-
-    def test_logout_url_resolves(self):
-        "Test URL auth_views - LogoutView"
-
-        url = reverse('account:logout')
-        self.assertEqual(resolve(url).func.__name__,
-                         auth_views.LogoutView.as_view().__name__)
+                         PersonDeleteView.as_view().__name__) """
