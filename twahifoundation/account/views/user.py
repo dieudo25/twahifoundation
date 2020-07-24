@@ -15,17 +15,17 @@ class UserListView(ListView):
     context_object_name = 'user_list'
 
 
-class UserListFiltered(ListView):
+class UserListFilteredView(ListView):
     "User list filterd by username, lastname or firstname"
 
     model = get_user_model()
     template_name = 'account/user/list_filtered.html'
     context_object_name = 'filtered_user_list'
 
-    def get_queryset(self):  # new
+    def get_queryset(self):
         query = self.request.GET.get('search')
         object_list = User.objects.filter(
-            Q(username=query) |
+            Q(username__icontains=query) |
             Q(first_name__icontains=query) |
             Q(last_name__icontains=query)
         )
