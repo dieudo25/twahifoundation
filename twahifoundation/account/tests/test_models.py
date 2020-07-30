@@ -22,4 +22,4 @@ class TestModels(TestCase):
     def test_person_is_assigned_slug_on_creation(self):
         "Test if the slug is automatically genereted upon the"
 
-        self.assertEqual(self.person1.slug, 'person1')
+        self.assertEqual(self.person1.slug, 'alice-trat')
