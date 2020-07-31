@@ -4,6 +4,7 @@ from contact.views.person import (
     PersonDetailView,
     PersonListView,
     PersonListFilteredView,
+    PersonUpdateView,
 )
 
 app_name = 'contact'
@@ -16,4 +17,6 @@ urlpatterns = [
             name="person-list-search"),
     re_path(r'^person/(?P<slug>[a-z0-9-]*)/$',
             PersonDetailView.as_view(), name="person-detail"),
+    re_path(r'^person/(?P<slug>[a-z0-9-]*)/update/$',
+            PersonUpdateView.as_view(), name="person-update"),
 ]

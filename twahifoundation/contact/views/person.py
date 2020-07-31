@@ -36,3 +36,21 @@ class PersonDetailView(DetailView):
     model = Person
     template_name = 'contact/person/detail.html'
     context_object_name = 'person'
+
+
+class PersonUpdateView(UpdateView):
+    "Person update view"
+
+    model = Person
+    template_name = 'contact/person/update.html'
+    context_object_name = 'person'
+    fields = [
+        'first_name',
+        'last_name',
+        'email',
+        'phone_number',
+        'company',
+        'is_supplier',
+        'is_donor',
+        'is_follower',
+    ]
