@@ -2,8 +2,8 @@ from django.test import SimpleTestCase
 from django.urls import reverse, resolve
 
 from contact.views.person import (
-    # PersonCreateView,
-    # PersonDeleteView,
+    PersonCreateView,
+    PersonDeleteView,
     PersonListView,
     PersonListFilteredView,
     PersonDetailView,
@@ -44,7 +44,7 @@ class TestUrls(SimpleTestCase):
         self.assertEqual(resolve(url).func.__name__,
                          PersonUpdateView.as_view().__name__)
 
-    """ def test_person_create_url_resolves(self):
+    def test_person_create_url_resolves(self):
         "Test URL PersonCreateView"
 
         url = reverse('contact:person-create')
@@ -56,4 +56,4 @@ class TestUrls(SimpleTestCase):
 
         url = reverse('contact:person-delete', args=['person1'])
         self.assertEqual(resolve(url).func.__name__,
-                         PersonDeleteView.as_view().__name__) """
+                         PersonDeleteView.as_view().__name__)

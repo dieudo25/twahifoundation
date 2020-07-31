@@ -54,3 +54,29 @@ class PersonUpdateView(UpdateView):
         'is_donor',
         'is_follower',
     ]
+
+
+class PersonDeleteView(DeleteView):
+    "Person Delete View"
+
+    model = Person
+    template_name = 'contact/person/delete.html'
+    context_object_name = 'person_profile'
+    success_url = reverse_lazy('contact:person-list')
+
+
+class PersonCreateView(CreateView):
+    "Person create view"
+
+    model = Person
+    template_name = 'contact/person/create.html'
+    fields = [
+        'first_name',
+        'last_name',
+        'email',
+        'phone_number',
+        'company',
+        'is_supplier',
+        'is_donor',
+        'is_follower',
+    ]

@@ -20,8 +20,9 @@ class TestViews(TestCase):
             'contact:person-detail', args=['mark-avendick'])
         self.update_url = reverse(
             'contact:person-update', args=['mark-avendick'])
-        #self.create_url = reverse('contact:person-create')
-        #self.delete_url = reverse('contact:person-delete', args=['person1'])
+        self.create_url = reverse('contact:person-create')
+        self.delete_url = reverse(
+            'contact:person-delete', args=['mark-avendick'])
 
         self.person1 = Person.objects.create(
             first_name='Mark',
@@ -77,42 +78,43 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertEqual(updated_person.count(), 1)
 
-    """ def test_person_create(self):
+    def test_person_create(self):
         "Test VIEW PersonCreateView"
 
         response = self.client.post(self.create_url, {
-            'username': 'user2',
-            'first_name': 'Anne',
-            'last_name': 'Don',
-            'email': 'anneDon@gmail.com',
-            'password1': 'PasswordTest135',
-            'password2': 'PasswordTest135'
+            'first_name': 'Franckie',
+            'last_name': 'Pulissa',
+            'email': 'fontel@gmail.com',
+            'phone_number': '97754556',
+            'is_supplier': False,
+            'is_follower': False,
+            'is_donor': True,
         })
 
-        user2 = User.objects.get(username="user2")
+        person2 = Person.objects.get(first_name="Franckie")
 
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(user2.username, 'user2')
+        self.assertEqual(person2.first_name, 'Franckie')
 
     def test_person_create_no_data(self):
         "Test VIEW PersonCreateView WITHOUT data"
 
         response = self.client.post(self.create_url)
 
-        user2 = User.objects.filter(username="user2").count()
+        person3 = Person.objects.filter(first_name="Franckie").count()
 
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(user2, 0)
-        self.assertTemplateUsed(response, 'contact/user/create.html')
+        self.assertEqual(person3, 0)
+        self.assertTemplateUsed(response, 'contact/person/create.html')
 
     def test_person_delete(self):
-        "Test VIEW UserDeleteView"
+        "Test VIEW PersonDeleteView"
 
         response = self.client.delete(self.delete_url, json.dumps({
             'id': 1
         }))
 
-        users_number = User.objects.all().count()
+        persons_number = Person.objects.all().count()
 
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(users_number, 0) """
+        self.assertEqual(persons_number, 0)
