@@ -7,7 +7,7 @@ from contact.views.person import (
     PersonListView,
     PersonListFilteredView,
     PersonDetailView,
-    # PersonUpdateView,
+    PersonUpdateView,
 )
 
 
@@ -37,14 +37,14 @@ class TestUrls(SimpleTestCase):
         self.assertEqual(resolve(url).func.__name__,
                          PersonDetailView.as_view().__name__)
 
-    """ def test_person_update_url_resolves(self):
+    def test_person_update_url_resolves(self):
         "Test URL PersonUpdateView"
 
         url = reverse('contact:person-update', args=['person1'])
         self.assertEqual(resolve(url).func.__name__,
                          PersonUpdateView.as_view().__name__)
 
-    def test_person_create_url_resolves(self):
+    """ def test_person_create_url_resolves(self):
         "Test URL PersonCreateView"
 
         url = reverse('contact:person-create')

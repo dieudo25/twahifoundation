@@ -18,6 +18,8 @@ class TestViews(TestCase):
         self.list_filtered_url = reverse('contact:person-list-search')
         self.detail_url = reverse(
             'contact:person-detail', args=['mark-avendick'])
+        self.update_url = reverse(
+            'contact:person-update', args=['mark-avendick'])
         #self.create_url = reverse('contact:person-create')
         #self.delete_url = reverse('contact:person-delete', args=['person1'])
 
@@ -56,6 +58,24 @@ class TestViews(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'contact/person/detail.html')
+
+    def test_person_updtae(self):
+        "Test VIEW PersonUpdateView"
+
+        response = self.client.post(self.update_url, {
+            'first_name': 'Franck',
+            'last_name': 'Pulis',
+            'email': 'fkpoDon@gmail.com',
+            'phone_number': '9677687698',
+            'is_supplier': True,
+            'is_follower': True,
+            'is_donor': True,
+        })
+
+        updated_person = Person.objects.filter(first_name="Franck")
+
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(updated_person.count(), 1)
 
     """ def test_person_create(self):
         "Test VIEW PersonCreateView"
