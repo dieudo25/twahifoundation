@@ -64,6 +64,7 @@
             <th scope="col">Last Name</th>
             <th scope="col">Email</th>
             <th scope="col">Phone number</th>
+            <th scope="col">Company</th>
             <th scope="col">Supplier</th>
             <th scope="col">Donor</th>
             <th scope="col">Subscriber</th>
@@ -73,10 +74,11 @@
 
           {% for person in person_list %}
             <tr class="table">
-              <th scope="row"><a href="{% url 'contact:person-detail' person.slug %}">{{ person.first_name }}</a></th>
+              <th scope="row"><a href="{% url 'contact:person-detail' person.slug %}">{{ person.last_name }} {{ person.first_name }}</a></th>
               <td>{{ person.last_name }}</td>
               <td>{{ person.email}}</td>
               <td>{{ person.phone_number }}</td>
+              <td>{{ person.company }}</td>
               <td class="img-bool">
                 {% if person.is_donor %}
                   <div class="img-wrapper">

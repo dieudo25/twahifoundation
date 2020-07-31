@@ -44,6 +44,68 @@
           <p>{{  person.phone_number }}</p>
         </div>
       </div>
+      <div class="profile-info-group">
+        <div class="profile-info-item-1">
+          <p>Company :</p>
+        </div>
+        <div class="profile-info-item-2">
+
+          {% if person.company %}
+            <p><a href="#">{{  person.company }}</a></p>
+          {% else %}
+            <p>None</p>
+          {% endif %}
+          
+        </div>
+      </div>
+      <div class="profile-info-group">
+        <div class="profile-info-item-1">
+          <p>Is a donor ? :</p>
+        </div>
+        <div class="profile-info-item-2 img-bool">
+          {% if person.is_donor %}
+            <p class="img-wrapper">
+              <img src="{% static 'portal/img/true.svg' %}">
+            </p>
+          {% else %}
+            <p class="img-wrapper">
+              <img src="{% static 'portal/img/false.svg' %}">
+            </p>
+          {% endif %}
+        </div>
+      </div>
+      <div class="profile-info-group">
+        <div class="profile-info-item-1">
+          <p>Is subscribed ? :</p>
+        </div>
+        <div class="profile-info-item-2 img-bool">
+          {% if person.is_follower %}
+            <p class="img-wrapper">
+              <img src="{% static 'portal/img/true.svg' %}">
+            </p>
+          {% else %}
+            <p class="img-wrapper">
+              <img src="{% static 'portal/img/false.svg' %}">
+            </p>
+          {% endif %}
+        </div>
+      </div>
+      <div class="profile-info-group">
+        <div class="profile-info-item-1">
+          <p>Is a supplier ? :</p>
+        </div>
+        <div class="profile-info-item-2 img-bool">
+          {% if person.is_supplier %}
+            <p class="img-wrapper">
+              <img src="{% static 'portal/img/true.svg' %}">
+            </p>
+          {% else %}
+            <p class="img-wrapper">
+              <img src="{% static 'portal/img/false.svg' %}">
+            </p>
+          {% endif %}
+        </div>
+      </div>
     </div>
   </div>
   <div class="detail-bar">
@@ -53,10 +115,10 @@
       </a>
     </div>
     <div class="detail-bar-col-2">
-      {% comment %} <a href="{% url 'account:user-update' person.slug %}"> {% endcomment %}
+      <a href="{% url 'contact:person-update' person.slug %}">
         <p class="detail-bar-btn btn-black">Modifer</p>
       </a>
-      {% comment %} <a href="{% url 'account:user-delete' person.slug %}"> {% endcomment %}
+      {% comment %} <a href="{% url 'contact:person-delete' person.slug %}"> {% endcomment %}
         <p class="detail-bar-btn btn-red btn-last">Supprimer</p>
       </a>
     </div>

@@ -262,7 +262,7 @@ p.help-block {
   margin-bottom: 15px;
 }
 
-.portal-update-form-wrapper input:not(#avatar-clear_id) {
+.portal-update-form-wrapper input:not([type="checkbox"]) {
   width: 100%;
 }
 
