@@ -14,7 +14,7 @@ class PersonListView(ListView):
 
 
 class PersonListFilteredView(ListView):
-    "Peron list filterd by email, lastname or firstname"
+    "Person list filterd by email, lastname or firstname"
 
     model = Person
     template_name = 'contact/person/list.html'

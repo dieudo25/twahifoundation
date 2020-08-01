@@ -49,5 +49,4 @@ urlpatterns = [
     re_path(r'^company/(?P<slug>[a-z0-9-]*)/delete/$',
             CompanyDeleteView.as_view(), name="company-delete"),
 
-
 ]

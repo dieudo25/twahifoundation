@@ -24,7 +24,7 @@ class Event(models.Model):
     title = models.CharField(max_length=255, verbose_name="Titre")
     location = models.CharField(max_length=255, verbose_name="Lieu")
     type = models.CharField(
-        max_length=11,
+        max_length=13,
         choices=EVENT_TYPE_CHOICES,
         default=EVENT_TYPE_CHOICES[0][0],
         verbose_name="Type d'évènement"

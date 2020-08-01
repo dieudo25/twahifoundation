@@ -14,7 +14,7 @@ class CompanyListView(ListView):
 
 
 class CompanyListFilteredView(ListView):
-    "Peron list filterd by email, lastname or firstname"
+    "Company list filterd by email, lastname or firstname"
 
     model = Company
     template_name = 'contact/company/list.html'

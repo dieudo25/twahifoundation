@@ -1,0 +1,117 @@
+{% extends 'portal/portal_base_sidebar.html'%}
+
+{% load static %}
+
+{% block title %} Portal | Event list {% endblock title %}
+
+{% block portal_content %}
+  <div class="portal-content-title">
+    <h1>Manage Contacts</h1>
+  </div>
+  <div class="portal-top-bar">
+    <div id="list-search">
+      <form action="{% url 'project:event-list-search' %}" method="GET">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="search">
+        </div>
+        <button type="submit" class="btn-black"><div class="search-img"></button>
+      </form>
+    </div>  
+  </div>
+  <div class="portal-content-body">
+    <div class="portal-content-nav">
+      <div class="portal-content-nav-title">
+        <h2>Events</h2>
+      </div>
+      <div class="portal-content-nav-item">
+        <ul>
+          <a href="{% comment %} {% url 'project:event-create' %} {% endcomment %}">
+            <li class="nav-item-add">
+              <div class="add-text">
+                <span class="material-icons">add_circle_outline</span>
+                <span>Add event</span>
+              </div>
+            </li>
+          </a>
+        </ul>
+      </div>
+    </div>
+    <div class="portal-content-search">
+    </div>
+    <div class="portal-content-table">
+      
+      {% if filtered_event_list %}
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Image</th>
+              <th scope="col">location</th>
+              <th scope="col">Start at</th>
+              <th scope="col">End at</th>
+              <th scope="col">Created date</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {% for event in filtered_event_list %}
+              <tr class="table">
+                <th scope="row"><a href="{% comment %} {% url 'project:event-detail' event.slug %} {% endcomment %}">{{ event.title }}</a></th>
+                <td>
+                  <div class="img-wrapper">
+                    <img src="{{ event.image }}"></td>
+                  </div>
+                <td>{{ event.location}}</td>
+                <td>{{ event.time_startted }}</td>
+                <td>{{ event.time_ended }}</td>
+                <td>{{ event.date_created }}</td>
+              </tr>
+            {% endfor %}
+
+          </tbody>
+        </table>
+      {% elif event_list %}
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Image</th>
+              <th scope="col">location</th>
+              <th scope="col">Start at</th>
+              <th scope="col">End at</th>
+              <th scope="col">Created date</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {% for event in event_list %}
+              <tr class="table">
+                <th scope="row"><a href="{% comment %} {% url 'project:event-detail' event.slug %} {% endcomment %}">{{ event.title }}</a></th>
+                <td>
+                  <div class="img-wrapper">
+                    <img src="{{ event.image }}"></td>
+                  </div>
+                <td>{{ event.location}}</td>
+                <td>{{ event.time_startted }}</td>
+                <td>{{ event.time_ended }}</td>
+                <td>{{ event.date_created }}</td>
+              </tr>
+            {% endfor %}
+
+          </tbody>
+        </table>
+      {% elif empty_table %}
+        <div id="empty-table">
+          <p>No event, <a href="{% comment %} {% url 'project:event-create' %} {% endcomment %}">create one</a></p>
+        </div>
+      {% else %}
+        <div id="search-no-result">
+          <p>No results found</p>
+        </div>
+      {% endif%}
+      
+    </div>
+  </div>
+  {% endblock portal_content %}
+
+    
