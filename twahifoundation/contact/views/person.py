@@ -61,7 +61,7 @@ class PersonDeleteView(DeleteView):
 
     model = Person
     template_name = 'contact/person/delete.html'
-    context_object_name = 'person_profile'
+    context_object_name = 'person'
     success_url = reverse_lazy('contact:person-list')
 
 

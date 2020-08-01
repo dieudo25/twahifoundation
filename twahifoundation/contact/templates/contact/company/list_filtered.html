@@ -74,7 +74,7 @@
 
             {% for company in filtered_company_list %}
               <tr class="table">
-                <th scope="row"><a href="{% comment %} {% url 'contact:company-detail' company.slug %} {% endcomment %}">{{ company.name }}</a></th>
+                <th scope="row"><a href="{% url 'contact:company-detail' company.slug %}">{{ company.name }}</a></th>
                 <td>{{ company.address }}</td>
                 <td>{{ company.email}}</td>
                 <td>{{ company.phone_number }}</td>

@@ -12,7 +12,7 @@
   </div>
   <div class="portal-wrapper">
     <div class="portal-update-form-wrapper">
-      <form method="POST" enctype="multipart/form-data" id="profile-update-form">
+      <form method="POST" enctype="multipart/form-data" id="update-form">
 
           {% csrf_token %}
 
@@ -28,7 +28,7 @@
       </a>
     </div>
     <div class="detail-bar-col-2">
-      <button form="profile-update-form" class="detail-bar-btn btn-green btn-last" type="submit">Confirm</button>
+      <button form="update-form" class="detail-bar-btn btn-green btn-last" type="submit">Confirm</button>
     </div>
   </div>
 {% endblock portal_content %}

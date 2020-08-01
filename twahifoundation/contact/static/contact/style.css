@@ -1,7 +1,7 @@
 @media (min-width: 768px) {
   /* PERSON DETAIL */
 
-  #person-detail {
+  #detail-view {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,7 +11,7 @@
 @media (min-width: 992px) {
   /* PERSON DETAIL */
 
-  #person-detail {
+  #detail-view {
     flex-direction: unset;
     justify-content: center;
   }

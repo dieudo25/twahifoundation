@@ -3,11 +3,11 @@ from django.urls import reverse, resolve
 
 from contact.views.company import (
     # CompanyCreateView,
-    # CompanyDeleteView,
+    CompanyDeleteView,
     CompanyListView,
     CompanyListFilteredView,
-    # CompanyDetailView,
-    # CompanyUpdateView,
+    CompanyDetailView,
+    CompanyUpdateView,
 )
 
 
@@ -30,7 +30,7 @@ class TestUrls(SimpleTestCase):
         self.assertEqual(resolve(url).func.__name__,
                          CompanyListFilteredView.as_view().__name__)
 
-    """ def test_company_detail_url_resolves(self):
+    def test_company_detail_url_resolves(self):
         "Test URL CompanyDetailView"
 
         url = reverse('contact:company-detail', args=['company1'])
@@ -44,16 +44,16 @@ class TestUrls(SimpleTestCase):
         self.assertEqual(resolve(url).func.__name__,
                          CompanyUpdateView.as_view().__name__)
 
-    def test_company_create_url_resolves(self):
+    """ def test_company_create_url_resolves(self):
         "Test URL CompanyCreateView"
 
         url = reverse('contact:company-create')
         self.assertEqual(resolve(url).func.__name__,
-                         CompanyCreateView.as_view().__name__)
+                         CompanyCreateView.as_view().__name__) """
 
     def test_company_delete_url_resolves(self):
         "Test URL CompanyDeleteView"
 
         url = reverse('contact:company-delete', args=['company1'])
         self.assertEqual(resolve(url).func.__name__,
-                         CompanyDeleteView.as_view().__name__) """
+                         CompanyDeleteView.as_view().__name__)

@@ -62,9 +62,9 @@ class Company(models.Model):
 
         return f"{self.name}"
 
-    """ def get_absolute_url(self):
+    def get_absolute_url(self):
         "Get the absolute url of the object"
-        return reverse("account:user-detail", kwargs={"slug": self.slug}) """
+        return reverse("contact:company-detail", kwargs={"slug": self.slug})
 
     def save(self, *args, **kwargs):
         """

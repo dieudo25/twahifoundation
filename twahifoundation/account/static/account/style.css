@@ -120,16 +120,16 @@
   font-weight: 600;
 }
 
-.profile-info {
+.detail-info {
   text-align: center;
   padding-bottom: 30px;
 }
 
-.profile-info-group:last-child p {
+.detail-info-group:last-child p {
   margin: 0;
 }
 
-.profile-info-item-1 {
+.detail-info-item-1 {
   font-weight: 600;
 }
 
@@ -178,24 +178,24 @@
     align-items: center;
   }
 
-  .profile-card {
+  .detail-card {
     margin-right: 15px;
   }
 
-  .profile-info {
+  .detail-info {
     text-align: unset;
   }
 
-  .profile-info-group {
+  .detail-info-group {
     display: flex;
     padding: 0 30px;
   }
 
-  .profile-info-group:last-child {
+  .detail-info-group:last-child {
     margin-bottom: 0;
   }
 
-  .profile-info-item-1 {
+  .detail-info-item-1 {
     font-weight: 600;
     width: 150px;
   }
@@ -255,7 +255,7 @@
     height: 200px;
   }
 
-  .profile-info {
+  .detail-info {
     padding: 30px 0;
   }
 }

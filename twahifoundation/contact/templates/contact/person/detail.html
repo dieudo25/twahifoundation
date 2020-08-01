@@ -5,50 +5,50 @@
 {% block title %} Portal | {{ person.first_name }} {% endblock title %}
 
 {% block portal_content %}
-  <div class="portal-wrapper" id="person-detail">
-    <div class="profile-card">
+  <div class="portal-wrapper" id="detail-view">
+    <div class="detail-card">
       <div class="portal-title">
         <h1>{{ person.first_name }} {{ person.last_name }}</h1>
       </div>
     </div>
-    <div class="profile-info">
-      <div class="profile-info-group">
-        <div class="profile-info-item-1">
+    <div class="detail-info">
+      <div class="detail-info-group">
+        <div class="detail-info-item-1">
           <p>First name :</p>
         </div>
-        <div class="profile-info-item-2">
+        <div class="detail-info-item-2">
           <p>{{  person.first_name }}</p>
         </div>
       </div>
-      <div class="profile-info-group">
-        <div class="profile-info-item-1">
+      <div class="detail-info-group">
+        <div class="detail-info-item-1">
           <p>Last name :</p>
         </div>
-        <div class="profile-info-item-2">
+        <div class="detail-info-item-2">
           <p>{{  person.last_name }}</p>
         </div>
       </div>
-      <div class="profile-info-group">
-        <div class="profile-info-item-1">
+      <div class="detail-info-group">
+        <div class="detail-info-item-1">
           <p>Email :</p>
         </div>
-        <div class="profile-info-item-2">
+        <div class="detail-info-item-2">
           <p>{{  person.email }}</p>
         </div>
       </div>
-      <div class="profile-info-group">
-        <div class="profile-info-item-1">
+      <div class="detail-info-group">
+        <div class="detail-info-item-1">
           <p>Phone number :</p>
         </div>
-        <div class="profile-info-item-2">
+        <div class="detail-info-item-2">
           <p>{{  person.phone_number }}</p>
         </div>
       </div>
-      <div class="profile-info-group">
-        <div class="profile-info-item-1">
+      <div class="detail-info-group">
+        <div class="detail-info-item-1">
           <p>Company :</p>
         </div>
-        <div class="profile-info-item-2">
+        <div class="detail-info-item-2">
 
           {% if person.company %}
             <p><a href="#">{{  person.company }}</a></p>
@@ -58,11 +58,11 @@
           
         </div>
       </div>
-      <div class="profile-info-group">
-        <div class="profile-info-item-1">
+      <div class="detail-info-group">
+        <div class="detail-info-item-1">
           <p>Is a donor ? :</p>
         </div>
-        <div class="profile-info-item-2 img-bool">
+        <div class="detail-info-item-2 img-bool">
           {% if person.is_donor %}
             <p class="img-wrapper">
               <img src="{% static 'portal/img/true.svg' %}">
@@ -74,11 +74,11 @@
           {% endif %}
         </div>
       </div>
-      <div class="profile-info-group">
-        <div class="profile-info-item-1">
+      <div class="detail-info-group">
+        <div class="detail-info-item-1">
           <p>Is subscribed ? :</p>
         </div>
-        <div class="profile-info-item-2 img-bool">
+        <div class="detail-info-item-2 img-bool">
           {% if person.is_follower %}
             <p class="img-wrapper">
               <img src="{% static 'portal/img/true.svg' %}">
@@ -90,11 +90,11 @@
           {% endif %}
         </div>
       </div>
-      <div class="profile-info-group">
-        <div class="profile-info-item-1">
+      <div class="detail-info-group">
+        <div class="detail-info-item-1">
           <p>Is a supplier ? :</p>
         </div>
-        <div class="profile-info-item-2 img-bool">
+        <div class="detail-info-item-2 img-bool">
           {% if person.is_supplier %}
             <p class="img-wrapper">
               <img src="{% static 'portal/img/true.svg' %}">
@@ -116,10 +116,10 @@
     </div>
     <div class="detail-bar-col-2">
       <a href="{% url 'contact:person-update' person.slug %}">
-        <p class="detail-bar-btn btn-black">Modifer</p>
+        <p class="detail-bar-btn btn-black">Edit</p>
       </a>
       <a href="{% url 'contact:person-delete' person.slug %}">
-        <p class="detail-bar-btn btn-red btn-last">Supprimer</p>
+        <p class="detail-bar-btn btn-red btn-last">Delete</p>
       </a>
     </div>
   </div>

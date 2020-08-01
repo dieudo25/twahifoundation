@@ -29,7 +29,7 @@ class CompanyListFilteredView(ListView):
         return object_list
 
 
-""" class CompanyDetailView(DetailView):
+class CompanyDetailView(DetailView):
     "Company detail view"
 
     model = Company
@@ -44,14 +44,12 @@ class CompanyUpdateView(UpdateView):
     template_name = 'contact/company/update.html'
     context_object_name = 'company'
     fields = [
-        'first_name',
-        'last_name',
+        'name',
         'email',
         'phone_number',
-        'company',
-        'is_supplier',
-        'is_donor',
-        'is_follower',
+        'address',
+        'website',
+        'is_partner',
     ]
 
 
@@ -60,11 +58,11 @@ class CompanyDeleteView(DeleteView):
 
     model = Company
     template_name = 'contact/company/delete.html'
-    context_object_name = 'company_profile'
+    context_object_name = 'company'
     success_url = reverse_lazy('contact:company-list')
 
 
-class CompanyCreateView(CreateView):
+""" class CompanyCreateView(CreateView):
     "Company create view"
 
     model = Company

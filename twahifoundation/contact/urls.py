@@ -12,10 +12,10 @@ from contact.views.person import (
 from contact.views.company import (
     CompanyListView,
     CompanyListFilteredView,
-    # CompanyDetailView,
-    # CompanyUpdateView,
+    CompanyDetailView,
+    CompanyUpdateView,
     # CompanyCreateView,
-    # CompanyDeleteView,
+    CompanyDeleteView,
 )
 
 app_name = 'contact'
@@ -40,6 +40,12 @@ urlpatterns = [
     re_path(r'^company/list/$', CompanyListView.as_view(), name="company-list"),
     re_path(r'^company/list/search/$', CompanyListFilteredView.as_view(),
             name="company-list-search"),
+    re_path(r'^company/(?P<slug>[a-z0-9-]*)/$',
+            CompanyDetailView.as_view(), name="company-detail"),
+    re_path(r'^company/(?P<slug>[a-z0-9-]*)/update/$',
+            CompanyUpdateView.as_view(), name="company-update"),
+    re_path(r'^company/(?P<slug>[a-z0-9-]*)/delete/$',
+            CompanyDeleteView.as_view(), name="company-delete"),
 
 
 ]

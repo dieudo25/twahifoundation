@@ -16,13 +16,13 @@ class TestViews(TestCase):
 
         self.list_url = reverse('contact:company-list')
         self.list_filtered_url = reverse('contact:company-list-search')
-        """ self.detail_url = reverse(
+        self.detail_url = reverse(
             'contact:company-detail', args=['proximus'])
         self.update_url = reverse(
             'contact:company-update', args=['proximus'])
-        self.create_url = reverse('contact:company-create')
+        """ self.create_url = reverse('contact:company-create') """
         self.delete_url = reverse(
-            'contact:company-delete', args=['proximus']) """
+            'contact:company-delete', args=['proximus'])
 
         self.company1 = Company.objects.create(
             name='Proximus',
@@ -51,7 +51,7 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'contact/company/list_filtered.html')
 
-    """ def test_company_detail(self):
+    def test_company_detail(self):
         "Test VIEW CompanyDetailView"
 
         response = self.client.get(self.detail_url)
@@ -63,21 +63,20 @@ class TestViews(TestCase):
         "Test VIEW CompanyUpdateView"
 
         response = self.client.post(self.update_url, {
-            'first_name': 'Franck',
-            'last_name': 'Pulis',
-            'email': 'fkpoDon@gmail.com',
+            'name': 'Orange',
+            'email': 'orange@gmail.com',
             'phone_number': '9677687698',
-            'is_supplier': True,
-            'is_follower': True,
-            'is_donor': True,
+            'is_partner': True,
+            'website': "www.orange.be",
+            'address': "Avenue de la pègre 12 1090 Jette",
         })
 
-        updated_company = Company.objects.filter(first_name="Franck")
+        updated_company = Company.objects.filter(name="Orange")
 
         self.assertEqual(response.status_code, 302)
         self.assertEqual(updated_company.count(), 1)
 
-    def test_company_create(self):
+    """ def test_company_create(self):
         "Test VIEW CompanyCreateView"
 
         response = self.client.post(self.create_url, {
@@ -104,7 +103,7 @@ class TestViews(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertEqual(company3, 0)
-        self.assertTemplateUsed(response, 'contact/company/create.html')
+        self.assertTemplateUsed(response, 'contact/company/create.html') """
 
     def test_company_delete(self):
         "Test VIEW CompanyDeleteView"
@@ -117,4 +116,3 @@ class TestViews(TestCase):
 
         self.assertEqual(response.status_code, 302)
         self.assertEqual(companies_number, 0)
- """
