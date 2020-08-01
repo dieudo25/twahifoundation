@@ -10,16 +10,17 @@ class EventListView(ListView):
 
     model = Event
     template_name = 'project/event/list.html'
-    event_number = Event.objects.all().count()
+    context_object_name = 'event_list'
 
-    if (event_number == 0):
-        context_object_name = 'empty_table'
-    else:
-        context_object_name = 'event_list'
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        context['event_number'] = Event.objects.all().count()
+        return context
 
 
 class EventListFilteredView(ListView):
-    "Event list filterd by email, lastname or firstname"
+    "Event list filterd by title, location"
 
     model = Event
     template_name = 'project/event/list.html'

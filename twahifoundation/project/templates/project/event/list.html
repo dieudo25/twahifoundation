@@ -6,7 +6,7 @@
 
 {% block portal_content %}
   <div class="portal-content-title">
-    <h1>Manage Contacts</h1>
+    <h1>Manage Events</h1>
   </div>
   <div class="portal-top-bar">
     <div id="list-search">
@@ -92,7 +92,7 @@
                     <img src="{{ event.image }}"></td>
                   </div>
                 <td>{{ event.location}}</td>
-                <td>{{ event.time_startted }}</td>
+                <td>{{ event.time_started }}</td>
                 <td>{{ event.time_ended }}</td>
                 <td>{{ event.date_created }}</td>
               </tr>
@@ -100,7 +100,7 @@
 
           </tbody>
         </table>
-      {% elif empty_table %}
+      {% elif event_number == 0 %}
         <div id="empty-table">
           <p>No event, <a href="{% comment %} {% url 'project:event-create' %} {% endcomment %}">create one</a></p>
         </div>
