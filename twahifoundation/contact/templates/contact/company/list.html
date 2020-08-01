@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %} Portal | Person list {% endblock title %}
+{% block title %} Portal | Company list {% endblock title %}
 
 {% block portal_content %}
   <div class="portal-content-title">
@@ -28,7 +28,7 @@
         </a>
       </ul>
     <div id="list-search">
-      <form action="{% url 'contact:person-list-search' %}" method="GET">
+      <form action="{% comment %} {% url 'contact:company-list-search' %} {% endcomment %}" method="GET">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" name="search">
         </div>
@@ -39,15 +39,15 @@
   <div class="portal-content-body">
     <div class="portal-content-nav">
       <div class="portal-content-nav-title">
-        <h2>Individuals</h2>
+        <h2>Companies</h2>
       </div>
       <div class="portal-content-nav-item">
         <ul>
-          <a href="{% url 'contact:person-create' %}">
+          <a href="{% comment %} {% url 'contact:company-create' %} {% endcomment %}">
             <li class="nav-item-add">
               <div class="add-text">
                 <span class="material-icons">add_circle_outline</span>
-                <span>Add individual</span>
+                <span>Add company</span>
               </div>
             </li>
           </a>
@@ -60,49 +60,25 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
+            <th scope="col">Name</th>
+            <th scope="col">address</th>
             <th scope="col">Email</th>
             <th scope="col">Phone number</th>
-            <th scope="col">Company</th>
-            <th scope="col">Supplier</th>
-            <th scope="col">Donor</th>
-            <th scope="col">Subscriber</th>
+            <th scope="col">Web site</th>
+            <th scope="col">Partner</th>
           </tr>
         </thead>
         <tbody>
 
-          {% for person in person_list %}
+          {% for company in company_list %}
             <tr class="table">
-              <th scope="row"><a href="{% url 'contact:person-detail' person.slug %}">{{ person.last_name }} {{ person.first_name }}</a></th>
-              <td>{{ person.last_name }}</td>
-              <td>{{ person.email}}</td>
-              <td>{{ person.phone_number }}</td>
-              <td>{{ person.company }}</td>
+              <th scope="row"><a href="{% comment %} {% url 'contact:company-detail' company.slug %} {% endcomment %}">{{ company.name }}</a></th>
+              <td>{{ company.address }}</td>
+              <td>{{ company.email}}</td>
+              <td>{{ company.phone_number }}</td>
+              <td>{{ company.website }}</td>
               <td class="img-bool">
-                {% if person.is_donor %}
-                  <div class="img-wrapper">
-                    <img src="{% static 'portal/img/true.svg' %}">
-                  </div>
-                {% else %}
-                  <div class="img-wrapper">
-                    <img src="{% static 'portal/img/false.svg' %}">
-                  </div>
-                {% endif %}
-              </td>
-              <td class="img-bool">
-                {% if person.is_supplier %}
-                  <div class="img-wrapper">
-                    <img src="{% static 'portal/img/true.svg' %}">
-                  </div>
-                {% else %}
-                  <div class="img-wrapper">
-                    <img src="{% static 'portal/img/false.svg' %}">
-                  </div>
-                {% endif %}
-              </td>
-              <td class="img-bool">
-                {% if person.is_follower %}
+                {% if company.is_partner %}
                   <div class="img-wrapper">
                     <img src="{% static 'portal/img/true.svg' %}">
                   </div>

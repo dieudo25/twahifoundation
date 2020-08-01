@@ -1,12 +1,21 @@
 from django.urls import re_path
 
 from contact.views.person import (
-    PersonDetailView,
     PersonListView,
     PersonListFilteredView,
+    PersonDetailView,
     PersonUpdateView,
     PersonCreateView,
     PersonDeleteView,
+)
+
+from contact.views.company import (
+    CompanyListView,
+    # CompanyListFilteredView,
+    # CompanyDetailView,
+    # CompanyUpdateView,
+    # CompanyCreateView,
+    # CompanyDeleteView,
 )
 
 app_name = 'contact'
@@ -26,4 +35,9 @@ urlpatterns = [
 
     re_path(r'^person/(?P<slug>[a-z0-9-]*)/delete/$',
             PersonDeleteView.as_view(), name="person-delete"),
+
+    # Company CRUD
+    re_path(r'^company/list/$', CompanyListView.as_view(), name="company-list"),
+
+
 ]
