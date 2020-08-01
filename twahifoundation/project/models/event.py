@@ -21,34 +21,34 @@ class Event(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     users = models.ManyToManyField(User, blank=True)
     slug = models.SlugField(max_length=60, unique=True)
-    title = models.CharField(max_length=255, verbose_name="Titre")
-    location = models.CharField(max_length=255, verbose_name="Lieu")
+    title = models.CharField(max_length=255)
+    location = models.CharField(max_length=255)
     type = models.CharField(
         max_length=13,
         choices=EVENT_TYPE_CHOICES,
         default=EVENT_TYPE_CHOICES[0][0],
-        verbose_name="Type d'évènement"
+        verbose_name="Event type"
     )
     image = models.URLField(
         max_length=255,
         null=True,
         blank=True,
-        verbose_name="URL de l'image"
+        verbose_name="Image URL"
     )
-    description = models.TextField(verbose_name="Description")
+    description = models.TextField()
     date_created = models.DateField(
         auto_now_add=True,
         null=True,
         blank=True,
-        verbose_name="Date de création"
+        verbose_name="Creation date"
     )
     time_started = models.DateTimeField(
         blank=True,
-        verbose_name="Début de l'évènement"
+        verbose_name="Start of the event"
     )
     time_ended = models.DateTimeField(
         blank=True,
-        verbose_name="Fin de l'évènement"
+        verbose_name="End of the event"
     )
 
     class Meta:
@@ -56,8 +56,6 @@ class Event(models.Model):
         Meta definition for Event.
         """
 
-        verbose_name = 'Évènement'
-        verbose_name_plural = 'Évènements'
         ordering = ['-date_created']
 
     def __str__(self):

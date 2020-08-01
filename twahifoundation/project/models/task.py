@@ -21,7 +21,7 @@ class Task(models.Model):
         ('DONE', 'DONE')
     ]
 
-    users = models.ManyToManyField(User, verbose_name="Utilisateur")
+    users = models.ManyToManyField(User)
     project = models.ForeignKey(
         Project,
         on_delete=models.CASCADE,
@@ -33,18 +33,18 @@ class Task(models.Model):
         default=STATE_CHOICES[0][0],
         verbose_name="Statut"
     )
-    title = models.CharField(max_length=255, verbose_name="Titre")
-    description = models.TextField(verbose_name="Description")
+    title = models.CharField(max_length=255)
+    description = models.TextField()
     date_created = models.DateField(
         auto_now_add=True,
         null=True,
         blank=True,
-        verbose_name="Date de création"
+        verbose_name="Creation date"
     )
     deadline = models.DateField(
         null=True,
         blank=True,
-        verbose_name="Date limite"
+        verbose_name="Deadline date"
     )
 
     class Meta:
@@ -52,6 +52,4 @@ class Task(models.Model):
         Meta definition for Task.
         """
 
-        verbose_name = 'Tâche'
-        verbose_name_plural = 'Tâches'
         ordering = ['-date_created']

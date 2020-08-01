@@ -11,20 +11,20 @@ class Project(models.Model):
     """
 
     slug = models.SlugField(max_length=60, unique=True)
-    title = models.CharField(max_length=255, verbose_name="Titre")
+    title = models.CharField(max_length=255)
     image = models.URLField(max_length=255, null=True, blank=True,
-                            verbose_name="URL de l'image")
-    description = models.TextField(verbose_name="Description")
+                            verbose_name="Image URL")
+    description = models.TextField()
     date_created = models.DateField(
         auto_now_add=True,
         null=True,
         blank=True,
-        verbose_name="Date de création"
+        verbose_name="Starting date"
     )
     date_ended = models.DateField(
         null=True,
         blank=True,
-        verbose_name="Date de fin"
+        verbose_name="Termination date"
     )
 
     class Meta:
@@ -32,8 +32,6 @@ class Project(models.Model):
         Meta definition for Project.
         """
 
-        verbose_name = 'Projet'
-        verbose_name_plural = 'Projets'
         ordering = ['-date_created']
 
     def __str__(self):
