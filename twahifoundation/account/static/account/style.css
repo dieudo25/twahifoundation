@@ -126,7 +126,7 @@
 }
 
 .detail-info-group:last-child p {
-  margin: 0;
+  margin: 0 auto;
 }
 
 .detail-info-item-1 {

@@ -43,7 +43,7 @@
       </div>
       <div class="portal-content-nav-item">
         <ul>
-          <a href="{% comment %} {% url 'contact:company-create' %} {% endcomment %}">
+          <a href="{% url 'contact:company-create' %}">
             <li class="nav-item-add">
               <div class="add-text">
                 <span class="material-icons">add_circle_outline</span>
@@ -57,42 +57,87 @@
     <div class="portal-content-search">
     </div>
     <div class="portal-content-table">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Name</th>
-            <th scope="col">address</th>
-            <th scope="col">Email</th>
-            <th scope="col">Phone number</th>
-            <th scope="col">Web site</th>
-            <th scope="col">Partner</th>
-          </tr>
-        </thead>
-        <tbody>
 
-          {% for company in company_list %}
-            <tr class="table">
-              <th scope="row"><a href="{% url 'contact:company-detail' company.slug %}">{{ company.name }}</a></th>
-              <td>{{ company.address }}</td>
-              <td>{{ company.email}}</td>
-              <td>{{ company.phone_number }}</td>
-              <td>{{ company.website }}</td>
-              <td class="img-bool">
-                {% if company.is_partner %}
-                  <div class="img-wrapper">
-                    <img src="{% static 'portal/img/true.svg' %}">
-                  </div>
-                {% else %}
-                  <div class="img-wrapper">
-                    <img src="{% static 'portal/img/false.svg' %}">
-                  </div>
-                {% endif %}
-              </td>
+      {% if filtered_company_list %}
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">address</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone number</th>
+              <th scope="col">Web site</th>
+              <th scope="col">Partner</th>
             </tr>
-          {% endfor %}
+          </thead>
+          <tbody>
 
-        </tbody>
-      </table>
+            {% for company in filtered_company_list %}
+              <tr class="table">
+                <th scope="row"><a href="{% url 'contact:company-detail' company.slug %}">{{ company.name }}</a></th>
+                <td>{{ company.address }}</td>
+                <td>{{ company.email}}</td>
+                <td>{{ company.phone_number }}</td>
+                <td>{{ company.website }}</td>
+                <td class="img-bool">
+                  {% if company.is_partner %}
+                    <div class="img-wrapper">
+                      <img src="{% static 'portal/img/true.svg' %}">
+                    </div>
+                  {% else %}
+                    <div class="img-wrapper">
+                      <img src="{% static 'portal/img/false.svg' %}">
+                    </div>
+                  {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+
+          </tbody>
+        </table>
+      {% elif company_list %}
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">address</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone number</th>
+              <th scope="col">Web site</th>
+              <th scope="col">Partner</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {% for company in company_list %}
+              <tr class="table">
+                <th scope="row"><a href="{% url 'contact:company-detail' company.slug %}">{{ company.name }}</a></th>
+                <td>{{ company.address }}</td>
+                <td>{{ company.email}}</td>
+                <td>{{ company.phone_number }}</td>
+                <td>{{ company.website }}</td>
+                <td class="img-bool">
+                  {% if company.is_partner %}
+                    <div class="img-wrapper">
+                      <img src="{% static 'portal/img/true.svg' %}">
+                    </div>
+                  {% else %}
+                    <div class="img-wrapper">
+                      <img src="{% static 'portal/img/false.svg' %}">
+                    </div>
+                  {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+
+          </tbody>
+        </table>
+      {% else %}
+        <div id="search-no-result">
+          <p>No results found</p>
+        </div>
+      {% endif%}
+      
     </div>
   </div>
   {% endblock portal_content %}

@@ -220,6 +220,10 @@ body {
   margin-bottom: 0;
 }
 
+.detail-info-group .img-bool .img-wrapper {
+  margin: 10px auto;
+}
+
 /* PORTAL CREATE */
 
 p.help-block {
@@ -488,6 +492,10 @@ p.help-block {
 
   .detail-bar-btn {
     width: unset;
+  }
+
+  .detail-info-group .img-bool .img-wrapper {
+    margin: 0px auto;
   }
 
   /* PORTAL UPDATE */

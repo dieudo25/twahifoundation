@@ -14,7 +14,7 @@ from contact.views.company import (
     CompanyListFilteredView,
     CompanyDetailView,
     CompanyUpdateView,
-    # CompanyCreateView,
+    CompanyCreateView,
     CompanyDeleteView,
 )
 
@@ -40,6 +40,8 @@ urlpatterns = [
     re_path(r'^company/list/$', CompanyListView.as_view(), name="company-list"),
     re_path(r'^company/list/search/$', CompanyListFilteredView.as_view(),
             name="company-list-search"),
+    re_path(r'^company/create/$', CompanyCreateView.as_view(),
+            name="company-create"),
     re_path(r'^company/(?P<slug>[a-z0-9-]*)/$',
             CompanyDetailView.as_view(), name="company-detail"),
     re_path(r'^company/(?P<slug>[a-z0-9-]*)/update/$',

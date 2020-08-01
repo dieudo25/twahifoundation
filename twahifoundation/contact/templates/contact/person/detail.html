@@ -51,7 +51,7 @@
         <div class="detail-info-item-2">
 
           {% if person.company %}
-            <p><a href="#">{{  person.company }}</a></p>
+            <p><a href="{% url 'contact:company-detail' person.company.slug %}">{{  person.company }}</a></p>
           {% else %}
             <p>None</p>
           {% endif %}

@@ -17,7 +17,7 @@ class CompanyListFilteredView(ListView):
     "Peron list filterd by email, lastname or firstname"
 
     model = Company
-    template_name = 'contact/company/list_filtered.html'
+    template_name = 'contact/company/list.html'
     context_object_name = 'filtered_company_list'
 
     def get_queryset(self):
@@ -62,19 +62,16 @@ class CompanyDeleteView(DeleteView):
     success_url = reverse_lazy('contact:company-list')
 
 
-""" class CompanyCreateView(CreateView):
+class CompanyCreateView(CreateView):
     "Company create view"
 
     model = Company
     template_name = 'contact/company/create.html'
     fields = [
-        'first_name',
-        'last_name',
+        'name',
         'email',
         'phone_number',
-        'company',
-        'is_supplier',
-        'is_donor',
-        'is_follower',
+        'address',
+        'website',
+        'is_partner',
     ]
- """

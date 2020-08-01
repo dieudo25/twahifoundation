@@ -20,7 +20,7 @@ class TestViews(TestCase):
             'contact:company-detail', args=['proximus'])
         self.update_url = reverse(
             'contact:company-update', args=['proximus'])
-        """ self.create_url = reverse('contact:company-create') """
+        self.create_url = reverse('contact:company-create')
         self.delete_url = reverse(
             'contact:company-delete', args=['proximus'])
 
@@ -76,34 +76,33 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertEqual(updated_company.count(), 1)
 
-    """ def test_company_create(self):
+    def test_company_create(self):
         "Test VIEW CompanyCreateView"
 
         response = self.client.post(self.create_url, {
-            'first_name': 'Franckie',
-            'last_name': 'Pulissa',
+            'name': 'MediaMarkt',
             'email': 'fontel@gmail.com',
             'phone_number': '97754556',
-            'is_supplier': False,
-            'is_follower': False,
-            'is_donor': True,
+            'address': 'Rue de la Fontaine 345 1000 Bruxelles',
+            'website': 'https://www.mediamarkt.be',
+            'is_partner': True,
         })
 
-        company2 = Company.objects.get(first_name="Franckie")
+        company2 = Company.objects.get(name="MediaMarkt")
 
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(company2.first_name, 'Franckie')
+        self.assertEqual(company2.name, 'MediaMarkt')
 
     def test_company_create_no_data(self):
         "Test VIEW CompanyCreateView WITHOUT data"
 
         response = self.client.post(self.create_url)
 
-        company3 = Company.objects.filter(first_name="Franckie").count()
+        company3 = Company.objects.filter(name="Vans").count()
 
         self.assertEqual(response.status_code, 200)
         self.assertEqual(company3, 0)
-        self.assertTemplateUsed(response, 'contact/company/create.html') """
+        self.assertTemplateUsed(response, 'contact/company/create.html')
 
     def test_company_delete(self):
         "Test VIEW CompanyDeleteView"
