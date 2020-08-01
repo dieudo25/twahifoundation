@@ -42,7 +42,7 @@ class TestViews(TestCase):
         })
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'account/user/list_filtered.html')
+        self.assertTemplateUsed(response, 'account/user/list.html')
 
     def test_user_detail(self):
         "Test VIEW UserDetailView"

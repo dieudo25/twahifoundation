@@ -19,7 +19,7 @@ class UserListFilteredView(ListView):
     "User list filterd by username, lastname or firstname"
 
     model = get_user_model()
-    template_name = 'account/user/list_filtered.html'
+    template_name = 'account/user/list.html'
     context_object_name = 'filtered_user_list'
 
     def get_queryset(self):

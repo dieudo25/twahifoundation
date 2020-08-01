@@ -49,7 +49,7 @@ class TestViews(TestCase):
         })
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'contact/company/list_filtered.html')
+        self.assertTemplateUsed(response, 'contact/company/list.html')
 
     def test_company_detail(self):
         "Test VIEW CompanyDetailView"

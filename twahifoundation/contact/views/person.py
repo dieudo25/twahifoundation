@@ -17,7 +17,7 @@ class PersonListFilteredView(ListView):
     "Peron list filterd by email, lastname or firstname"
 
     model = Person
-    template_name = 'contact/person/list_filtered.html'
+    template_name = 'contact/person/list.html'
     context_object_name = 'filtered_person_list'
 
     def get_queryset(self):

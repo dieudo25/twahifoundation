@@ -58,26 +58,56 @@
     </div>
     <div class="portal-content-table">
       <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Username</th>
-            <th scope="col">Email Address</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-          </tr>
-        </thead>
-        <tbody>
 
-          {% for u in user_list %}
-            <tr class="table">
-              <th scope="row"><a href="{% url 'account:user-detail' u.slug %}">{{ u.username }}</a></th>
-              <td>{{ u.email }}</td>
-              <td>{{ u.first_name }}</td>
-              <td>{{ u.last_name }}</td>
+        {% if filtered_user_list %}
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Username</th>
+                <th scope="col">Email Address</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              {% for u in filtered_user_list %}
+                <tr class="table">
+                  <th scope="row"><a href="{% url 'account:user-detail' u.slug %}">{{ u.username }}</a></th>
+                  <td>{{ u.email }}</td>
+                  <td>{{ u.first_name }}</td>
+                  <td>{{ u.last_name }}</td>
+                </tr>
+              {% endfor %}
+
+            </tbody>
+          </table>
+        {% elif user_list %}
+          <thead>
+            <tr>
+              <th scope="col">Username</th>
+              <th scope="col">Email Address</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
             </tr>
-          {% endfor %}
+          </thead>
+          <tbody>
 
-        </tbody>
+            {% for u in user_list %}
+              <tr class="table">
+                <th scope="row"><a href="{% url 'account:user-detail' u.slug %}">{{ u.username }}</a></th>
+                <td>{{ u.email }}</td>
+                <td>{{ u.first_name }}</td>
+                <td>{{ u.last_name }}</td>
+              </tr>
+            {% endfor %}
+
+          </tbody>
+        {% else %}
+          <div id="search-no-result">
+            <p>No results found</p>
+          </div>
+        {% endif%}
       </table>
     </div>
   </div>
