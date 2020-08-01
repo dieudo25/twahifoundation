@@ -28,7 +28,7 @@
         </a>
       </ul>
     <div id="list-search">
-      <form action="{% comment %} {% url 'contact:company-list-search' %} {% endcomment %}" method="GET">
+      <form action="{% url 'contact:company-list-search' %}" method="GET">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" name="search">
         </div>
