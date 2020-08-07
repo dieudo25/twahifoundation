@@ -23,7 +23,7 @@ class TestModels(TestCase):
         self.event1 = Event.objects.create(
             title="Event 1",
             location="Bruxelles",
-            type="MemberMeeting",
+            event_type="MemberMeeting",
             image="https://www.optoma.fr/images/ProductApplicationFeatures/4kuhd/banner.jpg",
             description="description of the event",
             date_created=timezone.now(),
@@ -34,7 +34,7 @@ class TestModels(TestCase):
             project=self.project1,
         )
 
-    def test_user_is_assigned_slug_on_creation(self):
+    def test_event_is_assigned_slug_on_creation(self):
         "Test if the slug is automatically genereted upon the object creation"
 
         self.assertEqual(self.event1.slug, 'event-1')
