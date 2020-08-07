@@ -56,7 +56,7 @@
 
             {% for event in filtered_event_list %}
               <tr class="table">
-                <th scope="row"><a href="{% comment %} {% url 'project:event-detail' event.slug %} {% endcomment %}">{{ event.title }}</a></th>
+                <th scope="row"><a href="{% url 'project:event-detail' event.slug %}">{{ event.title }}</a></th>
                 <td>
                   <div class="img-wrapper">
                     <img src="{{ event.image }}"></td>
@@ -86,7 +86,7 @@
 
             {% for event in event_list %}
               <tr class="table">
-                <th scope="row"><a href="{% comment %} {% url 'project:event-detail' event.slug %} {% endcomment %}">{{ event.title }}</a></th>
+                <th scope="row"><a href="{% url 'project:event-detail' event.slug %}">{{ event.title }}</a></th>
                 <td>
                   <div class="img-wrapper">
                     <img src="{{ event.image }}"></td>

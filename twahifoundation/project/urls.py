@@ -3,8 +3,8 @@ from django.urls import re_path
 from project.views.event import (
     EventListView,
     EventListFilteredView,
-    # EventDetailView,
-    # EventUpdateView,
+    EventDetailView,
+    EventUpdateView,
     # EventCreateView,
     # EventDeleteView,
 )
@@ -19,10 +19,10 @@ urlpatterns = [
             name="event-list-search"),
     # re_path(r'^event/create/$', EventCreateView.as_view(),
     #        name="event-create"),
-    # re_path(r'^event/(?P<slug>[a-z0-9-]*)/$',
-    #        EventDetailView.as_view(), name="event-detail"),
-    # re_path(r'^event/(?P<slug>[a-z0-9-]*)/update/$',
-    #        EventUpdateView.as_view(), name="event-update"),
+    re_path(r'^event/(?P<slug>[a-z0-9-]*)/$',
+            EventDetailView.as_view(), name="event-detail"),
+    re_path(r'^event/(?P<slug>[a-z0-9-]*)/update/$',
+            EventUpdateView.as_view(), name="event-update"),
     # re_path(r'^event/(?P<slug>[a-z0-9-]*)/delete/$',
     #        EventDeleteView.as_view(), name="event-delete"),
 

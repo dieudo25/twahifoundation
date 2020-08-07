@@ -2,6 +2,8 @@ from django.db.models import Q
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
 
+from account.models.user import User
+from project.forms.event import EventUpdateForm
 from project.models.event import Event
 
 
@@ -35,12 +37,18 @@ class EventListFilteredView(ListView):
         return object_list
 
 
-""" class EventDetailView(DetailView):
+class EventDetailView(DetailView):
     "Event detail view"
 
     model = Event
     template_name = 'project/event/detail.html'
     context_object_name = 'event'
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        context['users'] = Event.users
+        return context
 
 
 class EventUpdateView(UpdateView):
@@ -49,17 +57,10 @@ class EventUpdateView(UpdateView):
     model = Event
     template_name = 'project/event/update.html'
     context_object_name = 'event'
-    fields = [
-        'name',
-        'email',
-        'phone_number',
-        'address',
-        'website',
-        'is_partner',
-    ]
+    form_class = EventUpdateForm
 
 
-class EventDeleteView(DeleteView):
+""" class EventDeleteView(DeleteView):
     "Event Delete View"
 
     model = Event

@@ -1,0 +1,138 @@
+{% extends 'portal/portal_base_sidebar.html'%}
+
+{% load static %}
+
+{% block title %} Portal | {{ event.title }} {% endblock title %}
+
+{% block css %}
+
+  {{ block.super }}
+
+  <link rel="stylesheet" href="{% static 'account/style.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'project/style.css' %}" type="text/css">
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+{% endblock css %}
+
+{% block scripts %}
+
+  {{ block.super }}
+  
+  <script src="{% static 'project/main.js' %}"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+{% endblock scripts %}
+
+{% block portal_content %}
+  <div class="portal-wrapper event-detail">
+    <div class="detail-info-section">
+      <div class="detail-card">
+        <div class="event-img">
+          <div class="img-wrapper">
+            <img src="{{ event.image }}">
+          </div>
+        </div>
+        <div class="portal-title">
+          <h1>{{ event.title }}</h1>
+        </div>
+      </div>
+      <div class="detail-info">
+        <div class="column">
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Project :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  event.project }}</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Location :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  event.location }}</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Type :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  event.event_type }}</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Date of creation :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  event.date_created }}</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Start at :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  event.time_started }}</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>End at :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  event.time_ended }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="">
+            <div class="detail-info-item-1">
+              <p>Description :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  event.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="participant-section">
+      <h2>{{ event.users.count }} Participants</h2>
+      <div class="prev"></div>
+      <div class="participant-list">
+
+        {% for user in event.users.all %}
+          <div class="participant-item">
+            <a href="{% url 'account:user-detail' user.slug %}">
+              <div class="participant-card">
+                <div class="participant-img">
+                  <div class="img-wrapper">
+                    <img src="{{ user.avatar.url }}">
+                  </div>
+                </div>
+                <p>{{ user.username }}</p>
+              </div>
+            </a>
+          </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+  <div class="detail-bar">
+    <div class="detail-bar-col-1">
+      <a href="{% url 'project:event-list' %}">
+        <p class="detail-bar-btn btn-black">Back</p>
+      </a>
+    </div>
+    <div class="detail-bar-col-2">
+      <a href="{% url 'project:event-update' event.slug %}">
+        <p class="detail-bar-btn btn-black">Edit</p>
+      </a>
+      <a href="{% comment %} {% url 'project:event-delete' event.slug %} {% endcomment %}">
+        <p class="detail-bar-btn btn-red btn-last">Delete</p>
+      </a>
+    </div>
+  </div>
+{% endblock portal_content %}
