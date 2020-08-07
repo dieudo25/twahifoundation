@@ -4,6 +4,13 @@
 
 {% block title %} Portal | User list {% endblock title %}
 
+{% block css %}
+
+  {{ block.super }}
+
+  <link rel="stylesheet" href="{% static 'account/style.css' %}" type="text/css">
+{% endblock css %}
+
 {% block portal_content %}
   <div class="portal-content-title">
     <h1>Manage User and Permissions</h1>

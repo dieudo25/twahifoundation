@@ -4,6 +4,13 @@
 
 {% block title %} Portal | Company list {% endblock title %}
 
+{% block css %}
+
+  {{ block.super }}
+
+  <link rel="stylesheet" href="{% static 'contact/style.css' %}" type="text/css">
+{% endblock css %}
+
 {% block portal_content %}
   <div class="portal-content-title">
     <h1>Manage Contacts</h1>

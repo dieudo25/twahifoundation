@@ -6,6 +6,13 @@
 
 {% block title %} Portal | Update profile {{ user.username }} {% endblock title %}
 
+{% block css %}
+
+  {{ block.super }}
+
+  <link rel="stylesheet" href="{% static 'account/style.css' %}" type="text/css">
+{% endblock css %}
+
 {% block portal_content %}
   <div class="portal-content-title">
     <h1>Update profile</h1>

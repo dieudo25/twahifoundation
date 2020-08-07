@@ -1,15 +1,18 @@
 @font-face {
   font-family: "Poppins";
+  font-display: swap;
   src: url("/static/page/fonts/poppins/Poppins-Regular.ttf");
 }
 
 @font-face {
   font-family: "Poppins-light";
+  font-display: swap;
   src: url("/static/page/fonts/poppins/Poppins-Thin.ttf");
 }
 
 @font-face {
   font-family: "Poppins-extraBold";
+  font-display: swap;
   src: url("/static/page/fonts/poppins/Poppins-ExtraBold.ttf");
 }
 
@@ -289,7 +292,7 @@ a span.btn-involved {
   border-color: #05721d;
 }
 
-/* PROJECTS */
+/* HOME PROJECTS */
 
 .projects-wrapper {
   padding: 20px;
@@ -325,7 +328,7 @@ a span.btn-involved {
   margin-right: 8px;
 }
 
-/* EVENTS */
+/* HOME EVENTS */
 
 #events-section {
   background-color: #f9f9f9;
@@ -514,7 +517,7 @@ footer #newsletters-title h2 {
     border-radius: 50%;
   }
 
-  /* PROJECTS */
+  /* HOME PROJECTS */
 
   #projects-section {
     display: flex;
@@ -556,7 +559,7 @@ footer #newsletters-title h2 {
     font-size: 22px;
   }
 
-  /* EVENTS */
+  /* HOME EVENTS */
 
   #events-section {
     width: 700px;
@@ -667,7 +670,7 @@ footer #newsletters-title h2 {
     width: 250px;
   }
 
-  /* PROJECTS */
+  /* HOME PROJECTS */
 
   #projects-section {
     width: 930px;
@@ -690,7 +693,7 @@ footer #newsletters-title h2 {
     font-size: 26px;
   }
 
-  /* EVENTS */
+  /* HOME EVENTS */
 
   #events-section {
     width: 930px;
@@ -748,7 +751,7 @@ footer #newsletters-title h2 {
     font-size: 26px;
   }
 
-  /* PROJECTS */
+  /* HOME PROJECTS */
 
   #projects-section {
     width: 1100px;
@@ -763,7 +766,7 @@ footer #newsletters-title h2 {
     height: 180px;
   }
 
-  /* EVENTS */
+  /* HOME EVENTS */
 
   #events-section {
     width: 1100px;

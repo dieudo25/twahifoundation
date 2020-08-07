@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     {% load static %}
-    <link rel="stylesheet" href="{% static 'page/style.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'portal/style.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'account/style.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'contact/style.css' %}" type="text/css">
+    
+    {% block css %}
+      <link rel="stylesheet" href="{% static 'page/style.css' %}" type="text/css">
+    {% endblock css %}
 
     <title>{% block title %}{% endblock title %}</title>
 

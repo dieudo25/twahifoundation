@@ -196,7 +196,6 @@
   }
 
   .detail-info-item-1 {
-    font-weight: 600;
     width: 150px;
   }
 }
@@ -241,7 +240,6 @@
   /* USER DETAIL */
 
   .profile.portal-wrapper {
-    display: flex;
     justify-content: space-around;
   }
 

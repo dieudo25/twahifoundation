@@ -4,6 +4,13 @@
 
 {% block title %} Protal Base {% endblock title %}
 
+{% block css %}
+
+  {{ block.super }}
+
+  <link rel="stylesheet" href="{% static 'portal/style.css' %}" type="text/css">
+{% endblock css %}
+
 {% block scripts %}
 
   {{ block.super }}

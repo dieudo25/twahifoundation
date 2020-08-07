@@ -4,6 +4,14 @@
 
 {% block title %} Portal | {{ person.first_name }} {% endblock title %}
 
+{% block css %}
+
+  {{ block.super }}
+
+  <link rel="stylesheet" href="{% static 'account/style.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'contact/style.css' %}" type="text/css">
+{% endblock css %}
+
 {% block portal_content %}
   <div class="portal-wrapper" id="detail-view">
     <div class="detail-card">

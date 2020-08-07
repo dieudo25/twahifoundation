@@ -137,14 +137,22 @@ body {
   margin-right: 3px;
 }
 
+.portal-content-table {
+  overflow: scroll;
+  padding: 0 15px;
+}
+
+.portal-content-table thead {
+  font-size: 16px;
+}
+
 .portal-content-table thead th {
   border-top: 0;
   min-width: 150px;
 }
 
-.portal-content-table {
-  overflow: scroll;
-  padding: 0 15px;
+.portal-content-table tbody {
+  font-size: 13px;
 }
 
 .portal-section .detail-nav {
@@ -219,6 +227,11 @@ body {
 
 .detail-bar a:hover {
   text-decoration: none;
+}
+
+.portal-update-form-wrapper textarea,
+.portal-update-form-wrapper select {
+  width: 100%;
 }
 
 .portal-update-form-wrapper .control-group:last-child {
@@ -342,6 +355,7 @@ p.help-block {
   .app-list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   .app-item {
@@ -511,7 +525,7 @@ p.help-block {
 
   .portal-update-form-wrapper .control-label {
     margin-right: 20px;
-    min-width: 125px;
+    min-width: 140px;
   }
 
   .portal-update-form-wrapper .controls {
@@ -558,6 +572,8 @@ p.help-block {
 
   .app-list {
     justify-content: center;
+    max-width: 1100px;
+    margin: 40px auto;
   }
 
   .app-list .app-item {
