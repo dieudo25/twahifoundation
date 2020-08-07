@@ -19,13 +19,13 @@ class TestViews(TestCase):
 
         self.list_url = reverse('project:event-list')
         self.list_filtered_url = reverse('project:event-list-search')
-        """ self.detail_url = reverse(
-            'project:event-detail', args=['proximus'])
+        self.detail_url = reverse(
+            'project:event-detail', args=['event-1'])
         self.update_url = reverse(
-            'project:event-update', args=['proximus'])
-        self.create_url = reverse('project:event-create')
+            'project:event-update', args=['event-1'])
+        """ self.create_url = reverse('project:event-2')
         self.delete_url = reverse(
-            'project:event-delete', args=['proximus']) """
+            'project:event-delete', args=['event-1']) """
 
         self.project1 = Project.objects.create(
             title="Project 1",
@@ -37,7 +37,7 @@ class TestViews(TestCase):
         self.event1 = Event.objects.create(
             title="Event 1",
             location="Bruxelles",
-            type="MemberMeeting",
+            event_type="MemberMeeting",
             image="https://www.optoma.fr/images/ProductApplicationFeatures/4kuhd/banner.jpg",
             description="description of the event",
             date_created=timezone.now(),
@@ -66,7 +66,7 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'project/event/list.html')
 
-    """ def test_event_detail(self):
+    def test_event_detail(self):
         "Test VIEW EventDetailView"
 
         response = self.client.get(self.detail_url)
@@ -74,24 +74,29 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'project/event/detail.html')
 
-    def test_event_updtae(self):
+    def test_event_update(self):
         "Test VIEW EventUpdateView"
 
         response = self.client.post(self.update_url, {
-            'name': 'Orange',
-            'email': 'orange@gmail.com',
-            'phone_number': '9677687698',
-            'is_partner': True,
-            'website': "www.orange.be",
-            'address': "Avenue de la pègre 12 1090 Jette",
+            'title': "Event 2",
+            'location': "Liege",
+            'event_type': "MemberMeeting",
+            'image': "https://www.optoma.fr/images/ProductApplicationFeatures/4kuhd/banner.jpg",
+            'description': "description of the event",
+            'date_created': timezone.now(),
+            'time_started': timezone.datetime(
+                2013, 11, 20, 20, 8, 7, 127325, tzinfo=pytz.UTC),
+            'time_ended': timezone.datetime(
+                2019, 1, 20, 20, 8, 7, 127325, tzinfo=pytz.UTC),
+            'project': self.project1,
         })
 
-        updated_event = Event.objects.filter(name="Orange")
+        updated_event = Event.objects.filter(slug="event-2")
 
         self.assertEqual(response.status_code, 302)
         self.assertEqual(updated_event.count(), 1)
 
-    def test_event_create(self):
+    """  def test_event_create(self):
         "Test VIEW EventCreateView"
 
         response = self.client.post(self.create_url, {

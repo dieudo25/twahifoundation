@@ -6,8 +6,8 @@ from project.views.event import (
     # EventDeleteView,
     EventListView,
     EventListFilteredView,
-    # EventDetailView,
-    # EventUpdateView,
+    EventDetailView,
+    EventUpdateView,
 )
 
 
@@ -30,7 +30,7 @@ class TestUrls(SimpleTestCase):
         self.assertEqual(resolve(url).func.__name__,
                          EventListFilteredView.as_view().__name__)
 
-    """ def test_event_detail_url_resolves(self):
+    def test_event_detail_url_resolves(self):
         "Test URL EventDetailView"
 
         url = reverse('project:event-detail', args=['event1'])
@@ -44,7 +44,7 @@ class TestUrls(SimpleTestCase):
         self.assertEqual(resolve(url).func.__name__,
                          EventUpdateView.as_view().__name__)
 
-    def test_event_create_url_resolves(self):
+    """ def test_event_create_url_resolves(self):
         "Test URL EventCreateView"
 
         url = reverse('project:event-create')
