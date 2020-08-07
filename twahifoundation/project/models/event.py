@@ -23,11 +23,10 @@ class Event(models.Model):
     slug = models.SlugField(max_length=60, unique=True)
     title = models.CharField(max_length=255)
     location = models.CharField(max_length=255)
-    type = models.CharField(
+    event_type = models.CharField(
         max_length=13,
         choices=EVENT_TYPE_CHOICES,
         default=EVENT_TYPE_CHOICES[0][0],
-        verbose_name="Event type"
     )
     image = models.URLField(
         max_length=255,
@@ -105,4 +104,4 @@ class Event(models.Model):
         Return absolute url for Event.
         """
 
-        return reverse('event_detail', kwargs={'slug': self.slug})
+        return reverse('project:event-detail', kwargs={'slug': self.slug})
