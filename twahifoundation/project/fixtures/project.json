@@ -1,2 +1,14 @@
 [
+{
+    "model": "project.project",
+    "pk": 1,
+    "fields": {
+        "slug": "projet-1",
+        "title": "Projet 1",
+        "image": "https://www.optoma.fr/images/ProductApplicationFeatures/4kuhd/banner.jpg",
+        "description": "zaezrhtjytkjdgsqfgregrehreh",
+        "date_created": "2020-08-01",
+        "date_ended": "2020-08-21"
+    }
+}
 ]

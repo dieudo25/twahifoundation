@@ -1,2 +1,28 @@
 [
+{
+    "model": "contact.company",
+    "pk": 1,
+    "fields": {
+        "name": "Tesla",
+        "address": "Leuvensesteenweg 373, 1932 Zaventem",
+        "email": "tesla@info.com",
+        "phone_number": "027257178",
+        "website": "https://www.tesla.com/fr_BE",
+        "is_partner": true,
+        "slug": "dieudonne-twahirwa"
+    }
+},
+{
+    "model": "contact.company",
+    "pk": 2,
+    "fields": {
+        "name": "Proximus",
+        "address": "Rue de la loi 75",
+        "email": "proximus@gmail.com",
+        "phone_number": "02345678",
+        "website": "https://www.proximus.be",
+        "is_partner": false,
+        "slug": "proximus"
+    }
+}
 ]

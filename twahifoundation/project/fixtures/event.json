@@ -1,2 +1,19 @@
 [
+{
+    "model": "project.event",
+    "pk": 2,
+    "fields": {
+        "project": 1,
+        "slug": "fezfezfezf",
+        "title": "fezfezfezf",
+        "location": "efezfe",
+        "type": "MemberMeeting",
+        "image": "https://www.optoma.fr/images/ProductApplicationFeatures/4kuhd/banner.jpg",
+        "description": "fezfezfezf",
+        "date_created": "2020-08-01",
+        "time_started": "2020-08-01T19:31:05Z",
+        "time_ended": "2020-08-01T19:31:06Z",
+        "users": []
+    }
+}
 ]
