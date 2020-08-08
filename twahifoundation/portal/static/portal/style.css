@@ -167,10 +167,6 @@ body {
 
 /* HOME */
 
-.app-list {
-  margin: 40px 0;
-}
-
 .app-link:hover {
   text-decoration: none;
 }
@@ -348,7 +344,6 @@ p.help-block {
   /* HOME */
 
   #portal-home {
-    min-height: calc(100vh - 70px);
     align-items: center;
   }
 
@@ -420,7 +415,7 @@ p.help-block {
   }
 
   .portal-section {
-    padding: 40px 20px;
+    padding: 20px;
     overflow: scroll;
     flex-grow: 2;
   }
@@ -534,6 +529,8 @@ p.help-block {
 }
 
 @media (min-width: 992px) {
+  /* ALL */
+
   /* NAVBAR */
 
   .nav-item.dropdown-menu {

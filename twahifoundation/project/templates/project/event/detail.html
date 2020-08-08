@@ -98,7 +98,11 @@
       </div>
     </div>
     <div class="participant-section">
-      <h2>{{ event.users.count }} Participants</h2>
+      <h2>
+        <span class="material-icons prev">keyboard_arrow_left</span>
+        {{ event.users.count }} Participants
+        <span class="material-icons next">keyboard_arrow_right</span>
+      </h2>
       <div class="prev"></div>
       <div class="participant-list">
 
