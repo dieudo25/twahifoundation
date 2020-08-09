@@ -110,23 +110,19 @@
 }
 
 .portal-title {
-  width: fit-content;
-  margin: 30px auto 44px;
+  margin: 30px 0 44px;
 }
 
-.portal-title h1 {
+.profile .portal-title h1 {
   text-align: center;
-  text-transform: capitalize;
-  font-weight: 600;
 }
 
-.detail-info {
+.profile .detail-info {
   text-align: center;
-  padding-bottom: 30px;
 }
 
-.detail-info-group:last-child p {
-  margin: 0 auto;
+.detail-info-group:last-child .detail-info-item-2 p {
+  margin-bottom: 0;
 }
 
 .detail-info-item-1 {
@@ -182,7 +178,7 @@
     margin-right: 15px;
   }
 
-  .detail-info {
+  .profile .detail-info {
     text-align: unset;
   }
 

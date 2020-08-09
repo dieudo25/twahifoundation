@@ -51,8 +51,6 @@ $(document).ready(function () {
   }
 
   $(function () {
-    console.log(windowWidth);
-
     /** check sessionStorage to expand/collapse sidebar onload **/
 
     if (sidebarState == "collapsed") {

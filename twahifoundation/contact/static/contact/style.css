@@ -11,6 +11,10 @@
 @media (min-width: 992px) {
   /* PERSON DETAIL */
 
+  .contact .portal-title h1 {
+    text-align: center;
+  }
+
   #detail-view {
     flex-direction: unset;
     justify-content: center;
