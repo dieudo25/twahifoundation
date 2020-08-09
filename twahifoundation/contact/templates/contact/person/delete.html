@@ -12,7 +12,7 @@
   </div>
   <div class="portal-wrapper">
     <div class="portal-update-form-wrapper">
-      <form method="POST" id="update-form">
+      <form method="POST" id="delete-form">
 
           {% csrf_token %}
 
@@ -27,7 +27,7 @@
       </a>
     </div>
     <div class="detail-bar-col-2">
-      <button form="update-form" class="detail-bar-btn btn-red btn-last" type="submit">Delete</button>
+      <button form="delete-form" class="detail-bar-btn btn-red btn-last" type="submit">Delete</button>
     </div>
   </div>
 {% endblock portal_content %}
