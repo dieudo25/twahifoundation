@@ -62,6 +62,13 @@ class User(AbstractUser):
 
         self.slug = slug_result
 
+    def __str__(self):
+        """
+        Unicode representation of Event.
+        """
+
+        return f"{self.last_name.capitalize() } {self.first_name.capitalize() }"
+
     def get_absolute_url(self):
         """Get the absolute url of the object"""
         return reverse("account:user-detail", kwargs={"slug": self.slug})
