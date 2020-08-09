@@ -60,7 +60,7 @@ class Company(models.Model):
         Unicode representation of Company.
         """
 
-        return f"{self.name}"
+        return f"{ self.name.capitalize() }"
 
     def get_absolute_url(self):
         "Get the absolute url of the object"

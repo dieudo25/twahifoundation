@@ -41,7 +41,7 @@ class Person(models.Model):
         Unicode representation of Person.
         """
 
-        return f"{self.last_name} {self.first_name}"
+        return f"{self.last_name.capitalize() } {self.first_name.capitalize() }"
 
     def _generate_slug(self):
         """

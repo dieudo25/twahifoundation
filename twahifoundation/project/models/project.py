@@ -39,7 +39,7 @@ class Project(models.Model):
         Unicode representation of Project.
         """
 
-        return f"{self.title}"
+        return f"{self.title.capitalize() }"
 
     def _generate_slug(self):
         """
@@ -81,4 +81,4 @@ class Project(models.Model):
         Return absolute url for Project.
         """
 
-        return reverse('project_detail', kwargs={'slug': self.slug})
+        return reverse('project:project-detail', kwargs={'slug': self.slug})

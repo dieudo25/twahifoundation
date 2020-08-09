@@ -62,7 +62,7 @@ class Event(models.Model):
         Unicode representation of Event.
         """
 
-        return f"{self.title}"
+        return f"{self.title.capitalize() }"
 
     def _generate_slug(self):
         """

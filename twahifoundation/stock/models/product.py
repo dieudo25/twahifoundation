@@ -84,7 +84,7 @@ class Product(models.Model):
         Unicode representation of Product.
         """
 
-        return f"{self.name}"
+        return f"{self.name.capitalize() }"
 
     def _generate_slug(self):
         """
