@@ -1,0 +1,84 @@
+{% extends 'portal/portal_base_sidebar.html'%}
+
+{% load static %}
+
+{% block title %} Portal | {{ project.title }} {% endblock title %}
+
+{% block css %}
+
+  {{ block.super }}
+
+  <link rel="stylesheet" href="{% static 'account/style.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'project/style.css' %}" type="text/css">
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+{% endblock css %}
+
+{% block scripts %}
+
+  {{ block.super }}
+  
+  <script src="{% static 'project/main.js' %}"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+{% endblock scripts %}
+
+{% block portal_content %}
+  <div class="portal-wrapper event-detail">
+    <div class="detail-info-section">
+      <div class="detail-card">
+        <div class="event-img">
+          <div class="img-wrapper">
+            <img src="{{ project.image }}">
+          </div>
+        </div>
+        <div class="portal-title">
+          <h1>{{ project.title }}</h1>
+        </div>
+      </div>
+      <div class="detail-info">
+        <div class="column">
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Created date :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  project.date_created }}</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Closing date</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  project.date_ended }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="">
+            <div class="detail-info-item-1">
+              <p>Description :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  project.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="detail-bar">
+    <div class="detail-bar-col-1">
+      <a href="{% url 'project:project-list' %}">
+        <p class="detail-bar-btn btn-black">Back</p>
+      </a>
+    </div>
+    <div class="detail-bar-col-2">
+      <a href="{% url 'project:project-update' project.slug %}">
+        <p class="detail-bar-btn btn-black">Edit</p>
+      </a>
+      <a href="{% url 'project:project-delete' project.slug %}">
+        <p class="detail-bar-btn btn-red btn-last">Delete</p>
+      </a>
+    </div>
+  </div>
+{% endblock portal_content %}

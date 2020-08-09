@@ -1,0 +1,111 @@
+{% extends 'portal/portal_base_sidebar.html'%}
+
+{% load static %}
+
+{% block title %} Portal | Project list {% endblock title %}
+
+{% block portal_content %}
+  <div class="portal-content-title">
+    <h1>Manage Projects</h1>
+  </div>
+  <div class="portal-top-bar no-button">
+    <div id="list-search">
+      <form action="{% url 'project:project-list-search' %}" method="GET">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="search">
+        </div>
+        <button type="submit" class="btn-black"><div class="search-img"></button>
+      </form>
+    </div>  
+  </div>
+  <div class="portal-content-body">
+    <div class="portal-content-nav">
+      <div class="portal-content-nav-title">
+        <h2>Projects</h2>
+      </div>
+      <div class="portal-content-nav-item">
+        <ul>
+          <a href="{% url 'project:project-create' %}">
+            <li class="nav-item-add">
+              <div class="add-text">
+                <span class="material-icons">add_circle_outline</span>
+                <span>Add project</span>
+              </div>
+            </li>
+          </a>
+        </ul>
+      </div>
+    </div>
+    <div class="portal-content-search">
+    </div>
+    <div class="portal-content-table">
+      
+      {% if filtered_project_list %}
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Image</th>
+              <th scope="col">Created date</th>
+              <th scope="col">Closing date</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {% for project in filtered_project_list %}
+              <tr class="table">
+                <th scope="row"><a href="{% url 'project:project-detail' project.slug %}">{{ project.title }}</a></th>
+                <td>
+                  <div class="img-wrapper">
+                    <img src="{{ project.image }}">
+                  </div>
+                </td>
+                <td>{{ project.date_created }}</td>
+                <td>{{ project.date_ended }}</td>
+              </tr>
+            {% endfor %}
+
+          </tbody>
+        </table>
+      {% elif project_list %}
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Image</th>
+              <th scope="col">Created date</th>
+              <th scope="col">Closing date</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {% for project in project_list %}
+              <tr class="table">
+                <th scope="row"><a href="{% url 'project:project-detail' project.slug %}">{{ project.title }}</a></th>
+                <td>
+                  <div class="img-wrapper">
+                    <img src="{{ project.image }}">
+                  </div>
+                </td>
+                <td>{{ project.date_created }}</td>
+                <td>{{ project.date_ended }}</td>
+              </tr>
+            {% endfor %}
+
+          </tbody>
+        </table>
+      {% elif project_number == 0 %}
+        <div id="empty-table">
+          <p>No project, <a href="{% url 'project:project-create' %}">create one</a></p>
+        </div>
+      {% else %}
+        <div id="search-no-result">
+          <p>No results found</p>
+        </div>
+      {% endif%}
+      
+    </div>
+  </div>
+  {% endblock portal_content %}
+
+    

@@ -1,0 +1,34 @@
+{% extends 'portal/portal_base_sidebar.html'%}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block title %} Portal | Update {{ person.last_name }} {{ person.first_name }} {% endblock title %}
+
+{% block portal_content %}
+  <div class="portal-content-title">
+    <h1>Update {{ person.last_name }} {{ person.first_name }}</h1>
+  </div>
+  <div class="portal-wrapper">
+    <div class="portal-update-form-wrapper">
+      <form method="POST" id="update-form">
+
+          {% csrf_token %}
+
+          {{ form | crispy }}
+
+      </form>
+    </div>
+  </div>
+  <div class="detail-bar">
+    <div class="detail-bar-col-1">
+      <a href="../">
+        <p class="detail-bar-btn btn-black">Back</p>
+      </a>
+    </div>
+    <div class="detail-bar-col-2">
+      <button form="update-form" class="detail-bar-btn btn-green btn-last" type="submit">Confirm</button>
+    </div>
+  </div>
+{% endblock portal_content %}

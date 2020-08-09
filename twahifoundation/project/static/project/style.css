@@ -8,12 +8,6 @@
   margin: 0;
 }
 
-.event-detail .detail-info {
-  width: fit-content;
-  margin: 0 auto;
-  padding: 0;
-}
-
 .event-detail
   .detail-info
   .column:nth-child(2)
@@ -92,6 +86,7 @@
     display: flex;
     justify-content: space-between;
     width: 600px;
+    margin: 0 auto;
   }
 
   .event-detail .detail-info .column:first-child {
@@ -100,7 +95,7 @@
   }
 
   .event-detail .detail-info .column:nth-child(2) {
-    max-width: 350px;
+    width: 350px;
   }
 
   .event-detail .detail-info-group {
@@ -130,7 +125,7 @@
   }
 
   .event-detail .detail-info .column:nth-child(2) {
-    max-width: 500px;
+    width: 500px;
   }
 }
 @media (min-width: 1200px) {
@@ -153,13 +148,15 @@
   }
 
   .event-detail .detail-info .column:nth-child(2) {
-    max-width: 540px;
+    width: 540px;
   }
 }
 
 @media (min-width: 1440px) {
   .event-detail .detail-card {
+    min-width: 1000px;
     max-width: 1100px;
+    margin: 0 auto 40px;
   }
 
   .event-detail .portal-title h1 {
@@ -175,7 +172,7 @@
   }
 
   .event-detail .detail-info .column:nth-child(2) {
-    max-width: 570px;
+    width: 570px;
   }
 
   .participant-section {

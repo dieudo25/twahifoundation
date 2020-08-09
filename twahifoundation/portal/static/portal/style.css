@@ -36,6 +36,10 @@ body {
   background-color: #3c4c80;
 }
 
+p.help-block {
+  color: #6c757d;
+}
+
 /* ALL */
 
 #portal-navbar .navbar-toggler {
@@ -70,6 +74,11 @@ body {
   background-color: white;
   max-height: 77vh;
   padding-left: 8px;
+}
+
+.portal-title h1 {
+  text-transform: capitalize;
+  font-weight: 600;
 }
 
 .portal-content-title h1 {
@@ -234,10 +243,6 @@ body {
   margin-bottom: 0;
 }
 
-.detail-info-group .img-bool .img-wrapper {
-  margin: 10px auto;
-}
-
 /* PORTAL CREATE */
 
 p.help-block {
@@ -274,7 +279,7 @@ p.help-block {
   margin: 0 auto;
 }
 
-/* PORTAL USER FORM */
+/* PORTAL FORM */
 
 .portal-update-form-wrapper .control-group {
   margin-bottom: 15px;
@@ -286,6 +291,18 @@ p.help-block {
 
 #avatar-clear_id {
   margin-left: 10px;
+}
+
+.form-width-checkbox .controls {
+  display: flex;
+  flex-direction: column;
+  max-height: 250px;
+  overflow: scroll;
+}
+
+.form-width-checkbox .controls input[type="checkbox"],
+input[type="radio"] {
+  margin-right: 5px;
 }
 
 /* PORTA SEARCH RESULT */
@@ -462,6 +479,14 @@ p.help-block {
     padding: 20px;
   }
 
+  .portal-top-bar.no-button {
+    justify-content: flex-end;
+  }
+
+  .portal-top-bar.no-button #list-search {
+    width: 288px;
+  }
+
   .portal-app-nav {
     flex-direction: unset;
     margin-bottom: 0;
@@ -512,7 +537,7 @@ p.help-block {
     margin: 0px auto;
   }
 
-  /* PORTAL UPDATE */
+  /* PORTAL FORM */
 
   .portal-update-form-wrapper .control-group {
     display: flex;
@@ -525,6 +550,15 @@ p.help-block {
 
   .portal-update-form-wrapper .controls {
     flex-grow: 2;
+  }
+
+  .form-width-checkbox .controls {
+    flex-direction: unset;
+    flex-wrap: wrap;
+  }
+
+  .form-width-checkbox .controls .checkbox {
+    width: 50%;
   }
 }
 

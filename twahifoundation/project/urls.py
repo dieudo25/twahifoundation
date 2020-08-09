@@ -5,8 +5,17 @@ from project.views.event import (
     EventListFilteredView,
     EventDetailView,
     EventUpdateView,
-    # EventCreateView,
-    # EventDeleteView,
+    EventCreateView,
+    EventDeleteView,
+)
+
+from project.views.project import (
+    ProjectListView,
+    ProjectListFilteredView,
+    ProjectDetailView,
+    ProjectUpdateView,
+    ProjectCreateView,
+    ProjectDeleteView,
 )
 
 app_name = 'project'
@@ -17,14 +26,28 @@ urlpatterns = [
     re_path(r'^event/list/$', EventListView.as_view(), name="event-list"),
     re_path(r'^event/list/search/$', EventListFilteredView.as_view(),
             name="event-list-search"),
-    # re_path(r'^event/create/$', EventCreateView.as_view(),
-    #        name="event-create"),
+    re_path(r'^event/create/$', EventCreateView.as_view(),
+            name="event-create"),
     re_path(r'^event/(?P<slug>[a-z0-9-]*)/$',
             EventDetailView.as_view(), name="event-detail"),
     re_path(r'^event/(?P<slug>[a-z0-9-]*)/update/$',
             EventUpdateView.as_view(), name="event-update"),
-    # re_path(r'^event/(?P<slug>[a-z0-9-]*)/delete/$',
-    #        EventDeleteView.as_view(), name="event-delete"),
+    re_path(r'^event/(?P<slug>[a-z0-9-]*)/delete/$',
+            EventDeleteView.as_view(), name="event-delete"),
+
+    # Project CRUD
+    re_path(r'^project/list/$', ProjectListView.as_view(), name="project-list"),
+    re_path(r'^project/list/search/$', ProjectListFilteredView.as_view(),
+            name="project-list-search"),
+    re_path(r'^project/create/$', ProjectCreateView.as_view(),
+            name="project-create"),
+    re_path(r'^project/(?P<slug>[a-z0-9-]*)/$',
+            ProjectDetailView.as_view(), name="project-detail"),
+    re_path(r'^project/(?P<slug>[a-z0-9-]*)/update/$',
+            ProjectUpdateView.as_view(), name="project-update"),
+    re_path(r'^project/(?P<slug>[a-z0-9-]*)/delete/$',
+            ProjectDeleteView.as_view(), name="project-delete"),
+
 
 
 ]
