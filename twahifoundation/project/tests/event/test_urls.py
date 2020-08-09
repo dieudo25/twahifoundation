@@ -2,8 +2,8 @@ from django.test import SimpleTestCase
 from django.urls import reverse, resolve
 
 from project.views.event import (
-    # EventCreateView,
-    # EventDeleteView,
+    EventCreateView,
+    EventDeleteView,
     EventListView,
     EventListFilteredView,
     EventDetailView,
@@ -44,7 +44,7 @@ class TestUrls(SimpleTestCase):
         self.assertEqual(resolve(url).func.__name__,
                          EventUpdateView.as_view().__name__)
 
-    """ def test_event_create_url_resolves(self):
+    def test_event_create_url_resolves(self):
         "Test URL EventCreateView"
 
         url = reverse('project:event-create')
@@ -56,4 +56,4 @@ class TestUrls(SimpleTestCase):
 
         url = reverse('project:event-delete', args=['event1'])
         self.assertEqual(resolve(url).func.__name__,
-                         EventDeleteView.as_view().__name__) """
+                         EventDeleteView.as_view().__name__)

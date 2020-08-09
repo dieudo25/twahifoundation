@@ -1,4 +1,4 @@
-import json
+""" import json
 import pytz
 
 from django.urls import reverse
@@ -15,6 +15,11 @@ class TestViews(TestCase):
     def setUp(self):
         "Set up Environnement for the test"
 
+        EVENT_TYPE_CHOICES = [
+            ('MemberMeeting', 'Meeting between members'),
+            ('FundRainsing', 'Fund rainsing'),
+        ]
+
         self.client = Client()
 
         self.list_url = reverse('project:event-list')
@@ -23,9 +28,9 @@ class TestViews(TestCase):
             'project:event-detail', args=['event-1'])
         self.update_url = reverse(
             'project:event-update', args=['event-1'])
-        """ self.create_url = reverse('project:event-2')
+        self.create_url = reverse('project:event-create')
         self.delete_url = reverse(
-            'project:event-delete', args=['event-1']) """
+            'project:event-delete', args=['event-1'])
 
         self.project1 = Project.objects.create(
             title="Project 1",
@@ -37,7 +42,7 @@ class TestViews(TestCase):
         self.event1 = Event.objects.create(
             title="Event 1",
             location="Bruxelles",
-            event_type="MemberMeeting",
+            event_type=EVENT_TYPE_CHOICES[0][0],
             image="https://www.optoma.fr/images/ProductApplicationFeatures/4kuhd/banner.jpg",
             description="description of the event",
             date_created=timezone.now(),
@@ -77,48 +82,57 @@ class TestViews(TestCase):
     def test_event_update(self):
         "Test VIEW EventUpdateView"
 
+        EVENT_TYPE_CHOICES = [
+            ('MemberMeeting', 'Meeting between members'),
+            ('FundRainsing', 'Fund rainsing'),
+        ]
+
         response = self.client.post(self.update_url, {
             'title': "Event 2",
             'location': "Liege",
-            'event_type': "MemberMeeting",
+            'event_type': EVENT_TYPE_CHOICES[0][0],
             'image': "https://www.optoma.fr/images/ProductApplicationFeatures/4kuhd/banner.jpg",
             'description': "description of the event",
-            'date_created': timezone.now(),
-            'time_started': timezone.datetime(
-                2013, 11, 20, 20, 8, 7, 127325, tzinfo=pytz.UTC),
-            'time_ended': timezone.datetime(
-                2019, 1, 20, 20, 8, 7, 127325, tzinfo=pytz.UTC),
+            'time_started': '2006-10-25 14:30',
+            'time_ended': '2016-10-25 14:30',
             'project': self.project1,
         })
 
-        updated_event = Event.objects.filter(slug="event-2")
+        updated_event = Event.objects.filter(title="Event 2")
 
         self.assertEqual(response.status_code, 302)
         self.assertEqual(updated_event.count(), 1)
 
-    """  def test_event_create(self):
+    def test_event_create(self):
         "Test VIEW EventCreateView"
 
+        EVENT_TYPE_CHOICES = [
+            ('MemberMeeting', 'Meeting between members'),
+            ('FundRainsing', 'Fund rainsing'),
+        ]
+
         response = self.client.post(self.create_url, {
-            'name': 'MediaMarkt',
-            'email': 'fontel@gmail.com',
-            'phone_number': '97754556',
-            'address': 'Rue de la Fontaine 345 1000 Bruxelles',
-            'website': 'https://www.mediamarkt.be',
-            'is_partner': True,
+            'title': "Event 2",
+            'location': "Liege",
+            'event_type': EVENT_TYPE_CHOICES[0][0],
+            'image': "https://www.optoma.fr/images/ProductApplicationFeatures/4kuhd/banner.jpg",
+            'description': "description of the event",
+            'time_started': '2006-10-25 14:30',
+            'time_ended': '2020-10-25 14:30',
+            'project': self.project1,
         })
 
-        event2 = Event.objects.get(name="MediaMarkt")
+        event2 = Event.objects.get(title="Event 2")
 
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(event2.name, 'MediaMarkt')
+        self.assertEqual(event2.title, 'Event 2')
 
     def test_event_create_no_data(self):
         "Test VIEW EventCreateView WITHOUT data"
 
         response = self.client.post(self.create_url)
 
-        event3 = Event.objects.filter(name="Vans").count()
+        event3 = Event.objects.filter(slug="event-2").count()
 
         self.assertEqual(response.status_code, 200)
         self.assertEqual(event3, 0)
@@ -131,8 +145,8 @@ class TestViews(TestCase):
             'id': 1
         }))
 
-        companies_number = Event.objects.all().count()
+        events_number = Event.objects.all().count()
 
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(companies_number, 0)
+        self.assertEqual(events_number, 0)
  """

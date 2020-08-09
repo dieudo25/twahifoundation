@@ -2,7 +2,6 @@ from django.db.models import Q
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
 
-from account.models.user import User
 from project.models.event import Event
 from project.forms.event import EventCreateUpdateForm
 
