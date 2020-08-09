@@ -134,7 +134,7 @@
       <a href="{% url 'project:event-update' event.slug %}">
         <p class="detail-bar-btn btn-black">Edit</p>
       </a>
-      <a href="{% comment %} {% url 'project:event-delete' event.slug %} {% endcomment %}">
+      <a href="{% url 'project:event-delete' event.slug %}">
         <p class="detail-bar-btn btn-red btn-last">Delete</p>
       </a>
     </div>

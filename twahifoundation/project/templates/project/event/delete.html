@@ -1,0 +1,33 @@
+{% extends 'portal/portal_base_sidebar.html'%}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block title %} Portal | Delete {{ object }} {% endblock title %}
+
+{% block portal_content %}
+  <div class="portal-content-title">
+    <h1>Delete {{ object }}</h1>
+  </div>
+  <div class="portal-wrapper">
+    <div class="portal-update-form-wrapper">
+      <form method="POST" id="update-form">
+
+          {% csrf_token %}
+
+          <p>Are you sure you want to delete "{{ object }}"?</p>
+      </form>
+    </div>
+  </div>
+  <div class="detail-bar">
+    <div class="detail-bar-col-1">
+      <a href="{% url 'project:event-detail' object.slug %}">
+        <p class="detail-bar-btn btn-black">Back</p>
+      </a>
+    </div>
+    <div class="detail-bar-col-2">
+      <button form="update-form" class="detail-bar-btn btn-red btn-last" type="submit">Delete</button>
+    </div>
+  </div>
+{% endblock portal_content %}

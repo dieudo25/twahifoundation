@@ -5,7 +5,7 @@
 
 .event-detail .detail-card {
   width: fit-content;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .event-detail .detail-info {
@@ -131,13 +131,6 @@
 
   .event-detail .detail-info .column:nth-child(2) {
     max-width: 500px;
-  }
-
-  .participant-section .prev {
-    width: 20px;
-    height: 20px;
-    background-image: url(img/back.svg);
-    transition: all 0.3s ease-in-out;
   }
 }
 @media (min-width: 1200px) {

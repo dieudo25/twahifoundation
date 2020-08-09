@@ -3,8 +3,8 @@ from django.views.generic import CreateView, DetailView, DeleteView, ListView, U
 from django.urls import reverse_lazy
 
 from account.models.user import User
-from project.forms.event import EventUpdateForm
 from project.models.event import Event
+from project.forms.event import EventCreateUpdateForm
 
 
 class EventListView(ListView):
@@ -57,10 +57,10 @@ class EventUpdateView(UpdateView):
     model = Event
     template_name = 'project/event/update.html'
     context_object_name = 'event'
-    form_class = EventUpdateForm
+    form_class = EventCreateUpdateForm
 
 
-""" class EventDeleteView(DeleteView):
+class EventDeleteView(DeleteView):
     "Event Delete View"
 
     model = Event
@@ -74,11 +74,4 @@ class EventCreateView(CreateView):
 
     model = Event
     template_name = 'project/event/create.html'
-    fields = [
-        'name',
-        'email',
-        'phone_number',
-        'address',
-        'website',
-        'is_partner',
-    ] """
+    form_class = EventCreateUpdateForm
