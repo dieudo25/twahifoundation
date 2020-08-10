@@ -17,10 +17,6 @@
   text-align: justify;
 }
 
-.detail-info-group:last-child p {
-  margin: revert;
-}
-
 .participant-section {
   margin-top: 50px;
   padding-top: 50px;
@@ -29,15 +25,16 @@
 
 .participant-section h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   font-weight: 600;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  font-size: 20px;
 }
 
 .participant-section .material-icons {
-  font-size: 40px;
+  font-size: 33px;
   cursor: pointer;
   user-select: none;
 }
@@ -63,6 +60,10 @@
   font-weight: 600;
 }
 
+.detail-info-group:last-child .detail-info-item-2 p {
+  margin-bottom: 16px;
+}
+
 @media (min-width: 768px) {
   .event-detail .detail-card {
     display: flex;
@@ -79,7 +80,7 @@
   }
 
   .event-detail .portal-title {
-    margin: 30px 0 44px;
+    margin: 0;
   }
 
   .event-detail .detail-info {
@@ -89,13 +90,30 @@
     margin: 0 auto;
   }
 
+  .project.event-detail .detail-info {
+    display: unset;
+    justify-content: space-between;
+    width: unset;
+    margin: 0;
+  }
+
   .event-detail .detail-info .column:first-child {
     border-right: 4px solid #212529;
     width: 205px;
   }
 
+  .project.event-detail .detail-info .column:first-child {
+    border-right: unset;
+    width: unset;
+    display: flex;
+  }
+
   .event-detail .detail-info .column:nth-child(2) {
     width: 350px;
+  }
+
+  .project.event-detail .detail-info .column:nth-child(2) {
+    width: unset;
   }
 
   .event-detail .detail-info-group {
@@ -103,8 +121,16 @@
     padding: 0 30px 0 0;
   }
 
+  .project.event-detail .detail-info-group {
+    display: flex;
+  }
+
   .detail-info-item-1 {
     width: unset;
+  }
+
+  .project .detail-info-item-1 {
+    margin-right: 10px;
   }
 }
 @media (min-width: 992px) {
@@ -134,8 +160,8 @@
     justify-content: center;
   }
 
-  .event-img .img-wrapper {
-    width: 408px;
+  .event-detail .event-img .img-wrapper {
+    width: 442px;
   }
 
   .event-detail .detail-info {
@@ -153,10 +179,17 @@
 }
 
 @media (min-width: 1440px) {
+  .project .detail-info-section {
+    width: 1000px;
+  }
   .event-detail .detail-card {
     min-width: 1000px;
     max-width: 1100px;
     margin: 0 auto 40px;
+  }
+
+  .event-detail .event-img .img-wrapper {
+    width: 375px;
   }
 
   .event-detail .portal-title h1 {

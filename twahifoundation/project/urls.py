@@ -8,7 +8,6 @@ from project.views.event import (
     EventCreateView,
     EventDeleteView,
 )
-
 from project.views.project import (
     ProjectListView,
     ProjectListFilteredView,
@@ -16,6 +15,14 @@ from project.views.project import (
     ProjectUpdateView,
     ProjectCreateView,
     ProjectDeleteView,
+)
+from project.views.task import (
+    TaskListView,
+    TaskListFilteredView,
+    TaskDetailView,
+    TaskUpdateView,
+    TaskCreateView,
+    TaskDeleteView,
 )
 
 app_name = 'project'
@@ -47,6 +54,19 @@ urlpatterns = [
             ProjectUpdateView.as_view(), name="project-update"),
     re_path(r'^project/(?P<slug>[a-z0-9-]*)/delete/$',
             ProjectDeleteView.as_view(), name="project-delete"),
+
+    # Task CRUD
+    re_path(r'^task/list/$', TaskListView.as_view(), name="task-list"),
+    re_path(r'^task/list/search/$', TaskListFilteredView.as_view(),
+            name="task-list-search"),
+    re_path(r'^task/create/$', TaskCreateView.as_view(),
+            name="task-create"),
+    re_path(r'^task/(?P<slug>[a-z0-9-]*)/$',
+            TaskDetailView.as_view(), name="task-detail"),
+    re_path(r'^task/(?P<slug>[a-z0-9-]*)/update/$',
+            TaskUpdateView.as_view(), name="task-update"),
+    re_path(r'^task/(?P<slug>[a-z0-9-]*)/delete/$',
+            TaskDeleteView.as_view(), name="task-delete"),
 
 
 

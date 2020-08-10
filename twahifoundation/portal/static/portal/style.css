@@ -147,7 +147,7 @@ p.help-block {
 }
 
 .portal-content-table {
-  overflow: scroll;
+  overflow: auto;
   padding: 0 15px;
 }
 
@@ -297,7 +297,10 @@ p.help-block {
   display: flex;
   flex-direction: column;
   max-height: 250px;
-  overflow: scroll;
+}
+
+.form-width-checkbox #div_id_users .controls {
+  overflow: auto;
 }
 
 .form-width-checkbox .controls input[type="checkbox"],
@@ -433,7 +436,7 @@ input[type="radio"] {
 
   .portal-section {
     padding: 20px;
-    overflow: scroll;
+    overflow: auto;
     flex-grow: 2;
   }
 
