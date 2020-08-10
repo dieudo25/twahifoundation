@@ -4,7 +4,7 @@
 
 {% load static %}
 
-{% block title %} Portal | Delete {{ object }} {% endblock title %}
+{% block title %} Portal | Delete {{ company }} {% endblock title %}
 
 {% block css %}
 
@@ -15,7 +15,7 @@
 
 {% block portal_content %}
   <div class="portal-content-title">
-    <h1>Delete {{ object }}</h1>
+    <h1>Delete {{ company }}</h1>
   </div>
   <div class="portal-wrapper">
     <div class="portal-update-form-wrapper">
@@ -23,13 +23,27 @@
 
           {% csrf_token %}
 
-          <p>Are you sure you want to delete "{{ object }}"?</p>
+          <p>Are you sure you want to delete "{{ company }}"?</p>
+
+          {% if company.person_set.all%}
+            <p>If you confirm, th{{ company.person_set.all.count|pluralize:"is,ese" }} item{{ company.person_set.all|pluralize }} will also be deleted : <p>
+            <p>Individual{{ company.person_set.all|pluralize }} :</p>
+            <ul>
+
+              {% for person in company.person_set.all %}
+                <li>{{ person.last_name|title }} {{ person.first_name|title }}</li>
+              {% endfor %}
+
+            </ul>
+
+          {% endif %}
+
       </form>
     </div>
   </div>
   <div class="detail-bar">
     <div class="detail-bar-col-1">
-      <a href="{% url 'contact:company-detail' object.slug %}">
+      <a href="{% url 'contact:company-detail' company.slug %}">
         <p class="detail-bar-btn btn-black">Back</p>
       </a>
     </div>
