@@ -22,7 +22,7 @@
 {% endblock scripts %}
 
 {% block portal_content %}
-  <div class="portal-wrapper event-detail">
+  <div class="portal-wrapper event-detail project">
     <div class="detail-info-section">
       <div class="detail-card">
         <div class="event-img">
@@ -46,7 +46,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Closing date</p>
+              <p>Closing date :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  project.date_ended }}</p>
@@ -59,7 +59,7 @@
               <p>Description :</p>
             </div>
             <div class="detail-info-item-2">
-              <p>{{  project.description }}</p>
+              <p>{{  project.description|linebreaks }}</p>
             </div>
           </div>
         </div>

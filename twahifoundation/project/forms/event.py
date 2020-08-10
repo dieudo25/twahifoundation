@@ -29,6 +29,3 @@ class EventCreateUpdateForm(forms.ModelForm):
         widgets = {
             'users': forms.CheckboxSelectMultiple,
         }
-        attrs = {
-            'class': 'diedo',
-        }
