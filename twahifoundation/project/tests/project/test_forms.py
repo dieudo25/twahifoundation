@@ -7,7 +7,7 @@ from project.forms.project import ProjectCreateUpdateForm
 class TestForms(TestCase):
     "Test Event forms"
 
-    def test_event_create_update_form_valid_data(self):
+    def test_project_create_update_form_valid_data(self):
         "Test thee validation of the the data upon creation or update of the project"
 
         form = ProjectCreateUpdateForm(data={
@@ -19,7 +19,7 @@ class TestForms(TestCase):
 
         self.assertTrue(form.is_valid())
 
-    def test_event_create_update_form_no_valid(self):
+    def test_project_create_update_form_no_valid(self):
         ""
 
         form = ProjectCreateUpdateForm(data={})
