@@ -25,6 +25,7 @@ urlpatterns = [
     re_path(r'^contact/', include('contact.urls')),
     re_path(r'^portal/', include('portal.urls')),
     re_path(r'^project/', include('project.urls')),
+    re_path(r'^stock/', include('stock.urls')),
     re_path(r'^', include('page.urls')),
 
 

@@ -202,6 +202,30 @@ p.help-block {
   height: 100px;
 }
 
+.portal-app-nav .custom-btn .add-text {
+  display: flex;
+}
+
+.portal-app-nav .custom-btn .poratl-app-nav-item {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.portal-app-nav .custom-icon {
+  width: 22px;
+  height: 22px;
+  margin-right: 10px;
+}
+.portal-app-nav .custom-icon.stock-icon {
+  background-image: url(img/stock.svg);
+  background-size: contain;
+  display: block;
+}
+
+.portal-app-nav .custom-btn .add-text span:last-child {
+  padding-top: 2.82px;
+}
+
 /* PORTAL DETAIL */
 
 .portal-wrapper {
@@ -241,6 +265,10 @@ p.help-block {
 
 .portal-update-form-wrapper .control-group:last-child {
   margin-bottom: 0;
+}
+
+.detail-info-group .img-bool .img-wrapper {
+  margin-bottom: 16px;
 }
 
 /* PORTAL CREATE */
@@ -534,10 +562,6 @@ input[type="radio"] {
 
   .detail-bar-btn {
     width: unset;
-  }
-
-  .detail-info-group .img-bool .img-wrapper {
-    margin: 0px auto;
   }
 
   /* PORTAL FORM */
