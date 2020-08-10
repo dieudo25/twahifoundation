@@ -1,32 +1,10 @@
 import itertools
 
 from django.db import models
-
+from django.urls import reverse
 from django.utils.text import slugify
 
-
-class Category(models.Model):
-    """
-    Category model definition
-    """
-
-    class Meta:
-        """
-        Meta definition for Category.
-        """
-
-        verbose_name = 'Catégorie'
-        verbose_name_plural = 'Catégories'
-        ordering = ['name']
-
-    name = models.CharField(max_length=100, verbose_name="Nom")
-
-    def __str__(self):
-        """
-        Unicode representation of Category.
-        """
-
-        return f"{self.name}"
+from stock.models.category import Category
 
 
 class Product(models.Model):
@@ -46,38 +24,31 @@ class Product(models.Model):
     category = models.ForeignKey(
         Category,
         on_delete=models.PROTECT,
-        verbose_name="Catégorie",
         blank=True,
         null=True,
     )
 
     slug = models.SlugField(max_length=100, unique=True)
-    name = models.CharField(max_length=100, verbose_name="Nom")
+    name = models.CharField(max_length=100,)
     price = models.DecimalField(
-        max_digits=20, decimal_places=2, verbose_name="Prix")
+        max_digits=20, decimal_places=2,)
     image = models.URLField(
         max_length=255,
         null=True,
         blank=True,
-        verbose_name="URL de l'image"
     )
     description = models.TextField(
-        verbose_name="Description",
         null=True,
-        blank=True
+        blank=True,
     )
     date_created = models.DateField(
         auto_now_add=True,
         null=True,
         blank=True,
-        verbose_name="Date de création"
+        verbose_name="Creation date"
     )
-    is_saleable = models.BooleanField(
-        default=True,
-        verbose_name="Vendable",)
-    is_purchasable = models.BooleanField(
-        default=True,
-        verbose_name="Achetable",)
+    is_saleable = models.BooleanField(default=True,)
+    is_purchasable = models.BooleanField(default=True,)
 
     def __str__(self):
         """
@@ -120,3 +91,10 @@ class Product(models.Model):
             self._generate_slug()
 
         super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        """
+        Return absolute url for Product.
+        """
+
+        return reverse('stock:product-detail', kwargs={'slug': self.slug})

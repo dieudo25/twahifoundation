@@ -1,0 +1,116 @@
+{% extends 'portal/portal_base_sidebar.html'%}
+
+{% load static %}
+
+{% block title %} Portal | {{ product.name }} {% endblock title %}
+
+{% block css %}
+
+  {{ block.super }}
+
+  <link rel="stylesheet" href="{% static 'account/style.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'project/style.css' %}" type="text/css">
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+{% endblock css %}
+
+{% block portal_content %}
+  <div class="portal-wrapper event-detail product">
+    <div class="detail-info-section">
+      <div class="detail-card">
+        <div class="detail-img">
+          <div class="img-wrapper">
+            <img src="{{ product.image }}">
+          </div>
+        </div>
+        <div class="portal-title">
+          <h1>{{ product.name }}</h1>
+        </div>
+      </div>
+      <div class="detail-info">
+        <div class="column">
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Category :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  product.category }}</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Price :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  product.price }} €</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Created date :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  product.date_created }}</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Is saleable ? :</p>
+            </div>
+            <div class="detail-info-item-2 img-bool">
+              {% if product.is_saleable %}
+                <div class="img-wrapper">
+                  <img src="{% static 'portal/img/true.svg' %}">
+                </div>
+              {% else %}
+                <div class="img-wrapper">
+                  <img src="{% static 'portal/img/false.svg' %}">
+                </div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Is purchasable ? :</p>
+            </div>
+            <div class="detail-info-item-2 img-bool">
+              {% if product.is_purchasable %}
+                <div class="img-wrapper">
+                  <img src="{% static 'portal/img/true.svg' %}">
+                </div>
+              {% else %}
+                <div class="img-wrapper">
+                  <img src="{% static 'portal/img/false.svg' %}">
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="">
+            <div class="detail-info-item-1">
+              <p>Description :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  product.description|linebreaks }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="detail-bar">
+    <div class="detail-bar-col-1">
+      <a href="{% url 'stock:product-list' %}">
+        <p class="detail-bar-btn btn-black">Back</p>
+      </a>
+    </div>
+    <div class="detail-bar-col-2">
+      <a href="{% url 'stock:product-update' product.slug %}">
+        <p class="detail-bar-btn btn-black">Edit</p>
+      </a>
+      <a href="{% url 'stock:product-delete' product.slug %}">
+        <p class="detail-bar-btn btn-red btn-last">Delete</p>
+      </a>
+    </div>
+  </div>
+{% endblock portal_content %}
