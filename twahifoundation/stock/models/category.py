@@ -18,7 +18,7 @@ class Category(models.Model):
         verbose_name_plural = 'Categories'
         ordering = ['name']
 
-    name = models.CharField(max_length=100, verbose_name="Nom")
+    name = models.CharField(max_length=100,)
     slug = models.SlugField(max_length=100, unique=True)
 
     def __str__(self):
@@ -68,4 +68,4 @@ class Category(models.Model):
         Return absolute url for Category.
         """
 
-        return reverse('stock:category-detail', kwargs={'slug': self.slug})
+        return reverse('stock:category-list')

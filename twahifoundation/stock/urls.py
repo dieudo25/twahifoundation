@@ -1,5 +1,12 @@
 from django.urls import re_path
 
+from stock.views.category import (
+    CategoryListView,
+    CategoryListFilteredView,
+    CategoryUpdateView,
+    CategoryCreateView,
+    CategoryDeleteView,
+)
 from stock.views.product import (
     ProductListView,
     ProductListFilteredView,
@@ -8,12 +15,31 @@ from stock.views.product import (
     ProductCreateView,
     ProductDeleteView,
 )
+from stock.views.stock import (
+    StockListView,
+    StockListFilteredView,
+    StockDetailView,
+    StockUpdateView,
+    StockCreateView,
+    StockDeleteView,
+)
+
 
 app_name = 'stock'
 
 urlpatterns = [
 
     # Category CRUD
+    re_path(r'^category/list/$', CategoryListView.as_view(),
+            name="category-list"),
+    re_path(r'^category/list/search/$', CategoryListFilteredView.as_view(),
+            name="category-list-search"),
+    re_path(r'^category/create/$', CategoryCreateView.as_view(),
+            name="category-create"),
+    re_path(r'^category/(?P<slug>[a-z0-9-]*)/update/$',
+            CategoryUpdateView.as_view(), name="category-update"),
+    re_path(r'^category/(?P<slug>[a-z0-9-]*)/delete/$',
+            CategoryDeleteView.as_view(), name="category-delete"),
 
     # Product CRUD
     re_path(r'^product/list/$', ProductListView.as_view(), name="product-list"),
@@ -29,5 +55,17 @@ urlpatterns = [
             ProductDeleteView.as_view(), name="product-delete"),
 
     # Stock CRUD
+    re_path(r'^stock/list/$', StockListView.as_view(), name="stock-list"),
+    re_path(r'^stock/list/search/$', StockListFilteredView.as_view(),
+            name="stock-list-search"),
+    re_path(r'^stock/create/$', StockCreateView.as_view(),
+            name="stock-create"),
+    re_path(r'^stock/(?P<slug>[a-z0-9-]*)/$',
+            StockDetailView.as_view(), name="stock-detail"),
+    re_path(r'^stock/(?P<slug>[a-z0-9-]*)/update/$',
+            StockUpdateView.as_view(), name="stock-update"),
+    re_path(r'^stock/(?P<slug>[a-z0-9-]*)/delete/$',
+            StockDeleteView.as_view(), name="stock-delete"),
+
 
 ]

@@ -215,11 +215,12 @@ p.help-block {
   width: 22px;
   height: 22px;
   margin-right: 10px;
-}
-.portal-app-nav .custom-icon.stock-icon {
-  background-image: url(img/stock.svg);
   background-size: contain;
   display: block;
+}
+
+.portal-app-nav .custom-icon.stock-icon {
+  background-image: url(img/stock.svg);
 }
 
 .portal-app-nav .custom-btn .add-text span:last-child {
@@ -382,6 +383,12 @@ input[type="radio"] {
 #list-search .form-group {
   margin-bottom: 0;
 }
+
+.list-with-btn th span {
+  height: 33px;
+  display: flex;
+  align-items: flex-end;
+}
 @media (min-width: 768px) {
   /* ALL */
 
@@ -533,6 +540,20 @@ input[type="radio"] {
 
   .portal-content-title {
     margin-bottom: 20px;
+  }
+
+  /* PORTAL LIST */
+
+  .list-with-btn .portal-content-nav-item ul {
+    padding-left: 9px;
+  }
+
+  .td-btn {
+    width: 50px;
+  }
+
+  .list-with-btn .detail-bar-btn {
+    margin-bottom: 0;
   }
 
   /* PORTAL DETAIL */
