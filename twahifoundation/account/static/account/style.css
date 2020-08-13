@@ -109,10 +109,6 @@
   overflow: hidden;
 }
 
-.portal-title {
-  margin: 30px 0 44px;
-}
-
 .profile .portal-title h1 {
   text-align: center;
 }
@@ -174,17 +170,12 @@
     align-items: center;
   }
 
-  .detail-card {
-    margin-right: 15px;
-  }
-
   .profile .detail-info {
     text-align: unset;
   }
 
   .detail-info-group {
     display: flex;
-    padding: 0 30px;
   }
 
   .detail-info-group:last-child {
@@ -250,7 +241,7 @@
   }
 
   .detail-info {
-    padding: 30px 0;
+    padding: 20px 0;
   }
 }
 

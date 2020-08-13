@@ -4,13 +4,20 @@
 
 {% block title %} Portal | Product list {% endblock title %}
 
+{% block css %}
+
+  {{ block.super }}
+
+  <link rel="stylesheet" href="{% static 'stock/style.css' %}" type="text/css">
+{% endblock css %}
+
 {% block portal_content %}
   <div class="portal-content-title">
     <h1>Manage Products</h1>
   </div>
   <div class="portal-top-bar">
   <ul class="portal-app-nav">
-        <a href="{% comment %} {% url 'stock:stock-list' %} {% endcomment %}" class="btn-black custom-btn">
+        <a href="{% url 'stock:stock-list' %}" class="btn-black custom-btn">
           <li class="poratl-app-nav-item">
             <div class="add-text">
               <span class="custom-icon stock-icon"></span>
@@ -18,15 +25,15 @@
             </div>
           </li>
         </a>
-        <a href="{% url 'stock:product-list' %}" class="btn-black">
+        <a href="{% url 'stock:product-list' %}" class="btn-black custom-btn">
           <li class="poratl-app-nav-item">
             <div class="add-text">
-              <span class="material-icons">business</span>
+              <span class="custom-icon product-icon"></span>
               <span>Product</span>
             </div>
           </li>
         </a>
-        <a href="{% comment %} {% url 'stock:category-list' %} {% endcomment %}" class="btn-black">
+        <a href="{% url 'stock:category-list' %}" class="btn-black">
           <li class="poratl-app-nav-item">
             <div class="add-text">
               <span class="material-icons">category</span>
@@ -55,7 +62,7 @@
             <li class="nav-item-add">
               <div class="add-text">
                 <span class="material-icons">add_circle_outline</span>
-                <span>Add product</span>
+                <span>Add</span>
               </div>
             </li>
           </a>

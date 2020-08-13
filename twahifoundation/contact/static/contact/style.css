@@ -14,9 +14,4 @@
   .contact .portal-title h1 {
     text-align: center;
   }
-
-  #detail-view {
-    flex-direction: unset;
-    justify-content: center;
-  }
 }

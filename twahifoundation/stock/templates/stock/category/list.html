@@ -62,7 +62,7 @@
             <li class="nav-item-add">
               <div class="add-text">
                 <span class="material-icons">add_circle_outline</span>
-                <span>Add category</span>
+                <span>Add</span>
               </div>
             </li>
           </a>
@@ -78,8 +78,8 @@
           <thead>
             <tr>
               <th scope="col">Name</th>
-              <th scope="col"></th>
-              <th scope="col"></th>
+              <th scope="col" class="table-icon">Edit</th>
+              <th scope="col" class="table-icon">Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -87,14 +87,14 @@
             {% for category in filtered_category_list %}
               <tr class="table">
                 <th scope="row"><span>{{ category.name }}</span></th>
-                <td class="td-btn">
+                <td>
                   <a href="{% url 'stock:category-update' category.slug %}">
-                    <p class="detail-bar-btn btn-black">Edit</p>
+                    <span class="material-icons text-black">edit</span>
                   </a>
                 </td>
-                <td class="td-btn">
+                <td>
                   <a href="{% url 'stock:category-delete' category.slug %}">
-                    <p class="detail-bar-btn btn-red btn-last">Delete</p>
+                    <span class="material-icons text-red">clear</span>
                   </a>
                 </td>
               </tr>
@@ -107,8 +107,8 @@
           <thead>
             <tr>
               <th scope="col"><span>Name</span></th>
-              <th scope="col"></th>
-              <th scope="col"></th>
+              <th scope="col" class="table-icon">Edit</th>
+              <th scope="col" class="table-icon">Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -116,14 +116,14 @@
             {% for category in category_list %}
               <tr class="table">
                 <th scope="row"><span>{{ category.name }}</span></th>
-                <td class="td-btn">
+                <td>
                   <a href="{% url 'stock:category-update' category.slug %}">
-                    <p class="detail-bar-btn btn-black">Edit</p>
+                    <span class="material-icons text-black">edit</span>
                   </a>
                 </td>
-                <td class="td-btn">
+                <td>
                   <a href="{% url 'stock:category-delete' category.slug %}">
-                    <p class="detail-bar-btn btn-red btn-last">Delete</p>
+                    <span class="material-icons text-red">clear</span>
                   </a>
                 </td>
               </tr>
