@@ -1,0 +1,165 @@
+{% extends 'portal/portal_base_sidebar.html'%}
+
+{% load static %}
+
+{% block title %} Portal | {{ stock.name }} {% endblock title %}
+
+{% block css %}
+
+  {{ block.super }}
+
+  <link rel="stylesheet" href="{% static 'account/style.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'stock/style.css' %}" type="text/css">
+ {% endblock css %}
+
+{% block portal_content %}
+  <div class="portal-wrapper detail-with-table">
+    <div class="detail-info-section">
+      <div class="detail-card">
+        <div class="portal-title">
+          <h1>{{ stock.name }}</h1>
+        </div>
+      </div>
+      <div class="detail-info">
+        <div class="">
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Location :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  stock.location }}</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Creation date :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  stock.date_created }} €</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Is full ? :</p>
+            </div>
+            <div class="detail-info-item-2 img-bool">
+              {% if stock.is_full %}
+                <div class="img-wrapper">
+                  <img src="{% static 'portal/img/true.svg' %}">
+                </div>
+              {% else %}
+                <div class="img-wrapper">
+                  <img src="{% static 'portal/img/false.svg' %}">
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="portal-content-title">
+        <h2>Manage transferts</h2>
+      </div>
+      <div class="portal-top-bar">
+        <ul class="portal-app-nav">
+          <a href="{% url 'stock:stock-reception-detail' stock.slug %}" class="btn-black custom-btn">
+            <li class="poratl-app-nav-item">
+              <div class="add-text">
+                <span class="custom-icon stock-icon"></span>
+                <span>Reception</span>
+              </div>
+            </li>
+          </a>
+          <a href="{% url 'stock:stock-delivery-detail' stock.slug %}" class="btn-black custom-btn">
+            <li class="poratl-app-nav-item">
+              <div class="add-text">
+                <span class="custom-icon product-icon"></span>
+                <span>Delivery</span>
+              </div>
+            </li>
+          </a>
+        </ul>
+      </div>
+      <div class="portal-content-body">
+        <div class="portal-content-nav">
+          <div class="portal-content-nav-title">
+            <h3>Receptions</h3>
+          </div>
+          <div class="portal-content-nav-item">
+            <ul>
+              <a href="{% url 'stock:stock-create' %}">
+                <li class="nav-item-add">
+                  <div class="add-text">
+                    <span class="material-icons">add_circle_outline</span>
+                      <span>Add</span>
+                  </div>
+                </li>
+              </a>
+            </ul>
+          </div>
+        </div>
+        <div class="portal-content-search">
+        </div>
+        <div class="portal-content-table">
+          
+          {% if  reception|length == 0 %}
+            <div id="empty-table">
+              <p>No reception yet, <a href="{% url 'stock:stock-create' %}">create one</a></p>
+            </div>
+          {% elif reception %}
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Product name</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Created date</th>
+                  <th scope="col" class="table-icon">Edit</th>
+                  <th scope="col" class="table-icon">Delete</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+
+                {% for product_transfert in reception %}
+                  <tr class="table">
+                    <th scope="row">{{ product_transfert }}</th>
+                    <td>{{ product_transfert.product.name }}</td>
+                    <td>{{ product_transfert.quantity }}</td>
+                    <td>{{ product_transfert.date_created }}</td>
+                    <td>
+                      <span class="material-icons text-black">edit</span>
+                    </td>
+                    <td>
+                      <span class="material-icons text-red">clear</span>
+                    </td>
+                  </tr>
+                {% endfor %}
+
+              </tbody>
+            </table>
+          {% else %}
+            <div id="search-no-result">
+              <p>No results found</p>
+            </div>
+          {% endif%}
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="detail-bar">
+    <div class="detail-bar-col-1">
+      <a href="{% url 'stock:stock-list' %}">
+        <p class="detail-bar-btn btn-black">Back</p>
+      </a>
+    </div>
+    <div class="detail-bar-col-2">
+      <a href="{% url 'stock:stock-update' stock.slug %}">
+        <p class="detail-bar-btn btn-black">Edit</p>
+      </a>
+      <a href="{% url 'stock:stock-delete' stock.slug %}">
+        <p class="detail-bar-btn btn-red btn-last">Delete</p>
+      </a>
+    </div>
+  </div>
+{% endblock portal_content %}

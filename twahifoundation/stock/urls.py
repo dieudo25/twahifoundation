@@ -18,7 +18,8 @@ from stock.views.product import (
 from stock.views.stock import (
     StockListView,
     StockListFilteredView,
-    StockDetailView,
+    StockDetailDeliveryView,
+    StockDetailReceptionView,
     StockUpdateView,
     StockCreateView,
     StockDeleteView,
@@ -60,12 +61,13 @@ urlpatterns = [
             name="stock-list-search"),
     re_path(r'^stock/create/$', StockCreateView.as_view(),
             name="stock-create"),
-    re_path(r'^stock/(?P<slug>[a-z0-9-]*)/$',
-            StockDetailView.as_view(), name="stock-detail"),
+    re_path(r'^stock/(?P<slug>[a-z0-9-]*)/reception/$',
+            StockDetailReceptionView.as_view(), name="stock-reception-detail"),
+    re_path(r'^stock/(?P<slug>[a-z0-9-]*)/delivery/$',
+            StockDetailDeliveryView.as_view(), name="stock-delivery-detail"),
+
     re_path(r'^stock/(?P<slug>[a-z0-9-]*)/update/$',
             StockUpdateView.as_view(), name="stock-update"),
     re_path(r'^stock/(?P<slug>[a-z0-9-]*)/delete/$',
             StockDeleteView.as_view(), name="stock-delete"),
-
-
 ]

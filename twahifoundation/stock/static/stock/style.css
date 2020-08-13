@@ -1,0 +1,8 @@
+/* PORTAL LIST */
+.portal-app-nav .custom-icon.stock-icon {
+  background-image: url(img/stock.svg);
+}
+
+.portal-app-nav .custom-icon.product-icon {
+  background-image: url(img/product.svg);
+}
