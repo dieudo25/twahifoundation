@@ -10,16 +10,7 @@
 
   <link rel="stylesheet" href="{% static 'account/style.css' %}" type="text/css">
   <link rel="stylesheet" href="{% static 'project/style.css' %}" type="text/css">
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 {% endblock css %}
-
-{% block scripts %}
-
-  {{ block.super }}
-  
-  <script src="{% static 'project/main.js' %}"></script>
-  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-{% endblock scripts %}
 
 {% block portal_content %}
   <div class="portal-wrapper event-detail project">

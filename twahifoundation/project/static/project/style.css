@@ -132,6 +132,10 @@
   .project .detail-info-item-1 {
     margin-right: 10px;
   }
+
+  .participant-section h2 {
+    font-size: 26px;
+  }
 }
 @media (min-width: 992px) {
   .event-detail .detail-img .img-wrapper {
