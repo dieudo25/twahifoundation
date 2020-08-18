@@ -104,7 +104,7 @@
                   {% endif %}
                 </td>
                 <td class="img-bool">
-                  {% if person.is_follower %}
+                  {% if person.is_subscribed %}
                     <div class="img-wrapper">
                       <img src="{% static 'portal/img/true.svg' %}">
                     </div>
@@ -165,7 +165,7 @@
                   {% endif %}
                 </td>
                 <td class="img-bool">
-                  {% if person.is_follower %}
+                  {% if person.is_subscribed %}
                     <div class="img-wrapper">
                       <img src="{% static 'portal/img/true.svg' %}">
                     </div>

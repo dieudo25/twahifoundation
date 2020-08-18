@@ -35,7 +35,7 @@ class Transaction(models.Model):
         blank=True,
         null='NULL',
     )
-    products = models.ManyToManyField(
+    products_transaction = models.ManyToManyField(
         Product,
         through='ProductTransactionLine',
         verbose_name="Liste de produits",
@@ -47,7 +47,7 @@ class Transaction(models.Model):
         default=TYPE_CHOICES[0][0],
         verbose_name="Type de transfert"
     )
-    date_created = models.DateField(
+    date_time_created = models.DateTimeField(
         auto_now_add=True,
         null=True,
         blank=True,
@@ -62,7 +62,7 @@ class Transaction(models.Model):
 
         verbose_name = 'Transaction'
         verbose_name_plural = 'Transactions'
-        ordering = ['-date_created']
+        ordering = ['-date_time_created']
 
     def __str__(self):
         """

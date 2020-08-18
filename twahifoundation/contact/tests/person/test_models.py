@@ -26,7 +26,7 @@ class TestModels(TestCase):
             phone_number="0476543298",
             is_supplier=True,
             is_donor=False,
-            is_follower=True,
+            is_subscribed=True,
             company=self.company1
         )
 

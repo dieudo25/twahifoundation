@@ -1,17 +1,17 @@
 [
-{
+  {
     "model": "contact.person",
     "pk": 1,
     "fields": {
-        "company": 1,
-        "first_name": "Dieudonn\u00e9",
-        "last_name": "Twahirwa",
-        "email": "twahirwa25@gmail.com",
-        "phone_number": "+32489512493",
-        "is_supplier": true,
-        "is_donor": true,
-        "is_follower": false,
-        "slug": "dieudonne-twahirwa"
+      "company": 1,
+      "first_name": "Dieudonn\u00e9",
+      "last_name": "Twahirwa",
+      "email": "twahirwa25@gmail.com",
+      "phone_number": "+32489512493",
+      "is_supplier": true,
+      "is_donor": true,
+      "is_subscribed": false,
+      "slug": "dieudonne-twahirwa"
     }
-}
+  }
 ]

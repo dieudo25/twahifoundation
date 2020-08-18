@@ -14,13 +14,18 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Company',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(default=None, max_length=60, verbose_name='Nom')),
-                ('adresse', models.CharField(default=None, max_length=60, verbose_name='Adresse')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True, serialize=False, verbose_name='ID')),
+                ('name', models.CharField(default=None,
+                                          max_length=60, verbose_name='Nom')),
+                ('adresse', models.CharField(default=None,
+                                             max_length=60, verbose_name='Adresse')),
                 ('email', models.EmailField(default=None, max_length=254)),
-                ('phone_number', models.CharField(max_length=60, null=None, verbose_name='Téléphone')),
+                ('phone_number', models.CharField(
+                    max_length=60, null=None, verbose_name='Téléphone')),
                 ('site_web', models.URLField(blank=True)),
-                ('is_partner', models.BooleanField(default=False, verbose_name='Est un partenaire')),
+                ('is_partner', models.BooleanField(
+                    default=False, verbose_name='Est un partenaire')),
             ],
             options={
                 'verbose_name': 'Entreprise',
@@ -29,12 +34,14 @@ class Migration(migrations.Migration):
         ),
         migrations.AddField(
             model_name='person',
-            name='is_follower',
-            field=models.BooleanField(default=False, verbose_name='Est inscrit à la newsletter'),
+            name='is_subscribed',
+            field=models.BooleanField(
+                default=False, verbose_name='Est inscrit à la newsletter'),
         ),
         migrations.AlterField(
             model_name='person',
             name='company',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='contact.Company'),
+            field=models.ForeignKey(
+                blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='contact.Company'),
         ),
     ]

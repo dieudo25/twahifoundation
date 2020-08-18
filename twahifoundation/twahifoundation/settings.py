@@ -37,10 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     'crispy_forms',
     'django_extensions',
     'debug_toolbar',
+    'django_messages',
+    'imperavi',
+
 
     'account.apps.AccountConfig',
     'contact.apps.ContactConfig',
@@ -49,6 +53,8 @@ INSTALLED_APPS = [
     'project.apps.ProjectConfig',
     'stock.apps.StockConfig',
     'transaction.apps.TransactionConfig',
+
+    'notifications',
 ]
 
 MIDDLEWARE = [
@@ -97,6 +103,7 @@ DATABASES = {
     }
 }
 
+SITE_ID = 1
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -148,10 +155,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # Django Extensions - Grap models
 # Command for the entire project :
 #   python manage.py graph_models -a -g -o graph_models/tf_visualization.png
-# Command for twahifoundation model :
+# Command for twahifoundation model (excluding) :
 #   python manage.py graph_models -a -X LogEntry,ContentType,Session,AbstractBaseSession -o graph_models/sub_tf_visualization.png
+# Command for twahifoundation model (including) :
+#   python manage.py graph_models -a -I User,Group,Permission,Company,Person,Event,Project,Stock,Product,ProductStockTransfert,Category,Task,Transaction,ProductTransactionLine,Message,Newsletter -o graph_models/sub_tf_visualization2.png
 # Command for twahifoundation model whitout edge model:
-#   python manage.py graph_models -a --hide-edge-labels -X LogEntry,ContentType,Session,AbstractBaseSession -o graph_models/no_edge_sub_tf_visualization.png
+#   python manage.py graph_models -a --hide-edge-labels -I User,Group,Permission,Company,Person,Event,Project,Stock,Product,ProductStockTransfert,Category,Task,Transaction,ProductTransactionLine,Message,Newsletter  -o graph_models/no_edge_sub_tf_visualization.png
 
 GRAPH_MODELS = {
     'all_applications': True,
@@ -163,7 +172,7 @@ GRAPH_MODELS = {
 
 AUTH_USER_MODEL = 'account.user'
 
-# Autjetication
+# Authentication
 
 LOGIN_URL = 'account:login'
 
@@ -180,3 +189,9 @@ CRISPY_TEMPLATES_PACK = 'bootstrap4'
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
+
+
+# Mail Chimp
+
+MAILCHIMP_API_KEY = 'ca9aedfca6acd3e987df027cf2768b3a-us17'
+MAILCHIMP_DATA_CENTER = 'us17'

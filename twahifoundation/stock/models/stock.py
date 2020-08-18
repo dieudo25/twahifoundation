@@ -116,7 +116,7 @@ class ProductStockTransfert(models.Model):
     quantity = models.PositiveSmallIntegerField(
         default=None,
     )
-    date_created = models.DateTimeField(
+    date_time_created = models.DateTimeField(
         auto_now_add=True,
         null=True,
         blank=True,

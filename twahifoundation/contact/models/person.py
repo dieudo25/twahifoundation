@@ -1,5 +1,6 @@
 import itertools
 
+from django.conf import settings
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
@@ -11,8 +12,11 @@ class Person(models.Model):
     """
     Person model definition
     """
+
     company = models.ForeignKey(
         Company, on_delete=models.CASCADE, null=True, blank=True)
+    created_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
     first_name = models.CharField(
         max_length=60, default=None)
     last_name = models.CharField(
@@ -24,7 +28,7 @@ class Person(models.Model):
         default=False, verbose_name="Is a supplier")
     is_donor = models.BooleanField(
         default=False, verbose_name="Is a donor")
-    is_follower = models.BooleanField(
+    is_subscribed = models.BooleanField(
         default=False, verbose_name="Is subscribed to the newsletter")
     slug = models.SlugField(max_length=60, unique=True)
 

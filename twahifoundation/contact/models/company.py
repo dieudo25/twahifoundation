@@ -1,5 +1,6 @@
 import itertools
 
+from django.conf import settings
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
@@ -10,6 +11,8 @@ class Company(models.Model):
     Company model definition
     """
 
+    created_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=60, default=None)
     address = models.CharField(
         max_length=60,

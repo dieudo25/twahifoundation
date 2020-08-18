@@ -31,7 +31,7 @@ class TestViews(TestCase):
             phone_number="0476543298",
             is_supplier=True,
             is_donor=False,
-            is_follower=True
+            is_subscribed=True
         )
 
     def test_person_list(self):
@@ -69,7 +69,7 @@ class TestViews(TestCase):
             'email': 'fkpoDon@gmail.com',
             'phone_number': '9677687698',
             'is_supplier': True,
-            'is_follower': True,
+            'is_subscribed': True,
             'is_donor': True,
         })
 
@@ -87,7 +87,7 @@ class TestViews(TestCase):
             'email': 'fontel@gmail.com',
             'phone_number': '97754556',
             'is_supplier': False,
-            'is_follower': False,
+            'is_subscribed': False,
             'is_donor': True,
         })
 

@@ -52,7 +52,7 @@ class PersonUpdateView(UpdateView):
         'company',
         'is_supplier',
         'is_donor',
-        'is_follower',
+        'is_subscribed',
     ]
 
 
@@ -78,5 +78,5 @@ class PersonCreateView(CreateView):
         'company',
         'is_supplier',
         'is_donor',
-        'is_follower',
+        'is_subscribed',
     ]

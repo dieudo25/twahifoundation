@@ -32,17 +32,20 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='person',
             name='is_donor',
-            field=models.BooleanField(default=False, verbose_name='Is a donor'),
+            field=models.BooleanField(
+                default=False, verbose_name='Is a donor'),
         ),
         migrations.AlterField(
             model_name='person',
-            name='is_follower',
-            field=models.BooleanField(default=False, verbose_name='Is subscribed to the newsletter'),
+            name='is_subscribed',
+            field=models.BooleanField(
+                default=False, verbose_name='Is subscribed to the newsletter'),
         ),
         migrations.AlterField(
             model_name='person',
             name='is_supplier',
-            field=models.BooleanField(default=False, verbose_name='Is a supplier'),
+            field=models.BooleanField(
+                default=False, verbose_name='Is a supplier'),
         ),
         migrations.AlterField(
             model_name='person',
