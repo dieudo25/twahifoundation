@@ -1,23 +1,2 @@
 [
-{
-    "model": "account.user",
-    "pk": 1,
-    "fields": {
-        "password": "pbkdf2_sha256$150000$3X1FOIbfxU54$rcQZ2K/uBA4cQ34duikW0FshCAhewfR8VaN6OuZzHrI=",
-        "last_login": "2020-08-02T18:46:02.476Z",
-        "is_superuser": true,
-        "username": "admin",
-        "first_name": "Dieudonn\u00e9",
-        "last_name": "Twahirwa",
-        "email": "twahirwa25@gmail.com",
-        "is_staff": true,
-        "is_active": true,
-        "date_joined": "2020-07-24T18:41:17.449Z",
-        "language": "FR",
-        "avatar": "account/user/avatar/default.svg",
-        "slug": "admin",
-        "groups": [],
-        "user_permissions": []
-    }
-}
 ]
