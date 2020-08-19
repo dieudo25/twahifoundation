@@ -1,2 +1,10 @@
 [
+{
+    "model": "stock.category",
+    "pk": 1,
+    "fields": {
+        "name": "Construction",
+        "slug": "construction"
+    }
+}
 ]

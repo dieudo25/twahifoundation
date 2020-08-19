@@ -1,2 +1,86 @@
 [
+{
+    "model": "account.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$SvgTFxjRIW87$cbTRMtLeCy3TS8WMgkfVDj1dws1ARx8pERZMDzkzUmY=",
+        "last_login": "2020-08-18T18:23:01.428Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "Dieudonn\u00e9",
+        "last_name": "Twahirwa",
+        "email": "twahirwa25@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2020-08-18T13:49:27.901Z",
+        "language": "FR",
+        "avatar": "account/user/avatar/default.svg",
+        "slug": "admin",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "account.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$WTNh0Ukb9wJK$ghutShGBVAUrTCZ/uD3kHoEWRtVu09JUPtCSU7HShHk=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "momo974",
+        "first_name": "Monique",
+        "last_name": "Anberty",
+        "email": "momo@yopmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2020-08-19T11:32:21.045Z",
+        "language": "FR",
+        "avatar": "account/user/avatar/default.svg",
+        "slug": "momo974",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "account.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$CCzcQeqvhG1C$y/i/IEoQze//oXdyjCCA7iCyk0vIvidKbm4+voWE9sg=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "patrick50",
+        "first_name": "Patrick",
+        "last_name": "Litamba",
+        "email": "patlit@yopmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2020-08-19T18:36:52.150Z",
+        "language": "FR",
+        "avatar": "account/user/avatar/default.svg",
+        "slug": "patrick50",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "account.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$VvXlEjuT1xoR$glzhFktPge1+w18ZNVsGiHnGqvyAUb3YGiVarEiNW5Y=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "lola8",
+        "first_name": "lorence",
+        "last_name": "Bend",
+        "email": "lolab@yopmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2020-08-19T18:37:58.942Z",
+        "language": "FR",
+        "avatar": "account/user/avatar/default.svg",
+        "slug": "lola8",
+        "groups": [],
+        "user_permissions": []
+    }
+}
 ]

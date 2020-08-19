@@ -1,2 +1,34 @@
 [
+{
+    "model": "project.task",
+    "pk": 1,
+    "fields": {
+        "slug": "august-events-discover-the-english-countryside-with-bbc-c-1",
+        "project": 1,
+        "state": "TODO",
+        "title": "August events: Discover the English countryside with BBC Countryfile Live",
+        "description": "liuu",
+        "date_created": "2020-08-18",
+        "deadline": "2020-08-17",
+        "users": [
+            1
+        ]
+    }
+},
+{
+    "model": "project.task",
+    "pk": 5,
+    "fields": {
+        "slug": "august-events-discover-the-english-countryside-with-bbc-c",
+        "project": 1,
+        "state": "PENDING",
+        "title": "Get the product",
+        "description": "zddzdzd",
+        "date_created": "2020-08-18",
+        "deadline": "2020-08-19",
+        "users": [
+            1
+        ]
+    }
+}
 ]

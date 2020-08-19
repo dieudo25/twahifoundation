@@ -1,2 +1,41 @@
 [
+{
+    "model": "project.event",
+    "pk": 1,
+    "fields": {
+        "project": null,
+        "slug": "welcoming-new-members",
+        "title": "Welcoming new members",
+        "location": "Place de la Bourse 2, 1000 Bruxelles",
+        "event_type": "MemberMeeting",
+        "image": "https://zupimages.net/up/20/34/dfip.jpg",
+        "description": "This a meeting to welcome our new members",
+        "date_created": "2020-08-19",
+        "time_started": "2020-08-20T18:30:00Z",
+        "time_ended": "2020-08-20T22:00:00Z",
+        "users": [
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "project.event",
+    "pk": 2,
+    "fields": {
+        "project": 2,
+        "slug": "fund-raising-with-the-national-basilica-of-the-sacred-hea",
+        "title": "Fund Raising with the National Basilica of the Sacred Heart",
+        "location": "Avenue Charles-Quint 1 1081 Koekelberg",
+        "event_type": "FundRainsing",
+        "image": "https://zupimages.net/up/20/34/9tmd.jpg",
+        "description": "Fundraising at the Sacred Heart Basilica of Koekelberg",
+        "date_created": "2020-08-19",
+        "time_started": "2020-08-22T10:00:00Z",
+        "time_ended": "2020-08-23T12:00:00Z",
+        "users": [
+            1
+        ]
+    }
+}
 ]

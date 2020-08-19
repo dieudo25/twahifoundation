@@ -291,72 +291,72 @@
     "model": "auth.permission",
     "pk": 33,
     "fields": {
-        "name": "Can add company",
+        "name": "Can add Individual",
         "content_type": 9,
-        "codename": "add_company"
+        "codename": "add_person"
     }
 },
 {
     "model": "auth.permission",
     "pk": 34,
     "fields": {
-        "name": "Can change company",
+        "name": "Can change Individual",
         "content_type": 9,
-        "codename": "change_company"
+        "codename": "change_person"
     }
 },
 {
     "model": "auth.permission",
     "pk": 35,
     "fields": {
-        "name": "Can delete company",
+        "name": "Can delete Individual",
         "content_type": 9,
-        "codename": "delete_company"
+        "codename": "delete_person"
     }
 },
 {
     "model": "auth.permission",
     "pk": 36,
     "fields": {
-        "name": "Can view company",
+        "name": "Can view Individual",
         "content_type": 9,
-        "codename": "view_company"
+        "codename": "view_person"
     }
 },
 {
     "model": "auth.permission",
     "pk": 37,
     "fields": {
-        "name": "Can add Individual",
+        "name": "Can add company",
         "content_type": 10,
-        "codename": "add_person"
+        "codename": "add_company"
     }
 },
 {
     "model": "auth.permission",
     "pk": 38,
     "fields": {
-        "name": "Can change Individual",
+        "name": "Can change company",
         "content_type": 10,
-        "codename": "change_person"
+        "codename": "change_company"
     }
 },
 {
     "model": "auth.permission",
     "pk": 39,
     "fields": {
-        "name": "Can delete Individual",
+        "name": "Can delete company",
         "content_type": 10,
-        "codename": "delete_person"
+        "codename": "delete_company"
     }
 },
 {
     "model": "auth.permission",
     "pk": 40,
     "fields": {
-        "name": "Can view Individual",
+        "name": "Can view company",
         "content_type": 10,
-        "codename": "view_person"
+        "codename": "view_company"
     }
 },
 {
@@ -543,72 +543,72 @@
     "model": "auth.permission",
     "pk": 61,
     "fields": {
-        "name": "Can add Transfert de produits",
+        "name": "Can add Stock",
         "content_type": 16,
-        "codename": "add_productstocktransfert"
+        "codename": "add_stock"
     }
 },
 {
     "model": "auth.permission",
     "pk": 62,
     "fields": {
-        "name": "Can change Transfert de produits",
+        "name": "Can change Stock",
         "content_type": 16,
-        "codename": "change_productstocktransfert"
+        "codename": "change_stock"
     }
 },
 {
     "model": "auth.permission",
     "pk": 63,
     "fields": {
-        "name": "Can delete Transfert de produits",
+        "name": "Can delete Stock",
         "content_type": 16,
-        "codename": "delete_productstocktransfert"
+        "codename": "delete_stock"
     }
 },
 {
     "model": "auth.permission",
     "pk": 64,
     "fields": {
-        "name": "Can view Transfert de produits",
+        "name": "Can view Stock",
         "content_type": 16,
-        "codename": "view_productstocktransfert"
+        "codename": "view_stock"
     }
 },
 {
     "model": "auth.permission",
     "pk": 65,
     "fields": {
-        "name": "Can add Stock",
+        "name": "Can add Transfert de produits",
         "content_type": 17,
-        "codename": "add_stock"
+        "codename": "add_productstocktransfert"
     }
 },
 {
     "model": "auth.permission",
     "pk": 66,
     "fields": {
-        "name": "Can change Stock",
+        "name": "Can change Transfert de produits",
         "content_type": 17,
-        "codename": "change_stock"
+        "codename": "change_productstocktransfert"
     }
 },
 {
     "model": "auth.permission",
     "pk": 67,
     "fields": {
-        "name": "Can delete Stock",
+        "name": "Can delete Transfert de produits",
         "content_type": 17,
-        "codename": "delete_stock"
+        "codename": "delete_productstocktransfert"
     }
 },
 {
     "model": "auth.permission",
     "pk": 68,
     "fields": {
-        "name": "Can view Stock",
+        "name": "Can view Transfert de produits",
         "content_type": 17,
-        "codename": "view_stock"
+        "codename": "view_productstocktransfert"
     }
 },
 {
@@ -717,6 +717,474 @@
         "name": "Can view notification",
         "content_type": 20,
         "codename": "view_notification"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 81,
+    "fields": {
+        "name": "Can add category",
+        "content_type": 21,
+        "codename": "add_category"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 82,
+    "fields": {
+        "name": "Can change category",
+        "content_type": 21,
+        "codename": "change_category"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 83,
+    "fields": {
+        "name": "Can delete category",
+        "content_type": 21,
+        "codename": "delete_category"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 84,
+    "fields": {
+        "name": "Can view category",
+        "content_type": 21,
+        "codename": "view_category"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 85,
+    "fields": {
+        "name": "Can add image_ file",
+        "content_type": 22,
+        "codename": "add_image_file"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 86,
+    "fields": {
+        "name": "Can change image_ file",
+        "content_type": 22,
+        "codename": "change_image_file"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 87,
+    "fields": {
+        "name": "Can delete image_ file",
+        "content_type": 22,
+        "codename": "delete_image_file"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 88,
+    "fields": {
+        "name": "Can view image_ file",
+        "content_type": 22,
+        "codename": "view_image_file"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 89,
+    "fields": {
+        "name": "Can add post",
+        "content_type": 23,
+        "codename": "add_post"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 90,
+    "fields": {
+        "name": "Can change post",
+        "content_type": 23,
+        "codename": "change_post"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 91,
+    "fields": {
+        "name": "Can delete post",
+        "content_type": 23,
+        "codename": "delete_post"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 92,
+    "fields": {
+        "name": "Can view post",
+        "content_type": 23,
+        "codename": "view_post"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 93,
+    "fields": {
+        "name": "Can add tags",
+        "content_type": 24,
+        "codename": "add_tags"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 94,
+    "fields": {
+        "name": "Can change tags",
+        "content_type": 24,
+        "codename": "change_tags"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 95,
+    "fields": {
+        "name": "Can delete tags",
+        "content_type": 24,
+        "codename": "delete_tags"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 96,
+    "fields": {
+        "name": "Can view tags",
+        "content_type": 24,
+        "codename": "view_tags"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 97,
+    "fields": {
+        "name": "Can add post history",
+        "content_type": 25,
+        "codename": "add_posthistory"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 98,
+    "fields": {
+        "name": "Can change post history",
+        "content_type": 25,
+        "codename": "change_posthistory"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 99,
+    "fields": {
+        "name": "Can delete post history",
+        "content_type": 25,
+        "codename": "delete_posthistory"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 100,
+    "fields": {
+        "name": "Can view post history",
+        "content_type": 25,
+        "codename": "view_posthistory"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 101,
+    "fields": {
+        "name": "Can add user role",
+        "content_type": 26,
+        "codename": "add_userrole"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 102,
+    "fields": {
+        "name": "Can change user role",
+        "content_type": 26,
+        "codename": "change_userrole"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 103,
+    "fields": {
+        "name": "Can delete user role",
+        "content_type": 26,
+        "codename": "delete_userrole"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 104,
+    "fields": {
+        "name": "Can view user role",
+        "content_type": 26,
+        "codename": "view_userrole"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 105,
+    "fields": {
+        "name": "Can add page",
+        "content_type": 27,
+        "codename": "add_page"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 106,
+    "fields": {
+        "name": "Can change page",
+        "content_type": 27,
+        "codename": "change_page"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 107,
+    "fields": {
+        "name": "Can delete page",
+        "content_type": 27,
+        "codename": "delete_page"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 108,
+    "fields": {
+        "name": "Can view page",
+        "content_type": 27,
+        "codename": "view_page"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 109,
+    "fields": {
+        "name": "Can add menu",
+        "content_type": 28,
+        "codename": "add_menu"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 110,
+    "fields": {
+        "name": "Can change menu",
+        "content_type": 28,
+        "codename": "change_menu"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 111,
+    "fields": {
+        "name": "Can delete menu",
+        "content_type": 28,
+        "codename": "delete_menu"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 112,
+    "fields": {
+        "name": "Can view menu",
+        "content_type": 28,
+        "codename": "view_menu"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 113,
+    "fields": {
+        "name": "Can add contact us settings",
+        "content_type": 29,
+        "codename": "add_contactussettings"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 114,
+    "fields": {
+        "name": "Can change contact us settings",
+        "content_type": 29,
+        "codename": "change_contactussettings"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 115,
+    "fields": {
+        "name": "Can delete contact us settings",
+        "content_type": 29,
+        "codename": "delete_contactussettings"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 116,
+    "fields": {
+        "name": "Can view contact us settings",
+        "content_type": 29,
+        "codename": "view_contactussettings"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 117,
+    "fields": {
+        "name": "Can add theme",
+        "content_type": 30,
+        "codename": "add_theme"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 118,
+    "fields": {
+        "name": "Can change theme",
+        "content_type": 30,
+        "codename": "change_theme"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 119,
+    "fields": {
+        "name": "Can delete theme",
+        "content_type": 30,
+        "codename": "delete_theme"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 120,
+    "fields": {
+        "name": "Can view theme",
+        "content_type": 30,
+        "codename": "view_theme"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 121,
+    "fields": {
+        "name": "Can add google",
+        "content_type": 31,
+        "codename": "add_google"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 122,
+    "fields": {
+        "name": "Can change google",
+        "content_type": 31,
+        "codename": "change_google"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 123,
+    "fields": {
+        "name": "Can delete google",
+        "content_type": 31,
+        "codename": "delete_google"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 124,
+    "fields": {
+        "name": "Can view google",
+        "content_type": 31,
+        "codename": "view_google"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 125,
+    "fields": {
+        "name": "Can add facebook",
+        "content_type": 32,
+        "codename": "add_facebook"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 126,
+    "fields": {
+        "name": "Can change facebook",
+        "content_type": 32,
+        "codename": "change_facebook"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 127,
+    "fields": {
+        "name": "Can delete facebook",
+        "content_type": 32,
+        "codename": "delete_facebook"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 128,
+    "fields": {
+        "name": "Can view facebook",
+        "content_type": 32,
+        "codename": "view_facebook"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 129,
+    "fields": {
+        "name": "Can add post_ slugs",
+        "content_type": 33,
+        "codename": "add_post_slugs"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 130,
+    "fields": {
+        "name": "Can change post_ slugs",
+        "content_type": 33,
+        "codename": "change_post_slugs"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 131,
+    "fields": {
+        "name": "Can delete post_ slugs",
+        "content_type": 33,
+        "codename": "delete_post_slugs"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 132,
+    "fields": {
+        "name": "Can view post_ slugs",
+        "content_type": 33,
+        "codename": "view_post_slugs"
     }
 }
 ]

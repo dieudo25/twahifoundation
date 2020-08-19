@@ -1,2 +1,58 @@
 [
+{
+    "model": "contact.company",
+    "pk": 1,
+    "fields": {
+        "created_by": null,
+        "name": "Tesla",
+        "address": "Rue des mandarines 785 Gand",
+        "email": "tesla@yopmail.com",
+        "phone_number": "025879654",
+        "website": "https://www.tesla.com",
+        "is_partner": false,
+        "slug": "tesla"
+    }
+},
+{
+    "model": "contact.company",
+    "pk": 2,
+    "fields": {
+        "created_by": null,
+        "name": "Nike",
+        "address": "Avenue Louise 250 1000 Bruxelles",
+        "email": "nike@yopmail.com",
+        "phone_number": "0456987528",
+        "website": "https://www.nike.be",
+        "is_partner": false,
+        "slug": "nike"
+    }
+},
+{
+    "model": "contact.company",
+    "pk": 3,
+    "fields": {
+        "created_by": null,
+        "name": "Proximus",
+        "address": "Rue des Anguilles 1083 Ganshoren",
+        "email": "proximus@gmail.com",
+        "phone_number": "02856354789",
+        "website": "https://www.proximus.be",
+        "is_partner": true,
+        "slug": "proximus"
+    }
+},
+{
+    "model": "contact.company",
+    "pk": 4,
+    "fields": {
+        "created_by": null,
+        "name": "Care",
+        "address": "Avenue des porte 525 1081 Koekelberg",
+        "email": "care@yopmail.com",
+        "phone_number": "06524896321",
+        "website": "https://www.care.com",
+        "is_partner": false,
+        "slug": "care"
+    }
+}
 ]

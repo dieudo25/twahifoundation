@@ -1,2 +1,35 @@
 [
+{
+    "model": "stock.stock",
+    "pk": 1,
+    "fields": {
+        "name": "Stock de kipunmba",
+        "slug": "stock-de-kipunmba",
+        "location": "PO Box 6848 Kampala  Plot 5, George Street Georgian House Kampala",
+        "date_created": "2020-08-19",
+        "is_full": false
+    }
+},
+{
+    "model": "stock.stock",
+    "pk": 2,
+    "fields": {
+        "name": "Stock de Bourge",
+        "slug": "stock-de-bourge",
+        "location": "Rue Van Lint 39, 1070 Anderlecht",
+        "date_created": "2020-08-19",
+        "is_full": false
+    }
+},
+{
+    "model": "stock.stock",
+    "pk": 3,
+    "fields": {
+        "name": "Stock de Kibuka",
+        "slug": "stock-de-kibuka",
+        "location": "Nsambya Plot 1469 Ggaba Road. P. O Box 33145 Kampala.",
+        "date_created": "2020-08-19",
+        "is_full": false
+    }
+}
 ]
