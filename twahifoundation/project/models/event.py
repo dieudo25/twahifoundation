@@ -18,7 +18,8 @@ class Event(models.Model):
         ('FundRainsing', 'Fund rainsing'),
     ]
 
-    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    project = models.ForeignKey(
+        Project, on_delete=models.CASCADE, blank=True, null=True)
     users = models.ManyToManyField(User, blank=True)
     slug = models.SlugField(max_length=60, unique=True)
     title = models.CharField(max_length=255)

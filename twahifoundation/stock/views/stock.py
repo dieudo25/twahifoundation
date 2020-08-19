@@ -3,7 +3,7 @@ from django.views.generic import CreateView, DetailView, DeleteView, ListView, U
 from django.urls import reverse_lazy
 
 from stock.models.stock import Stock, ProductStockTransfert
-from stock.forms.stock import StockCreateUpdateForm
+from stock.forms.stock import StockCreateUpdateForm, ProductStockTransferCreateUpdateForm
 
 
 class StockListView(ListView):
@@ -93,3 +93,11 @@ class StockCreateView(CreateView):
     model = Stock
     template_name = 'stock/stock/create.html'
     form_class = StockCreateUpdateForm
+
+
+class ProductStockTransfertCreateView(CreateView):
+    "Product Stock Transfert create view"
+
+    model = ProductStockTransfert
+    template_name = 'stock/product_stock_transfert/create.html'
+    form_class = ProductStockTransferCreateUpdateForm

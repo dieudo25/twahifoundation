@@ -99,6 +99,7 @@
   margin: 0 auto;
   border: 5px solid #212529;
   overflow: hidden;
+  margin-bottom: 15px;
 }
 
 .profile-img .img-wrapper {

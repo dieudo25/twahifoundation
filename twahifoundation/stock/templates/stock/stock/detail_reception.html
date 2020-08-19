@@ -35,7 +35,7 @@
               <p>Creation date :</p>
             </div>
             <div class="detail-info-item-2">
-              <p>{{  stock.date_created }} €</p>
+              <p>{{  stock.date_created }}</p>
             </div>
           </div>
           <div class="detail-info-group">
@@ -86,7 +86,7 @@
           </div>
           <div class="portal-content-nav-item">
             <ul>
-              <a href="{% url 'stock:stock-create' %}">
+              <a href="{% url 'stock:product-stock-create' %}">
                 <li class="nav-item-add">
                   <div class="add-text">
                     <span class="material-icons">add_circle_outline</span>
@@ -103,7 +103,7 @@
           
           {% if  reception|length == 0 %}
             <div id="empty-table">
-              <p>No reception yet, <a href="{% url 'stock:stock-create' %}">create one</a></p>
+              <p>No reception yet, <a href="{% url 'stock:product-stock-create' %}">create one</a></p>
             </div>
           {% elif reception %}
             <table class="table table-hover">

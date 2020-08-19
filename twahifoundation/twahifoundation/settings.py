@@ -39,12 +39,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
+    'bootstrap4',
+    'bootstrap_datepicker_plus',
     'crispy_forms',
     'django_extensions',
     'debug_toolbar',
     'django_messages',
     'imperavi',
-
+    'simple_pagination',
+    'django_blog_it.django_blog_it',
+    'searchableselect',
 
     'account.apps.AccountConfig',
     'contact.apps.ContactConfig',
@@ -95,7 +99,7 @@ WSGI_APPLICATION = 'twahifoundation.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'twahifoundation',
+        'NAME': 'test',
         'USER': 'admin_tf',
         'PASSWORD': 'tfugbe2020',
         'HOST': 'localhost',
@@ -104,6 +108,7 @@ DATABASES = {
 }
 
 SITE_ID = 1
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -145,6 +150,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
+
 # Media
 
 MEDIA_URL = '/media/'
@@ -158,9 +164,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # Command for twahifoundation model (excluding) :
 #   python manage.py graph_models -a -X LogEntry,ContentType,Session,AbstractBaseSession -o graph_models/sub_tf_visualization.png
 # Command for twahifoundation model (including) :
-#   python manage.py graph_models -a -I User,Group,Permission,Company,Person,Event,Project,Stock,Product,ProductStockTransfert,Category,Task,Transaction,ProductTransactionLine,Message,Newsletter -o graph_models/sub_tf_visualization2.png
+#   python manage.py graph_models -a -I User,Group,Permission,Company,Person,Event,Project,Stock,Product,ProductStockTransfert,Category,Task,Transaction,ProductTransactionLine,Message,Post,Tags -o graph_models/sub_tf_visualization2.png
 # Command for twahifoundation model whitout edge model:
-#   python manage.py graph_models -a --hide-edge-labels -I User,Group,Permission,Company,Person,Event,Project,Stock,Product,ProductStockTransfert,Category,Task,Transaction,ProductTransactionLine,Message,Newsletter  -o graph_models/no_edge_sub_tf_visualization.png
+#   python manage.py graph_models -a --hide-edge-labels -I User,Group,Permission,Company,Person,Event,Project,Stock,Product,ProductStockTransfert,Category,Task,Transaction,ProductTransactionLine,Message,Post,Tags  -o graph_models/no_edge_sub_tf_visualization.png
 
 GRAPH_MODELS = {
     'all_applications': True,
@@ -172,6 +178,7 @@ GRAPH_MODELS = {
 
 AUTH_USER_MODEL = 'account.user'
 
+
 # Authentication
 
 LOGIN_URL = 'account:login'
@@ -180,9 +187,11 @@ LOGIN_REDIRECT_URL = 'portal:portal-home'
 
 LOGOUT_REDIRECT_URL = 'page:home'
 
+
 # Crispy Forms configuration
 
 CRISPY_TEMPLATES_PACK = 'bootstrap4'
+
 
 # Internal IPS for django-debig-toolbar
 
@@ -195,3 +204,8 @@ INTERNAL_IPS = [
 
 MAILCHIMP_API_KEY = 'ca9aedfca6acd3e987df027cf2768b3a-us17'
 MAILCHIMP_DATA_CENTER = 'us17'
+
+# Date Picker
+BOOTSTRAP4 = {
+    'include_jquery': False,
+}

@@ -17,6 +17,25 @@ class TaskListView(ListView):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
         context['task_number'] = Task.objects.all().count()
+        context['todo_list'] = Task.objects.filter(state='TODO')
+        context['pending_list'] = Task.objects.filter(state='PENDING')
+        context['in_progress_list'] = Task.objects.filter(state='IN_PROGRESS')
+        context['late_list'] = Task.objects.filter(state='LATE')
+        context['done_list'] = Task.objects.filter(state='DONE')
+        return context
+
+
+class TaskListViewT(ListView):
+    "Task list view"
+
+    model = Task
+    template_name = 'project/task/list.html'
+    context_object_name = 'task_list'
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        context['task_number'] = Task.objects.all().count()
         return context
 
 

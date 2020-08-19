@@ -1,5 +1,7 @@
 from django import forms
 
+from bootstrap_datepicker_plus import DateTimePickerInput
+
 from account.models.user import User
 from project.models.event import Event, Project
 
@@ -23,9 +25,10 @@ class EventCreateUpdateForm(forms.ModelForm):
             'description',
         ]
         help_texts = {
-            'time_started': 'Exemple : 2006-10-25 14:30',
-            'time_ended': 'Exemple : 2006-10-25 14:30',
+
         }
         widgets = {
             'users': forms.CheckboxSelectMultiple,
+            'time_started': DateTimePickerInput(),
+            'time_ended': DateTimePickerInput(),
         }

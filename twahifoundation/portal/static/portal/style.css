@@ -38,8 +38,20 @@ body {
   background-color: #971507;
 }
 
+.bg-dark-red {
+  background-color: #681007;
+}
+
 .bg-blue-2 {
   background-color: #3c4c80;
+}
+
+.bg-purple {
+  background-color: #482b7d;
+}
+
+.bg-turquoise {
+  background-color: #206771;
 }
 
 p.help-block {
@@ -191,6 +203,7 @@ p.help-block {
 .portal-content-table .img-wrapper {
   max-height: 70px;
   max-width: 128px;
+  overflow: hidden;
 }
 
 /* HOME */
@@ -337,6 +350,11 @@ p.help-block {
   width: 100%;
 }
 
+.portal-update-form-wrapper .controls .datepickerinput,
+.portal-update-form-wrapper .controls .datetimepickerinput {
+  width: 80%;
+}
+
 #avatar-clear_id {
   margin-left: 10px;
 }
@@ -408,6 +426,7 @@ input[type="radio"] {
   display: flex;
   align-items: flex-end;
 }
+
 @media (min-width: 768px) {
   /* ALL */
 
@@ -612,7 +631,7 @@ input[type="radio"] {
 
   .portal-update-form-wrapper .control-label {
     margin-right: 20px;
-    min-width: 140px;
+    min-width: 200px;
   }
 
   .portal-update-form-wrapper .controls {
