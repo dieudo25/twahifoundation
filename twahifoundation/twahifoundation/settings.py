@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django_blog_it.django_blog_it',
 
     'account.apps.AccountConfig',
+    'blog.apps.BlogConfig',
     'contact.apps.ContactConfig',
     'page.apps.PageConfig',
     'portal.apps.PortalConfig',
