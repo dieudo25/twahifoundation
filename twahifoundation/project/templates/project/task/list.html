@@ -4,6 +4,13 @@
 
 {% block title %} Portal | Task list {% endblock title %}
 
+{% block css %}
+
+  {{ block.super }}
+
+  <link rel="stylesheet" href="{% static 'project/style.css' %}" type="text/css">
+{% endblock css %}
+
 {% block portal_content %}
   <div class="portal-content-title">
     <h1>Manage Tasks</h1>
@@ -39,67 +46,76 @@
     <div class="portal-content-search">
     </div>
     <div class="portal-content-table">
-      
-      {% if filtered_task_list %}
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col">Title</th>
-              <th scope="col">Project</th>
-              <th scope="col">State</th>
-              <th scope="col">Created date</th>
-              <th scope="col">DeadLine</th>
-            </tr>
-          </thead>
-          <tbody>
-
-            {% for task in filtered_task_list %}
-              <tr class="table">
-                <th scope="row"><a href="{% url 'project:task-detail' task.slug %}">{{ task.title }}</a></th>
-                <td>{{ task.project}}</td>
-                <td>{{ task.state }}</td>
-                <td>{{ task.date_created }}</td>
-                <td>{{ task.deadline }}</td>
-              </tr>
-            {% endfor %}
-
-          </tbody>
-        </table>
-      {% elif task_list %}
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col">Title</th>
-              <th scope="col">Project</th>
-              <th scope="col">State</th>
-              <th scope="col">Created date</th>
-              <th scope="col">DeadLine</th>
-            </tr>
-          </thead>
-          <tbody>
-
-            {% for task in task_list %}
-              <tr class="table">
-                <th scope="row"><a href="{% url 'project:task-detail' task.slug %}">{{ task.title }}</a></th>
-                <td>{{ task.project}}</td>
-                <td>{{ task.state }}</td>
-                <td>{{ task.date_created }}</td>
-                <td>{{ task.deadline }}</td>
-              </tr>
-            {% endfor %}
-
-          </tbody>
-        </table>
-      {% elif task_number == 0 %}
-        <div id="empty-table">
-          <p>No task, <a href="{% url 'project:task-create' %}">create one</a></p>
+      <div class="task-column">
+        <div class="task-column-title">
+          <h2>{{ todo_list|length}} TODO <span class="material-icons color-light">keyboard_arrow_down</span></h2>
         </div>
-      {% else %}
-        <div id="search-no-result">
-          <p>No results found</p>
+        <div class="task-list">
+          
+          {% for task in todo_list %}
+            <div class="task-item">
+              <a href="{% url 'project:task-detail' task.slug %}"><p>{{ task.title }}</p></a>
+              <p><span class="font-weight-bold">Deadline</span> : {{ task.deadline }}</p>
+            </div>
+          {% endfor %}
         </div>
-      {% endif%}
-      
+      </div>
+      <div class="task-column">
+        <div class="task-column-title">
+          <h2>{{ pending_list|length}} PENDING <span class="material-icons color-light">keyboard_arrow_down</span></h2>
+        </div>
+        <div class="task-list">
+          
+          {% for task in pending_list %}
+            <div class="task-item">
+              <a href="{% url 'project:task-detail' task.slug %}"><p>{{ task.title }}</p></a>
+              <p><span class="font-weight-bold">Deadline</span> : {{ task.deadline }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="task-column">
+        <div class="task-column-title">
+          <h2>{{ in_progress_list|length}} IN PROGRESS <span class="material-icons color-light">keyboard_arrow_down</span></h2>
+        </div>
+        <div class="task-list">
+          
+          {% for task in in_progress_list %}
+            <div class="task-item">
+              <a href="{% url 'project:task-detail' task.slug %}"><p>{{ task.title }}</p></a>
+              <p><span class="font-weight-bold">Deadline</span> : {{ task.deadline }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="task-column">
+        <div class="task-column-title">
+          <h2>{{ late_list|length}} LATE <span class="material-icons color-light">keyboard_arrow_down</span></h2>
+        </div>
+        <div class="task-list">
+          
+          {% for task in late_list %}
+            <div class="task-item">
+              <a href="{% url 'project:task-detail' task.slug %}"><p>{{ task.title }}</p></a>
+              <p><span class="font-weight-bold">Deadline</span> : {{ task.deadline }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="task-column">
+        <div class="task-column-title">
+          <h2>{{ done_list|length}} DONE <span class="material-icons color-light">keyboard_arrow_down</span></h2>
+        </div>
+        <div class="task-list">
+          
+          {% for task in done_list %}
+            <div class="task-item">
+              <a href="{% url 'project:task-detail' task.slug %}"><p>{{ task.title }}</p></a>
+              <p><span class="font-weight-bold">Deadline</span> : {{ task.deadline }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
     </div>
   </div>
   {% endblock portal_content %}

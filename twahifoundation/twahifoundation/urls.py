@@ -27,6 +27,8 @@ urlpatterns = [
     re_path(r'^project/', include('project.urls')),
     re_path(r'^stock/', include('stock.urls')),
     re_path(r'^', include('page.urls')),
+    re_path(r'', include('django_blog_it.urls')),
+    re_path(r'^searchableselect/', include('searchableselect.urls')),
 
 
 ]

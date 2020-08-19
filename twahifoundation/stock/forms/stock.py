@@ -1,6 +1,6 @@
 from django import forms
 
-from stock.models.stock import Stock
+from stock.models.stock import Stock, ProductStockTransfert
 
 
 class StockCreateUpdateForm(forms.ModelForm):
@@ -13,4 +13,18 @@ class StockCreateUpdateForm(forms.ModelForm):
         fields = [
             'name',
             'location',
+        ]
+
+
+class ProductStockTransferCreateUpdateForm(forms.ModelForm):
+    "Customized form for the update of an project"
+
+    class Meta:
+        "Meta definiton for StockUpdateForm"
+
+        model = ProductStockTransfert
+        fields = [
+            'transfert_type',
+            'product',
+            'quantity',
         ]

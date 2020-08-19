@@ -1,5 +1,7 @@
 from django import forms
 
+from bootstrap_datepicker_plus import DatePickerInput
+
 from account.models.user import User
 from project.models.task import Task
 
@@ -21,8 +23,9 @@ class TaskCreateUpdateForm(forms.ModelForm):
 
         ]
         help_texts = {
-            'deadline': 'Exemple : 2006-10-25',
+
         }
         widgets = {
             'users': forms.CheckboxSelectMultiple,
+            'deadline': DatePickerInput()
         }

@@ -6,6 +6,11 @@
 
 {% block title %} Portal | Create Task {% endblock title %}
 
+{% block extra_head %}
+  {{ form.media }}            {# Adds date-picker required JS and CSS #}
+{% endblock extra_head %}
+
+
 {% block portal_content %}
   <div class="portal-content-title">
     <h1>Create a new task</h1>

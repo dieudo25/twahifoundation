@@ -36,14 +36,18 @@
       </div>
       <div class="detail-info">
         <div class="column">
-          <div class="detail-info-group">
-            <div class="detail-info-item-1">
-              <p>Project :</p>
+
+          {% if event.project %}
+            <div class="detail-info-group">
+              <div class="detail-info-item-1">
+                <p>Project :</p>
+              </div>
+              <div class="detail-info-item-2">
+                <p>{{  event.project }}</p>
+              </div>
             </div>
-            <div class="detail-info-item-2">
-              <p>{{  event.project }}</p>
-            </div>
-          </div>
+          {% endif %}
+          
           <div class="detail-info-group">
             <div class="detail-info-item-1">
               <p>Location :</p>
@@ -100,7 +104,7 @@
     <div class="participant-section">
       <h2>
         <span class="material-icons prev">keyboard_arrow_left</span>
-        {{ event.users.count }} Participants
+        {{ event.users.count }} Participant{{ event.users.count|pluralize }}
         <span class="material-icons next">keyboard_arrow_right</span>
       </h2>
       <div class="prev"></div>

@@ -53,7 +53,7 @@ class Task(models.Model):
         Meta definition for Task.
         """
 
-        ordering = ['-date_created']
+        ordering = ['deadline']
 
     def __str__(self):
         """
@@ -79,7 +79,7 @@ class Task(models.Model):
             slugify(value, allow_unicode=False)[:max_length]
 
         for i in itertools.count(1):
-            if not Project.objects.filter(slug=slug_result).exists():
+            if not Task.objects.filter(slug=slug_result).exists():
                 break
             slug_result = f'{slug_original}-{i}'
 

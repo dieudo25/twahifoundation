@@ -8,6 +8,14 @@
   <section id="portal-home">
     <div class="wrapper">
       <div class="app-list">
+      <a href="#" class="app-link">
+          <div class="app-item bg-purple">
+            <div class="img-wrapper">
+              <img src="{% static 'portal/img/blog.svg' %}">
+            </div>
+            <p>Blog</p>
+          </div>
+        </a>
         <a href="{% url 'contact:person-list' %}" class="app-link">
           <div class="app-item bg-orange-light">
             <div class="img-wrapper">
@@ -22,6 +30,14 @@
               <img src="{% static 'portal/img/event.svg' %}">
             </div>
             <p>Event</p>
+          </div>
+        </a>
+        <a href="#" class="app-link">
+          <div class="app-item bg-dark-red">
+            <div class="img-wrapper">
+              <img src="{% static 'portal/img/message.svg' %}">
+            </div>
+            <p>Message</p>
           </div>
         </a>
         <a href="{% url 'project:project-list' %}" class="app-link">
@@ -61,7 +77,7 @@
             <div class="img-wrapper">
               <img src="{% static 'portal/img/user.svg' %}">
             </div>
-            <p>Users and Permissions</p>
+            <p>User & Permissions</p>
           </div>
         </a>
       </div>

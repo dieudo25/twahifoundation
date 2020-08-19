@@ -141,3 +141,13 @@ class ProductStockTransfert(models.Model):
         while len(add_zero) < 5:
             add_zero += '0'
         return 'ST' + add_zero + stock_transfert_id
+
+    def getstock(self):
+        return self.stock_slug
+
+    def get_absolute_url(self):
+        """
+        Return absolute url for ProductStockStock.
+        """
+
+        return reverse('stock:stock-reception-detail', kwargs={'slug': self.request.META.get('HTTP_REFERER')})
