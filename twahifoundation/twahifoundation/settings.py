@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'imperavi',
     'simple_pagination',
     'django_blog_it.django_blog_it',
-    'searchableselect',
 
     'account.apps.AccountConfig',
     'contact.apps.ContactConfig',
@@ -99,7 +98,7 @@ WSGI_APPLICATION = 'twahifoundation.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'test',
+        'NAME': 'twahifoundation',
         'USER': 'admin_tf',
         'PASSWORD': 'tfugbe2020',
         'HOST': 'localhost',
