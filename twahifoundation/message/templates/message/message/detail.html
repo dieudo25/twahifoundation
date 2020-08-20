@@ -1,0 +1,67 @@
+{% extends 'portal/portal_base_sidebar.html'%}
+
+{% load static %}
+
+{% block title %} Portal | {{ message.subject }} {% endblock title %}
+
+{% block css %}
+
+  {{ block.super }}
+
+  <link rel="stylesheet" href="{% static 'account/style.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'message/style.css' %}" type="text/css">
+{% endblock css %}
+
+{% block portal_content %}
+  <div class="portal-wrapper event-detail message">
+    <div class="detail-info-section">
+      <div class="detail-card">
+        <div class="portal-title">
+          <h1>{{ message.subject }}</h1>
+        </div>
+      </div>
+      <div class="detail-info">
+        <div class="column">
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Sender :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  message.sender }}</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Received at :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  message.sent_at }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="">
+            <div class="detail-info-item-1">
+              <p>Message :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  message.body|linebreaks }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="detail-bar">
+    <div class="detail-bar-col-1">
+      <a href="{% url 'message:message-inbox' %}">
+        <p class="detail-bar-btn btn-black">Back</p>
+      </a>
+    </div>
+    <div class="detail-bar-col-2">
+      <a href="{% url 'message:message-delete' message.id %}">
+        <p class="detail-bar-btn btn-red btn-last">Delete</p>
+      </a>
+    </div>
+  </div>
+{% endblock portal_content %}

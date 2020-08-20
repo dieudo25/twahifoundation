@@ -48,17 +48,20 @@ INSTALLED_APPS = [
     'imperavi',
     'simple_pagination',
     'django_blog_it.django_blog_it',
+    # 'pinax.notifications',
 
-    'account.apps.AccountConfig',
-    'blog.apps.BlogConfig',
-    'contact.apps.ContactConfig',
-    'page.apps.PageConfig',
-    'portal.apps.PortalConfig',
-    'project.apps.ProjectConfig',
-    'stock.apps.StockConfig',
-    'transaction.apps.TransactionConfig',
+    'account',
+    'blog',
+    'contact',
+    'message',
+    'page',
+    'portal',
+    'project',
+    'stock',
+    'transaction',
 
-    'notifications',
+
+    # 'notifications',
 ]
 
 MIDDLEWARE = [

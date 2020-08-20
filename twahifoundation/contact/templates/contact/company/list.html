@@ -139,6 +139,10 @@
 
           </tbody>
         </table>
+      {% elif company_list|length == 0 %}
+        <div id="empty-table">
+          <p>No company, <a href="{% url 'contact:company-create' %}">create one</a></p>
+        </div>
       {% else %}
         <div id="search-no-result">
           <p>No results found</p>

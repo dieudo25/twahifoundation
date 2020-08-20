@@ -176,6 +176,10 @@
 
           </tbody>
         </table>
+      {% elif person_list|length == 0 %}
+        <div id="empty-table">
+          <p>No person, <a href="{% url 'contact:person-create' %}">create one</a></p>
+        </div>
       {% else %}
         <div id="search-no-result">
           <p>No results found</p>
