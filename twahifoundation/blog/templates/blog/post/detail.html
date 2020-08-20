@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %} Portal | {{ project.title }} {% endblock title %}
+{% block title %} Portal | {{ post.title }} {% endblock title %}
 
 {% block css %}
 
@@ -13,44 +13,80 @@
 {% endblock css %}
 
 {% block portal_content %}
-  <div class="portal-wrapper event-detail project">
+  <div class="portal-wrapper event-detail event">
     <div class="detail-info-section">
       <div class="detail-card">
         <div class="detail-img">
           <div class="img-wrapper">
-            <img src="{{ project.image }}">
+            <img src="{{ post.featured_image.url }}">
           </div>
         </div>
         <div class="portal-title">
-          <h1>{{ project.title }}</h1>
+          <h1>{{ post.title }}</h1>
         </div>
       </div>
       <div class="detail-info">
         <div class="column">
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Created date :</p>
+              <p>Author:</p>
             </div>
             <div class="detail-info-item-2">
-              <p>{{  project.date_created }}</p>
+              <p>{{  post.user }}</p>
             </div>
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Closing date :</p>
+              <p>Created date :</p>
             </div>
             <div class="detail-info-item-2">
-              <p>{{  project.date_ended }}</p>
+              <p>{{  post.created_on }}</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Updated date :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  post.updated_on }}</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Category :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  post.category }}</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Tags :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>
+                {% for tags in post.tags_set.all %}
+                  {{ tags }},
+                {% endfor %}
+              </p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Status :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  post.status }}</p>
             </div>
           </div>
         </div>
         <div class="column">
           <div class="">
             <div class="detail-info-item-1">
-              <p>Description :</p>
+              <p>Content :</p>
             </div>
             <div class="detail-info-item-2">
-              <p>{{  project.description|linebreaks }}</p>
+              <p>{{  post.content|linebreaks }}</p>
             </div>
           </div>
         </div>
@@ -59,15 +95,15 @@
   </div>
   <div class="detail-bar">
     <div class="detail-bar-col-1">
-      <a href="{% url 'project:project-list' %}">
+      <a href="{% url 'blog:post-list' %}">
         <p class="detail-bar-btn btn-black">Back</p>
       </a>
     </div>
     <div class="detail-bar-col-2">
-      <a href="{% url 'project:project-update' project.slug %}">
+      <a href="{% url 'blog:post-update' post.slug %}">
         <p class="detail-bar-btn btn-black">Edit</p>
       </a>
-      <a href="{% url 'project:project-delete' project.slug %}">
+      <a href="{% url 'blog:post-delete' post.slug %}">
         <p class="detail-bar-btn btn-red btn-last">Delete</p>
       </a>
     </div>

@@ -11,6 +11,7 @@ class PostCreateUpdateForm(forms.ModelForm):
 
         model = Post
         fields = [
+            'user',
             'title',
             'meta_description',
             'content',

@@ -1,0 +1,7 @@
+.portal-app-nav .custom-icon.post-icon {
+  background-image: url(img/post.svg);
+}
+
+.portal-app-nav .custom-icon.tags-icon {
+  background-image: url(img/tags.svg);
+}

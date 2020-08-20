@@ -25,20 +25,6 @@ class TaskListView(ListView):
         return context
 
 
-class TaskListViewT(ListView):
-    "Task list view"
-
-    model = Task
-    template_name = 'project/task/list.html'
-    context_object_name = 'task_list'
-
-    def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
-        context = super().get_context_data(**kwargs)
-        context['task_number'] = Task.objects.all().count()
-        return context
-
-
 class TaskListFilteredView(ListView):
     "Task list filterd by title, location"
 

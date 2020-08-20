@@ -54,6 +54,10 @@ class PostUpdateView(UpdateView):
     context_object_name = 'post'
     form_class = PostCreateUpdateForm
 
+    def get_success_url(self):
+        "Get the absolute url of the object"
+        return reverse_lazy("blog:post-detail", kwargs={"slug": self.object.slug})
+
 
 class PostDeleteView(DeleteView):
     "Post Delete View"
@@ -70,3 +74,7 @@ class PostCreateView(CreateView):
     model = Post
     template_name = 'blog/post/create.html'
     form_class = PostCreateUpdateForm
+
+    def get_success_url(self):
+        "Get the absolute url of the object"
+        return reverse_lazy("blog:post-detail", kwargs={"slug": self.object.slug})

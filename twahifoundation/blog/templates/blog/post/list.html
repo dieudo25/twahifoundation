@@ -4,13 +4,46 @@
 
 {% block title %} Portal | Post list {% endblock title %}
 
+{% block css %}
+
+  {{ block.super }}
+
+  <link rel="stylesheet" href="{% static 'blog/style.css' %}" type="text/css">
+{% endblock css %}
+
 {% block portal_content %}
   <div class="portal-content-title">
-    <h1>Manage Posts</h1>
+    <h1>Manage Blog</h1>
   </div>
-  <div class="portal-top-bar no-button">
+  <div class="portal-top-bar">
+      <ul class="portal-app-nav">
+        <a href="{% url 'blog:post-list' %}" class="btn-black custom-btn">
+          <li class="poratl-app-nav-item">
+            <div class="add-text">
+              <span class="custom-icon post-icon"></span>
+              <span>Posts</span>
+            </div>
+          </li>
+        </a>
+        <a href="#" class="btn-black">
+          <li class="poratl-app-nav-item">
+            <div class="add-text">
+              <span class="material-icons">category</span>
+              <span>Categories</span>
+            </div>
+          </li>
+        </a>
+        <a href="#" class="btn-black custom-btn">
+          <li class="poratl-app-nav-item">
+            <div class="add-text">
+              <span class="custom-icon tags-icon"></span>
+              <span>Tags</span>
+            </div>
+          </li>
+        </a>
+      </ul>
     <div id="list-search">
-      <form action="{% url 'blog:post-list-search' %}" method="GET">
+      <form action="{% url 'account:user-list-search' %}" method="GET">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" name="search">
         </div>
@@ -46,8 +79,11 @@
             <tr>
               <th scope="col">Title</th>
               <th scope="col">Image</th>
+              <th scope="col">Author</th>
+              <th scope="col">Category</th>
+              <th scope="col">Status</th>
               <th scope="col">Created date</th>
-              <th scope="col">Closing date</th>
+              <th scope="col">Updated date</th>
             </tr>
           </thead>
           <tbody>
@@ -56,12 +92,19 @@
               <tr class="table">
                 <th scope="row"><a href="{% url 'blog:post-detail' post.slug %}">{{ post.title }}</a></th>
                 <td>
-                  <div class="img-wrapper">
-                    <img src="{{ post.image }}">
-                  </div>
+                
+                  {% if post.featured_image %}
+                    <div class="img-wrapper">
+                      <img src="{{ post.featured_image.url }}">
+                    </div>
+                  {% endif %}
+
                 </td>
-                <td>{{ post.date_created }}</td>
-                <td>{{ post.date_ended }}</td>
+                <td>{{ post.user }}</td>
+                <td>{{ post.category }}</td>
+                <td>{{ post.status }}</td>
+                <td>{{ post.created_on }}</td>
+                <td>{{ post.updated_on }}</td>
               </tr>
             {% endfor %}
 
@@ -73,8 +116,11 @@
             <tr>
               <th scope="col">Title</th>
               <th scope="col">Image</th>
+              <th scope="col">Author</th>
+              <th scope="col">Category</th>
+              <th scope="col">Status</th>
               <th scope="col">Created date</th>
-              <th scope="col">Closing date</th>
+              <th scope="col">Updated date</th>
             </tr>
           </thead>
           <tbody>
@@ -83,12 +129,19 @@
               <tr class="table">
                 <th scope="row"><a href="{% url 'blog:post-detail' post.slug %}">{{ post.title }}</a></th>
                 <td>
-                  <div class="img-wrapper">
-                    <img src="{{ post.image }}">
-                  </div>
+
+                  {% if post.featured_image %}
+                    <div class="img-wrapper">
+                      <img src="{{ post.featured_image.url }}">
+                    </div>
+                  {% endif %}
+
                 </td>
-                <td>{{ post.date_created }}</td>
-                <td>{{ post.date_ended }}</td>
+                <td>{{ post.user }}</td>
+                <td>{{ post.category }}</td>
+                <td>{{ post.status }}</td>
+                <td>{{ post.created_on }}</td>
+                <td>{{ post.updated_on }}</td>
               </tr>
             {% endfor %}
 
