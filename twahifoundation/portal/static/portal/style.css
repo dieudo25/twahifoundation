@@ -4,67 +4,6 @@
   font-size: 24px;
 }
 
-/* COLOR */
-
-body {
-  color: #212529;
-}
-
-.bg-green-light {
-  background-color: #398f4c;
-}
-
-.bg-blue-light {
-  background-color: #306974;
-}
-
-.bg-red-light {
-  background-color: #bd574c;
-}
-
-.bg-orange-light {
-  background-color: #bd834c;
-}
-
-.bg-black {
-  background-color: #212529;
-}
-
-.bg-grey {
-  background-color: grey;
-}
-
-.bg-red {
-  background-color: #971507;
-}
-
-.bg-dark-red {
-  background-color: #681007;
-}
-
-.bg-blue-2 {
-  background-color: #3c4c80;
-}
-
-.bg-purple {
-  background-color: #482b7d;
-}
-
-.bg-turquoise {
-  background-color: #206771;
-}
-
-p.help-block {
-  color: #6c757d;
-}
-
-.text-red {
-  color: #971507;
-}
-
-.text-black {
-  color: #212529;
-}
 /* ALL */
 
 #portal-navbar .navbar-toggler {
@@ -362,7 +301,6 @@ p.help-block {
 .form-width-checkbox .controls {
   display: flex;
   flex-direction: column;
-  max-height: 250px;
 }
 
 .form-width-checkbox #div_id_users .controls {
@@ -425,6 +363,14 @@ input[type="radio"] {
   height: 33px;
   display: flex;
   align-items: flex-end;
+}
+
+form .control-group .django-ckeditor-widget {
+  width: 100%;
+}
+
+form .control-group .django-ckeditor-widget > div {
+  width: unset !important;
 }
 
 @media (min-width: 768px) {

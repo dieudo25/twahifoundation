@@ -1,0 +1,20 @@
+{% extends '../base_with_sidebar.html'%}
+
+{% load static %}
+
+{% block title %} Projects {% endblock title %}
+
+{% block header %}
+    <div class="sub-header bg-image">
+        <div id="projects-section">
+            <h3>Projects</h3>
+        </div>
+    </div>  
+    <div class="sub-clearfix"></div>
+{% endblock header %}
+
+{% block content_with_sidebar %}
+    
+    {% include 'page/home/projects_list.html' %}
+
+{% endblock content_with_sidebar %}

@@ -1,0 +1,138 @@
+{% extends 'portal/portal_base_sidebar.html'%}
+
+{% load static %}
+
+{% block title %} Portal | {{ transaction.name }} {% endblock title %}
+
+{% block css %}
+
+  {{ block.super }}
+
+  <link rel="stylesheet" href="{% static 'account/style.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'transaction/style.css' %}" type="text/css">
+ {% endblock css %}
+
+{% block portal_content %}
+  <div class="portal-wrapper detail-with-table">
+    <div class="detail-info-section">
+      <div class="detail-card">
+        <div class="portal-title">
+          <h1>{{ transaction }}</h1>
+        </div>
+      </div>
+      <div class="detail-info">
+        <div class="">
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Created on :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  transaction.date_time_created }}</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Sales person :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  transaction.user }}</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Costumer:</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  transaction.person }}</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Total :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  transaction.total }}</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Is valid ? : </p>
+            </div>
+            <div class="detail-info-item-2 img-bool">
+              {% if transaction.is_valid %}
+                <div class="img-wrapper">
+                  <img src="{% static 'portal/img/true.svg' %}">
+                </div>
+              {% else %}
+                <div class="img-wrapper">
+                  <img src="{% static 'portal/img/false.svg' %}">
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% if transaction.transaction_type != 'Donation' %}
+        <div class="portal-content-title">
+          <h2>Products</h2>
+        </div>
+          <div class="portal-content-table">
+            
+            {% if  delivery|length == 0 %}
+              <div id="empty-table">
+                <p>No delivery yet, <a href="{% url 'transaction:transaction-create' %}">create one</a></p>
+              </div>
+            {% elif delivery %}
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Product name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Created date</th>
+                    <th scope="col" class="table-icon">Edit</th>
+                    <th scope="col" class="table-icon">Delete</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+
+                  {% for product_transfert in delivery %}
+                    <tr class="table">
+                      <th scope="row">{{ product_transfert }}</th>
+                      <td>{{ product_transfert.product.name }}</td>
+                      <td>{{ product_transfert.quantity }}</td>
+                      <td>{{ product_transfert.date_created }}</td>
+                      <td>
+                        <span class="material-icons text-black">edit</span>
+                      </td>
+                      <td>
+                        <span class="material-icons text-red">clear</span>
+                      </td>
+                    </tr>
+                  {% endfor %}
+
+                </tbody>
+              </table>
+            {% endif%}
+            
+          </div>
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+  <div class="detail-bar">
+    <div class="detail-bar-col-1">
+      <a href="{% url 'transaction:transaction-donation-list' %}">
+        <p class="detail-bar-btn btn-black">Back</p>
+      </a>
+    </div>
+    <div class="detail-bar-col-2">
+      <a href="">
+        <p class="detail-bar-btn btn-green">Validate</p>
+      </a>
+    </div>
+  </div>
+{% endblock portal_content %}

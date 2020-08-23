@@ -1,0 +1,33 @@
+{% load static %}
+
+<h2 class="title-h2">Upcoming Events</h2>
+<div class="events-list">
+
+  {% if event_list %}
+
+    {% for event in event_list  %}
+      <div class="events-item">
+        <div class="events-card">
+          <div class="img-wrapper">
+            <img src="{{ event.image }}">
+          </div>
+          <div class="events-date">
+            <p>{{ event.date_created }}</p>
+          </div>
+          <div class="events-description">
+            <a href='#'><h3>{{ event.title }}</h3></a>
+            <p>
+              {{ event.location }}</br>
+              {{ event.time_started}} – to – {{ event.time_ended }}
+            </p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+
+  {% else %}
+    <p>No Projects for the moments.</p>
+  {% endif %}
+  
+
+</div>

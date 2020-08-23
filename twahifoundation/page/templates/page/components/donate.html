@@ -1,0 +1,11 @@
+{% load static %}
+
+<a href="{% url 'page:donate' %}" class="donate-link">
+<div class="donate-box mt-4 btn-green">
+  <div class="donate-img">
+    <div class="img-wrapper">
+      <img src="{% static 'page/img/donation.svg' %}">
+    </div>
+  </div>
+</div>
+</a>

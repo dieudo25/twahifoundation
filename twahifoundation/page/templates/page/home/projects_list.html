@@ -1,0 +1,28 @@
+{% load static %}
+
+<div class="projects-list">
+  <h2 class="title-h2">Our projects</h2>
+  {% if project_list %}
+    {% for project in project_list %}
+      <div class="projects-item">
+        <div class="title-img-wrapper">
+        <div class="img-wrapper">
+          <img src="{{ project.image }}">
+        </div>
+        <div class="projects-title">
+          <a href='#'><h3>{{ project.title }}</h3></a>
+        </div>
+        </div>
+        <div>
+          <p>
+            <span>{{ project.date_created }}</span> {{ project.description|truncatewords:40 }}
+          </p>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+  <p>No Events for the moments.</p>
+  {% endif %}
+  
+  
+</div>

@@ -15,7 +15,9 @@
       <form method="POST" id="update-form">
 
           {% csrf_token %}
-
+          
+          {{ form.media }}
+          
           {{ form | crispy }}
 
       </form>

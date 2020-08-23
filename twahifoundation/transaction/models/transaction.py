@@ -1,5 +1,7 @@
 from django.db import models
 from django.conf import settings
+from django.core.validators import MinValueValidator
+from django.urls import reverse
 
 from project.models.project import Project
 from stock.models.product import Product
@@ -54,6 +56,8 @@ class Transaction(models.Model):
         verbose_name="Date de création"
     )
     is_valid = models.BooleanField(default=False, verbose_name="Est valide")
+    total = models.DecimalField(
+        max_digits=5, decimal_places=2, default=0)
 
     class Meta:
         """
@@ -75,24 +79,24 @@ class Transaction(models.Model):
             add_zero += '0'
         return 'T' + add_zero + transaction_id
 
-    def save(self, *args, **kwargs):
+    def get_absolute_url(self):
         """
-        Save method for Transaction.
+        Return absolute url for a transaction.
         """
 
-        super().save(*args, **kwargs)
+        return reverse('transaction:transaction-detail', kwargs={'pk': self.pk})
 
 
 class ProductTransactionLine(models.Model):
 
     transaction = models.ForeignKey(
         Transaction,
-        on_delete=models.PROTECT,
+        on_delete=models.CASCADE,
         null=True
     )
     product = models.ForeignKey(
         Product,
-        on_delete=models.PROTECT,
+        on_delete=models.CASCADE,
         verbose_name="Produits"
     )
     quantity = models.PositiveSmallIntegerField(

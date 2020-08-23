@@ -22,15 +22,18 @@ from django.views.static import serve
 urlpatterns = [
     re_path(r'^account/', include('account.urls')),
     re_path(r'^admin/', admin.site.urls),
+    re_path(r'^api-auth/', include('rest_framework.urls')),
     re_path(r'^blog/', include('blog.urls')),
     re_path(r'^contact/', include('contact.urls')),
-    #re_path(r'^messages/', include('django_messages.urls')),
+    re_path(r'^messages/', include('django_messages.urls')),
     re_path(r'^message/', include('message.urls')),
+    re_path(r'^paypal/', include('paypal.standard.ipn.urls')),
     re_path(r'^portal/', include('portal.urls')),
     re_path(r'^project/', include('project.urls')),
     re_path(r'^stock/', include('stock.urls')),
+    re_path(r'^transaction/', include('transaction.urls')),
     re_path(r'^', include('page.urls')),
-    #re_path(r'', include('django_blog_it.urls')),
+    re_path(r'', include('django_blog_it.urls')),
 
 
 ]

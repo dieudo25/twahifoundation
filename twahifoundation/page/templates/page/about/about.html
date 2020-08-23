@@ -1,0 +1,23 @@
+{% extends '../base_with_sidebar.html'%}
+
+{% load static %}
+
+{% block title %} {{ about.title }} {% endblock title %}
+
+{% block header %}
+    <div class="sub-header bg-image">
+        <div id="projects-section">
+            <h3>{{ about.title }}</h3>
+        </div>
+    </div>  
+    <div class="sub-clearfix"></div>
+{% endblock header %}
+
+{% block content_with_sidebar %}
+    <h2 class="title-h2">About us</h2>
+    <div class="donate-content bg-white pt-4"> 
+        <div class="donate-info">
+            {{ about.content|safe }}
+        </div>
+    </div>
+{% endblock content_with_sidebar %}

@@ -1,0 +1,59 @@
+{% extends '../base_with_sidebar.html'%}
+
+{% load static %}
+
+{% block title %} Donate {% endblock title %}
+
+{% block header %}
+    <div class="sub-header bg-image">
+        <div id="projects-section">
+            <h3>Donate</h3>
+        </div>
+    </div>  
+    <div class="sub-clearfix"></div>
+{% endblock header %}
+
+{% block scripts %}
+
+  {{ block.super }}
+  <script src="https://www.paypal.com/sdk/js?client-id=AdFvI06WTp1Ersw2irjLA7lfvcgRa0v4tQfCV0xrJ_aky_4Rrtzk8ytB3ePdDBOWlcvaKAYUHdD7sfRR&currency=USD"></script>
+  <script src="{% static 'page/main.js' %}"></script>
+{% endblock scripts %}
+
+{% block content_with_sidebar %}
+    <div class="donate-banner bg-blue">
+        <div class="text-white text-1 text-small-caps">
+            <h1 class="font-weight-bold">TwahiFoundation</h1>
+        </div>
+        <div class="img-wrapper mt-4">
+            <img src="{% static 'page/img/help.svg' %}" class="rotate">
+        </div>
+        <div class="text-white text-2 mt-4">
+            <h1 class="text-uppercase"><span class="font-weight-bold">Fight</span>with<span class="font-weight-bold">us</span></h1>
+        </div>
+    </div>
+    <div class="donate-content bg-white pt-4"> 
+        <div class="donate-info text-center">
+            <h2 class=" mb-5">To support a project of Twahi Foundation, you can make a donation.</h2>
+            <p class=" mb-5">
+                <span class="font-weight-bold">TWAHIFOUNDATION BELGIUM ACCOUNT</span><br>BEXX XXXX XXXX XXXX - <span>BIC XXXXXXXX</span>
+            </p>
+            <p class="text-center font-weight-bold or mb-5">OR<p>
+            <p class="font-weight-bold mb-5">WITH PAYPAL</p>
+
+            {% comment %} <!-- Set up a container element for the button -->
+            <div id="paypal-button-container"></div>
+            <!-- Include the PayPal JavaScript SDK --> {% endcomment %}
+            
+            <form class="mb-5" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick" />
+                <input type="hidden" name="hosted_button_id" value="EEMNWQCRXH5V8" />
+                <input type="image" src="https://www.paypalobjects.com/en_US/BE/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+                <img alt="" border="0" src="https://www.paypal.com/en_BE/i/scr/pixel.gif" width="1" height="1" />
+            </form>
+            <div class="last">
+                <p>THANKS TO OUR GENEROUS DONORS </p>
+            </div>
+        </div>
+    </div>
+{% endblock content_with_sidebar %}

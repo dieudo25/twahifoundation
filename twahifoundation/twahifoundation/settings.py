@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+from dotenv import load_dotenv
+
+
+load_dotenv(verbose=True)
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'e)8)$sg0m@mn5&d5t=!seug_8m&az%lc49t9%+6eeq857e8+bt'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -41,14 +46,15 @@ INSTALLED_APPS = [
 
     'bootstrap4',
     'bootstrap_datepicker_plus',
+    'ckeditor',
     'crispy_forms',
-    'django_extensions',
     'debug_toolbar',
+    'django_extensions',
     'django_messages',
-    'imperavi',
-    'simple_pagination',
     'django_blog_it.django_blog_it',
-    # 'pinax.notifications',
+    'paypal.standard.ipn',
+    'rest_framework',
+    'simple_pagination',
 
     'account',
     'blog',
@@ -102,11 +108,11 @@ WSGI_APPLICATION = 'twahifoundation.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'twahifoundation',
-        'USER': 'admin_tf',
-        'PASSWORD': 'tfugbe2020',
-        'HOST': 'localhost',
-        'PORT': ''
+        'NAME': os.getenv("DATABASE_NAME_TEST"),
+        'USER': os.getenv("DATABASE_USER"),
+        'PASSWORD': os.getenv("DATABASE_PASSWORD"),
+        'HOST': os.getenv("DATABASE_HOST"),
+        'PORT': os.getenv("DATABASE_PORT"),
     }
 }
 
@@ -160,6 +166,14 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
+# SMTP configuration
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = os.getenv("EMAIL_HOST")
+EMAIL_PORT = os.getenv("EMAIL_PORT")
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+
 
 # Django Extensions - Grap models
 # Command for the entire project :
@@ -212,3 +226,17 @@ MAILCHIMP_DATA_CENTER = 'us17'
 BOOTSTRAP4 = {
     'include_jquery': False,
 }
+
+# CKEditor
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'basic',
+        'height': 300,
+        'width': 300,
+    },
+}
+
+# Paypal
+PAYPAL_RECEIVER_EMAIL = "twahifoundation@gmail.com"
+PAYPAL_TEST = True  # allow to test with the sandbox

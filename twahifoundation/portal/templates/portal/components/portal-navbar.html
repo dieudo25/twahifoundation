@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-black">
+  <a class="navbar-brand" href="{% url 'portal:portal-home' %}">TwahiFoundation</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <div class="nav-column-2">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link " href="{% url 'admin:index' %}">Administration</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="{% url 'page:home' %}">Site Web</a>
+        </li>
+        <li class="nav-item max-767">
+          <a class="nav-link " href="{% url 'blog:post-list' %}">Blog</a>
+        </li>
+        <li class="nav-item max-767">
+          <a class="nav-link " href="{% url 'contact:person-list' %}">Contact</a>
+        </li>
+        <li class="nav-item max-767">
+          <a class="nav-link " href="{% url 'project:event-list' %}">Event</a>
+        </li>
+        <li class="nav-item max-767">
+          <a class="nav-link " href="{% url 'message:message-inbox' %}">Message</a>
+        </li>
+        <li class="nav-item max-767">
+          <a class="nav-link " href="{% url 'project:project-list' %}">Project</a>
+        </li>
+        <li class="nav-item max-767">
+          <a class="nav-link " href="{% url 'stock:stock-list' %}">Stock</a>
+        </li>
+        <li class="nav-item max-767">
+          <a class="nav-link " href="{% url 'project:task-list' %}">Task</a>
+        </li>
+        <li class="nav-item max-767">
+          <a class="nav-link " href="{% url 'transaction:transaction-donation-list' %}">Transaction</a>
+        </li>
+        <li class="nav-item max-767">
+          <a class="nav-link " href="{% url 'account:user-list' %}">User & Permissions</a>
+        </li>
+        <div class="dropdown nav-item">
+          <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ user.username }}
+          </a>
+          <div class="nav-item dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item nav-link" href="{% url 'account:user-detail' user.slug %}"><span class="sign-in text-grey">Profile</span></a>
+              <a class="dropdown-item nav-link" href="{% url 'account:logout' %}"><span class="sign-in text-red">Sign out</span></a>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+</nav>

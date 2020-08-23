@@ -18,7 +18,9 @@
       <div class="detail-card">
         <div class="detail-img">
           <div class="img-wrapper">
-            <img src="{{ post.featured_image.url }}">
+            {% if post.featured_image %}
+              <img src="{{ post.featured_image.url }}">
+            {% endif %}
           </div>
         </div>
         <div class="portal-title">
@@ -86,7 +88,7 @@
               <p>Content :</p>
             </div>
             <div class="detail-info-item-2">
-              <p>{{  post.content|linebreaks }}</p>
+              <p>{{  post.content|safe|linebreaks }}</p>
             </div>
           </div>
         </div>

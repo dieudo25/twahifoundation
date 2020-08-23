@@ -1,0 +1,72 @@
+{% extends '../base.html'%}
+
+{% load static %}
+
+{% block title %} Home {% endblock title %}
+
+{% block header %}
+  <div id="header">
+    <div class="header-img">
+      <img src="{% static "page/img/home_header.jpg" %}" alt="My image">
+    </div>
+    <div class="absolute">
+      <div class="header-p-wrapper">
+        <div class="header-p">
+          <h1>Together for welfare, advocacy, harmony and innovation
+            </br></br>
+            <small>Let's improve the standard of living of the African population through our different actions</small>
+          </h1>
+          <div class="header-btn">
+            <a href="#"><span class="btn-blue">Learn more</span></a>
+            <a href="#"><span class="btn-green">Get involved</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock header %}
+
+{% block content %}
+  <section id="newsletters-section">
+
+    {% include 'page/components/newsletters.html' %}
+
+  </section>
+  <section id="welcome-section">
+    <div class="img-wrapper">
+      <img src="{% static 'page/img/welcome_1.jpg' %}">
+    </div>
+    <div class="welcome-p">
+      <h2>Welcome to the TwahiFoundation association</h2>
+    </div>
+    <div class="img-wrapper">
+      <img src="{% static 'page/img/welcome_2.jpg' %}">
+    </div>
+  </section>
+  <section id="projects-section">
+    <div id="sidebar">
+      
+      {% include 'page/components/navmenu.html' %}
+
+      {% include 'page/components/donate.html' %}
+
+    </div>
+    <div class="projects-wrapper">
+
+      {% include 'page/home/projects_list.html' %}
+
+    </div>
+  </section>
+  <section id="events-section">
+    <div class="events-wrapper">
+      
+      {% include 'page/home/events_list.html' %}
+
+    </div>
+    <div id="sidebar-social">
+      
+      {% include 'page/components/social_page_plugin.html' %}
+
+    </div>
+  </section>
+{% endblock content %}

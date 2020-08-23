@@ -1,0 +1,35 @@
+{% extends './base.html'%}
+
+{% load static %}
+
+{% block title %} Events {% endblock title %}
+
+{% block content %}
+    <section id="projects-section" class="content-sidebar">
+        <div class="column-2">
+            <div class="projects-wrapper">
+
+                {% block content_with_sidebar %}{% endblock content_with_sidebar %}
+
+            </div>
+        </div>
+        <div class="column-1">
+            <div id="sidebar" class="home-sidebar mb-4">
+            
+                {% include 'page/components/navmenu.html' %}
+
+            </div>
+            <div class="home-sidebar mb-4">
+            
+                {% include 'page/components/donate.html' %}
+
+            </div>
+            <div id="sidebar-social" class="mb-4">
+            
+                {% include 'page/components/social_page_plugin.html' %}
+
+            </div>
+        </div>
+        
+    </section>
+{% endblock content %}
