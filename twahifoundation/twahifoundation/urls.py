@@ -27,6 +27,7 @@ urlpatterns = [
     re_path(r'^contact/', include('contact.urls')),
     re_path(r'^messages/', include('django_messages.urls')),
     re_path(r'^message/', include('message.urls')),
+    re_path(r'^newsletter/', include('newsletter.urls')),
     re_path(r'^paypal/', include('paypal.standard.ipn.urls')),
     re_path(r'^portal/', include('portal.urls')),
     re_path(r'^project/', include('project.urls')),

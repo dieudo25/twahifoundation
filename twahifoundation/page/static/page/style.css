@@ -610,6 +610,15 @@ footer #newsletters-title h2 {
 .project-check-list {
   text-align: initial;
 }
+
+#contact-form .control-group {
+  margin-bottom: 20px;
+}
+
+#contact-form input,
+#contact-form textarea {
+  width: 100%;
+}
 @media (min-width: 375px) {
   /* HEADER */
 
@@ -831,7 +840,7 @@ footer #newsletters-title h2 {
     height: 250px;
     top: 0;
     position: absolute;
-    width: 100vw;
+    width: 100%;
   }
 
   .sub-header h3 {

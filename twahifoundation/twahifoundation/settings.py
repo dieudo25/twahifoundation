@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'blog',
     'contact',
     'message',
+    'newsletter',
     'page',
     'portal',
     'project',
@@ -219,8 +220,9 @@ INTERNAL_IPS = [
 
 # Mail Chimp
 
-MAILCHIMP_API_KEY = 'ca9aedfca6acd3e987df027cf2768b3a-us17'
-MAILCHIMP_DATA_CENTER = 'us17'
+MAILCHIMP_API_KEY = os.getenv('TF_API_KEY')
+MAILCHIMP_DATA_CENTER = os.getenv('TF_DATA_CENTER')
+MAILCHIMP_EMAIL_LIST_ID = os.getenv('TF_EMAIL_LIST_ID')
 
 # Date Picker
 BOOTSTRAP4 = {

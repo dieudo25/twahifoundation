@@ -1,20 +1,18 @@
-{% extends '../base_with_sidebar.html'%}
+{% extends '../../page/base_with_sidebar.html'%}
 
 {% load static %}
 
-{% block title %} Events {% endblock title %}
+{% block title %} Donate {% endblock title %}
 
 {% block header %}
     <div class="sub-header bg-image">
         <div id="projects-section">
-            <h3>Events</h3>
+            <h3>Newsletter</h3>
         </div>
     </div>  
     <div class="sub-clearfix"></div>
 {% endblock header %}
 
 {% block content_with_sidebar %}
-    
-    {% include 'page/components/events_list.html' %}
-
+    <p>{{ result }}</p>
 {% endblock content_with_sidebar %}
