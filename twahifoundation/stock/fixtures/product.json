@@ -3,13 +3,13 @@
     "model": "stock.product",
     "pk": 1,
     "fields": {
-        "category": 1,
-        "slug": "wood-100-kg",
-        "name": "Wood (100 Kg)",
-        "price": "100.00",
-        "image": "https://zupimages.net/up/20/34/miru.jpg",
+        "category": null,
+        "slug": "construction",
+        "name": "Metal Pipe",
+        "price": "10.00",
+        "image": "https://zupimages.net/up/20/34/afrd.jpg",
         "description": "",
-        "date_created": "2020-08-19",
+        "date_created": "2020-08-20",
         "is_saleable": false,
         "is_purchasable": true
     }
@@ -18,14 +18,14 @@
     "model": "stock.product",
     "pk": 2,
     "fields": {
-        "category": 1,
-        "slug": "metal-pipe-10kg",
-        "name": "Metal Pipe (10kg)",
+        "category": null,
+        "slug": "wood-100-kg",
+        "name": "Wood (100 Kg)",
         "price": "10.00",
-        "image": "https://zupimages.net/up/20/34/afrd.jpg",
+        "image": "https://zupimages.net/up/20/34/miru.jpg",
         "description": "",
-        "date_created": "2020-08-19",
-        "is_saleable": false,
+        "date_created": "2020-08-20",
+        "is_saleable": true,
         "is_purchasable": true
     }
 }

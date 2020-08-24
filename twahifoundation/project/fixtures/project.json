@@ -3,35 +3,11 @@
     "model": "project.project",
     "pk": 1,
     "fields": {
-        "slug": "august-events-discover-the-english-countryside-with-bbc-c",
-        "title": "August events: Discover the English countryside with BBC Countryfile Live",
-        "image": "https://www.optoma.fr/images/ProductApplicationFeatures/4kuhd/banner.jpg",
-        "description": "sas",
-        "date_created": "2020-08-18",
-        "date_ended": null
-    }
-},
-{
-    "model": "project.project",
-    "pk": 2,
-    "fields": {
         "slug": "water-projet",
         "title": "Water Projet",
         "image": "https://zupimages.net/up/20/34/ds8a.jpg",
-        "description": "Globally, 1 in 9 people still have no access to clean water. But in the communities we serve, it's 9 out of 9. Water is a daily and crippling challenge. Without water you can't grow food, you can't build housing, you can't stay healthy, you can't stay in school and you can't keep working.\r\n\r\nToday, hope is on hold in over half of the developing world's primary schools without access to water and sanitation.\r\n\r\nBut the water crisis can be solved.",
-        "date_created": "2020-08-19",
-        "date_ended": null
-    }
-},
-{
-    "model": "project.project",
-    "pk": 3,
-    "fields": {
-        "slug": "clothing-project",
-        "title": "Clothing Project",
-        "image": "https://zupimages.net/up/20/34/aqex.jpg",
-        "description": "Those with eyes can surely see that the world is full of suffering, especially for the less privileged and those from impoverished parts of the world. We can pray for the poor half a world away, but taking concrete action is often the best way to spread God\u2019s love. What can you do? Where can you help?\r\n\u200b\r\nProject Clothe A Child is a 501(c)(3) non-profit organization created to serve as a conduit of aid to disadvantaged children and at risk youth by providing life essentials and mentorship.\r\nJoin us on our journey to give hope and to make a difference.",
-        "date_created": "2020-08-19",
+        "description": "s",
+        "date_created": "2020-08-20",
         "date_ended": null
     }
 }

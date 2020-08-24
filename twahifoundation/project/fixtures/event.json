@@ -3,36 +3,16 @@
     "model": "project.event",
     "pk": 1,
     "fields": {
-        "project": null,
-        "slug": "welcoming-new-members",
-        "title": "Welcoming new members",
+        "project": 1,
+        "slug": "august-events-discover-the-english-countryside-with-bbc-c",
+        "title": "August events: Discover the English countryside with BBC Countryfile Live",
         "location": "Place de la Bourse 2, 1000 Bruxelles",
         "event_type": "MemberMeeting",
-        "image": "https://zupimages.net/up/20/34/dfip.jpg",
-        "description": "This a meeting to welcome our new members",
-        "date_created": "2020-08-19",
-        "time_started": "2020-08-20T18:30:00Z",
-        "time_ended": "2020-08-20T22:00:00Z",
-        "users": [
-            1,
-            2
-        ]
-    }
-},
-{
-    "model": "project.event",
-    "pk": 2,
-    "fields": {
-        "project": 2,
-        "slug": "fund-raising-with-the-national-basilica-of-the-sacred-hea",
-        "title": "Fund Raising with the National Basilica of the Sacred Heart",
-        "location": "Avenue Charles-Quint 1 1081 Koekelberg",
-        "event_type": "FundRainsing",
-        "image": "https://zupimages.net/up/20/34/9tmd.jpg",
-        "description": "Fundraising at the Sacred Heart Basilica of Koekelberg",
-        "date_created": "2020-08-19",
-        "time_started": "2020-08-22T10:00:00Z",
-        "time_ended": "2020-08-23T12:00:00Z",
+        "image": "https://www.optoma.fr/images/ProductApplicationFeatures/4kuhd/banner.jpg",
+        "description": "By Order of the Fire Marshal: The following restrictions shall apply to all open fires and the use of fireworks. The restrictions will be in effect through July 31, 2016, or until...By Order of the Fire Marshal: The following restrictions shall apply to all open fires and the use of fireworks. The restrictions will be in effect through July 31, 2016, or until...By Order of the Fire Marshal: The following restrictions shall apply to all open fires and the use of fireworks. The restrictions will be in effect through July 31, 2016, or until...By Order of the Fire Marshal: The following restrictions shall apply to all open fires and the use of fireworks. The restrictions will be in effect through July 31, 2016, or until...\r\n\r\nBy Order of the Fire Marshal: The following restrictions shall apply to all open fires and the use of fireworks. The restrictions will be in effect through July 31, 2016, or until...By Order of the Fire Marshal: The following restrictions shall apply to all open fires and the use of fireworks. The restrictions will be in effect through July 31, 2016, or until...By Order of the Fire Marshal: The following restrictions shall apply to all open fires and the use of fireworks. The restrictions will be in effect through July 31, 2016, or until...",
+        "date_created": "2020-08-21",
+        "time_started": "2020-08-23T14:44:00Z",
+        "time_ended": "2020-08-25T14:44:00Z",
         "users": [
             1
         ]

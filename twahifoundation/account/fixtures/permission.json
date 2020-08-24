@@ -1186,5 +1186,365 @@
         "content_type": 33,
         "codename": "view_post_slugs"
     }
+},
+{
+    "model": "auth.permission",
+    "pk": 133,
+    "fields": {
+        "name": "Can add company",
+        "content_type": 9,
+        "codename": "add_company"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 134,
+    "fields": {
+        "name": "Can change company",
+        "content_type": 9,
+        "codename": "change_company"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 135,
+    "fields": {
+        "name": "Can delete company",
+        "content_type": 9,
+        "codename": "delete_company"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 136,
+    "fields": {
+        "name": "Can view company",
+        "content_type": 9,
+        "codename": "view_company"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 137,
+    "fields": {
+        "name": "Can add Individual",
+        "content_type": 10,
+        "codename": "add_person"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 138,
+    "fields": {
+        "name": "Can change Individual",
+        "content_type": 10,
+        "codename": "change_person"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 139,
+    "fields": {
+        "name": "Can delete Individual",
+        "content_type": 10,
+        "codename": "delete_person"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 140,
+    "fields": {
+        "name": "Can view Individual",
+        "content_type": 10,
+        "codename": "view_person"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 141,
+    "fields": {
+        "name": "Can add custom message",
+        "content_type": 34,
+        "codename": "add_custommessage"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 142,
+    "fields": {
+        "name": "Can change custom message",
+        "content_type": 34,
+        "codename": "change_custommessage"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 143,
+    "fields": {
+        "name": "Can delete custom message",
+        "content_type": 34,
+        "codename": "delete_custommessage"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 144,
+    "fields": {
+        "name": "Can view custom message",
+        "content_type": 34,
+        "codename": "view_custommessage"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 145,
+    "fields": {
+        "name": "Can add Stock",
+        "content_type": 17,
+        "codename": "add_stock"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 146,
+    "fields": {
+        "name": "Can change Stock",
+        "content_type": 17,
+        "codename": "change_stock"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 147,
+    "fields": {
+        "name": "Can delete Stock",
+        "content_type": 17,
+        "codename": "delete_stock"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 148,
+    "fields": {
+        "name": "Can view Stock",
+        "content_type": 17,
+        "codename": "view_stock"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 149,
+    "fields": {
+        "name": "Can add Transfert de produits",
+        "content_type": 16,
+        "codename": "add_productstocktransfert"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 150,
+    "fields": {
+        "name": "Can change Transfert de produits",
+        "content_type": 16,
+        "codename": "change_productstocktransfert"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 151,
+    "fields": {
+        "name": "Can delete Transfert de produits",
+        "content_type": 16,
+        "codename": "delete_productstocktransfert"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 152,
+    "fields": {
+        "name": "Can view Transfert de produits",
+        "content_type": 16,
+        "codename": "view_productstocktransfert"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 153,
+    "fields": {
+        "name": "Can add notice queue batch",
+        "content_type": 35,
+        "codename": "add_noticequeuebatch"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 154,
+    "fields": {
+        "name": "Can change notice queue batch",
+        "content_type": 35,
+        "codename": "change_noticequeuebatch"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 155,
+    "fields": {
+        "name": "Can delete notice queue batch",
+        "content_type": 35,
+        "codename": "delete_noticequeuebatch"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 156,
+    "fields": {
+        "name": "Can view notice queue batch",
+        "content_type": 35,
+        "codename": "view_noticequeuebatch"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 157,
+    "fields": {
+        "name": "Can add notice setting",
+        "content_type": 36,
+        "codename": "add_noticesetting"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 158,
+    "fields": {
+        "name": "Can change notice setting",
+        "content_type": 36,
+        "codename": "change_noticesetting"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 159,
+    "fields": {
+        "name": "Can delete notice setting",
+        "content_type": 36,
+        "codename": "delete_noticesetting"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 160,
+    "fields": {
+        "name": "Can view notice setting",
+        "content_type": 36,
+        "codename": "view_noticesetting"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 161,
+    "fields": {
+        "name": "Can add notice type",
+        "content_type": 37,
+        "codename": "add_noticetype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 162,
+    "fields": {
+        "name": "Can change notice type",
+        "content_type": 37,
+        "codename": "change_noticetype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 163,
+    "fields": {
+        "name": "Can delete notice type",
+        "content_type": 37,
+        "codename": "delete_noticetype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 164,
+    "fields": {
+        "name": "Can view notice type",
+        "content_type": 37,
+        "codename": "view_noticetype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 165,
+    "fields": {
+        "name": "Can add PayPal IPN",
+        "content_type": 38,
+        "codename": "add_paypalipn"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 166,
+    "fields": {
+        "name": "Can change PayPal IPN",
+        "content_type": 38,
+        "codename": "change_paypalipn"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 167,
+    "fields": {
+        "name": "Can delete PayPal IPN",
+        "content_type": 38,
+        "codename": "delete_paypalipn"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 168,
+    "fields": {
+        "name": "Can view PayPal IPN",
+        "content_type": 38,
+        "codename": "view_paypalipn"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 169,
+    "fields": {
+        "name": "Can add subscriber",
+        "content_type": 39,
+        "codename": "add_subscriber"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 170,
+    "fields": {
+        "name": "Can change subscriber",
+        "content_type": 39,
+        "codename": "change_subscriber"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 171,
+    "fields": {
+        "name": "Can delete subscriber",
+        "content_type": 39,
+        "codename": "delete_subscriber"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 172,
+    "fields": {
+        "name": "Can view subscriber",
+        "content_type": 39,
+        "codename": "view_subscriber"
+    }
 }
 ]

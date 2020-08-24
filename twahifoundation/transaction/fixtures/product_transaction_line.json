@@ -1,2 +1,11 @@
 [
+{
+    "model": "transaction.producttransactionline",
+    "pk": 3,
+    "fields": {
+        "transaction": 2,
+        "product": 1,
+        "quantity": 30
+    }
+}
 ]

@@ -4,15 +4,15 @@
     "pk": 1,
     "fields": {
         "company": null,
-        "created_by": null,
-        "first_name": "Dieudonn\u00e9",
-        "last_name": "Twahirwa",
-        "email": "twahirwa25@gmail.com",
-        "phone_number": "+32489512493",
-        "is_supplier": true,
+        "created_by": 1,
+        "first_name": "Aline",
+        "last_name": "Iradukunda",
+        "email": "aline@gmail.com",
+        "phone_number": "23456787",
+        "is_supplier": false,
         "is_donor": true,
         "is_subscribed": false,
-        "slug": "dieudonne-twahirwa"
+        "slug": "aline-iradukunda"
     }
 },
 {
@@ -21,62 +21,14 @@
     "fields": {
         "company": null,
         "created_by": null,
-        "first_name": "Aline",
-        "last_name": "Iradukunda",
-        "email": "aline@gmail.com",
-        "phone_number": "0489525478",
+        "first_name": "Patrick",
+        "last_name": "Litamba",
+        "email": "patlit@yopmail.com",
+        "phone_number": "0515613223",
         "is_supplier": true,
         "is_donor": false,
         "is_subscribed": false,
-        "slug": "aline-iradukunda"
-    }
-},
-{
-    "model": "contact.person",
-    "pk": 3,
-    "fields": {
-        "company": null,
-        "created_by": null,
-        "first_name": "Gealle",
-        "last_name": "Pant",
-        "email": "pant@yopmail.com",
-        "phone_number": "0489512493",
-        "is_supplier": false,
-        "is_donor": false,
-        "is_subscribed": false,
-        "slug": "gealle-pant"
-    }
-},
-{
-    "model": "contact.person",
-    "pk": 4,
-    "fields": {
-        "company": 2,
-        "created_by": null,
-        "first_name": "Marc",
-        "last_name": "De la Rue",
-        "email": "marc@yopmail.com",
-        "phone_number": "0245698752",
-        "is_supplier": true,
-        "is_donor": false,
-        "is_subscribed": false,
-        "slug": "marc-de-la-rue"
-    }
-},
-{
-    "model": "contact.person",
-    "pk": 5,
-    "fields": {
-        "company": 4,
-        "created_by": null,
-        "first_name": "Jean-paul",
-        "last_name": "Bench",
-        "email": "jpbench@yopmail.com",
-        "phone_number": "02456987",
-        "is_supplier": true,
-        "is_donor": false,
-        "is_subscribed": false,
-        "slug": "jean-paul-bench"
+        "slug": "patrick-litamba"
     }
 }
 ]
