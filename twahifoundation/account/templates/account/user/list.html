@@ -17,7 +17,7 @@
   </div>
   <div class="portal-top-bar">
       <ul class="portal-app-nav">
-        <a href="{% url 'account:user-list' %}" class="btn-black">
+        <a href="{% url 'user-list' %}" class="btn-black">
           <li class="poratl-app-nav-item">
             <div class="add-text">
               <span class="material-icons">person</span>
@@ -35,7 +35,7 @@
         </a>
       </ul>
     <div id="list-search">
-      <form action="{% url 'account:user-list-search' %}" method="GET">
+      <form action="{% url 'user-list-search' %}" method="GET">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" name="search">
         </div>
@@ -50,7 +50,7 @@
       </div>
       <div class="portal-content-nav-item">
         <ul>
-          <a href="{% url 'account:user-create'%}">
+          <a href="{% url 'user-create'%}">
             <li class="nav-item-add">
               <div class="add-text">
                 <span class="material-icons">add_circle_outline</span>
@@ -80,7 +80,7 @@
 
               {% for u in filtered_user_list %}
                 <tr class="table">
-                  <th scope="row"><a href="{% url 'account:user-detail' u.slug %}">{{ u.username }}</a></th>
+                  <th scope="row"><a href="{% url 'user-detail' u.slug %}">{{ u.username }}</a></th>
                   <td>{{ u.email }}</td>
                   <td>{{ u.first_name }}</td>
                   <td>{{ u.last_name }}</td>
@@ -102,7 +102,7 @@
 
             {% for u in user_list %}
               <tr class="table">
-                <th scope="row"><a href="{% url 'account:user-detail' u.slug %}">{{ u.username }}</a></th>
+                <th scope="row"><a href="{% url 'user-detail' u.slug %}">{{ u.username }}</a></th>
                 <td>{{ u.email }}</td>
                 <td>{{ u.first_name }}</td>
                 <td>{{ u.last_name }}</td>
@@ -112,7 +112,7 @@
           </tbody>
         {% elif user_list|length == 0 %}
           <div id="empty-table">
-            <p>No user, <a href="{% url 'account:user-create' %}">create one</a></p>
+            <p>No user, <a href="{% url 'user-create' %}">create one</a></p>
           </div>
         {% else %}
           <div id="search-no-result">

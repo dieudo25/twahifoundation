@@ -15,11 +15,11 @@ class TestViews(TestCase):
 
         self.client = Client()
 
-        self.list_url = reverse('account:user-list')
-        self.list_filtered_url = reverse('account:user-list-search')
-        self.detail_url = reverse('account:user-detail', args=['user1'])
-        self.create_url = reverse('account:user-create')
-        self.delete_url = reverse('account:user-delete', args=['user1'])
+        self.list_url = reverse('user-list')
+        self.list_filtered_url = reverse('user-list-search')
+        self.detail_url = reverse('user-detail', args=['user1'])
+        self.create_url = reverse('user-create')
+        self.delete_url = reverse('user-delete', args=['user1'])
 
         self.user1 = User.objects.create_user(
             username='user1',
@@ -117,7 +117,7 @@ class TestViewsWithImageField(TestCase):
         #Set up Environnement for the test"
 
         self.image = self._create_image()
-        self.update_url = reverse('account:user-update', args=['user1'])
+        self.update_url = reverse('user-update', args=['user1'])
 
         self.user1 = User.objects.create_user(
             username='user1',

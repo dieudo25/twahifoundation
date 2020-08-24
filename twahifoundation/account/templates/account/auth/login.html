@@ -15,21 +15,25 @@
 
 {% block body %}
   <section id="login-section">
-  <div class="login-img"></div>
+    <div class="login-img"></div>
     <div class="login-form wrapper">
-      <div class="login-title">
-        <h1>TwahiFoundation</h1>
-      </div>
-      <form method="post">
 
-        {% csrf_token %}
+      {% block auth %}
+        <div class="login-title">
+          <h1>TwahiFoundation</h1>
+        </div>
+        <form method="post">
 
-        {{ form|crispy}}
-        
-        <button class="btn-green" type="submit" value="login">Sign in</button>
-        <div class="text-center">
-      </form>
-      <a class="small text-blue" href="#">Forgot password?</a></div>  
+          {% csrf_token %}
+
+          {{ form|crispy}}
+          
+          <button class="btn-green" type="submit" value="login">Sign in</button>
+          <div class="text-center">
+        </form>
+        <a class="small text-blue" href="{% url 'password-reset' %}">Forgot password?</a></div>  
+      {% endblock auth %}
+      
     </div>
   </section>
 {% endblock body %}

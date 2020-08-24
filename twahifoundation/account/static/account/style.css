@@ -50,6 +50,7 @@
 
 .login-title {
   margin: 30px auto;
+  width: 326px;
 }
 
 .login-title h1 {
@@ -124,6 +125,26 @@
 
 .detail-info-item-1 {
   font-weight: 600;
+}
+
+.password {
+  display: contents;
+}
+
+.password a {
+  padding: 13px 0;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.password a:hover {
+  text-decoration: none;
+}
+
+.password-reset-confirm {
+  margin: 0px auto;
+  width: 326px;
 }
 
 @media (min-width: 375px) {

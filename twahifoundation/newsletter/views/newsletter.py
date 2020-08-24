@@ -53,27 +53,6 @@ class SubsciberListView(TemplateView):
         return context
 
 
-""" class SubsciberAddView(TemplateView):
-
-    template_name = "newsletter/subscriber/add.html"
-
-    try:
-        mailchimp = MailchimpMarketing.Client()
-        mailchimp.set_config({
-            "api_key": api_key,
-            "server": server
-        })
-
-        response = mailchimp.lists.add_list_member(
-            list_id, {"email_address": "twahirwa25@gmail.com", "status": "pending"})
-
-        json_object = json.loads(response.text)
-        print(json.dumps(json_object, indent=3))
-
-    except ApiClientError as error:
-        print("Error: {}".format(error.text)) """
-
-
 def subscribed_add_view(request):
 
     if request.method == 'POST':

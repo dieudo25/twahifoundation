@@ -71,7 +71,7 @@ class User(AbstractUser):
 
     def get_absolute_url(self):
         """Get the absolute url of the object"""
-        return reverse("account:user-detail", kwargs={"slug": self.slug})
+        return reverse("user-detail", kwargs={"slug": self.slug})
 
     def save(self, *args, **kwargs):
         """

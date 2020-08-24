@@ -87,7 +87,7 @@
 
         {% for user in task.users.all %}
           <div class="participant-item">
-            <a href="{% url 'account:user-detail' user.slug %}">
+            <a href="{% url 'user-detail' user.slug %}">
               <div class="participant-card">
                 <div class="participant-img">
                   <div class="img-wrapper">

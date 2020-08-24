@@ -199,7 +199,7 @@ AUTH_USER_MODEL = 'account.user'
 
 # Authentication
 
-LOGIN_URL = 'account:login'
+LOGIN_URL = 'login'
 
 LOGIN_REDIRECT_URL = 'portal:portal-home'
 

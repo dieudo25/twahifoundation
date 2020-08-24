@@ -2,23 +2,26 @@ from django.contrib.auth import get_user_model
 from django.db.models import Q
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import PermissionRequiredMixin
 
 from account.forms.user import UserCreateForm
 from account.models.user import User
 
 
-class UserListView(ListView):
+class UserListView(PermissionRequiredMixin, ListView):
     "User list view"
 
     model = get_user_model()
+    permission_required = 'account.view.user'
     template_name = 'account/user/list.html'
     context_object_name = 'user_list'
 
 
-class UserListFilteredView(ListView):
+class UserListFilteredView(PermissionRequiredMixin, ListView):
     "User list filterd by username, lastname or firstname"
 
     model = get_user_model()
+    permission_required = 'account.view.user'
     template_name = 'account/user/list.html'
     context_object_name = 'filtered_user_list'
 
@@ -59,7 +62,7 @@ class UserDeleteView(DeleteView):
     model = get_user_model()
     template_name = 'account/user/delete.html'
     context_object_name = 'user_profile'
-    success_url = reverse_lazy('account:user-list')
+    success_url = reverse_lazy('user-list')
 
 
 class UserCreateView(CreateView):

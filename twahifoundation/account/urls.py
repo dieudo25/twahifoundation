@@ -10,14 +10,45 @@ from account.views.user import (
     UserUpdateView,
 )
 
-app_name = 'account'
-
 urlpatterns = [
 
     # Authentication
     re_path(r'^login/$', auth_views.LoginView.as_view(
         template_name="account/auth/login.html"), name='login'),
     re_path(r'^logout/$', auth_views.LogoutView.as_view(), name='logout'),
+
+    # Password Change
+    re_path(r'^password/change/$',
+            auth_views.PasswordChangeView.as_view(
+                template_name="account/auth/password_change_form.html"
+            ),
+            name='password_change_form'),
+    re_path(r'^password/change/done/$',
+            auth_views.PasswordChangeDoneView.as_view(
+                template_name="account/auth/password_change_done.html"
+            ),
+            name='password_change_done'),
+
+    # Password Reset
+    re_path(r'^password/reset/$',
+            auth_views.PasswordResetView.as_view(
+                template_name="account/auth/password_reset_form.html"
+            ),
+            name='password-reset'),
+    re_path(r'^password/reset/done/$',
+            auth_views.PasswordResetDoneView.as_view(
+                template_name="account/auth/password_reset_done.html"
+            ),
+            name='password_reset_done'),
+    re_path(r'^password/reset/confirm/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+            auth_views.PasswordResetConfirmView.as_view(
+                template_name="account/auth/password_reset_confirm.html"),
+            name='password_reset_confirm'),
+    re_path(r'^reset/complete/$',
+            auth_views.PasswordResetCompleteView.as_view(
+                template_name="account/auth/password_reset_complete.html"
+            ),
+            name='password_reset_complete'),
 
 
     # User CRUD
