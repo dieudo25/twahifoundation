@@ -67,7 +67,7 @@ class User(AbstractUser):
         Unicode representation of Event.
         """
 
-        return f"{ self.last_name.capitalize() } { self.first_name.capitalize() } | { self.email }"
+        return f"{ self.last_name.capitalize() } { self.first_name.capitalize() }"
 
     def get_absolute_url(self):
         """Get the absolute url of the object"""

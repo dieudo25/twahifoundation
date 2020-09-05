@@ -269,7 +269,7 @@ a span.btn-involved {
 .header-btn {
   position: relative;
   top: 100px;
-  max-width: 600px;
+  max-width: 350px;
   display: flex;
   justify-content: space-evenly;
 }
@@ -660,6 +660,10 @@ footer #newsletters-title h2 {
     top: unset;
   }
 
+  .header-btn {
+    top: 270px;
+  }
+
   /* SIDEBAR */
 
   .home-sidebar {
@@ -858,6 +862,10 @@ footer #newsletters-title h2 {
     height: 150px;
   }
 
+  .header-btn {
+    top: 305px;
+  }
+
   /* NEWSLETTER */
 
   #newsletters-bar {
@@ -987,6 +995,10 @@ footer #newsletters-title h2 {
     font-size: 26px;
   }
 
+  .header-btn {
+    top: 350px;
+  }
+
   /* HOME PROJECTS */
 
   .content-width-wrapper {
@@ -1020,10 +1032,12 @@ footer #newsletters-title h2 {
 }
 
 @media (min-width: 1440px) {
+  /* HEADER */
+
   .header-btn {
     padding-top: 130px;
-    max-width: 530px;
     justify-content: space-between;
+    top: 270px;
   }
 }
 
