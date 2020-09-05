@@ -9,7 +9,7 @@ from page.views.page import (
 )
 
 
-from project.views.event import EventListView
+from page.views.page import FundRaisingEventListView
 from project.views.project import ProjectListView
 
 app_name = 'page'
@@ -23,7 +23,7 @@ urlpatterns = [
     re_path(r'^donate/$', DonateView.as_view(), name="donate"),
     re_path(r'^projects/$', ProjectListView.as_view(
         template_name="page/project/list.html"), name="project-list"),
-    re_path(r'^events/$', EventListView.as_view(
+    re_path(r'^events/$', FundRaisingEventListView.as_view(
         template_name="page/event/list.html"), name="event-list"),
 
     # Paypal

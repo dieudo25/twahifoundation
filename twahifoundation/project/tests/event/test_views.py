@@ -17,7 +17,7 @@ class TestViews(TestCase):
 
         EVENT_TYPE_CHOICES = [
             ('MemberMeeting', 'Meeting between members'),
-            ('FundRainsing', 'Fund rainsing'),
+            ('FundRaising', 'Fund rainsing'),
         ]
 
         self.client = Client()
@@ -84,7 +84,7 @@ class TestViews(TestCase):
 
         EVENT_TYPE_CHOICES = [
             ('MemberMeeting', 'Meeting between members'),
-            ('FundRainsing', 'Fund rainsing'),
+            ('FundRaising', 'Fund rainsing'),
         ]
 
         response = self.client.post(self.update_url, {
@@ -108,7 +108,7 @@ class TestViews(TestCase):
 
         EVENT_TYPE_CHOICES = [
             ('MemberMeeting', 'Meeting between members'),
-            ('FundRainsing', 'Fund rainsing'),
+            ('FundRaising', 'Fund rainsing'),
         ]
 
         response = self.client.post(self.create_url, {

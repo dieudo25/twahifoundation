@@ -17,7 +17,7 @@ class Event(models.Model):
 
     EVENT_TYPE_CHOICES = [
         ('MemberMeeting', 'Meeting between members'),
-        ('FundRainsing', 'Fund rainsing'),
+        ('FundRaising', 'Fund rainsing'),
     ]
 
     project = models.ForeignKey(

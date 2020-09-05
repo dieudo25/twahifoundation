@@ -53,7 +53,8 @@ class UserUpdateView(UpdateView):
               'last_name',
               'email',
               'language',
-              'avatar', ]
+              'avatar',
+              ]
 
 
 class UserDeleteView(DeleteView):

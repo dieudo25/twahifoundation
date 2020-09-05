@@ -7,18 +7,17 @@
 {% block header %}
   <div id="header">
     <div class="header-img">
-      <img src="{% static "page/img/home_header.jpg" %}" alt="My image">
-    </div>
-    <div class="absolute">
       <div class="header-p-wrapper">
         <div class="header-p">
-          <h1>Together for welfare, advocacy, harmony and innovation
-            </br></br>
-            <small>Let's improve the standard of living of the African population through our different actions</small>
-          </h1>
+          <div>
+            <h1>Together for welfare, advocacy, harmony and innovation
+              </br></br>
+              <small>Let's improve the standard of living of the African population through our different actions</small>
+            </h1>
+          </div>
           <div class="header-btn">
-            <a href="#"><span class="btn-blue">Learn more</span></a>
-            <a href="#"><span class="btn-green">Get involved</span></a>
+            <a href="{% url 'page:about' %}"><span class="btn-blue">Learn more</span></a>
+            <a href="{% url 'page:donate' %}"><span class="btn-green">Donate</span></a>
           </div>
         </div>
       </div>
@@ -43,8 +42,8 @@
       <img src="{% static 'page/img/welcome_2.jpg' %}">
     </div>
   </section>
-  <section id="projects-section">
-    <div id="sidebar">
+  <section class="content-width-wrapper">
+    <div id="sidebar" class="sidehome">
       
       {% include 'page/components/navmenu.html' %}
 
@@ -56,6 +55,9 @@
       {% include 'page/components/projects_list.html' %}
 
     </div>
+  </section>
+  <section id="projects-section" class="content-width-wrapper">
+    {% include 'page/components/projects_list2.html' %}
   </section>
   <section id="events-section">
     <div class="events-wrapper">

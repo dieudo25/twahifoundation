@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 from django.views.generic.edit import FormView
 from django.core.mail import send_mail
 from django.urls import reverse_lazy
@@ -20,7 +20,7 @@ class HomeView(TemplateView):
         context = super().get_context_data(**kwargs)
         context["project_list"] = Project.objects.all().order_by(
             '-date_created')[:3]
-        context["event_list"] = Event.objects.filter(event_type="FundRainsing").order_by(
+        context["event_list"] = Event.objects.filter(event_type="FundRaising").order_by(
             '-date_created')[:2]
         return context
 
@@ -74,3 +74,12 @@ class ContactView(FormView):
 class ContactSuccessView(TemplateView):
 
     template_name = 'page/contact/success.html'
+
+
+class FundRaisingEventListView(ListView):
+    "Event list view"
+
+    model = Event
+    template_name = 'project/event/list.html'
+    context_object_name = 'event_list'
+    queryset = Event.objects.filter(event_type="FundRaising")

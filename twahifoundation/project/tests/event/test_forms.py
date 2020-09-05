@@ -22,7 +22,7 @@ class TestForms(TestCase):
 
         EVENT_TYPE_CHOICES = [
             ('MemberMeeting', 'Meeting between members'),
-            ('FundRainsing', 'Fund rainsing'),
+            ('FundRaising', 'Fund rainsing'),
         ]
 
         form = EventCreateUpdateForm(data={
