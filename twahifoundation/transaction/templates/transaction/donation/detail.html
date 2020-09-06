@@ -32,7 +32,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Sales person :</p>
+              <p>Created by :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  transaction.user }}</p>
@@ -81,15 +81,18 @@
       </a>
     </div>
     <div class="detail-bar-col-2">
-      <a href="{% url 'transaction:donation-update' transaction.pk %}">
-        <p class="detail-bar-btn btn-black">Edit</p>
-      </a>
-      <a href="{% url 'transaction:donation-delete' transaction.pk %}">
-        <p class="detail-bar-btn btn-red btn-last">Delete</p>
-      </a>
-      <a href="">
-      <p class="detail-bar-btn btn-green">Validate</p>
-      </a>
+      {% if not transaction.is_valid %}
+        <a href="{% url 'transaction:donation-update' transaction.pk %}">
+          <p class="detail-bar-btn btn-black">Edit</p>
+        </a>
+        <a href="{% url 'transaction:donation-delete' transaction.pk %}">
+          <p class="detail-bar-btn btn-red btn-last">Delete</p>
+        </a>
+        <a href="{% url 'transaction:donation-validate' transaction.pk %}">
+          <p class="detail-bar-btn btn-green">Validate</p>
+        </a>
+      {% endif %}
+      
     </div>
   </div>
 {% endblock portal_content %}

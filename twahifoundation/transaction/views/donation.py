@@ -1,4 +1,5 @@
 from django.db.models import Q
+from django.shortcuts import redirect
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
 
@@ -90,9 +91,8 @@ class TransactionDonationCreateView(CreateView):
         return super(TransactionDonationCreateView, self).form_valid(TransactionDonationCreateUpdateForm)
 
 
-""" class ProductTransactionTransfertCreateView(CreateView):
-    "Product Transaction Transfert create view"
+def donation_validate(request, pk):
 
-    model = ProductTransactionTransfert
-    template_name = 'transaction/donation/product_transaction_transfert/create.html'
-    form_class = ProductTransactionTransferCreateUpdateForm """
+    transaction = Transaction.objects.get(pk=pk)
+    transaction.validate()
+    return redirect(reverse_lazy("transaction:donation-detail", kwargs={"pk": pk}))

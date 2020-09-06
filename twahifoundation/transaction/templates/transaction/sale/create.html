@@ -4,11 +4,11 @@
 
 {% load static %}
 
-{% block title %} Portal | Update {{ stock.name }} {% endblock title %}
+{% block title %} Portal | Create Sale {% endblock title %}
 
 {% block portal_content %}
   <div class="portal-content-title">
-    <h1>Update {{ stock.name }}</h1>
+    <h1>Create a new sale</h1>
   </div>
   <div class="portal-wrapper">
     <div class="portal-update-form-wrapper">
@@ -23,12 +23,12 @@
   </div>
   <div class="detail-bar">
     <div class="detail-bar-col-1">
-      <a href="{% url 'transaction:purchase-detail' transaction.pk %}">
+      <a href="{% url 'transaction:sale-list' %}">
         <p class="detail-bar-btn btn-black">Back</p>
       </a>
     </div>
     <div class="detail-bar-col-2">
-      <button form="update-form" class="detail-bar-btn btn-green btn-last" type="submit">Confirm</button>
+      <button form="update-form" class="detail-bar-btn btn-green btn-last" type="submit">Create</button>
     </div>
   </div>
 {% endblock portal_content %}

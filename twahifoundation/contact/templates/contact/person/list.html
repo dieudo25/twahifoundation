@@ -80,7 +80,7 @@
                 <td>{{ person.phone_number }}</td>
                 <td>{{ person.company }}</td>
                 <td class="img-bool">
-                  {% if person.is_donor %}
+                  {% if person.is_supplier %}
                     <div class="img-wrapper">
                       <img src="{% static 'portal/img/true.svg' %}">
                     </div>
@@ -91,7 +91,7 @@
                   {% endif %}
                 </td>
                 <td class="img-bool">
-                  {% if person.is_supplier %}
+                  {% if person.is_donor %}
                     <div class="img-wrapper">
                       <img src="{% static 'portal/img/true.svg' %}">
                     </div>
@@ -139,7 +139,7 @@
                 <td>{{ person.phone_number }}</td>
                 <td>{{ person.company }}</td>
                 <td class="img-bool">
-                  {% if person.is_donor %}
+                  {% if person.is_supplier %}
                     <div class="img-wrapper">
                       <img src="{% static 'portal/img/true.svg' %}">
                     </div>
@@ -150,7 +150,7 @@
                   {% endif %}
                 </td>
                 <td class="img-bool">
-                  {% if person.is_supplier %}
+                  {% if person.is_donor %}
                     <div class="img-wrapper">
                       <img src="{% static 'portal/img/true.svg' %}">
                     </div>

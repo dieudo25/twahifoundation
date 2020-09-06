@@ -78,6 +78,7 @@ class Transaction(models.Model):
         """
 
         self.is_valid = True
+        self.save()
 
 
 class ProductTransactionLine(models.Model):

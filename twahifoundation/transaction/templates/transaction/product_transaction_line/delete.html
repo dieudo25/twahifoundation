@@ -4,11 +4,11 @@
 
 {% load static %}
 
-{% block title %} Portal | Delete {{ transaction }} {% endblock title %}
+{% block title %} Portal | Delete {{ transaction_line }} {% endblock title %}
 
 {% block portal_content %}
   <div class="portal-content-title">
-    <h1>Delete {{ transaction }}</h1>
+    <h1>Delete {{ transaction_line }}</h1>
   </div>
   <div class="portal-wrapper">
     <div class="portal-update-form-wrapper">
@@ -16,14 +16,18 @@
 
           {% csrf_token %}
           <div>
-          <p>Are you sure you want to delete "{{ transaction }}"?</p>
+          <p>Are you sure you want to delete "{{ transaction_line.product.name }}"?</p>
+            <ul>
+              <li>Price : {{ transaction_line.product.price }} €</li>
+              <li>Quantity : {{ transaction_line.quantity}}</li>
+              <li>Subtotal : {{ transaction_line.subtotal }} €</li>
           </div>
       </form>
     </div>
   </div>
   <div class="detail-bar">
     <div class="detail-bar-col-1">
-      <a href="{% url 'transaction:purchase-detail' transaction.pk %}">
+      <a href="{% url 'transaction:purchase-detail' transaction_line.transaction.pk %}">
         <p class="detail-bar-btn btn-black">Back</p>
       </a>
     </div>

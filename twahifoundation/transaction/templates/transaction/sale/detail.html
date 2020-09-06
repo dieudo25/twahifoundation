@@ -17,7 +17,7 @@
     <div class="detail-info-section">
       <div class="detail-card">
         <div class="portal-title">
-          <h1>Purchase - {{ transaction }}</h1>
+          <h1>Sale - {{ transaction }}</h1>
         </div>
       </div>
       <div class="detail-info border-bottom-3">
@@ -40,7 +40,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Supplier:</p>
+              <p>Costumer:</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  transaction.person }}</p>
@@ -79,7 +79,7 @@
         <div class="portal-content-nav-item">
           <ul>
             {% if not transaction.is_valid %}
-              <a href="{% url 'transaction:purchase-line-create' transaction.pk %}">
+              <a href="{% url 'transaction:sale-line-create' transaction.pk %}">
                 <li class="nav-item-add">
                   <div class="add-text">
                     <span class="material-icons">add_circle_outline</span>
@@ -96,7 +96,7 @@
           
           {% if  product_transaction_list|length == 0 %}
             <div id="empty-table">
-              <p>No product yet, <a href="{% url 'transaction:purchase-line-create' transaction.pk %}">add one</a></p>
+              <p>No product yet, <a href="{% url 'transaction:sale-line-create' transaction.pk %}">add one</a></p>
             </div>
           {% elif product_transaction_list %}
             <table class="table table-hover">
@@ -127,12 +127,12 @@
 
                     {% if not transaction.is_valid %}
                       <td>
-                        <a href="{% url 'transaction:purchase-line-update' transaction_line.pk %}">
+                        <a href="{% url 'transaction:sale-line-update' transaction_line.pk %}">
                           <span class="material-icons text-black">edit</span>
                         </a>
                       </td>
                       <td>
-                        <a href="{% url 'transaction:purchase-line-delete' transaction_line.pk %}">
+                        <a href="{% url 'transaction:sale-line-delete' transaction_line.pk %}">
                           <span class="material-icons text-red">clear</span>
                         </a>
                       </td>
@@ -151,19 +151,19 @@
   </div>
   <div class="detail-bar">
     <div class="detail-bar-col-1">
-      <a href="{% url 'transaction:purchase-list' %}">
+      <a href="{% url 'transaction:sale-list' %}">
         <p class="detail-bar-btn btn-black">Back</p>
       </a>
     </div>
     <div class="detail-bar-col-2">
       {% if not transaction.is_valid %}
-        <a href="{% url 'transaction:purchase-update' transaction.pk %}">
+        <a href="{% url 'transaction:sale-update' transaction.pk %}">
           <p class="detail-bar-btn btn-black">Edit</p>
         </a>
-        <a href="{% url 'transaction:purchase-delete' transaction.pk %}">
+        <a href="{% url 'transaction:sale-delete' transaction.pk %}">
           <p class="detail-bar-btn btn-red btn-last">Delete</p>
         </a>
-        <a href="{% url 'transaction:purchase-validate' transaction.pk %}">
+        <a href="{% url 'transaction:sale-validate' transaction.pk %}">
           <p class="detail-bar-btn btn-green">Validate</p>
         </a>
       {% endif %}

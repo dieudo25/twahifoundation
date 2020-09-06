@@ -4,45 +4,45 @@ from django.views.generic import CreateView, DetailView, DeleteView, ListView, U
 from django.urls import reverse_lazy
 
 from transaction.models.transaction import Transaction, ProductTransactionLine
-from transaction.forms.purchase import TransactionPurchaseCreateUpdateForm
+from transaction.forms.sale import TransactionSaleCreateUpdateForm
 
 from transaction.forms.transaction_line import ProductTransactionLineCreateUpdateForm
 
 
-class TransactionPurchaseListView(ListView):
+class TransactionSaleListView(ListView):
     "Transaction list view"
 
     model = Transaction
-    template_name = 'transaction/purchase/list.html'
+    template_name = 'transaction/sale/list.html'
     context_object_name = 'transaction_list'
 
     def get_queryset(self):
         """Returns Donation that were created today"""
 
-        return Transaction.objects.filter(transaction_type='Purchase')
+        return Transaction.objects.filter(transaction_type='Sale')
 
 
-class TransactionListPurchaseFilteredView(ListView):
+class TransactionListSaleFilteredView(ListView):
     "Transaction list filterd by title, location"
 
     model = Transaction
-    template_name = 'transaction/purchase/list.html'
+    template_name = 'transaction/sale/list.html'
     context_object_name = 'filtered_transaction_list'
 
     def get_queryset(self):
         query = self.request.GET.get('search')
         object_list = Transaction.objects.filter(
             Q(user__icontains=query) |
-            Q(transaction_type__icontains='Purchase')
+            Q(transaction_type__icontains='Sale')
         )
         return object_list
 
 
-class TransactionPurchaseDetailView(DetailView):
+class TransactionSaleDetailView(DetailView):
     "Transaction detail view"
 
     model = Transaction
-    template_name = 'transaction/purchase/detail.html'
+    template_name = 'transaction/sale/detail.html'
     context_object_name = 'transaction'
 
     def get_context_data(self, **kwargs):
@@ -60,47 +60,47 @@ class TransactionPurchaseDetailView(DetailView):
         return context
 
 
-class TransactionPurchaseUpdateView(UpdateView):
+class TransactionSaleUpdateView(UpdateView):
     "Transaction update view"
 
     model = Transaction
-    template_name = 'transaction/purchase/update.html'
+    template_name = 'transaction/sale/update.html'
     context_object_name = 'transaction'
-    form_class = TransactionPurchaseCreateUpdateForm
+    form_class = TransactionSaleCreateUpdateForm
 
     def get_success_url(self):
         "Get the absolute url of the object"
-        return reverse_lazy("transaction:purchase-detail", kwargs={"pk": self.object.pk})
+        return reverse_lazy("transaction:sale-detail", kwargs={"pk": self.object.pk})
 
 
-class TransactionPurchaseDeleteView(DeleteView):
+class TransactionSaleDeleteView(DeleteView):
     "Transaction Delete View"
 
     model = Transaction
-    template_name = 'transaction/purchase/delete.html'
+    template_name = 'transaction/sale/delete.html'
     context_object_name = 'transaction'
-    success_url = reverse_lazy('transaction:purchase-list')
+    success_url = reverse_lazy('transaction:sale-list')
 
 
-class TransactionPurchaseCreateView(CreateView):
+class TransactionSaleCreateView(CreateView):
     "Transaction create view"
 
     model = Transaction
-    template_name = 'transaction/purchase/create.html'
-    form_class = TransactionPurchaseCreateUpdateForm
+    template_name = 'transaction/sale/create.html'
+    form_class = TransactionSaleCreateUpdateForm
 
     def get_success_url(self):
         "Get the absolute url of the object"
-        return reverse_lazy("transaction:purchase-detail", kwargs={"pk": self.object.pk})
+        return reverse_lazy("transaction:sale-detail", kwargs={"pk": self.object.pk})
 
     def form_valid(self, form):
 
-        form.instance.transaction_type = 'Purchase'
+        form.instance.transaction_type = 'Sale'
         form.instance.user = self.request.user
-        return super(TransactionPurchaseCreateView, self).form_valid(form)
+        return super(TransactionSaleCreateView, self).form_valid(form)
 
 
-class ProductTransactionPurchaseLineCreateView(CreateView):
+class ProductTransactionSaleLineCreateView(CreateView):
 
     model = ProductTransactionLine
     template_name = 'transaction/product_transaction_line/create.html'
@@ -108,15 +108,15 @@ class ProductTransactionPurchaseLineCreateView(CreateView):
 
     def get_success_url(self):
         "Get the absolute url of the object"
-        return reverse_lazy("transaction:purchase-detail", kwargs={"pk": self.object.transaction.pk})
+        return reverse_lazy("transaction:sale-detail", kwargs={"pk": self.object.transaction.pk})
 
     def form_valid(self, form):
         transaction = Transaction.objects.get(id=self.kwargs['transaction_pk'])
         form.instance.transaction = transaction
-        return super(ProductTransactionPurchaseLineCreateView, self).form_valid(form)
+        return super(ProductTransactionSaleLineCreateView, self).form_valid(form)
 
 
-class ProductTransactionPurchaseLineUpdateView(UpdateView):
+class ProductTransactionSaleLineUpdateView(UpdateView):
     "Transaction update view"
 
     model = ProductTransactionLine
@@ -126,10 +126,10 @@ class ProductTransactionPurchaseLineUpdateView(UpdateView):
 
     def get_success_url(self):
         "Get the absolute url of the object"
-        return reverse_lazy("transaction:purchase-detail", kwargs={"pk": self.object.transaction.pk})
+        return reverse_lazy("transaction:sale-detail", kwargs={"pk": self.object.transaction.pk})
 
 
-class ProductTransactionPurchaseLineDeleteView(DeleteView):
+class ProductTransactionSaleLineDeleteView(DeleteView):
     "Transaction Delete View"
 
     model = ProductTransactionLine
@@ -138,11 +138,11 @@ class ProductTransactionPurchaseLineDeleteView(DeleteView):
 
     def get_success_url(self):
         "Get the absolute url of the object"
-        return reverse_lazy("transaction:purchase-detail", kwargs={"pk": self.object.transaction.pk})
+        return reverse_lazy("transaction:sale-detail", kwargs={"pk": self.object.transaction.pk})
 
 
-def purchase_validate(request, pk):
+def sale_validate(request, pk):
 
     transaction = Transaction.objects.get(pk=pk)
     transaction.validate()
-    return redirect(reverse_lazy("transaction:purchase-detail", kwargs={"pk": pk}))
+    return redirect(reverse_lazy("transaction:sale-detail", kwargs={"pk": pk}))

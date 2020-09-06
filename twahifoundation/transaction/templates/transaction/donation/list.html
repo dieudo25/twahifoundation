@@ -33,7 +33,7 @@
             </div>
           </li>
         </a>
-        <a href="{% comment %} {% url 'transaction:category-list' %} {% endcomment %}" class="btn-black">
+        <a href="{% url 'transaction:sale-list' %}" class="btn-black">
           <li class="poratl-app-nav-item">
             <div class="add-text">
               <span class="material-icons">trending_up</span>
@@ -79,7 +79,7 @@
             <tr>
               <th scope="col">ID</th>
               <th scope="col">Date created</th>
-              <th scope="col">Sales person</th>
+              <th scope="col">Created by</th>
               <th scope="col">Costumer</th>
               <th scope="col">Total</th>
               <th scope="col">Is valid ?</th>
@@ -116,7 +116,7 @@
             <tr>
               <th scope="col">ID</th>
               <th scope="col">Date created</th>
-              <th scope="col">Sales person</th>
+              <th scope="col">Created by</th>
               <th scope="col">Costumer</th>
               <th scope="col">Total</th>
               <th scope="col">Is valid ?</th>
