@@ -1,6 +1,6 @@
 from django import forms
 
-from django_blog_it.django_blog_it.models import Post
+from blog.models.post import Post
 
 
 class PostCreateUpdateForm(forms.ModelForm):
@@ -11,13 +11,28 @@ class PostCreateUpdateForm(forms.ModelForm):
 
         model = Post
         fields = [
-            'user',
             'title',
             'meta_description',
             'content',
-            'category',
             'tags',
             'status',
             'keywords',
-            'featured_image',
+            'image',
+        ]
+
+
+class PageCreateUpdateForm(forms.ModelForm):
+    """PostCreateForm custom made class"""
+
+    class Meta:
+        """Meta definition of PostCreateForm"""
+
+        model = Post
+        fields = [
+            'title',
+            'meta_description',
+            'content',
+            'tags',
+            'status',
+            'keywords',
         ]

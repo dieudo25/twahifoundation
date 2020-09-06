@@ -17,7 +17,7 @@
   </div>
   <div class="portal-top-bar">
   <ul class="portal-app-nav">
-        <a href="{% url 'transaction:transaction-donation-list' %}" class="btn-black custom-btn">
+        <a href="{% url 'transaction:donation-list' %}" class="btn-black custom-btn">
           <li class="poratl-app-nav-item">
             <div class="add-text">
               <span class="custom-icon donation-icon"></span>
@@ -25,7 +25,7 @@
             </div>
           </li>
         </a>
-        <a href="{% comment %} {% url 'transaction:product-list' %} {% endcomment %}" class="btn-black">
+        <a href="{% url 'transaction:purchase-list' %}" class="btn-black">
           <li class="poratl-app-nav-item">
             <div class="add-text">
               <span class="material-icons">trending_down</span>
@@ -43,7 +43,7 @@
         </a>
       </ul>
     <div id="list-search">
-      <form action="{% url 'transaction:transaction-donation-list-search' %}" method="GET">
+      <form action="{% url 'transaction:purchase-list-search' %}" method="GET">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" name="search">
         </div>
@@ -54,11 +54,11 @@
   <div class="portal-content-body">
     <div class="portal-content-nav">
       <div class="portal-content-nav-title">
-        <h2>Donations</h2>
+        <h2>Purchases</h2>
       </div>
       <div class="portal-content-nav-item">
         <ul>
-          <a href="{% url 'transaction:transaction-create' %}">
+          <a href="{% url 'transaction:purchase-create' %}">
             <li class="nav-item-add">
               <div class="add-text">
                 <span class="material-icons">add_circle_outline</span>
@@ -89,11 +89,11 @@
 
             {% for transaction in filtered_transaction_list %}
               <tr class="table">
-                <th scope="row"><a href="{% url 'transaction:transaction-detail' transaction.pk %}">{{ transaction }}</a></th>
+                <th scope="row"><a href="{% url 'transaction:purchase-detail' transaction.pk %}">{{ transaction }}</a></th>
                 <td>{{ transaction.date_time_created }}</td>
                 <td>{{ transaction.user }}</td>
                 <td>{{ transaction.person }}</td>
-                <td>{{ transaction.total }}</td>
+                <td>{{ transaction.total }} €</td>
                 <td class="img-bool">
                   {% if transaction.is_valid %}
                     <div class="img-wrapper">
@@ -126,11 +126,11 @@
 
             {% for transaction in transaction_list %}
               <tr class="table">
-                <th scope="row"><a href="{% url 'transaction:transaction-detail' transaction.pk %}">{{ transaction }}</a></th>
+                <th scope="row"><a href="{% url 'transaction:purchase-detail' transaction.pk %}">{{ transaction }}</a></th>
                 <td>{{ transaction.date_time_created }}</td>
                 <td>{{ transaction.user }}</td>
                 <td>{{ transaction.person }}</td>
-                <td>{{ transaction.total }}</td>
+                <td>{{ transaction.total }} €</td>
                 <td class="img-bool">
                   {% if transaction.is_valid %}
                     <div class="img-wrapper">
@@ -149,7 +149,7 @@
         </table>
       {% elif transaction_number == 0 %}
         <div id="empty-table">
-          <p>No transaction yet, <a href="{% url 'transaction:transaction-create' %}">create one</a></p>
+          <p>No transaction yet, <a href="{% url 'transaction:purchase-create' %}">create one</a></p>
         </div>
       {% else %}
         <div id="search-no-result">

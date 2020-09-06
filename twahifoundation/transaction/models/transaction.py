@@ -33,39 +33,32 @@ class Transaction(models.Model):
     person = models.ForeignKey(
         Person,
         on_delete=models.PROTECT,
-        verbose_name="Personne",
         blank=True,
         null='NULL',
     )
     products_transaction = models.ManyToManyField(
         Product,
         through='ProductTransactionLine',
-        verbose_name="Liste de produits",
         blank=True,
     )
     transaction_type = models.CharField(
         max_length=10,
         choices=TYPE_CHOICES,
-        default=TYPE_CHOICES[0][0],
-        verbose_name="Type de transfert"
     )
     date_time_created = models.DateTimeField(
         auto_now_add=True,
         null=True,
         blank=True,
-        verbose_name="Date de création"
     )
-    is_valid = models.BooleanField(default=False, verbose_name="Est valide")
+    is_valid = models.BooleanField(default=False)
     total = models.DecimalField(
-        max_digits=5, decimal_places=2, default=0)
+        max_digits=10, decimal_places=2, default=0)
 
     class Meta:
         """
         Meta definition for Transaction.
         """
 
-        verbose_name = 'Transaction'
-        verbose_name_plural = 'Transactions'
         ordering = ['-date_time_created']
 
     def __str__(self):
@@ -75,19 +68,22 @@ class Transaction(models.Model):
         transaction_id = str(self.pk)
         add_zero = ''
 
-        while len(add_zero) < 5:
+        while len(add_zero) + len(transaction_id) < 5:
             add_zero += '0'
         return 'T' + add_zero + transaction_id
 
-    def get_absolute_url(self):
+    def validate(self):
         """
-        Return absolute url for a transaction.
+        Validate a trnasaction, after validation no more modification can be done
         """
 
-        return reverse('transaction:transaction-detail', kwargs={'pk': self.pk})
+        self.is_valid = True
 
 
 class ProductTransactionLine(models.Model):
+    """
+    Base class of the ProductTransactionLine model 
+    """
 
     transaction = models.ForeignKey(
         Transaction,
@@ -97,17 +93,31 @@ class ProductTransactionLine(models.Model):
     product = models.ForeignKey(
         Product,
         on_delete=models.CASCADE,
-        verbose_name="Produits"
     )
     quantity = models.PositiveSmallIntegerField(
         default=None,
-        verbose_name="Quantité"
     )
 
     class Meta:
         """
-        Meta definition for ProductPurchasingTransaction.
+        Meta definition for ProductTransaction.
         """
 
-        verbose_name = 'Ligne de commande'
-        verbose_name_plural = 'Ligne de commandes'
+    @property
+    def subtotal(self):
+        return self.product.price * self.quantity
+
+    def set_total(self):
+        self.transaction.total += self.subtotal
+
+    def save(self, *args, **kwargs):
+        """
+        Save method for User.
+
+        Generate a slug based on the username if the user doesn't exist yet.-
+        """
+
+        if self.transaction.transaction_type != 'Donation':
+            self.set_total()
+
+        super().save(*args, **kwargs)

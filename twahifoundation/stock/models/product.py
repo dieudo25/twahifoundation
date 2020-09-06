@@ -17,8 +17,6 @@ class Product(models.Model):
         Meta definition for DonnatingTransaction.
         """
 
-        verbose_name = 'Produit'
-        verbose_name_plural = 'Produits'
         ordering = ['name']
 
     category = models.ForeignKey(

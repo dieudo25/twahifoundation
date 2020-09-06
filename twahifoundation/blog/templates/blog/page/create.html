@@ -1,0 +1,36 @@
+{% extends 'portal/portal_base_sidebar.html'%}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block title %} Portal | Create page {% endblock title %}
+
+{% block portal_content %}
+  <div class="portal-content-title">
+    <h1>Create a new page</h1>
+  </div>
+  <div class="portal-wrapper">
+    <div class="portal-update-form-wrapper">
+      <form method="POST" id="update-form">
+
+          {% csrf_token %}
+
+          {{ form.media }}
+          
+          {{ form | crispy }}
+
+      </form>
+    </div>
+  </div>
+  <div class="detail-bar">
+    <div class="detail-bar-col-1">
+      <a href="{% url 'blog:post-list' %}">
+        <p class="detail-bar-btn btn-black">Back</p>
+      </a>
+    </div>
+    <div class="detail-bar-col-2">
+      <button form="update-form" class="detail-bar-btn btn-green btn-last" type="submit">Create</button>
+    </div>
+  </div>
+{% endblock portal_content %}

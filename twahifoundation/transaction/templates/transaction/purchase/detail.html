@@ -1,0 +1,156 @@
+{% extends 'portal/portal_base_sidebar.html'%}
+
+{% load static %}
+
+{% block title %} Portal | {{ transaction }} {% endblock title %}
+
+{% block css %}
+
+  {{ block.super }}
+
+  <link rel="stylesheet" href="{% static 'account/style.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'transaction/style.css' %}" type="text/css">
+ {% endblock css %}
+
+{% block portal_content %}
+  <div class="portal-wrapper detail-with-table">
+    <div class="detail-info-section">
+      <div class="detail-card">
+        <div class="portal-title">
+          <h1>Purchase - {{ transaction }}</h1>
+        </div>
+      </div>
+      <div class="detail-info border-bottom-3">
+        <div class="">
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Created on :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  transaction.date_time_created }}</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Sales person :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  transaction.user }}</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Costumer:</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  transaction.person }}</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Total :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  transaction.total }} €</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Is valid ? : </p>
+            </div>
+            <div class="detail-info-item-2 img-bool">
+              {% if transaction.is_valid %}
+                <div class="img-wrapper">
+                  <img src="{% static 'portal/img/true.svg' %}">
+                </div>
+              {% else %}
+                <div class="img-wrapper">
+                  <img src="{% static 'portal/img/false.svg' %}">
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="portal-content-nav">
+        <div class="portal-content-nav-title">
+          <h3>Products</h3>
+        </div>
+        <div class="portal-content-nav-item">
+          <ul>
+            <a href="{% url 'transaction:purchase-line-create' transaction.pk %}">
+              <li class="nav-item-add">
+                <div class="add-text">
+                  <span class="material-icons">add_circle_outline</span>
+                    <span>Add</span>
+                </div>
+              </li>
+            </a>
+          </ul>
+        </div>
+      </div>
+        <div class="portal-content-table">
+          
+          {% if  product_transaction_list|length == 0 %}
+            <div id="empty-table">
+              <p>No product yet, <a href="{% url 'transaction:purchase-line-create' transaction.pk %}">add one</a></p>
+            </div>
+          {% elif product_transaction_list %}
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col" class="table-icon">N°</th>
+                  <th scope="col">Product name</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Sub-total</th>
+                  <th scope="col" class="table-icon">Edit</th>
+                  <th scope="col" class="table-icon">Delete</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+
+                {% for transaction_line in product_transaction_list %}
+                  <tr class="table">
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ transaction_line.product.name }}</td>
+                    <td>{{ transaction_line.product.price }} €</td>
+                    <td>{{ transaction_line.quantity }}</td>
+                    <td>{{ transaction_line.subtotal }} €</td>
+                    <td>
+                      <span class="material-icons text-black">edit</span>
+                    </td>
+                    <td>
+                      <span class="material-icons text-red">clear</span>
+                    </td>
+                  </tr>
+                {% endfor %}
+
+              </tbody>
+            </table>
+          {% endif%}
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="detail-bar">
+    <div class="detail-bar-col-1">
+      <a href="{% url 'transaction:purchase-list' %}">
+        <p class="detail-bar-btn btn-black">Back</p>
+      </a>
+    </div>
+    <div class="detail-bar-col-2">
+      <a href="{% url 'transaction:purchase-update' transaction.pk %}">
+        <p class="detail-bar-btn btn-black">Edit</p>
+      </a>
+      <a href="{% url 'transaction:purchase-delete' transaction.pk %}">
+        <p class="detail-bar-btn btn-red btn-last">Delete</p>
+      </a>
+      <a href="">
+      <p class="detail-bar-btn btn-green">Validate</p>
+      </a>
+    </div>
+  </div>
+{% endblock portal_content %}

@@ -25,11 +25,11 @@
             </div>
           </li>
         </a>
-        <a href="#" class="btn-black">
+        <a href="{% url 'blog:page-list' %}" class="btn-black custom-btn">
           <li class="poratl-app-nav-item">
             <div class="add-text">
-              <span class="material-icons">category</span>
-              <span>Categories</span>
+              <span class="custom-icon page-icon"></span>
+              <span>Pages</span>
             </div>
           </li>
         </a>
@@ -43,7 +43,7 @@
         </a>
       </ul>
     <div id="list-search">
-      <form action="{% url 'user-list-search' %}" method="GET">
+      <form action="{% url 'blog:post-list-search' %}" method="GET">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" name="search">
         </div>
@@ -80,7 +80,6 @@
               <th scope="col">Title</th>
               <th scope="col">Image</th>
               <th scope="col">Author</th>
-              <th scope="col">Category</th>
               <th scope="col">Status</th>
               <th scope="col">Created date</th>
               <th scope="col">Updated date</th>
@@ -93,15 +92,14 @@
                 <th scope="row"><a href="{% url 'blog:post-detail' post.slug %}">{{ post.title }}</a></th>
                 <td>
                 
-                  {% if post.featured_image %}
+                  {% if post.image %}
                     <div class="img-wrapper">
-                      <img src="{{ post.featured_image.url }}">
+                      <img src="{{ post.image }}">
                     </div>
                   {% endif %}
 
                 </td>
                 <td>{{ post.user }}</td>
-                <td>{{ post.category }}</td>
                 <td>{{ post.status }}</td>
                 <td>{{ post.created_on }}</td>
                 <td>{{ post.updated_on }}</td>
@@ -117,7 +115,6 @@
               <th scope="col">Title</th>
               <th scope="col">Image</th>
               <th scope="col">Author</th>
-              <th scope="col">Category</th>
               <th scope="col">Status</th>
               <th scope="col">Created date</th>
               <th scope="col">Updated date</th>
@@ -130,15 +127,14 @@
                 <th scope="row"><a href="{% url 'blog:post-detail' post.slug %}">{{ post.title }}</a></th>
                 <td>
 
-                  {% if post.featured_image %}
+                  {% if post.image %}
                     <div class="img-wrapper">
-                      <img src="{{ post.featured_image.url }}">
+                      <img src="{{ post.image }}">
                     </div>
                   {% endif %}
 
                 </td>
                 <td>{{ post.user }}</td>
-                <td>{{ post.category }}</td>
                 <td>{{ post.status }}</td>
                 <td>{{ post.created_on }}</td>
                 <td>{{ post.updated_on }}</td>

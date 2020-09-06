@@ -5,3 +5,7 @@
 .portal-app-nav .custom-icon.tags-icon {
   background-image: url(img/tags.svg);
 }
+
+.portal-app-nav .custom-icon.page-icon {
+  background-image: url(img/page.svg);
+}

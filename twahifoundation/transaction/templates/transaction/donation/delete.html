@@ -1,0 +1,23 @@
+{% extends 'portal/portal_base_sidebar.html'%}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block title %} Portal | Delete {{ transaction }} {% endblock title %}
+
+{% block portal_content %}
+  <div class="portal-content-title">
+    <h1>Delete {{ transaction }}</h1>
+  </div>
+  <div class="detail-bar">
+    <div class="detail-bar-col-1">
+      <a href="{% url 'transaction:donation-detail' transaction.pk %}">
+        <p class="detail-bar-btn btn-black">Back</p>
+      </a>
+    </div>
+    <div class="detail-bar-col-2">
+      <button form="delete-form" class="detail-bar-btn btn-red btn-last" type="submit">Delete</button>
+    </div>
+  </div>
+{% endblock portal_content %}

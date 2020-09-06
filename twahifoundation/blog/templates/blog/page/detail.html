@@ -1,0 +1,104 @@
+{% extends 'portal/portal_base_sidebar.html'%}
+
+{% load static %}
+
+{% block title %} Portal | {{ post.title }} {% endblock title %}
+
+{% block css %}
+
+  {{ block.super }}
+
+  <link rel="stylesheet" href="{% static 'account/style.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'project/style.css' %}" type="text/css">
+{% endblock css %}
+
+{% block portal_content %}
+  <div class="portal-wrapper event-detail event">
+    <div class="detail-info-section">
+      <div class="detail-card portal-title">
+          <h1>{{ post.title }}</h1>
+      </div>
+      <div class="detail-info">
+        <div class="column">
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Author:</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  post.user }}</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Created date :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  post.created_on }}</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Updated date :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  post.updated_on }}</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Category :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  post.category }}</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Tags :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>
+                {% for tags in post.tags_set.all %}
+                  {{ tags }},
+                {% endfor %}
+              </p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Status :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  post.status }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="">
+            <div class="detail-info-item-1">
+              <p>Content :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  post.content|safe|linebreaks }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="detail-bar">
+    <div class="detail-bar-col-1">
+      <a href="{% url 'blog:page-list' %}">
+        <p class="detail-bar-btn btn-black">Back</p>
+      </a>
+    </div>
+    <div class="detail-bar-col-2">
+      <a href="{% url 'blog:page-update' post.slug %}">
+        <p class="detail-bar-btn btn-black">Edit</p>
+      </a>
+      <a href="{% url 'blog:page-delete' post.slug %}">
+        <p class="detail-bar-btn btn-red btn-last">Delete</p>
+      </a>
+    </div>
+  </div>
+{% endblock portal_content %}

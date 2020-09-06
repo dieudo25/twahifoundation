@@ -26,6 +26,10 @@
   width: 23px;
 }
 
+.border-bottom-3 {
+  border-bottom: 3px solid #212529;
+}
+
 /* SIDEBAR */
 
 #portal-sidebar {

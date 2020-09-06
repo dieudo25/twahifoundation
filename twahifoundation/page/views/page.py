@@ -1,11 +1,10 @@
 from django.conf import settings
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.edit import FormView
 from django.core.mail import send_mail
 from django.urls import reverse_lazy
 
-from django_blog_it.django_blog_it.models import Post
-
+from blog.models.post import Post
 from page.forms.contact import ContactForm
 from project.models.project import Project
 from project.models.event import Event
@@ -20,6 +19,8 @@ class HomeView(TemplateView):
         context = super().get_context_data(**kwargs)
         context["project_list"] = Project.objects.all().order_by(
             '-date_created')[:3]
+        context["post_list"] = Post.objects.filter(status='Published', category__name="Post").order_by(
+            '-created_on')[:3]
         context["event_list"] = Event.objects.filter(event_type="FundRaising").order_by(
             '-date_created')[:2]
         return context
@@ -80,6 +81,24 @@ class FundRaisingEventListView(ListView):
     "Event list view"
 
     model = Event
-    template_name = 'project/event/list.html'
+    template_name = 'page/event/list.html'
     context_object_name = 'event_list'
     queryset = Event.objects.filter(event_type="FundRaising")
+
+
+class NewsListView(ListView):
+    "News List View"
+
+    model = Post
+    template_name = 'page/news/list.html'
+    context_object_name = 'post_list'
+    queryset = Post.objects.filter(
+        status='Published', category__name="Post").order_by('-created_on')
+
+
+class NewsDatailView(DetailView):
+    "News Detail View"
+
+    model = Post
+    template_name = 'page/news/detail.html'
+    context_object_name = 'post'

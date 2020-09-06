@@ -10,6 +10,12 @@ from account.views.user import (
     UserUpdateView,
 )
 
+from account.views.group import (
+    GroupListView,
+    GroupListFilteredView,
+    GroupDetailView,
+)
+
 urlpatterns = [
 
     # Authentication
@@ -49,6 +55,14 @@ urlpatterns = [
                 template_name="account/auth/password_reset_complete.html"
             ),
             name='password_reset_complete'),
+
+
+    # Group CRUD
+    re_path(r'^group/list/$', GroupListView.as_view(), name="group-list"),
+    re_path(r'^group/list/search/$', GroupListFilteredView.as_view(),
+            name="group-list-search"),
+    re_path(r'^group/(?P<pk>[0-9-]*)/$',
+            GroupDetailView.as_view(), name="group-detail"),
 
 
     # User CRUD

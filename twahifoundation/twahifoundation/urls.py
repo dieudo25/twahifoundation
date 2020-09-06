@@ -34,9 +34,6 @@ urlpatterns = [
     re_path(r'^stock/', include('stock.urls')),
     re_path(r'^transaction/', include('transaction.urls')),
     re_path(r'^', include('page.urls')),
-    re_path(r'', include('django_blog_it.urls')),
-
-
 ]
 
 
