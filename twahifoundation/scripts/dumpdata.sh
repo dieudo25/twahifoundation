@@ -179,16 +179,50 @@ else
     printf "(13_company.json)\n>>> SUCCESS: Fixture JSON-data successfully exported\n"
 fi
 
+# dump all the data from the blog app in the twahifoundation/blog/fixtures directory with the manage.py utility
 
-# dump all the data from the flatpage app in the twahifoundation/flatpage/fixtures directory with the manage.py utility
+python3 manage.py dumpdata blog.post --indent 4 > blog/fixtures/post.json
+status=$?
 
-#python3 manage.py dumpdata flatpage.customflatpage --indent 4 > flatpage/fixtures/custom_flatpage.json
-#status=$?
-#
-#if [ $status -ne 0 ] ;then
-#    printf "(6_customflatpage.json)\n>>> ERROR: JSON-data export has failed  (Fixture import error: $status)\n"
-#    printf "You may check if the data is valid and put in 'twahifoundation/flatpage/fixtures'"
-#    exit $status
-#else
-#    printf "(6_customflatpage.json)\n>>> SUCCESS: Fixture JSON-data successfully exported\n"
-#fi
+if [ $status -ne 0 ] ;then
+    printf "(14_post.json)\n>>> ERROR: JSON-data export has failed  (Fixture import error: $status)\n"
+    printf "You may check if the data is valid and put in 'twahifoundation/blog/fixtures'"
+    exit $status
+else
+    printf "(14_post.json)\n>>> SUCCESS: Fixture JSON-data successfully exported\n"
+fi
+
+python3 manage.py dumpdata blog.category --indent 4 > blog/fixtures/category.json
+status=$?
+
+if [ $status -ne 0 ] ;then
+    printf "(15_category.json)\n>>> ERROR: JSON-data export has failed  (Fixture import error: $status)\n"
+    printf "You may check if the data is valid and put in 'twahifoundation/blog/fixtures'"
+    exit $status
+else
+    printf "(15_category.json)\n>>> SUCCESS: Fixture JSON-data successfully exported\n"
+fi
+
+python3 manage.py dumpdata blog.tags --indent 4 > blog/fixtures/tags.json
+status=$?
+
+if [ $status -ne 0 ] ;then
+    printf "(16_tags.json)\n>>> ERROR: JSON-data export has failed  (Fixture import error: $status)\n"
+    printf "You may check if the data is valid and put in 'twahifoundation/blog/fixtures'"
+    exit $status
+else
+    printf "(16_tags.json)\n>>> SUCCESS: Fixture JSON-data successfully exported\n"
+fi
+
+# dump all the data from the blog app in the twahifoundation/message/fixtures directory with the manage.py utility
+
+python3 manage.py dumpdata message.message --indent 4 > message/fixtures/message.json
+status=$?
+
+if [ $status -ne 0 ] ;then
+    printf "(17_message.json)\n>>> ERROR: JSON-data export has failed  (Fixture import error: $status)\n"
+    printf "You may check if the data is valid and put in 'twahifoundation/message/fixtures'"
+    exit $status
+else
+    printf "(17_message.json)\n>>> SUCCESS: Fixture JSON-data successfully exported\n"
+fi

@@ -25,7 +25,6 @@ urlpatterns = [
     re_path(r'^api-auth/', include('rest_framework.urls')),
     re_path(r'^blog/', include('blog.urls')),
     re_path(r'^contact/', include('contact.urls')),
-    re_path(r'^messages/', include('django_messages.urls')),
     re_path(r'^message/', include('message.urls')),
     re_path(r'^newsletter/', include('newsletter.urls')),
     re_path(r'^paypal/', include('paypal.standard.ipn.urls')),

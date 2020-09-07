@@ -74,7 +74,7 @@ class Transaction(models.Model):
 
     def validate(self):
         """
-        Validate a trnasaction, after validation no more modification can be done
+        Validate a transaction, after validation no more modification can be done
         """
 
         self.is_valid = True

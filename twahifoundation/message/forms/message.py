@@ -1,7 +1,7 @@
 from django import forms
 
 
-from django_messages.models import Message
+from message.models.message import Message
 
 
 class MessageCreateUpdateForm(forms.ModelForm):
@@ -15,4 +15,5 @@ class MessageCreateUpdateForm(forms.ModelForm):
             'recipient',
             'subject',
             'body',
+            'uploaded_file',
         ]

@@ -1,2 +1,19 @@
 [
+{
+    "model": "project.task",
+    "pk": 1,
+    "fields": {
+        "slug": "faire-la-nourriture",
+        "project": 1,
+        "state": "TODO",
+        "title": "Faire la nourriture",
+        "description": "<p>zzefezfze</p>",
+        "date_created": "2020-09-06",
+        "deadline": "2020-09-23",
+        "users": [
+            1,
+            3
+        ]
+    }
+}
 ]

@@ -1,0 +1,22 @@
+[
+{
+    "model": "blog.category",
+    "pk": 1,
+    "fields": {
+        "name": "Post",
+        "slug": "post",
+        "meta_description": "",
+        "meta_keywords": ""
+    }
+},
+{
+    "model": "blog.category",
+    "pk": 2,
+    "fields": {
+        "name": "Page",
+        "slug": "page",
+        "meta_description": "",
+        "meta_keywords": ""
+    }
+}
+]

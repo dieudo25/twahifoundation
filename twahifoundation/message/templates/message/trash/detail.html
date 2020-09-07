@@ -67,7 +67,10 @@
       </a>
     </div>
     <div class="detail-bar-col-2">
-      <a href="{% url 'message:inbox-delete' message.id %}">
+      <a href="{% url 'message:trash-restore' message.id %}">
+        <p class="detail-bar-btn btn-black btn-last">Restore</p>
+      </a>
+      <a href="{% url 'message:message-delete' message.id %}">
         <p class="detail-bar-btn btn-red btn-last">Delete</p>
       </a>
     </div>

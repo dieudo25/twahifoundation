@@ -1,0 +1,56 @@
+[
+{
+    "model": "blog.post",
+    "pk": 1,
+    "fields": {
+        "title": "August events: Discover the English countryside with BBC Countryfile Live",
+        "slug": "august-events-discover-the-english-countryside-with-bbc-countryfile-live",
+        "created_on": "2020-09-05T12:43:14.128Z",
+        "updated_on": "2020-09-05",
+        "meta_description": "",
+        "user": 1,
+        "content": "<p>grggre</p>",
+        "category": 1,
+        "status": "Published",
+        "keywords": "",
+        "image": "https://www.optoma.fr/images/ProductApplicationFeatures/4kuhd/banner.jpg",
+        "tags": []
+    }
+},
+{
+    "model": "blog.post",
+    "pk": 6,
+    "fields": {
+        "title": "August events: Discover the English countryside with BBC Countryfile Liveefe",
+        "slug": "august-events-discover-the-english-countryside-with-bbc-countryfile-liveefe",
+        "created_on": "2020-09-05T14:45:54.121Z",
+        "updated_on": "2020-09-05",
+        "meta_description": "",
+        "user": 1,
+        "content": "<p>fefzefzf</p>",
+        "category": 1,
+        "status": "Published",
+        "keywords": "",
+        "image": "https://zupimages.net/up/20/34/miru.jpg",
+        "tags": []
+    }
+},
+{
+    "model": "blog.post",
+    "pk": 8,
+    "fields": {
+        "title": "About",
+        "slug": "about",
+        "created_on": "2020-09-05T15:25:09.261Z",
+        "updated_on": "2020-09-05",
+        "meta_description": "",
+        "user": 1,
+        "content": "<h1><strong><span style=\"color:#064f5d\">WHO ARE WE ?</span></strong></h1>\r\n\r\n<p>TWAHI Foundation, hereinafter referred as &ldquo;the Foundation&rdquo;, is a non-profit making organisation,created in the Republic of Uganda in 2014.<br />\r\nThe Foundation seeks to encourage its members and partners to work&nbsp;<span style=\"color:#064f5d\"><strong>&ldquo;together&rdquo;</strong></span>, so as to achieve social and economic&nbsp;<span style=\"color:#064f5d\"><strong>&ldquo;welfare&rdquo;</strong></span>&nbsp;of the target group through&nbsp;<span style=\"color:#064f5d\"><strong>&ldquo;advocacy&rdquo;</strong></span>&nbsp;and other methods that are also likely to promote harmony and lead to&nbsp;<span style=\"color:#064f5d\"><strong>&quot;innovative&rdquo;</strong></span>&nbsp;solutions to the numerous challenges our communities are facing.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h2><strong><span style=\"color:#064f5d\">WHAT DOES &ldquo;TWAHI&rdquo; MEAN?</span></strong></h2>\r\n\r\n<p>TWAHI in an acronym, standing for &ldquo;Together for Awareness, Welfare, Harmony and Innovation. Therefore, the aims and objectives as well as the activities of the Foundation revolve around these five words:</p>\r\n\r\n<p><span style=\"color:#064f5d\"><strong>Together</strong>&nbsp;<strong>:</strong></span> the founders are convinced that the members of the Foundation need to work together among themselves, and with other partners to meet their objectives.</p>\r\n\r\n<p><span style=\"color:#064f5d\"><strong>Welfare&nbsp;:</strong> </span>the Foundation came into existence after a bitter assessment that led the founders to the conclusion that there is a need to address the poverty situation in which live the target groups and to improve their social conditions and economic opportunities.</p>\r\n\r\n<p><span style=\"color:#064f5d\"><strong>Advocacy&nbsp;: </strong></span>it is not only by working together that the Foundation members can achieve the social and economic welfare of the target groups, but they also need to raise public awareness and to gain enough support at local, national and international levels.</p>\r\n\r\n<p><span style=\"color:#064f5d\"><strong>Harmony&nbsp;:</strong></span> apart from economic growth and social welfare, there is a need to promote mutual respect and peaceful coexistence among the target groups. Therefore, harmony is seen not only as a goal, but also a tool leading to the achievement of other goals: for example, without harmony, it would be hard, if not impossible, to attain social and economic development.</p>\r\n\r\n<p><span style=\"color:#064f5d\"><strong>Innovation&nbsp;: </strong></span>for the Foundation, &ldquo;Innovation&rdquo; conveys a twofold message: on one hand, the members will strive to use their imagination and creative thoughts, they will also exhort the target groups, mainly the younger generations, to develop critical thinking skills. On the other hand, while achieving social and economic welfare, the Foundation members will seek to apply better solutions that meet new requirements of the modern world.</p>\r\n\r\n<h2>&nbsp;</h2>\r\n\r\n<h2><strong><span style=\"color:#064f5d\">AIMS AND OBJECTIVES OF THE FOUNDATION</span></strong></h2>\r\n\r\n<ul>\r\n\t<li>Foster a spirit of solidarity within the local communities so that they can work&nbsp;<span style=\"color:#064f5d\"><strong>together</strong></span>&nbsp;towards common goals</li>\r\n\t<li>Achieve&nbsp;<span style=\"color:#064f5d\"><strong>welfare</strong></span>&nbsp;by undertaking concrete initiatives to combat poverty among the most vulnerable groups</li>\r\n\t<li>Raise public&nbsp;<span style=\"color:#064f5d\"><strong>awareness</strong></span>&nbsp;and mobilise support and action to promote education, health care, sanitation, &hellip;.</li>\r\n\t<li>Seek&nbsp;<span style=\"color:#064f5d\"><strong>harmony</strong></span>&nbsp;among the local communities and beyond, and carry out activities meant to bring about reconciliation and to strengthen peacebuilding</li>\r\n\t<li>Work out and implement projects that can transform the conformist behaviour and also give access to modern and&nbsp;<span style=\"color:#064f5d\"><strong>innovative</strong></span>&nbsp;technologies</li>\r\n</ul>\r\n\r\n<div id=\"gtx-trans\" style=\"left:-20px; position:absolute; top:629.094px\">\r\n<div class=\"gtx-trans-icon\">&nbsp;</div>\r\n</div>",
+        "category": 2,
+        "status": "Drafted",
+        "keywords": "",
+        "image": null,
+        "tags": []
+    }
+}
+]

@@ -78,15 +78,15 @@ class PostCreateView(CreateView):
         "Get the absolute url of the object"
         return reverse_lazy("blog:post-detail", kwargs={"slug": self.object.slug})
 
-    def form_valid(self, PostCreateUpdateForm):
+    def form_valid(self, form):
         # This method is called when valid form data has been POSTed.
         # It should return an HttpResponse.
 
         # perform a action here
-        PostCreateUpdateForm.instance.category = Category.objects.get(
+        form.instance.category = Category.objects.get(
             name="Post")
-        PostCreateUpdateForm.instance.user = self.request.user
-        return super().form_valid(PostCreateUpdateForm)
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 # Static page
 
@@ -129,17 +129,17 @@ class PageCreateView(CreateView):
         "Get the absolute url of the object"
         return reverse_lazy("blog:page-detail", kwargs={"slug": self.object.slug})
 
-    def form_valid(self, PageCreateUpdateForm):
+    def form_valid(self, form):
         # This method is called when valid form data has been POSTed.
         # It should return an HttpResponse.
 
         # perform a action here
-        PageCreateUpdateForm.instance.category = Category.objects.get(
+        form.instance.category = Category.objects.get(
             name="Page")
-        PageCreateUpdateForm.instance.user = self.request.user
-        if not PageCreateUpdateForm.instance.image:
-            PageCreateUpdateForm.instance.image = 'https://urbandojo.com/wp-content/uploads/2017/04/default-image.jpg'
-        return super().form_valid(PageCreateUpdateForm)
+        form.instance.user = self.request.user
+        if not form.instance.image:
+            form.instance.image = 'https://urbandojo.com/wp-content/uploads/2017/04/default-image.jpg'
+        return super().form_valid(form)
 
 
 class PageUpdateView(UpdateView):

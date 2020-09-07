@@ -9,6 +9,9 @@ class Tags(models.Model):
     name = models.CharField(max_length=20, unique=True)
     slug = models.CharField(max_length=20, unique=True)
 
+    class Meta:
+        verbose_name_plural = 'Tags'
+
     def save(self, *args, **kwargs):
         """
         Save method for Tags.

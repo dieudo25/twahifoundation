@@ -1,2 +1,13 @@
 [
+{
+    "model": "stock.productstocktransfert",
+    "pk": 1,
+    "fields": {
+        "stock": null,
+        "transfert_type": "RECEPTION",
+        "product": 1,
+        "quantity": 20,
+        "date_time_created": "2020-09-06T13:38:30.885Z"
+    }
+}
 ]

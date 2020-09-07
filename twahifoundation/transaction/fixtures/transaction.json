@@ -4,12 +4,12 @@
     "pk": 2,
     "fields": {
         "project": 1,
-        "user": 2,
+        "user": 1,
         "person": 2,
-        "transaction_type": "Donation",
+        "transaction_type": "Purchase",
         "date_time_created": "2020-08-20T19:54:17.685Z",
         "is_valid": false,
-        "total": "10.00"
+        "total": "2800.00"
     }
 },
 {
@@ -17,7 +17,7 @@
     "pk": 7,
     "fields": {
         "project": 1,
-        "user": 2,
+        "user": 1,
         "person": 1,
         "transaction_type": "Donation",
         "date_time_created": "2020-08-21T11:41:17.245Z",
@@ -30,7 +30,7 @@
     "pk": 8,
     "fields": {
         "project": 1,
-        "user": 2,
+        "user": 1,
         "person": 1,
         "transaction_type": "Donation",
         "date_time_created": "2020-08-21T11:43:33.707Z",
@@ -43,12 +43,155 @@
     "pk": 9,
     "fields": {
         "project": 1,
-        "user": 2,
+        "user": 1,
         "person": 1,
         "transaction_type": "Donation",
         "date_time_created": "2020-08-21T11:43:54.020Z",
         "is_valid": false,
         "total": "30.00"
+    }
+},
+{
+    "model": "transaction.transaction",
+    "pk": 10,
+    "fields": {
+        "project": 1,
+        "user": 1,
+        "person": 1,
+        "transaction_type": "Donation",
+        "date_time_created": "2020-09-05T21:09:34.361Z",
+        "is_valid": false,
+        "total": "300.00"
+    }
+},
+{
+    "model": "transaction.transaction",
+    "pk": 11,
+    "fields": {
+        "project": 1,
+        "user": 1,
+        "person": 2,
+        "transaction_type": "Donation",
+        "date_time_created": "2020-09-06T13:29:30.660Z",
+        "is_valid": false,
+        "total": "0.00"
+    }
+},
+{
+    "model": "transaction.transaction",
+    "pk": 12,
+    "fields": {
+        "project": 1,
+        "user": 1,
+        "person": 1,
+        "transaction_type": "Purchase",
+        "date_time_created": "2020-09-06T14:47:29.674Z",
+        "is_valid": false,
+        "total": "230.00"
+    }
+},
+{
+    "model": "transaction.transaction",
+    "pk": 13,
+    "fields": {
+        "project": 1,
+        "user": 1,
+        "person": 1,
+        "transaction_type": "Donation",
+        "date_time_created": "2020-09-06T14:50:13.607Z",
+        "is_valid": true,
+        "total": "50.00"
+    }
+},
+{
+    "model": "transaction.transaction",
+    "pk": 14,
+    "fields": {
+        "project": 1,
+        "user": 1,
+        "person": 2,
+        "transaction_type": "",
+        "date_time_created": "2020-09-06T14:51:19.900Z",
+        "is_valid": false,
+        "total": "0.00"
+    }
+},
+{
+    "model": "transaction.transaction",
+    "pk": 15,
+    "fields": {
+        "project": 1,
+        "user": 1,
+        "person": 1,
+        "transaction_type": "",
+        "date_time_created": "2020-09-06T14:52:25.467Z",
+        "is_valid": false,
+        "total": "0.00"
+    }
+},
+{
+    "model": "transaction.transaction",
+    "pk": 16,
+    "fields": {
+        "project": 1,
+        "user": 1,
+        "person": 1,
+        "transaction_type": "",
+        "date_time_created": "2020-09-06T14:52:41.647Z",
+        "is_valid": false,
+        "total": "0.00"
+    }
+},
+{
+    "model": "transaction.transaction",
+    "pk": 17,
+    "fields": {
+        "project": 1,
+        "user": 1,
+        "person": 1,
+        "transaction_type": "",
+        "date_time_created": "2020-09-06T15:48:08.221Z",
+        "is_valid": false,
+        "total": "0.00"
+    }
+},
+{
+    "model": "transaction.transaction",
+    "pk": 18,
+    "fields": {
+        "project": 1,
+        "user": 1,
+        "person": 1,
+        "transaction_type": "Purchase",
+        "date_time_created": "2020-09-06T15:51:05.851Z",
+        "is_valid": true,
+        "total": "40.00"
+    }
+},
+{
+    "model": "transaction.transaction",
+    "pk": 19,
+    "fields": {
+        "project": 1,
+        "user": 1,
+        "person": 1,
+        "transaction_type": "Sale",
+        "date_time_created": "2020-09-06T19:44:23.240Z",
+        "is_valid": true,
+        "total": "50.00"
+    }
+},
+{
+    "model": "transaction.transaction",
+    "pk": 20,
+    "fields": {
+        "project": 1,
+        "user": 1,
+        "person": 1,
+        "transaction_type": "Sale",
+        "date_time_created": "2020-09-06T20:05:47.538Z",
+        "is_valid": false,
+        "total": "0.00"
     }
 }
 ]

@@ -1,2 +1,13 @@
 [
+{
+    "model": "stock.stock",
+    "pk": 1,
+    "fields": {
+        "name": "Stock de Bourge",
+        "slug": "stock-de-bourge",
+        "location": "Anvers",
+        "date_created": "2020-09-06",
+        "is_full": false
+    }
+}
 ]
