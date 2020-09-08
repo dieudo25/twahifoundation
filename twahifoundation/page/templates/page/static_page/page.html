@@ -7,17 +7,17 @@
 {% block header %}
     <div class="sub-header bg-image">
         <div class="content-width-wrapper">
-            <h3>{{ about.title }}</h3>
+            <h3>{{ page.title }}</h3>
         </div>
     </div>  
     <div class="sub-clearfix"></div>
 {% endblock header %}
 
 {% block content_with_sidebar %}
-    <h2 class="title-h2">About us</h2>
+    <h2 class="title-h2">{{ page.title }}</h2>
     <div class="donate-content bg-white pt-4"> 
         <div class="donate-info">
-            {{ about.content|safe }}
+            {{ page.content|safe }}
         </div>
     </div>
 {% endblock content_with_sidebar %}

@@ -1,14 +1,14 @@
 {% load static %}
 <div class="portal-sidebar-toggle">
   <span id="portal-side-bar-minimize-btn" class="bg-black">
-    <div id="toggle-collapse"></div>
+    <div id="toggle-collapse" class="rotateY180"></div>
   </span>
 </div>
 <div class='portal-sidebar-app-list'>
   <a href="{% url 'blog:post-list' %}">
     <div class="portal-sidebar-app">
       <div class="img-text-wrapper">
-        <div class="text-wrapper">
+        <div class="text-wrapper hide">
           Blog
         </div>
         <div class="img-wrapper">
@@ -20,7 +20,7 @@
   <a href="{% url 'contact:person-list' %}">
     <div class="portal-sidebar-app">
       <div class="img-text-wrapper">
-        <div class="text-wrapper">
+        <div class="text-wrapper hide">
           Contact
         </div>
         <div class="img-wrapper">
@@ -32,7 +32,7 @@
   <a href="{% url 'project:event-list' %}">
     <div class="portal-sidebar-app">
       <div class="img-text-wrapper">
-        <div class="text-wrapper">
+        <div class="text-wrapper hide">
           Event
         </div>
         <div class="img-wrapper">
@@ -44,7 +44,7 @@
   <a href="{% url 'message:message-inbox' %}">
     <div class="portal-sidebar-app">
       <div class="img-text-wrapper">
-        <div class="text-wrapper">
+        <div class="text-wrapper hide">
           Message
         </div>
         <div class="img-wrapper">
@@ -56,7 +56,7 @@
   <a href="{% url 'newsletter:subcriber-list' %}">
     <div class="portal-sidebar-app">
       <div class="img-text-wrapper">
-        <div class="text-wrapper">
+        <div class="text-wrapper hide">
           Newsletter
         </div>
         <div class="img-wrapper">
@@ -68,7 +68,7 @@
   <a href="{% url 'project:project-list' %}">
     <div class="portal-sidebar-app">
       <div class="img-text-wrapper">
-        <div class="text-wrapper">
+        <div class="text-wrapper hide">
           Project
         </div>
         <div class="img-wrapper">
@@ -80,7 +80,7 @@
   <a href="{% url 'stock:stock-list' %}">
     <div class="portal-sidebar-app">
       <div class="img-text-wrapper">
-        <div class="text-wrapper">
+        <div class="text-wrapper hide">
           Stock
         </div>
         <div class="img-wrapper">
@@ -92,7 +92,7 @@
   <a href="{% url 'project:task-list' %}">
     <div class="portal-sidebar-app">
       <div class="img-text-wrapper">
-        <div class="text-wrapper">
+        <div class="text-wrapper hide">
           Task
         </div>
         <div class="img-wrapper">
@@ -104,7 +104,7 @@
   <a href="{% url 'transaction:donation-list' %}">
     <div class="portal-sidebar-app user-app">
       <div class="img-text-wrapper">
-        <div class="text-wrapper">
+        <div class="text-wrapper hide">
           Transaction
         </div>
         <div class="img-wrapper">
@@ -116,7 +116,7 @@
   <a href="{% url 'user-list' %}">
     <div class="portal-sidebar-app user-app">
       <div class="img-text-wrapper">
-        <div class="text-wrapper">
+        <div class="text-wrapper hide">
           User & Permissions
         </div>
         <div class="img-wrapper">

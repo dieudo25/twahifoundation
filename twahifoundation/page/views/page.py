@@ -29,11 +29,33 @@ class HomeView(TemplateView):
 class AboutView(TemplateView):
     "About page"
 
-    template_name = "page/static_page/about.html"
+    template_name = "page/static_page/page.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["about"] = Post.objects.get(title="About")
+        context["page"] = Post.objects.get(title="About us")
+        return context
+
+
+class LegalMentionsView(TemplateView):
+    "LegalMentions page"
+
+    template_name = "page/static_page/page.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["page"] = Post.objects.get(title="Legal mentions")
+        return context
+
+
+class AttributionsView(TemplateView):
+    "Attributions page"
+
+    template_name = "page/static_page/page.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["page"] = Post.objects.get(title="Attributions")
         return context
 
 

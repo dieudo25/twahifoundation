@@ -1,11 +1,13 @@
 from django.urls import re_path
 
 from page.views.page import (
-    HomeView,
+    AttributionsView,
     AboutView,
     DonateView,
     ContactView,
     ContactSuccessView,
+    HomeView,
+    LegalMentionsView,
 )
 
 from blog.views.post import PostListView, PostDetailView
@@ -20,10 +22,12 @@ urlpatterns = [
     # Static page
     re_path(r'^$', HomeView.as_view(), name="home"),
     re_path(r'^about/$', AboutView.as_view(), name="about"),
+    re_path(r'^attributions/$', AttributionsView.as_view(), name="attributions"),
     re_path(r'^contact/$', ContactView.as_view(), name="contact"),
     re_path(r'^contact/success/$', ContactSuccessView.as_view(),
             name="contact-success"),
     re_path(r'^donate/$', DonateView.as_view(), name="donate"),
+    re_path(r'^legal-mentions/$', LegalMentionsView.as_view(), name="legal"),
 
     # Project
     re_path(r'^projects/$', ProjectListView.as_view(

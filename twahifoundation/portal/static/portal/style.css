@@ -410,7 +410,7 @@ form .control-group .django-ckeditor-widget > div {
 
   .app-item {
     margin: 20px 15px;
-    width: 320px;
+    width: 180px;
   }
 
   /* SIDERBAR */
@@ -425,6 +425,13 @@ form .control-group .django-ckeditor-widget > div {
     padding-bottom: 35px;
     display: unset;
     flex-shrink: 0;
+    position: absolute;
+    height: calc(100vh - 70px);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .sidebar-clearfix {
+    width: 104px;
   }
 
   .portal-sidebar-toggle {
@@ -619,6 +626,10 @@ form .control-group .django-ckeditor-widget > div {
     left: -80px;
   }
 
+  .sidebar-clearfix {
+    width: 78px;
+  }
+
   /* HOME */
 
   #portal-navbar #navbarNavDropdown {
@@ -626,7 +637,7 @@ form .control-group .django-ckeditor-widget > div {
   }
 
   .app-item {
-    width: 280px;
+    width: 265px;
   }
 
   /* PORTAL CONTENT */
@@ -656,12 +667,22 @@ form .control-group .django-ckeditor-widget > div {
   }
 
   .app-list .app-item {
-    width: 203px;
+    width: 243px;
   }
 
   /* SIDEBAR */
 
   #portal-sidebar {
     width: 250px;
+  }
+
+  .sidebar-clearfix {
+    width: 64px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .sidebar-clearfix {
+    width: 52px;
   }
 }
