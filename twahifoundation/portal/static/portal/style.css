@@ -431,7 +431,7 @@ form .control-group .django-ckeditor-widget > div {
   }
 
   .sidebar-clearfix {
-    width: 104px;
+    margin-left: 52px;
   }
 
   .portal-sidebar-toggle {
@@ -626,10 +626,6 @@ form .control-group .django-ckeditor-widget > div {
     left: -80px;
   }
 
-  .sidebar-clearfix {
-    width: 78px;
-  }
-
   /* HOME */
 
   #portal-navbar #navbarNavDropdown {
@@ -674,15 +670,5 @@ form .control-group .django-ckeditor-widget > div {
 
   #portal-sidebar {
     width: 250px;
-  }
-
-  .sidebar-clearfix {
-    width: 64px;
-  }
-}
-
-@media (min-width: 1440px) {
-  .sidebar-clearfix {
-    width: 52px;
   }
 }

@@ -1,9 +1,14 @@
 $(document).ready(function () {
   $("#portal-side-bar-minimize-btn").click(function () {
-    $("div.text-wrapper").toggle(250);
+    $("div.text-wrapper").toggleClass("hide");
     $("#portal-sidebar").toggleClass("portal-sidebar-collapsed");
     $("#toggle-collapse").toggleClass("rotateY180");
   });
 
-  $("#portal-sidebar").click(function () {});
+  $(".super").click(function () {
+    console.log("heheheh");
+    $("#portal-sidebar").addClass("portal-sidebar-collapsed");
+    $("#toggle-collapse").addClass("rotateY180");
+    $("div.text-wrapper").addClass("hide");
+  });
 });
