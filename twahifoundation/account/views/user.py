@@ -1,10 +1,11 @@
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, get_user
+from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.db.models import Q
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import PermissionRequiredMixin
 
-from account.forms.user import UserCreateForm
+from account.forms.user import UserCreateForm, UserUpdateForm
 from account.models.user import User
 
 
@@ -48,13 +49,8 @@ class UserUpdateView(UpdateView):
     "User update view"
 
     model = get_user_model()
+    form_class = UserUpdateForm
     template_name = 'account/user/update.html'
-    fields = ['first_name',
-              'last_name',
-              'email',
-              'language',
-              'avatar',
-              ]
 
 
 class UserDeleteView(DeleteView):
@@ -72,3 +68,15 @@ class UserCreateView(CreateView):
     model = get_user_model()
     form_class = UserCreateForm
     template_name = 'account/user/create.html'
+
+
+class UserPasswordChangeView(UpdateView):
+    "User update view"
+
+    model = get_user_model()
+    form_class = PasswordChangeForm
+    template_name = 'account/auth/password_change_form.html'
+
+    def get_success_url(self):
+        "Get the absolute url of the object"
+        return reverse_lazy("user-detail", kwargs={"pk": self.object.pk})

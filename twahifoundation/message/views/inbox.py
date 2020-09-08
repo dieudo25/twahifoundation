@@ -1,4 +1,4 @@
-from django.contrib import auth
+from django.contrib.auth import get_user
 from django.db.models import Q
 from django.shortcuts import redirect
 from django.views.generic import DetailView, ListView
@@ -19,7 +19,7 @@ class InboxListView(ListView):
     def get_queryset(self):
         """Get Message inbox list"""
 
-        current_user = auth.get_user(self.request)
+        current_user = get_user(self.request)
         return Message.objects.inbox_for(current_user)
 
 
@@ -31,13 +31,16 @@ class InboxListFilteredView(ListView):
     context_object_name = 'filtered_message_list'
 
     def get_queryset(self):
+        current_user = get_user(self.request)
         query = self.request.GET.get('search')
         object_list = Message.objects.filter(
+            Q(recipient=current_user) |
+            Q(recipient_deleted_at__isnull=True)
+        ).filter(
             Q(sender__first_name__icontains=query) |
             Q(sender__last_name__icontains=query) |
             Q(recipient__first_name__icontains=query) |
             Q(recipient__last_name__icontains=query) |
-            Q(message__icontains=query) |
             Q(subject__icontains=query)
         )
         return object_list

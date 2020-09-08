@@ -1,2 +1,36 @@
 [
+{
+    "model": "message.message",
+    "pk": 11,
+    "fields": {
+        "subject": "Welcome to the foundation",
+        "body": "<p>fezf</p>",
+        "sender": 1,
+        "recipient": 1,
+        "parent_msg": null,
+        "sent_at": "2020-09-07T12:39:09.366Z",
+        "read_at": null,
+        "replied_at": null,
+        "sender_deleted_at": null,
+        "recipient_deleted_at": null,
+        "uploaded_file": ""
+    }
+},
+{
+    "model": "message.message",
+    "pk": 12,
+    "fields": {
+        "subject": "Welcome to the foundationfefzefefez",
+        "body": "<p>azfefef</p>",
+        "sender": 1,
+        "recipient": 1,
+        "parent_msg": null,
+        "sent_at": "2020-09-07T12:43:16.115Z",
+        "read_at": null,
+        "replied_at": null,
+        "sender_deleted_at": null,
+        "recipient_deleted_at": "2020-09-07T12:43:41.444Z",
+        "uploaded_file": ""
+    }
+}
 ]

@@ -23,6 +23,7 @@ urlpatterns = [
         template_name="account/auth/login.html"), name='login'),
     re_path(r'^logout/$', auth_views.LogoutView.as_view(), name='logout'),
 
+
     # Password Change
     re_path(r'^password/change/$',
             auth_views.PasswordChangeView.as_view(

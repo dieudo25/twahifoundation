@@ -6,13 +6,12 @@ from page.views.page import (
     DonateView,
     ContactView,
     ContactSuccessView,
-    NewsListView,
-    NewsDatailView,
 )
 
-
+from blog.views.post import PostListView, PostDetailView
 from page.views.page import FundRaisingEventListView
-from project.views.project import ProjectListView
+from project.views.event import EventDetailView
+from project.views.project import ProjectListView, ProjectDetailView
 
 app_name = 'page'
 
@@ -29,14 +28,19 @@ urlpatterns = [
     # Project
     re_path(r'^projects/$', ProjectListView.as_view(
         template_name="page/project/list.html"), name="project-list"),
+    re_path(r'^projects/(?P<slug>[a-z0-9-]*)/$', ProjectDetailView.as_view(
+        template_name="page/project/detail.html"), name="project-detail"),
 
     # Event
     re_path(r'^events/$', FundRaisingEventListView.as_view(), name="event-list"),
+    re_path(r'^event/(?P<slug>[a-z0-9-]*)/$', EventDetailView.as_view(
+        template_name="page/event/detail.html"), name="event-detail"),
 
     # Post
-    re_path(r'^news/$', NewsListView.as_view(), name="news-list"),
-    re_path(r'^news/(?P<slug>[a-z0-9-]*)/$',
-            NewsDatailView.as_view(), name="news-detail"),
+    re_path(r'^news/$', PostListView.as_view(
+        template_name="page/news/list.html"), name="news-list"),
+    re_path(r'^news/(?P<slug>[a-z0-9-]*)/$', PostDetailView.as_view(
+        template_name="page/news/detail.html"), name="news-detail"),
 
 
 ]

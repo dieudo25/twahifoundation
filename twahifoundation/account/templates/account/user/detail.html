@@ -60,17 +60,21 @@
   </div>
   <div class="detail-bar">
     <div class="detail-bar-col-1">
-      <a href="{% url 'user-list' %}">
-        <p class="detail-bar-btn btn-black">Back</p>
-      </a>
+      {% if perms.account.can_view_user %}
+        <a href="{% url 'user-list' %}">
+          <p class="detail-bar-btn btn-black">Back</p>
+        </a>
+      {% endif %}
     </div>
     <div class="detail-bar-col-2">
       <a href="{% url 'user-update' user_profile.slug %}">
         <p class="detail-bar-btn btn-black">Edit</p>
       </a>
-      <a href="{% url 'user-delete' user_profile.slug %}">
-        <p class="detail-bar-btn btn-red btn-last">Delete</p>
-      </a>
+      {% if perms.account.can_delete_user %}
+        <a href="{% url 'user-delete' user_profile.slug %}">
+          <p class="detail-bar-btn btn-red btn-last">Delete</p>
+        </a>
+      {% endif %}
     </div>
   </div>
 {% endblock portal_content %}

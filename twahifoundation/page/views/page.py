@@ -29,7 +29,7 @@ class HomeView(TemplateView):
 class AboutView(TemplateView):
     "About page"
 
-    template_name = "page/about/about.html"
+    template_name = "page/static_page/about.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -40,7 +40,7 @@ class AboutView(TemplateView):
 class DonateView(TemplateView):
     "Donate view"
 
-    template_name = "page/donate/donate.html"
+    template_name = "page/static_page/donate/donate.html"
     context_object_name = 'donate'
 
     def get_context_data(self, **kwargs):
@@ -50,7 +50,7 @@ class DonateView(TemplateView):
 
 
 class ContactView(FormView):
-    template_name = 'page/contact/contact.html'
+    template_name = 'page/static_page/contact/contact.html'
     form_class = ContactForm
     success_url = reverse_lazy("page:contact-success")
 
@@ -74,7 +74,7 @@ class ContactView(FormView):
 
 class ContactSuccessView(TemplateView):
 
-    template_name = 'page/contact/success.html'
+    template_name = 'page/static_page/contact/success.html'
 
 
 class FundRaisingEventListView(ListView):
@@ -84,21 +84,3 @@ class FundRaisingEventListView(ListView):
     template_name = 'page/event/list.html'
     context_object_name = 'event_list'
     queryset = Event.objects.filter(event_type="FundRaising")
-
-
-class NewsListView(ListView):
-    "News List View"
-
-    model = Post
-    template_name = 'page/news/list.html'
-    context_object_name = 'post_list'
-    queryset = Post.objects.filter(
-        status='Published', category__name="Post").order_by('-created_on')
-
-
-class NewsDatailView(DetailView):
-    "News Detail View"
-
-    model = Post
-    template_name = 'page/news/detail.html'
-    context_object_name = 'post'

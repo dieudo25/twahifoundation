@@ -10,7 +10,7 @@
           <img src="{{ project.image }}">
         </div>
         <div class="projects-title">
-          <a href='#'><h3>{{ project.title }}</h3></a>
+          <a href="{% url 'page:project-detail' project.slug %}"><h3>{{ project.title }}</h3></a>
         </div>
         </div>
         <div>

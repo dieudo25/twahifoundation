@@ -1,11 +1,12 @@
-from django.contrib import auth
+from django.contrib.auth import get_user
 from django.db.models import Q
 from django.views.generic import CreateView, DeleteView
 from django.urls import reverse_lazy
 
-from message.models.message import Message
-
 from message.forms.message import MessageCreateUpdateForm
+
+from account.models.user import User
+from message.models.message import Message
 
 
 class MessageDeleteView(DeleteView):
@@ -33,6 +34,14 @@ class MessageCreateView(CreateView):
         # It should return an HttpResponse.
 
         # perform a action here
-        current_user = auth.get_user(self.request)
+        current_user = get_user(self.request)
         form.instance.sender_id = current_user.pk
         return super().form_valid(form)
+
+    def get_form(self, form_class=None):
+        form = super(MessageCreateView, self).get_form(form_class)
+        current_user = get_user(self.request)
+        form.fields['recipient'].queryset = User.objects.filter(
+            ~Q(id=current_user.id)
+        )
+        return form

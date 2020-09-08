@@ -289,6 +289,14 @@ p.help-block {
   margin-bottom: 15px;
 }
 
+#div_id_password {
+  margin-bottom: 0;
+}
+
+#user_password .help-block {
+  margin-top: 0;
+}
+
 .portal-update-form-wrapper input:not([type="checkbox"]) {
   width: 100%;
 }
@@ -585,7 +593,7 @@ form .control-group .django-ckeditor-widget > div {
 
   .portal-update-form-wrapper .control-label {
     margin-right: 20px;
-    min-width: 200px;
+    min-width: 232px;
   }
 
   .portal-update-form-wrapper .controls {

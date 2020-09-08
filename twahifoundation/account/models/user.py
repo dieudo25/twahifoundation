@@ -16,9 +16,6 @@ class User(AbstractUser):
             Meta definition for User.
         """
 
-        verbose_name = 'Utilisateur'
-        verbose_name_plural = 'Utilisateurs'
-
     LANGUAGE_CHOICES = [
         ('FR', 'Français'),
         ('EN', 'English')

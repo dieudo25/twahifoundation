@@ -52,5 +52,23 @@
         "image": null,
         "tags": []
     }
+},
+{
+    "model": "blog.post",
+    "pk": 9,
+    "fields": {
+        "title": "August events: Discover the English countryside with BBC Countryfile Liveds",
+        "slug": "august-events-discover-the-english-countryside-with-bbc-countryfile-liveds",
+        "created_on": "2020-09-07T01:09:30.009Z",
+        "updated_on": "2020-09-07",
+        "meta_description": "",
+        "user": 1,
+        "content": "<p>dvdssdv</p>",
+        "category": 1,
+        "status": "Drafted",
+        "keywords": "",
+        "image": null,
+        "tags": []
+    }
 }
 ]
