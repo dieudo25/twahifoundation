@@ -1,5 +1,7 @@
 import itertools
 
+from django.conf import settings
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
@@ -22,7 +24,9 @@ class Event(models.Model):
 
     project = models.ForeignKey(
         Project, on_delete=models.CASCADE, blank=True, null=True)
-    users = models.ManyToManyField(User, blank=True)
+    created_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True, related_name="created_by")
+    users = models.ManyToManyField(get_user_model(), blank=True)
     slug = models.SlugField(max_length=60, unique=True)
     title = models.CharField(max_length=255)
     location = models.CharField(max_length=255)

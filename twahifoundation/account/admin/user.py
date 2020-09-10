@@ -1,14 +1,28 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
+from import_export import resources
+from import_export.admin import ImportExportModelAdmin
+
 from account.models import User
 
 
-class CustomUserAdmin(UserAdmin):
+class CustomUserResource(resources.ModelResource):
+    """Describe how User resources can be imported or exported"""
+
+    class Meta:
+        """Meta definition for CustomUserResource."""
+
+        model = User
+        skip_unchanged = True
+
+
+class CustomUserAdmin(ImportExportModelAdmin):
     """
     class UserAdmin definition
     """
     readonly_fields = ["slug"]
+    resource_class = CustomUserResource
 
     fieldsets = (
         (None, {

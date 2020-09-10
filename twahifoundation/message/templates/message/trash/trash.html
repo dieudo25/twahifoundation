@@ -17,7 +17,7 @@
   </div>
   <div class="portal-top-bar">
     <ul class="portal-app-nav">
-        <a href="{% url 'message:message-inbox' %}" class="btn-black custom-btn">
+        <a href="{% url 'message:inbox' %}" class="btn-black custom-btn">
           <li class="poratl-app-nav-item">
             <div class="add-text">
               <span class="custom-icon inbox-icon"></span>
@@ -25,7 +25,7 @@
             </div>
           </li>
         </a>
-        <a href="{% url 'message:message-outbox' %}" class="btn-black custom-btn">
+        <a href="{% url 'message:outbox' %}" class="btn-black custom-btn">
           <li class="poratl-app-nav-item">
             <div class="add-text">
               <span class="custom-icon outbox-icon"></span>
@@ -33,7 +33,7 @@
             </div>
           </li>
         </a>
-        <a href="{% url 'message:message-trash' %}" class="btn-black custom-btn">
+        <a href="{% url 'message:trash' %}" class="btn-black custom-btn">
           <li class="poratl-app-nav-item">
             <div class="add-text">
               <span class="custom-icon trash-icon"></span>
@@ -43,7 +43,7 @@
         </a>
       </ul>
     <div id="list-search">
-      <form action="{% url 'message:message-trash-search' %}" method="GET">
+      <form action="{% url 'message:trash-search' %}" method="GET">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" name="search">
         </div>

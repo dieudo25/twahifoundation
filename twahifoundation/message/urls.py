@@ -35,9 +35,9 @@ urlpatterns = [
 
     # Inbox
     re_path(r'^inbox/$', InboxListView.as_view(),
-            name="message-inbox"),
+            name="inbox"),
     re_path(r'^inbox/search/$', InboxListFilteredView.as_view(),
-            name="message-inbox-search"),
+            name="inbox-search"),
     re_path(r'^inbox/(?P<pk>\d+)/$',
             InboxMessageDetailView.as_view(), name="inbox-detail"),
     re_path(r'^inbox/(?P<pk>\d+)/delete/$',
@@ -46,9 +46,9 @@ urlpatterns = [
 
     # Outbox
     re_path(r'^outbox/$', OutboxListView.as_view(),
-            name="message-outbox"),
+            name="outbox"),
     re_path(r'^outbox/search/$', OutboxListFilteredView.as_view(),
-            name="message-outbox-search"),
+            name="outbox-search"),
     re_path(r'^outbox/(?P<pk>\d+)/$',
             OutboxMessageDetailView.as_view(), name="outbox-detail"),
     re_path(r'^outbox/(?P<pk>\d+)/delete/$',
@@ -56,9 +56,9 @@ urlpatterns = [
 
     # Trash
     re_path(r'^trash/$', TrashListView.as_view(),
-            name="message-trash"),
+            name="trash"),
     re_path(r'^trash/search/$', TrashListFilteredView.as_view(),
-            name="message-trash-search"),
+            name="trash-search"),
     re_path(r'^trash/(?P<pk>\d+)/$',
             TrashMessageDetailView.as_view(), name="trash-detail"),
     re_path(r'^trash/(?P<pk>\d+)/restore/$',

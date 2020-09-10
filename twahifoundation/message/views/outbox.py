@@ -58,5 +58,5 @@ def outbox_to_trash(request, pk):
     "Place a message in the trash"
 
     message = Message.objects.get(pk=pk)
-    message.recipient_delete()
-    return redirect(reverse_lazy("message:message-outbox"))
+    message.sender_delete()
+    return redirect(reverse_lazy("message:outbox"))

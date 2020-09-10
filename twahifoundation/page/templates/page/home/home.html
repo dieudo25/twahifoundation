@@ -4,6 +4,21 @@
 
 {% block title %} Home {% endblock title %}
 
+{% block css %}
+
+  {{ block.super }}
+
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+{% endblock css %}
+
+{% block scripts %}
+
+  {{ block.super }}
+  
+  <script src="{% static 'page/main.js' %}"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+{% endblock scripts %}
+
 {% block header %}
   <div id="header">
     <div class="header-img">
@@ -25,7 +40,7 @@
   </div>
 {% endblock header %}
 
-{% block content %}
+{% block content %} 
   <section id="newsletters-section">
 
     {% include 'newsletter/components/newsletters.html' %}
@@ -56,8 +71,8 @@
 
     </div>
   </section>
-  <section id="projects-section" class="content-width-wrapper">
-    {% include 'page/components/projects_list.html' %}
+  <section id="projects-section" class="bg-black">
+    {% include 'page/components/projects_list_home.html' %}
   </section>
   <section id="events-section">
     <div class="events-wrapper">

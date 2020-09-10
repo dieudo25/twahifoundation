@@ -1,0 +1,37 @@
+{% load static %}
+
+<div class="home-project">
+  <h2 class="title-h2 text-center text-white content-width-wrapper">
+    <span class="material-icons slide-nav prev">keyboard_arrow_left</span>
+    <span class="title">Our project{{ project_list|pluralize }}</span>
+    <span class="material-icons slide-nav next">keyboard_arrow_right</span>
+  </h2>
+  <div class="projects-list content-width-wrapper">
+    
+    {% if project_list %}
+
+      {% for project in project_list %}
+        <div class="projects-item">
+          <div class="title-img-wrapper">
+            <div class="img-wrapper">
+              <img src="{{ project.image }}">
+            </div>
+          </div>
+          <div class="card-text">
+            <div class="projects-title">
+              <a href="{% url 'page:project-detail' project.slug %}"><h3>{{ project.title }}</h3></a>
+            </div>
+            <p><span>Created on</span> {{ project.date_created }}</p>
+            <p>
+              {{ project.description|truncatewords:30|safe }}
+            </p>
+          </div>
+        </div>
+      {% endfor %}
+
+    {% else %}
+    <p>No projects for the moments.</p>
+    {% endif %}  
+
+  </div>
+</div>

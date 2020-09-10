@@ -62,12 +62,12 @@
   </div>
   <div class="detail-bar">
     <div class="detail-bar-col-1">
-      <a href="{% url 'message:message-inbox' %}">
+      <a href="{% url 'message:outbox' %}">
         <p class="detail-bar-btn btn-black">Back</p>
       </a>
     </div>
     <div class="detail-bar-col-2">
-      <a href="{% url 'message:inbox-delete' message.id %}">
+      <a href="{% url 'message:outbox-delete' message.id %}">
         <p class="detail-bar-btn btn-red btn-last">Delete</p>
       </a>
     </div>

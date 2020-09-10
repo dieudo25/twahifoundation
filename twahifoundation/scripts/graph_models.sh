@@ -37,7 +37,7 @@ fi
 
 # Modelization including certaine model
 
-python manage.py graph_models -a -I User,Group,Permission,Company,Person,Event,Project,Stock,Product,ProductStockTransfert,Category,Task,Transaction,ProductTransactionLine,Message,Newsletter -o graph_models/sub_tf_visualization.png
+python manage.py graph_models -a -I User,Group,Permission,Company,Person,Event,Project,Stock,Product,ProductStockTransfert,Category,Task,Transaction,ProductTransactionLine,Message,Newsletter,Post,Tags -o graph_models/sub_tf_visualization.png
 status=$?
 
 if [ $status -ne 0 ] ;then
@@ -50,7 +50,7 @@ fi
 
 # Modelization  without edge
 
-python manage.py graph_models -a --hide-edge-labels -I User,Group,Permission,Company,Person,Event,Project,Stock,Product,ProductStockTransfert,Category,Task,Transaction,ProductTransactionLine,Message,Newsletter  -o graph_models/no_edge_sub_tf_visualization.png
+python manage.py graph_models -a --hide-edge-labels -I User,Group,Permission,Company,Person,Event,Project,Stock,Product,ProductStockTransfert,Category,Task,Transaction,ProductTransactionLine,Message,Newsletter,Post,Tags  -o graph_models/no_edge_sub_tf_visualization.png
 status=$?
 
 if [ $status -ne 0 ] ;then

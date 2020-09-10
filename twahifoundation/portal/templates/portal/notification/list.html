@@ -1,0 +1,85 @@
+{% extends 'portal/portal_base_sidebar.html'%}
+
+{% load notifications_tags %} 
+
+{% load static %}
+
+{% block title %} Portal | Notifications Center {% endblock title %}
+
+{% block css %}
+
+  {{ block.super }}
+
+  <link rel="stylesheet" href="{% static 'stock/style.css' %}" type="text/css">
+{% endblock css %}
+
+{% block portal_content %}
+  <div class="portal-content-title">
+    <h1>Notifications</h1>
+  </div>
+  <div class="portal-top-bar">
+    <p>{% notifications_unread %} Notification{{notifications_unread|pluralize}}</p>
+    {% if notifications_unread %}
+      <p>
+        <a class="btn-black" href="{% url 'portal:notice-read-all' %}">Clear all</a>
+      </p>
+    {% endif %}
+  </div>
+  <div class="portal-content-body list-with-btn">
+    <div class="notifications-list">
+      
+      {% if notifications_unread %}
+
+        {% for notice in notifications_unread %}     
+            <div class="alert alert-block bg-notice">
+              <div class="notice-icon">
+                <div class="img-wrapper">
+                
+                  {% if notice.action_object_content_type.model == 'message' %}
+                    <img src="{% static 'portal/img/message-black.svg' %}">
+                  {% endif %}
+
+                </div>
+              </div>
+              <div class="notice-content">
+                <a class="close pull-right" href="{% url 'portal:notice-read' notice.id %}">
+                  <span class="material-icons text-red">close</span>
+                </a>
+                <p class="notice-text">
+
+                  {% if notice.action_object_content_type.model == 'message' %}               
+                    <a class=""href="{% url 'message:inbox-detail' notice.action_object.id %}">
+                  {% endif %}
+
+                  {{ notice.actor }}
+
+                  {{ notice.verb }}
+
+                  {% if notice.target %}
+                      of {{ notice.target }}
+                  {% endif %}
+
+                    </a>
+                </p>
+                <p class="notice-timesince">{{ notice.timesince }} ago</p>
+                <p>{{ notice.description|linebreaksbr }}</p>
+                <div class="notice-actions">
+
+                  {% for action in notice.data.actions %}
+                      <a class="btn" href="{{ action.href }}">{{ action.title }}</a>
+                  {% endfor %}
+
+                </div>
+              </div>
+            </div>
+        {% endfor %}
+
+      {% comment %} {% else %}
+        <div class="py-3 px-3">
+          <p>No  notifications</p>
+        </div> {% endcomment %}
+      {% endif%}
+      
+    </div>
+  </div>
+  {% endblock portal_content %}

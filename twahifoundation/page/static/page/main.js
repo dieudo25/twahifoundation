@@ -1,3 +1,19 @@
+$(document).ready(function () {
+  var slider = $("#projects-section .projects-list");
+  slider.slick({
+    mobileFirst: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    swipeToSlide: true,
+    autoplay: true,
+    arrows: true,
+    infinite: true,
+    adaptiveHeight: true,
+    prevArrow: $(".prev"),
+    nextArrow: $(".next"),
+  });
+});
+
 // Render the PayPal button into #paypal-button-container
 paypal
   .Buttons({

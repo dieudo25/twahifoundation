@@ -44,15 +44,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
-    'bootstrap4',
     'bootstrap_datepicker_plus',
     'ckeditor',
     'crispy_forms',
     'debug_toolbar',
     'django_extensions',
-    'paypal.standard.ipn',
-    'rest_framework',
-    'simple_pagination',
+    'import_export',
+    'notifications',
 
     'account.apps.AccountConfig',
     'blog.apps.BlogConfig',

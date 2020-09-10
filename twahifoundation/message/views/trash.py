@@ -70,4 +70,4 @@ def message_restore(request, pk):
     else:
         message.recipient_restore()
 
-    return redirect(reverse_lazy("message:message-trash"))
+    return redirect(reverse_lazy("message:trash"))

@@ -23,6 +23,10 @@ class HomeView(TemplateView):
             '-created_on')[:3]
         context["event_list"] = Event.objects.filter(event_type="FundRaising").order_by(
             '-date_created')[:2]
+
+        cookie = self.request.COOKIES.get('cookie_consent_user_accepted')
+
+        context['cookie'] = cookie
         return context
 
 

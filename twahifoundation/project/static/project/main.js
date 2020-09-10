@@ -8,13 +8,13 @@ $(document).ready(function () {
     arrows: true,
     infinite: true,
     adaptiveHeight: true,
+    swipeToSlide: true,
     prevArrow: $(".prev"),
     nextArrow: $(".next"),
     responsive: [
       {
         breakpoint: 767,
         settings: {
-          swipeToSlide: true,
           slidesToShow: 3,
           slidesToScroll: 1,
         },

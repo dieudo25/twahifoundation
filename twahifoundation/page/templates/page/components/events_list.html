@@ -1,6 +1,6 @@
 {% load static %}
 
-<h2 class="title-h2">Upcoming Events</h2>
+<h2 class="title-h2">Upcoming Event{{ event_list|pluralize }}</h2>
 <div class="events-list">
 
   {% if event_list %}

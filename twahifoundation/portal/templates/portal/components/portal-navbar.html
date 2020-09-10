@@ -1,3 +1,5 @@
+{% load static %}
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-black">
   <a class="navbar-brand" href="{% url 'portal:portal-home' %}">TwahiFoundation</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,7 +24,7 @@
           <a class="nav-link " href="{% url 'project:event-list' %}">Event</a>
         </li>
         <li class="nav-item max-767">
-          <a class="nav-link " href="{% url 'message:message-inbox' %}">Message</a>
+          <a class="nav-link " href="{% url 'message:inbox' %}">Message</a>
         </li>
         <li class="nav-item max-767">
           <a class="nav-link " href="{% url 'newsletter:subcriber-list' %}">Newsletter</a>
@@ -40,8 +42,13 @@
           <a class="nav-link " href="{% url 'transaction:donation-list' %}">Transaction</a>
         </li>
         <li class="nav-item max-767">
-          <a class="nav-link " href="{% url 'user-list' %}">User & Permissions</a>
+          <a class="nav-link " href="{% url 'user-list' %}">User</a>
         </li>
+        <div class="notification-dropdown dropdown nav-item">
+          <a class="nav-link" href="{% url 'portal:user-notifications' %}" role="button">
+            <span class="material-icons">notifications</span>
+          </a>
+        </div>
         <div class="dropdown nav-item">
           <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{ user.username }}
@@ -55,3 +62,4 @@
     </div>
   </div>
 </nav>
+

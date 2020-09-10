@@ -1,5 +1,8 @@
 from django.contrib import admin
 
+from import_export import resources
+from import_export.admin import ImportExportModelAdmin
+
 from transaction.models.transaction import Transaction, ProductTransactionLine
 
 
@@ -12,7 +15,17 @@ class ProductTransactionLineInline(admin.TabularInline):
         return str(obj.quantity * obj.product.price) + "€"
 
 
-class TransactionAdmin(admin.ModelAdmin):
+class TransactionResource(resources.ModelResource):
+    """Describe how can model Transaction resources can be imported or exported"""
+
+    class Meta:
+        """Meta definition for TransactionResource."""
+
+        model = Transaction
+        skip_unchanged = True
+
+
+class TransactionAdmin(ImportExportModelAdmin):
     model = Transaction
     inlines = [ProductTransactionLineInline]
     readonly_fields = ['total']

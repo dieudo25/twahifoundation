@@ -74,3 +74,11 @@ class EventCreateView(CreateView):
     model = Event
     template_name = 'project/event/create.html'
     form_class = EventCreateUpdateForm
+
+    def form_valid(self, form):
+        # This method is called when valid form data has been POSTed.
+        # It should return an HttpResponse.
+
+        # perform a action here
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)

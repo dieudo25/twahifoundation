@@ -1,3 +1,5 @@
+import itertools
+
 from django.conf import settings
 from ckeditor.fields import RichTextField
 from django.utils.translation import ugettext_lazy as _
@@ -6,6 +8,7 @@ from django.utils import timezone
 from django.db.models import signals
 from django.db import models
 from django.urls import reverse
+from django.utils.text import slugify
 
 
 AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
@@ -72,8 +75,32 @@ class Message(models.Model):
         blank=True,
         null=True
     )
+    slug = models.SlugField(max_length=60, unique=True)
 
     objects = MessageManager()
+
+    def _generate_slug(self):
+        """
+        Generate a slug based on the title of the project
+
+        If the slug is already taken, one or two digits will be added at the
+        end of the slug and will increment as long as the slug already exist
+        until reaching a non-existant result.
+        The slug is truncated to 57 character in order to add the unique digits
+        at the end of it.
+        """
+
+        max_length = self._meta.get_field('slug').max_length - 3
+        value = self.subject
+        slug_result = slug_original = \
+            slugify(value, allow_unicode=False)[:max_length]
+
+        for i in itertools.count(1):
+            if not Message.objects.filter(slug=slug_result).exists():
+                break
+            slug_result = f'{slug_original}-{i}'
+
+        self.slug = slug_result
 
     def new(self):
         """returns whether the recipient has read the message or not"""
@@ -115,8 +142,11 @@ class Message(models.Model):
         self.save()
 
     def save(self, **kwargs):
-        if not self.id:
+
+        if not self.pk:
+            self._generate_slug()
             self.sent_at = timezone.now()
+
         super(Message, self).save(**kwargs)
 
     class Meta:

@@ -14,7 +14,52 @@
   border-color: white;
 }
 
-.portal-section {
+.notification-dropdown a. {
+  padding: 10px !important;
+}
+
+.notification-dropdown a::after {
+  position: relative;
+  bottom: 9px;
+}
+
+.notification-dropdown .dropdown-menu {
+  padding: 0;
+  text-align: left;
+}
+
+.bg-notice {
+  margin: 0;
+  border-bottom: 1px solid;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bg-notice:last-child {
+  border-bottom: unset;
+}
+
+.notifications-list .img-wrapper {
+  width: 50px;
+}
+
+.notice-icon {
+  margin-right: 20px;
+}
+
+.notice-content {
+  flex-grow: 1;
+}
+
+.notice-text {
+  font-size: 13px;
+}
+
+.notice-timesince {
+  font-size: 12px;
+}
+
+.dropdown .portal-section {
   padding: 30px 10px;
 }
 
@@ -151,6 +196,12 @@
 
 /* HOME */
 
+.app-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
 .app-link:hover {
   text-decoration: none;
 }
@@ -162,7 +213,9 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 180px;
+  width: 125px;
+  height: 125px;
+  /* margin-left: 10px; */
   transition: all 0.3s ease-in-out;
 }
 
@@ -173,8 +226,7 @@
 
 .app-list .img-wrapper {
   margin: 20px;
-  width: 100px;
-  height: 100px;
+  width: 50px;
 }
 
 .portal-app-nav .custom-btn .add-text {
@@ -405,19 +457,25 @@ form .control-group .django-ckeditor-widget > div {
   .app-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .app-item {
     margin: 20px 15px;
     width: 180px;
+    height: 180px;
+  }
+
+  .app-list .img-wrapper {
+    margin: 20px;
+    width: 80px;
   }
 
   /* SIDERBAR */
 
   #portal-sidebar-content {
     display: flex;
-    height: calc(100vh - 70px);
+    height: calc(100vh - 76px);
   }
 
   #portal-sidebar {
@@ -428,6 +486,7 @@ form .control-group .django-ckeditor-widget > div {
     position: absolute;
     height: calc(100vh - 70px);
     transition: all 0.3s ease-in-out;
+    z-index: 100;
   }
 
   .sidebar-clearfix {
@@ -624,6 +683,12 @@ form .control-group .django-ckeditor-widget > div {
 
   .nav-item.dropdown-menu {
     left: -80px;
+    top: 66px;
+  }
+
+  .notification-dropdown .nav-item.dropdown-menu {
+    left: -144px;
+    width: 300px;
   }
 
   /* HOME */
@@ -657,7 +722,6 @@ form .control-group .django-ckeditor-widget > div {
   /* HOME */
 
   .app-list {
-    justify-content: center;
     max-width: 1100px;
     margin: 40px auto;
   }
