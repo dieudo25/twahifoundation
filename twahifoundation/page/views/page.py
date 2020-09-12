@@ -63,18 +63,6 @@ class AttributionsView(TemplateView):
         return context
 
 
-class DonateView(TemplateView):
-    "Donate view"
-
-    template_name = "page/static_page/donate/donate.html"
-    context_object_name = 'donate'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["projects"] = Project.objects.all()
-        return context
-
-
 class ContactView(FormView):
     template_name = 'page/static_page/contact/contact.html'
     form_class = ContactForm

@@ -1,6 +1,9 @@
+from django.contrib.auth import get_user
 from django.db.models import Q
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
+
+from notifications.models import Notification
 
 from project.models.event import Event
 from project.forms.event import EventCreateUpdateForm
@@ -36,6 +39,23 @@ class EventListFilteredView(ListView):
         return object_list
 
 
+class EventCreateView(CreateView):
+    "Event create view"
+
+    model = Event
+    template_name = 'project/event/create.html'
+    form_class = EventCreateUpdateForm
+
+    def form_valid(self, form):
+        # This method is called when valid form data has been POSTed.
+        # It should return an HttpResponse.
+
+        # perform a action here
+        current_user = get_user(self.request)
+        form.instance.created_by = current_user
+        return super().form_valid(form)
+
+
 class EventDetailView(DetailView):
     "Event detail view"
 
@@ -48,6 +68,21 @@ class EventDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['users'] = Event.users
         return context
+
+    def get_object(self):
+        instance = super().get_object()
+        current_user = get_user(self.request)
+
+        try:
+            notice = Notification.objects.get(
+                action_object_object_id=instance.pk, recipient=current_user.pk)
+        except Notification.DoesNotExist:
+            return instance
+
+        if notice.unread:
+            notice.mark_as_read()
+
+        return instance
 
 
 class EventUpdateView(UpdateView):
@@ -66,19 +101,3 @@ class EventDeleteView(DeleteView):
     template_name = 'project/event/delete.html'
     context_object_name = 'event'
     success_url = reverse_lazy('project:event-list')
-
-
-class EventCreateView(CreateView):
-    "Event create view"
-
-    model = Event
-    template_name = 'project/event/create.html'
-    form_class = EventCreateUpdateForm
-
-    def form_valid(self, form):
-        # This method is called when valid form data has been POSTed.
-        # It should return an HttpResponse.
-
-        # perform a action here
-        form.instance.created_by = self.request.user
-        return super().form_valid(form)

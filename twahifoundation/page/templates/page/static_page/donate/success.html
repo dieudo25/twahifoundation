@@ -36,25 +36,7 @@
     </div>
     <div class="donate-content bg-white pt-4"> 
         <div class="donate-info text-center">
-            <h2 class=" mb-5">To support a project of Twahi Foundation, you can make a donation.</h2>
-            <p class=" mb-5">
-                <span class="font-weight-bold">TWAHIFOUNDATION BELGIUM ACCOUNT</span><br>BEXX XXXX XXXX XXXX - <span>BIC XXXXXXXX</span>
-            </p>
-            <p class="text-center font-weight-bold or mb-5">OR<p>
-            <p class="font-weight-bold mb-5">WITH PAYPAL</p>
-            <form method="POST" class="paypal-form">
-
-                {% csrf_token %}
-
-                {{ donator_form | crispy }}
-                
-                {{ form | crispy }}
-
-                {{ price_form | crispy }}
-
-                <button type="submit" class="btn-green mt-4">Confirm</button>
-            </form>
-            <p class="mt-4">THANKS TO OUR GENEROUS DONORS </p>
+            <h2 class="my-4">THANKS FOR YOUR GENEROUS DONOTION </h2>
         </div>
     </div>
 {% endblock content_with_sidebar %}

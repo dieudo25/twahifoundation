@@ -34,12 +34,13 @@ class NotificationList(TemplateView):
 def mark_as_read(request, pk):
 
     notice = Notification.objects.get(id=pk)
-    notice.mark_as_read()
+    notice.delete()
     return redirect(reverse_lazy("portal:user-notifications"))
 
 
 def mark_all_as_read(request):
 
     current_user = get_user(request)
-    Notification.objects.mark_all_as_read(current_user)
+    notices = current_user.notifications.unread()
+    notices.delete()
     return redirect(reverse_lazy("portal:user-notifications"))

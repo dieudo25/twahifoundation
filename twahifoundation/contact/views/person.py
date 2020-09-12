@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user
 from django.db.models import Q
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
@@ -11,6 +12,11 @@ class PersonListView(ListView):
     model = Person
     template_name = 'contact/person/list.html'
     context_object_name = 'person_list'
+
+    def get_queryset(self):
+        current_user = get_user(self.request)
+        object_list = Person.objects.filter(created_by=current_user.pk)
+        return object_list
 
 
 class PersonListFilteredView(ListView):

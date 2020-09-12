@@ -1,5 +1,6 @@
 import itertools
 
+from django.conf import settings
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
@@ -23,6 +24,8 @@ class Task(models.Model):
         ('DONE', 'DONE')
     ]
 
+    created_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="event_created_by")
     slug = models.SlugField(default="slug", max_length=60, unique=True)
     users = models.ManyToManyField(User)
     project = models.ForeignKey(

@@ -6,7 +6,6 @@ $(document).ready(function () {
   });
 
   $(".super").click(function () {
-    console.log("heheheh");
     $("#portal-sidebar").addClass("portal-sidebar-collapsed");
     $("#toggle-collapse").addClass("rotateY180");
     $("div.text-wrapper").addClass("hide");

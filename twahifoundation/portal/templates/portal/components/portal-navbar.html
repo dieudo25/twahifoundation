@@ -46,7 +46,11 @@
         </li>
         <div class="notification-dropdown dropdown nav-item">
           <a class="nav-link" href="{% url 'portal:user-notifications' %}" role="button">
-            <span class="material-icons">notifications</span>
+            {% if user.notifications.unread|length == 0 %}
+              <span class="material-icons">notifications</span>
+            {% else %}
+              <span class="material-icons text-red">notifications</span>
+            {% endif %}
           </a>
         </div>
         <div class="dropdown nav-item">

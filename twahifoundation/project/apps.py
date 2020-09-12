@@ -5,4 +5,4 @@ class ProjectConfig(AppConfig):
     name = 'project'
 
     def ready(self):
-        import project.signals.project
+        import project.signals

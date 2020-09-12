@@ -14,20 +14,6 @@
   border-color: white;
 }
 
-.notification-dropdown a. {
-  padding: 10px !important;
-}
-
-.notification-dropdown a::after {
-  position: relative;
-  bottom: 9px;
-}
-
-.notification-dropdown .dropdown-menu {
-  padding: 0;
-  text-align: left;
-}
-
 .bg-notice {
   margin: 0;
   border-bottom: 1px solid;
@@ -35,12 +21,16 @@
   justify-content: space-between;
 }
 
+.bg-notice:hover {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
 .bg-notice:last-child {
   border-bottom: unset;
 }
 
 .notifications-list .img-wrapper {
-  width: 50px;
+  width: 30px;
 }
 
 .notice-icon {
@@ -89,6 +79,10 @@
   padding-left: 8px;
 }
 
+.notification-content {
+  padding-left: 0;
+}
+
 .portal-title h1 {
   text-transform: capitalize;
   font-weight: 600;
@@ -96,6 +90,7 @@
 
 .portal-content-title h1 {
   font-weight: 900;
+  padding: 10px;
 }
 
 .portal-content-nav {
@@ -389,6 +384,15 @@ input[type="radio"] {
   padding: 20px;
 }
 
+.notification-bar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.notification-bar p {
+  margin-bottom: 0;
+}
+
 .poratl-app-nav-item {
   list-style: none;
 }
@@ -567,7 +571,8 @@ form .control-group .django-ckeditor-widget > div {
   }
 
   .hide {
-    display: none;
+    width: 0;
+    overflow: hidden;
   }
 
   .rotateY180 {
@@ -576,11 +581,13 @@ form .control-group .django-ckeditor-widget > div {
 
   /* PORTAL TOPBAR */
 
+  .portal-content-title h1 {
+    padding: 0;
+  }
+
   .portal-top-bar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 20px;
   }
 
   .portal-top-bar.no-button {
@@ -674,6 +681,12 @@ form .control-group .django-ckeditor-widget > div {
   .form-width-checkbox .controls .checkbox {
     width: 50%;
   }
+
+  /* NOTIFICATION */
+
+  .notifications-list .img-wrapper {
+    width: 50px;
+  }
 }
 
 @media (min-width: 992px) {
@@ -689,6 +702,10 @@ form .control-group .django-ckeditor-widget > div {
   .notification-dropdown .nav-item.dropdown-menu {
     left: -144px;
     width: 300px;
+  }
+
+  .notification-dropdown .nav-link {
+    padding: 11px 5px 0 !important;
   }
 
   /* HOME */

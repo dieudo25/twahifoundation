@@ -5,3 +5,6 @@ curl -v https://api.sandbox.paypal.com/v1/oauth2/token \
    -d "grant_type=client_credentials" \
    | python -m json.tool
 
+curl -v -X GET https://api.sandbox.paypal.com/v1/reporting/transactions?start_date=2020-09-01T00:00:00-0700&end_date=2020-09-30T23:59:59 \
+   -H "Content-Type: application/json" \
+   -H "Authorization: Bearer A21AAKrXx5WgtoHPMXbOe2SjrlqR6yCLpPiCdLVu08y-r4xif2uUCxpLMfMikvZGUM9g_v1O0_1AsuUSs677g5ziQYbaNnW5Q"

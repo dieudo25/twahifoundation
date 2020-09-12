@@ -55,13 +55,14 @@ class InboxMessageDetailView(DetailView):
     template_name = 'message/inbox/detail.html'
     context_object_name = 'message'
 
-    def dispatch(self, request, *args, **kwargs):
-        instance = self.get_object()
+    def get_object(self):
+        instance = super().get_object()
         notice = Notification.objects.get(action_object_object_id=instance.pk)
 
-        notice.mark_as_read()
+        if notice.unread:
+            notice.mark_as_read()
 
-        return super().dispatch(request, *args, **kwargs)
+        return instance
 
 
 def inbox_to_trash(request, pk):

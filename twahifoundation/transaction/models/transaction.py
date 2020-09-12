@@ -28,13 +28,13 @@ class Transaction(models.Model):
         settings.AUTH_USER_MODEL,
         on_delete=models.PROTECT,
         limit_choices_to={'is_staff': True},
-        verbose_name="Responsable"
+        verbose_name="Responsable",
+        null=True,
+        blank=True,
     )
     person = models.ForeignKey(
         Person,
         on_delete=models.PROTECT,
-        blank=True,
-        null='NULL',
     )
     products_transaction = models.ManyToManyField(
         Product,
@@ -51,6 +51,7 @@ class Transaction(models.Model):
         blank=True,
     )
     is_valid = models.BooleanField(default=False)
+    with_paypal = models.BooleanField(default=False)
     total = models.DecimalField(
         max_digits=10, decimal_places=2, default=0)
 

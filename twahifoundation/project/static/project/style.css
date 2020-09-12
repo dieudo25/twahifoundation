@@ -50,6 +50,7 @@
 
 .participant-img .img-wrapper {
   width: 150px;
+  height: 150px;
   margin: 0 auto;
 }
 
@@ -80,7 +81,6 @@
 
 .task-column {
   border: 3px solid #212529;
-  max-height: 535px;
   margin-bottom: 10px;
 }
 
@@ -100,11 +100,18 @@
 }
 
 .task-list {
-  padding: 20px 10px 0;
+  max-height: 0px;
+  overflow-y: auto;
+  transition: all 0.3s ease-in-out;
 }
 
 .task-item {
   font-size: 13px;
+  padding: 20px;
+}
+
+.task-item p {
+  margin: 0;
 }
 
 .task-item a p {
@@ -113,7 +120,10 @@
 
 .task-item:not(:last-child) {
   border-bottom: 2px solid #212529;
-  margin-bottom: 16px;
+}
+
+.task-toggle {
+  max-height: 551px;
 }
 
 @media (min-width: 768px) {
@@ -257,6 +267,10 @@
 
   .task-column:last-child {
     border-right: 3px solid #212529;
+  }
+
+  .task-list {
+    max-height: 409px;
   }
 }
 

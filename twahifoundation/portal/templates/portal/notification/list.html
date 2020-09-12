@@ -17,7 +17,7 @@
   <div class="portal-content-title">
     <h1>Notifications</h1>
   </div>
-  <div class="portal-top-bar">
+  <div class="portal-top-bar notification-bar">
     <p>{% notifications_unread %} Notification{{notifications_unread|pluralize}}</p>
     {% if notifications_unread %}
       <p>
@@ -25,7 +25,7 @@
       </p>
     {% endif %}
   </div>
-  <div class="portal-content-body list-with-btn">
+  <div class="portal-content-body notification-content">
     <div class="notifications-list">
       
       {% if notifications_unread %}
@@ -37,6 +37,12 @@
                 
                   {% if notice.action_object_content_type.model == 'message' %}
                     <img src="{% static 'portal/img/message-black.svg' %}">
+                  {% elif notice.action_object_content_type.model == 'event' %}
+                    <img src="{% static 'portal/img/event-black.svg' %}">
+                  {% elif notice.action_object_content_type.model == 'task' %}
+                    <img src="{% static 'portal/img/task-black.svg' %}">
+                  {% elif notice.action_object_content_type.model == 'post' %}
+                    <img src="{% static 'portal/img/post-black.svg' %}">
                   {% endif %}
 
                 </div>
@@ -46,20 +52,29 @@
                   <span class="material-icons text-red">close</span>
                 </a>
                 <p class="notice-text">
-
-                  {% if notice.action_object_content_type.model == 'message' %}               
-                    <a class=""href="{% url 'message:inbox-detail' notice.action_object.id %}">
-                  {% endif %}
-
-                  {{ notice.actor }}
+                  <a href={% url 'user-detail' notice.actor.slug %}>{{ notice.actor }}</a>
 
                   {{ notice.verb }}
 
                   {% if notice.target %}
                       of {{ notice.target }}
                   {% endif %}
+                </p>
+                <p class="notice-text">
+                  {% if notice.action_object_content_type.model == 'message' %}               
+                    <a class="" href="{% url 'message:inbox-detail' notice.action_object.id %}">
+                  {% elif notice.action_object_content_type.model == 'event' %}
+                    <a class="" href="{% url 'project:event-detail' notice.action_object.slug %}">
+                  {% elif notice.action_object_content_type.model == 'task' %}
+                    <a class="" href="{% url 'project:task-detail' notice.action_object.slug %}">
+                  {% elif notice.action_object_content_type.model == 'post' %}
+                    <a class="" href="{% url 'blog:post-detail' notice.action_object.slug %}">
+                  {% endif %}
 
-                    </a>
+                  {{ notice.action_object}}
+                  
+
+                  </a>
                 </p>
                 <p class="notice-timesince">{{ notice.timesince }} ago</p>
                 <p>{{ notice.description|linebreaksbr }}</p>

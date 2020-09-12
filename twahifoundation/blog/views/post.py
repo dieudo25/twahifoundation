@@ -1,9 +1,12 @@
+from django.contrib.auth import get_user
 from django.db.models import Q
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
 
 from blog.models.post import Post
 from blog.models.category import Category
+
+from notifications.models import Notification
 
 from blog.forms.post import PostCreateUpdateForm, PageCreateUpdateForm
 
@@ -43,6 +46,21 @@ class PostDetailView(DetailView):
     model = Post
     template_name = 'blog/post/detail.html'
     context_object_name = 'post'
+
+    def get_object(self):
+        instance = super().get_object()
+        current_user = get_user(self.request)
+
+        try:
+            notice = Notification.objects.get(
+                action_object_object_id=instance.pk, recipient=current_user.pk)
+        except Notification.DoesNotExist:
+            return instance
+
+        if notice.unread:
+            notice.mark_as_read()
+
+        return instance
 
 
 class PostUpdateView(UpdateView):
@@ -153,6 +171,21 @@ class PageUpdateView(UpdateView):
     def get_success_url(self):
         "Get the absolute url of the object"
         return reverse_lazy("blog:page-detail", kwargs={"slug": self.object.slug})
+
+    def get_object(self):
+        instance = super().get_object()
+        current_user = get_user(self.request)
+
+        try:
+            notice = Notification.objects.get(
+                action_object_object_id=instance.pk, recipient=current_user.pk)
+        except Notification.DoesNotExist:
+            return instance
+
+        if notice.unread:
+            notice.mark_as_read()
+
+        return instance
 
 
 class PageDeleteView(DeleteView):

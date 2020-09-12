@@ -1,5 +1,6 @@
 import itertools
 
+from django.conf import settings
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
@@ -12,6 +13,8 @@ class Project(models.Model):
     Project model definition
     """
 
+    created_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE,)
     slug = models.SlugField(max_length=60, unique=True)
     title = models.CharField(max_length=255)
     image = models.URLField(max_length=255, null=True, blank=True,

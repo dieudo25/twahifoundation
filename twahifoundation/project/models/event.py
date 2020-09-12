@@ -25,7 +25,7 @@ class Event(models.Model):
     project = models.ForeignKey(
         Project, on_delete=models.CASCADE, blank=True, null=True)
     created_by = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True, related_name="created_by")
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="created_by")
     users = models.ManyToManyField(get_user_model(), blank=True)
     slug = models.SlugField(max_length=60, unique=True)
     title = models.CharField(max_length=255)

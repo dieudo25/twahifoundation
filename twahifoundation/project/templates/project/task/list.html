@@ -11,6 +11,14 @@
   <link rel="stylesheet" href="{% static 'project/style.css' %}" type="text/css">
 {% endblock css %}
 
+{% block scripts %}
+
+  {{ block.super }}
+  
+  <script src="{% static 'project/main.js' %}"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+{% endblock scripts %}
+
 {% block portal_content %}
   <div class="portal-content-title">
     <h1>Manage Tasks</h1>
@@ -46,11 +54,11 @@
     <div class="portal-content-search">
     </div>
     <div class="portal-content-table">
-      <div class="task-column">
+      <div class="task-column task-todo">
         <div class="task-column-title">
           <h3>{{ todo_list|length}} TODO <span class="material-icons color-light">keyboard_arrow_down</span></h3>
         </div>
-        <div class="task-list">
+        <div class="task-list task-todo">
           
           {% for task in todo_list %}
             <div class="task-item">
@@ -60,11 +68,11 @@
           {% endfor %}
         </div>
       </div>
-      <div class="task-column">
+      <div class="task-column task-pending">
         <div class="task-column-title">
           <h3>{{ pending_list|length}} PENDING <span class="material-icons color-light">keyboard_arrow_down</span></h3>
         </div>
-        <div class="task-list">
+        <div class="task-list task-pending">
           
           {% for task in pending_list %}
             <div class="task-item">
@@ -74,11 +82,11 @@
           {% endfor %}
         </div>
       </div>
-      <div class="task-column">
+      <div class="task-column task-progress">
         <div class="task-column-title">
           <h3>{{ in_progress_list|length}} IN PROGRESS <span class="material-icons color-light">keyboard_arrow_down</span></h3>
         </div>
-        <div class="task-list">
+        <div class="task-list task-progress">
           
           {% for task in in_progress_list %}
             <div class="task-item">
@@ -88,11 +96,11 @@
           {% endfor %}
         </div>
       </div>
-      <div class="task-column">
+      <div class="task-column task-late">
         <div class="task-column-title">
           <h3>{{ late_list|length}} LATE <span class="material-icons color-light">keyboard_arrow_down</span></h3>
         </div>
-        <div class="task-list">
+        <div class="task-list task-late">
           
           {% for task in late_list %}
             <div class="task-item">
@@ -102,11 +110,11 @@
           {% endfor %}
         </div>
       </div>
-      <div class="task-column">
+      <div class="task-column task-done">
         <div class="task-column-title">
           <h3>{{ done_list|length}} DONE <span class="material-icons color-light">keyboard_arrow_down</span></h3>
         </div>
-        <div class="task-list">
+        <div class="task-list task-done">
           
           {% for task in done_list %}
             <div class="task-item">

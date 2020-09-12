@@ -30,6 +30,7 @@ urlpatterns = [
     re_path(r'^newsletter/', include('newsletter.urls')),
     re_path(r'^inbox/notifications/',
             include(notifications.urls, namespace='notifications')),
+    re_path(r'^paypal/', include('paypal.standard.ipn.urls')),
     re_path(r'^portal/', include('portal.urls')),
     re_path(r'^project/', include('project.urls')),
     re_path(r'^stock/', include('stock.urls')),

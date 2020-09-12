@@ -17,7 +17,6 @@ class EventCreateUpdateForm(forms.ModelForm):
         fields = [
             'title',
             'project',
-            'users',
             'location',
             'time_started',
             'time_ended',
@@ -29,7 +28,6 @@ class EventCreateUpdateForm(forms.ModelForm):
 
         }
         widgets = {
-            'users': forms.CheckboxSelectMultiple,
             'time_started': DateTimePickerInput(),
             'time_ended': DateTimePickerInput(),
         }

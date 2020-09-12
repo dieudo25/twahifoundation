@@ -446,6 +446,12 @@ a span.btn-involved {
   margin: 0 auto;
 }
 
+.paypal-form .btn-green {
+  padding: 14px 22px;
+  font-weight: 600;
+  border: 0;
+}
+
 /* HOME PROJECTS */
 
 .projects-wrapper {

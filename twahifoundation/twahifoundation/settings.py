@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'debug_toolbar',
     'django_extensions',
+    'paypal.standard.ipn',
     'import_export',
     'notifications',
 
@@ -236,5 +237,5 @@ CKEDITOR_CONFIGS = {
 }
 
 # Paypal
-PAYPAL_RECEIVER_EMAIL = "twahifoundation@gmail.com"
-PAYPAL_TEST = True  # allow to test with the sandbox
+PAYPAL_RECEIVER_EMAIL = os.getenv('PAYPAL_ACCOUNT')
+PAYPAL_TEST = True

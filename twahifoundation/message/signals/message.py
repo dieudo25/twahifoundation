@@ -9,9 +9,10 @@ from message.models.message import Message
 @receiver(post_save, sender=Message)
 def message_sent_event(sender, instance, **kwargs):
 
+    recipient = instance.recipient
     notify.send(
         instance.sender,
-        recipient=instance.recipient,
+        recipient=recipient,
         verb='sent you a message',
         action_object=instance
     )

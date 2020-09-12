@@ -1,6 +1,10 @@
+from django.contrib.auth import get_user
 from django.db.models import Q
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
+
+from notifications.models import Notification
+from notifications.signals import notify
 
 from project.models.task import Task
 from project.forms.task import TaskCreateUpdateForm
@@ -47,6 +51,20 @@ class TaskDetailView(DetailView):
     template_name = 'project/task/detail.html'
     context_object_name = 'task'
 
+    def get_object(self):
+        instance = super().get_object()
+        current_user = get_user(self.request)
+
+        try:
+            notice = Notification.objects.get(
+                action_object_object_id=instance.pk, recipient=current_user.pk)
+        except Notification.DoesNotExist:
+            return instance
+
+        notice.delete()
+
+        return instance
+
 
 class TaskUpdateView(UpdateView):
     "Task update view"
@@ -72,3 +90,12 @@ class TaskCreateView(CreateView):
     model = Task
     template_name = 'project/task/create.html'
     form_class = TaskCreateUpdateForm
+
+    def form_valid(self, form):
+        # This method is called when valid form data has been POSTed.
+        # It should return an HttpResponse.
+
+        # perform a action here
+        current_user = get_user(self.request)
+        form.instance.created_by = current_user
+        return super().form_valid(form)

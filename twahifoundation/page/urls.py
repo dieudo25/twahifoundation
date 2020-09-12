@@ -3,11 +3,16 @@ from django.urls import re_path
 from page.views.page import (
     AttributionsView,
     AboutView,
-    DonateView,
     ContactView,
     ContactSuccessView,
     HomeView,
     LegalMentionsView,
+)
+from page.views.donate import (
+    DonateView,
+    donate_checkout_view,
+    DonationSuccesView,
+    DonationCancelView,
 )
 
 from blog.views.post import PostListView, PostDetailView
@@ -26,8 +31,17 @@ urlpatterns = [
     re_path(r'^contact/$', ContactView.as_view(), name="contact"),
     re_path(r'^contact/success/$', ContactSuccessView.as_view(),
             name="contact-success"),
-    re_path(r'^donate/$', DonateView.as_view(), name="donate"),
     re_path(r'^legal-mentions/$', LegalMentionsView.as_view(), name="legal"),
+
+    # Donation
+    re_path(r'^donate/(?P<pk>[0-9]+)/checkout/$', donate_checkout_view,
+            name="donate-checkout"),
+    re_path(r'^donate/(?P<pk>[0-9]+)/cancel/$', DonationCancelView.as_view(),
+            name="donate-cancel"),
+    re_path(r'^donate/(?P<pk>[0-9]+)/success/$', DonationSuccesView.as_view(),
+            name="donate-success"),
+    re_path(r'^donate/$', DonateView.as_view(), name="donate"),
+
 
     # Project
     re_path(r'^projects/$', ProjectListView.as_view(

@@ -14,16 +14,10 @@ class TransactionDonationListView(ListView):
     template_name = 'transaction/donation/list.html'
     context_object_name = 'transaction_list'
 
-    def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
-        context = super().get_context_data(**kwargs)
-        context['transaction_number'] = Transaction.objects.all().count()
-        return context
-
     def get_queryset(self):
         """Returns Donation that were created today"""
 
-        return Transaction.objects.filter(transaction_type='Donation')
+        return Transaction.objects.filter(transaction_type='Donation').exclude(with_paypal=True)
 
 
 class TransactionListDonationFilteredView(ListView):
@@ -36,9 +30,9 @@ class TransactionListDonationFilteredView(ListView):
     def get_queryset(self):
         query = self.request.GET.get('search')
         object_list = Transaction.objects.filter(
-            Q(user__icontains=query) |
+            Q(user__username__icontains=query) |
             Q(transaction_type__icontains='Donation')
-        )
+        ).exclude(with_paypal=True)
         return object_list
 
 

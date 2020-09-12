@@ -18,12 +18,12 @@ class Person(models.Model):
     created_by = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
     first_name = models.CharField(
-        max_length=60, default=None)
+        max_length=60,)
     last_name = models.CharField(
-        max_length=60, default=None)
-    email = models.EmailField(max_length=254, default=None)
+        max_length=60,)
+    email = models.EmailField(max_length=254,)
     phone_number = models.CharField(
-        max_length=60, null=None)
+        max_length=60, null=True, blank=True)
     is_supplier = models.BooleanField(
         default=False, verbose_name="Is a supplier")
     is_donor = models.BooleanField(
