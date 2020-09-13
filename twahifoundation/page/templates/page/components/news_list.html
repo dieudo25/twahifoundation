@@ -2,7 +2,14 @@
 
 <div class="projects-list">
   <h2 class="title-h2">Latest news</h2>
+  <div class="object-control-link">
+    <a class="control-link text-white" href="{% url 'blog:post-create' %}">
+        <p class="btn-green text-center">New</p>
+    </a>
+  </div>
+
   {% if post_list %}
+  
     {% for post in post_list %}
       <div class="projects-item">
         <div class="title-img-wrapper">
@@ -21,9 +28,10 @@
         </div>
       </div>
     {% endfor %}
+
   {% else %}
   <p>No posts for the moments.</p>
   {% endif %}
   
-  
+
 </div>

@@ -53,17 +53,17 @@ class TaskDetailView(DetailView):
 
     def get_object(self):
         instance = super().get_object()
-        current_user = get_user(self.request)
 
         try:
-            notice = Notification.objects.get(
-                action_object_object_id=instance.pk, recipient=current_user.pk)
-        except Notification.DoesNotExist:
+            notice_id = self.kwargs['notice_pk']
+            notice = Notification.objects.get(id=notice_id)
+
+            if notice.unread:
+                notice.mark_as_read()
+
             return instance
-
-        notice.delete()
-
-        return instance
+        except:
+            return instance
 
 
 class TaskUpdateView(UpdateView):

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (6e3e5246a0, 2020-05-07)"
+   sodipodi:docname="book.svg"
+   xml:space="preserve"
+   enable-background="new 0 0 64 64"
+   viewBox="0 0 64 64"
+   height="64px"
+   width="64px"
+   y="0px"
+   x="0px"
+   id="Layer_1"
+   version="1.1"><metadata
+   id="metadata13"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+   id="defs11" /><sodipodi:namedview
+   inkscape:current-layer="Layer_1"
+   inkscape:window-maximized="1"
+   inkscape:window-y="27"
+   inkscape:window-x="0"
+   inkscape:cy="32"
+   inkscape:cx="18.317241"
+   inkscape:zoom="13.59375"
+   showgrid="false"
+   id="namedview9"
+   inkscape:window-height="1016"
+   inkscape:window-width="2560"
+   inkscape:pageshadow="2"
+   inkscape:pageopacity="0"
+   guidetolerance="10"
+   gridtolerance="10"
+   objecttolerance="10"
+   borderopacity="1"
+   bordercolor="#666666"
+   pagecolor="#ffffff" />
+<g
+   style="fill:#ffffff"
+   enable-background="new    "
+   id="BOOK_1_">
+	<g
+   style="fill:#ffffff"
+   id="BOOK">
+		<g
+   style="fill:#ffffff"
+   id="g4">
+			<path
+   style="fill:#ffffff"
+   id="path2"
+   d="M10,18h8c1.657,0,3-1.343,3-3s-1.343-3-3-3h-8c-1.657,0-3,1.343-3,3S8.343,18,10,18z M10,35h8c1.657,0,3-1.343,3-3     s-1.343-3-3-3h-8c-1.657,0-3,1.343-3,3S8.343,35,10,35z M54,3h-3v58h3c1.657,0,3-1.343,3-3V6C57,4.343,55.657,3,54,3z M13,6v3h5     c3.314,0,6,2.686,6,6s-2.686,6-6,6h-5v5h5c3.314,0,6,2.686,6,6c0,3.314-2.686,6-6,6h-5v5h5c3.314,0,6,2.686,6,6s-2.686,6-6,6h-5     v3c0,1.657,1.343,3,3,3h32V3H16C14.343,3,13,4.343,13,6z M21,49c0-1.657-1.343-3-3-3h-8c-1.657,0-3,1.343-3,3s1.343,3,3,3h8     C19.657,52,21,50.657,21,49z" />
+		</g>
+	</g>
+</g>
+</svg>

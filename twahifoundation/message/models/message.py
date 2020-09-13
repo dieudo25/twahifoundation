@@ -1,14 +1,14 @@
 import itertools
 
 from django.conf import settings
-from ckeditor.fields import RichTextField
-from django.utils.translation import ugettext_lazy as _
-from django.utils.encoding import python_2_unicode_compatible
-from django.utils import timezone
-from django.db.models import signals
 from django.db import models
+from django.db.models import signals
 from django.urls import reverse
+from django.utils import timezone
 from django.utils.text import slugify
+from django.utils.translation import ugettext_lazy as _
+
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
@@ -55,7 +55,7 @@ class Message(models.Model):
     A private message from user to user
     """
     subject = models.CharField(_("Subject"), max_length=140)
-    body = RichTextField()
+    body = RichTextUploadingField()
     sender = models.ForeignKey(AUTH_USER_MODEL, related_name='sent_messages', verbose_name=_(
         "Sender"), on_delete=models.PROTECT)
     recipient = models.ForeignKey(AUTH_USER_MODEL, related_name='received_messages',

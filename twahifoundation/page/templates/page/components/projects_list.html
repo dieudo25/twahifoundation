@@ -1,13 +1,20 @@
 {% load static %}
 
 <div class="projects-list">
-  <h2 class="title-h2">Our projects</h2>
+  <h2 class="title-h2">Our project{{ project_list|pluralize }}</h2>
+  <div class="object-control-link">
+    <a class="control-link text-white" href="{% url 'project:project-create' %}">
+        <p class="btn-green text-center">New</p>
+    </a>
+  </div>
+
   {% if project_list %}
+
     {% for project in project_list %}
       <div class="projects-item">
         <div class="title-img-wrapper">
         <div class="img-wrapper">
-          <img src="{{ project.image }}">
+          <a href="{% url 'page:project-detail' project.slug %}"><img src="{{ project.image }}"></a>
         </div>
         <div class="projects-title">
           <a href="{% url 'page:project-detail' project.slug %}"><h3>{{ project.title }}</h3></a>
@@ -21,6 +28,7 @@
         </div>
       </div>
     {% endfor %}
+    
   {% else %}
   <p>No projects for the moments.</p>
   {% endif %}

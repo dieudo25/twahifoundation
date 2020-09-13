@@ -1,0 +1,282 @@
+/* DIMENSIONS */
+
+.wrapper {
+  max-width: 290px;
+  margin: 0 auto;
+}
+
+.section {
+  padding: 30px 0;
+}
+
+/* HEADER */
+
+.header-1 {
+  background-image: url(img/home_header.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 120px;
+  filter: brightness(0.7);
+}
+
+.text-header-1::before {
+  color: white;
+  margin: 0;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+  position: absolute;
+  z-index: 1;
+  font-family: Poppins-extraBold;
+  top: 100px;
+}
+
+.profile-header .text-header-1::before {
+  content: "Profile";
+}
+
+.login-header .text-header-1::before {
+  content: "Connexion";
+}
+
+/* LOGIN FORM */
+
+#login-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.login-title {
+  margin: 30px auto;
+  width: 326px;
+}
+
+.login-title h1 {
+  font-variant: small-caps;
+}
+
+.login-form .alert.alert-block.alert-error {
+  max-width: 300px;
+  margin: 0 auto 20px;
+}
+
+.login-form .alert.alert-block.alert-error ul {
+  list-style: none;
+  color: #971507;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px auto;
+}
+
+.login-form .control-group {
+  margin-bottom: 20px;
+  max-width: 290px;
+}
+
+.login-form .control-group input {
+  max-width: 290px;
+}
+
+.login-form button {
+  border: none;
+  padding: 10px;
+  width: 100%;
+  margin: 10px 0px;
+  color: white;
+}
+
+/* PROFILE */
+
+.profile-img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin: 0 auto;
+  border: 5px solid #212529;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.profile-img .img-wrapper {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.profile .portal-title h1 {
+  text-align: center;
+}
+
+.profile .detail-info {
+  text-align: center;
+}
+
+.detail-info-group:last-child .detail-info-item-2 p {
+  margin-bottom: 0;
+}
+
+.detail-info-item-1 {
+  font-weight: 600;
+}
+
+.password {
+  display: contents;
+}
+
+.password a {
+  padding: 13px 0;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.password a:hover {
+  text-decoration: none;
+}
+
+.password-reset-confirm {
+  margin: 0px auto;
+  width: 326px;
+}
+
+@media (min-width: 375px) {
+  .wrapper {
+    max-width: 335px;
+  }
+
+  .login-form .control-group {
+    max-width: unset;
+  }
+
+  .login-form .control-group input {
+    max-width: unset;
+  }
+}
+
+@media (min-width: 425px) {
+  .wrapper {
+    max-width: 385px;
+  }
+}
+
+@media (min-width: 768px) {
+  /* DIMENSIONS */
+
+  .wrapper {
+    max-width: 700px;
+  }
+
+  /* HEADER */
+
+  .text-header-1::before {
+    top: 185px;
+  }
+
+  .header-1 {
+    height: 300px;
+  }
+
+  /* PROFILE */
+
+  .portal-wrapper.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile .detail-info {
+    text-align: unset;
+  }
+
+  .detail-info-group {
+    display: flex;
+  }
+
+  .detail-info-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .detail-info-item-1 {
+    width: 150px;
+  }
+}
+
+@media (min-width: 992px) {
+  /* DIMENSIONS */
+
+  .wrapper {
+    max-width: 930px;
+  }
+
+  .clearfix {
+    height: 160px;
+  }
+
+  /* HEADER */
+
+  .text-header-1::before {
+    top: 145px;
+  }
+
+  .header-1 {
+    height: 240px;
+  }
+
+  .b-header {
+    position: absolute;
+    width: 100vw;
+    top: 0;
+    max-width: 100%;
+  }
+
+  /* LOGIN */
+
+  .login-img {
+    width: 450px;
+    background-image: url(img/login.jpg);
+    background-size: cover;
+    height: 100vh;
+  }
+
+  /* USER DETAIL */
+
+  .profile.portal-wrapper {
+    justify-content: space-around;
+  }
+
+  .profile-img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .profile-img .img-wrapper {
+    width: 200px;
+    height: 200px;
+  }
+
+  .detail-info {
+    padding: 20px 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  /* DIMENSIONS */
+
+  .wrapper {
+    max-width: 1100px;
+  }
+
+  /* LOGIN */
+
+  .login-img {
+    width: 600px;
+  }
+}

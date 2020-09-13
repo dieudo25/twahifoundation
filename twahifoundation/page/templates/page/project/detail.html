@@ -17,6 +17,14 @@
     <div>
         <h1 class="title-h1">{{ project.title }}</h1>
     </div>
+    <div class="object-control-link">
+        <a class="control-link text-white" href="{% url 'project:project-update' project.slug %}">
+            <p class="btn-blue text-center">Edit</p>
+        </a>
+        <a class="control-link text-white" href="{% url 'project:project-delete' project.slug %}">
+            <p class="btn-red text-center">Delete</p>
+        </a>
+    </div>
     <div class="page-content-detail">
         <p><span class="font-weight-bold">Created on </span>{{ project.date_created }}</p>
         <p>{{ project.description|safe }}</p>

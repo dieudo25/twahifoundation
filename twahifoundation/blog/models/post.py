@@ -8,7 +8,7 @@ from django.utils.text import slugify
 from blog.models.category import Category
 from blog.models.tags import Tags
 
-from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 STATUS_CHOICE = (
@@ -26,7 +26,7 @@ class Post(models.Model):
     meta_description = models.TextField(max_length=160, null=True, blank=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
-    content = RichTextField()
+    content = RichTextUploadingField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     tags = models.ManyToManyField(
         Tags, related_name='rel_posts', blank=True)

@@ -6,7 +6,8 @@ from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
 
-from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
+
 
 from account.models.user import User
 from project.models.project import Project
@@ -41,7 +42,7 @@ class Event(models.Model):
         blank=True,
         verbose_name="Image URL"
     )
-    description = RichTextField()
+    description = RichTextUploadingField()
     date_created = models.DateField(
         auto_now_add=True,
         null=True,

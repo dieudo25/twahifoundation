@@ -1,6 +1,11 @@
 {% load static %}
 
 <h2 class="title-h2">Upcoming Event{{ event_list|pluralize }}</h2>
+<div class="object-control-link events-control">
+    <a class="control-link text-white" href="{% url 'project:event-create' %}">
+        <p class="btn-green text-center">New</p>
+    </a>
+</div>
 <div class="events-list">
 
   {% if event_list %}
@@ -31,5 +36,4 @@
     <p>No events for the moments.</p>
   {% endif %}
   
-
 </div>

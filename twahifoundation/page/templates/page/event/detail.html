@@ -17,6 +17,14 @@
     <div>
         <h1 class="title-h1">{{ event.title }}</h1>
     </div>
+    <div class="object-control-link">
+        <a class="control-link text-white" href="{% url 'project:event-update' event.slug %}">
+            <p class="btn-blue text-center">Edit</p>
+        </a>
+        <a class="control-link text-white" href="{% url 'project:event-delete' event.slug %}">
+            <p class="btn-red text-center">Delete</p>
+        </a>
+    </div>
     <div class="page-content-detail">
         <p><span class="first font-weight-bold">Created on </span>{{ event.date_created }}</p>
         <p>{{ event.description|safe }}</p>

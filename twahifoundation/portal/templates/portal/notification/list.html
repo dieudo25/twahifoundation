@@ -62,13 +62,13 @@
                 </p>
                 <p class="notice-text">
                   {% if notice.action_object_content_type.model == 'message' %}               
-                    <a class="" href="{% url 'message:inbox-detail' notice.action_object.id %}">
+                    <a class="" href="{% url 'message:inbox-detail-notice' notice.action_object.id notice.pk %}">
                   {% elif notice.action_object_content_type.model == 'event' %}
-                    <a class="" href="{% url 'project:event-detail' notice.action_object.slug %}">
+                    <a class="" href="{% url 'project:event-detail-notice' notice.action_object.slug notice.pk %}">
                   {% elif notice.action_object_content_type.model == 'task' %}
-                    <a class="" href="{% url 'project:task-detail' notice.action_object.slug %}">
+                    <a class="" href="{% url 'project:task-detail-notice' notice.action_object.slug notice.pk %}">
                   {% elif notice.action_object_content_type.model == 'post' %}
-                    <a class="" href="{% url 'blog:post-detail' notice.action_object.slug %}">
+                    <a class="" href="{% url 'blog:post-detail-notice' notice.action_object.slug notice.pk%}">
                   {% endif %}
 
                   {{ notice.action_object}}
@@ -77,22 +77,25 @@
                   </a>
                 </p>
                 <p class="notice-timesince">{{ notice.timesince }} ago</p>
-                <p>{{ notice.description|linebreaksbr }}</p>
-                <div class="notice-actions">
 
-                  {% for action in notice.data.actions %}
-                      <a class="btn" href="{{ action.href }}">{{ action.title }}</a>
-                  {% endfor %}
+                {% if notice.description %}
+                  <p>{{ notice.description|linebreaksbr }}</p>
+                {% endif %}
 
-                </div>
+                {% if notice.data.actions != None%}
+                  <div class="notice-actions">
+
+                    {% for action in notice.data.actions %}
+                        <a class="btn" href="{{ action.href }}">{{ action.title }}</a>
+                    {% endfor %}
+
+                  </div>
+                {% endif %}
+                
               </div>
             </div>
         {% endfor %}
 
-      {% comment %} {% else %}
-        <div class="py-3 px-3">
-          <p>No  notifications</p>
-        </div> {% endcomment %}
       {% endif%}
       
     </div>
