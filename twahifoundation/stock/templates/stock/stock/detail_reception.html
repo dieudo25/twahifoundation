@@ -86,7 +86,7 @@
           </div>
           <div class="portal-content-nav-item">
             <ul>
-              <a href="{% url 'stock:product-stock-create' stock.slug %}">
+              <a href="{% url 'stock:reception-transfert-create' stock.slug %}">
                 <li class="nav-item-add">
                   <div class="add-text">
                     <span class="material-icons">add_circle_outline</span>
@@ -99,11 +99,11 @@
         </div>
         <div class="portal-content-search">
         </div>
-        <div class="portal-content-table">
+        <div class="portal-content-table transfert-table">
           
           {% if  reception|length == 0 %}
             <div id="empty-table">
-              <p>No reception yet, <a href="{% url 'stock:product-stock-create' stock.slug %}">create one</a></p>
+              <p>No reception yet, <a href="{% url 'stock:reception-transfert-create' stock.slug %}">create one</a></p>
             </div>
           {% elif reception %}
             <table class="table table-hover">
@@ -127,10 +127,14 @@
                     <td>{{ product_transfert.quantity }}</td>
                     <td>{{ product_transfert.date_time_created }}</td>
                     <td>
-                      <span class="material-icons text-black">edit</span>
+                      <a href="{% url 'stock:reception-transfert-update' product_transfert.pk %}">
+                        <span class="material-icons text-black">edit</span>
+                      </a>
                     </td>
                     <td>
-                      <span class="material-icons text-red">clear</span>
+                      <a href="{% url 'stock:reception-transfert-delete' product_transfert.pk %}">
+                        <span class="material-icons text-red">clear</span>
+                      </a>
                     </td>
                   </tr>
                 {% endfor %}

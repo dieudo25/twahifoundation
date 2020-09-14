@@ -1,14 +1,14 @@
 from django.contrib.auth import get_user
 from django.db.models import Q
+from django.shortcuts import redirect
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
-from django.urls import reverse_lazy
-
-from blog.models.post import Post
-from blog.models.category import Category
+from django.urls import reverse_lazy, reverse
 
 from notifications.models import Notification
 
 from blog.forms.post import PostCreateUpdateForm, PageCreateUpdateForm
+from blog.models.post import Post
+from blog.models.category import Category
 
 
 # Post
@@ -197,3 +197,11 @@ class PageDeleteView(DeleteView):
     template_name = 'blog/page/delete.html'
     context_object_name = 'post'
     success_url = reverse_lazy('blog:page-list')
+
+
+def post_draft_publish(request, slug):
+    "Change the status of a post"
+
+    post = Post.objects.get(slug=slug)
+    post.status_toggle()
+    return redirect(reverse("blog:post-detail", kwargs={"slug": post.slug}))

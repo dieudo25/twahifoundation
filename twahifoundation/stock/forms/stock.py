@@ -24,7 +24,6 @@ class ProductStockTransferCreateUpdateForm(forms.ModelForm):
 
         model = ProductStockTransfert
         fields = [
-            'transfert_type',
             'product',
             'quantity',
         ]

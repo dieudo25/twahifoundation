@@ -26,38 +26,18 @@
           </li>
         </a>
       </ul>
-    {% comment %} <div id="list-search">
-      <form action="{% url 'stock:category-list-search' %}" method="GET">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" name="search">
-        </div>
-        <button type="submit" class="btn-black"><div class="search-img"></button>
-      </form>
-    </div>   {% endcomment %}
   </div>
   <div class="portal-content-body list-with-btn">
     <div class="portal-content-nav">
       <div class="portal-content-nav-title">
         <h2>Subscribers</h2>
       </div>
-      <div class="portal-content-nav-item">
-        <ul>
-          {% comment %} <a href="{% url 'stock:category-create' %}">
-            <li class="nav-item-add">
-              <div class="add-text">
-                <span class="material-icons">add_circle_outline</span>
-                <span>Add</span>
-              </div>
-            </li>
-          </a>  {% endcomment %} 
-        </ul>
-      </div>
     </div>
     <div class="portal-content-search">
     </div>
     <div class="portal-content-table">
       
-      {% if filtered_category_list %}
+      {% if data %}
         <table class="table table-hover">
           <thead>
             <tr>
@@ -78,28 +58,7 @@
 
           </tbody>
         </table>
-      {% elif data %}
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col">Name</th>
-              <th scope="col" class="">Date added</th>
-              <th scope="col" class="">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-
-            {% for subscriber in data %}
-              <tr class="table">
-                <th scope="row"><span>{{ subscriber.email }}</span></th>
-                <th scope="row"><span>{{ subscriber.subcribed_on }}</span></th>
-                <th scope="row"><span>{{ subscriber.status }}</span></th>
-              </tr>
-            {% endfor %}
-
-          </tbody>
-        </table>
-      {% elif category_number == 0 %}
+      {% elif data|length == 0 %}
         <div id="empty-table">
           <p>No category yet, <a href="{% url 'stock:category-create' %}">create one</a></p>
         </div>

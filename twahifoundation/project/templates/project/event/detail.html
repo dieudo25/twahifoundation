@@ -135,6 +135,14 @@
     </div>
     <div class="detail-bar-col-2">
 
+      <a href="{% url 'project:event-participate' event.slug %}">
+        {% if not user in event.users.all %}
+            <p class="detail-bar-btn btn-black">Participate</p>
+        {% else %}
+            <p class="detail-bar-btn btn-black">Cancel participation</p>
+        {% endif %}
+      </a>
+
       {% if event.event_type == 'FundRaising' %}
         <a href="{% url 'page:event-detail' event.slug %}">
           <p class="detail-bar-btn btn-black">View on site</p>

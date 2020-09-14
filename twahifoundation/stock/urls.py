@@ -16,7 +16,12 @@ from stock.views.product import (
     ProductDeleteView,
 )
 from stock.views.stock import (
-    ProductStockTransfertCreateView,
+    ProductStockDeliveryTransfertCreateView,
+    ProductStockReceptionTransfertCreateView,
+    ProductStockDeliveryTransfertDeleteView,
+    ProductStockReceptionTransfertDeleteView,
+    ProductStockDeliveryTransfertUpdateView,
+    ProductStockReceptionTransfertUpdateView,
     StockListView,
     StockListFilteredView,
     StockDetailDeliveryView,
@@ -73,6 +78,19 @@ urlpatterns = [
             StockDeleteView.as_view(), name="stock-delete"),
 
     # ProductStockTransfert CRUD
-    re_path(r'^stock/(?P<slug>[a-z0-9-]*)/transfert/create/$', ProductStockTransfertCreateView.as_view(),
-            name="product-stock-create"),
+    re_path(r'^stock/(?P<slug>[a-z0-9-]*)/delivery/transfert/create/$',
+            ProductStockDeliveryTransfertCreateView.as_view(),
+            name="delivery-transfert-create"),
+    re_path(r'^stock/delivery/transfert/(?P<pk>\d+)update/$',
+            ProductStockDeliveryTransfertUpdateView.as_view(), name="delivery-transfert-update"),
+    re_path(r'^stock/delivery/transfert/(?P<pk>\d+)/delete/$',
+            ProductStockDeliveryTransfertDeleteView.as_view(), name="delivery-transfert-delete"),
+
+    re_path(r'^stock/(?P<slug>[a-z0-9-]*)/reception/transfert/create/$',
+            ProductStockReceptionTransfertCreateView.as_view(),
+            name="reception-transfert-create"),
+    re_path(r'^stock/reception/transfert/(?P<pk>\d+)update/$',
+            ProductStockReceptionTransfertUpdateView.as_view(), name="reception-transfert-update"),
+    re_path(r'^stock/reception/transfert/(?P<pk>\d+)/delete/$',
+            ProductStockReceptionTransfertDeleteView.as_view(), name="reception-transfert-delete"),
 ]

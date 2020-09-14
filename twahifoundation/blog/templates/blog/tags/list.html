@@ -2,48 +2,48 @@
 
 {% load static %}
 
-{% block title %} Portal | Category list {% endblock title %}
+{% block title %} Portal | Tags list {% endblock title %}
 
 {% block css %}
 
   {{ block.super }}
 
-  <link rel="stylesheet" href="{% static 'stock/style.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'blog/style.css' %}" type="text/css">
 {% endblock css %}
 
 {% block portal_content %}
   <div class="portal-content-title">
-    <h1>Manage Categories</h1>
+    <h1>Manage tags</h1>
   </div>
   <div class="portal-top-bar">
-  <ul class="portal-app-nav">
-        <a href="{% url 'stock:stock-list' %}" class="btn-black custom-btn">
-          <li class="poratl-app-nav-item">
-            <div class="add-text">
-              <span class="custom-icon stock-icon"></span>
-              <span>Stock</span>
-            </div>
-          </li>
-        </a>
-        <a href="{% url 'stock:product-list' %}" class="btn-black custom-btn">
-          <li class="poratl-app-nav-item">
-            <div class="add-text">
-              <span class="custom-icon product-icon"></span>
-              <span>Product</span>
-            </div>
-          </li>
-        </a>
-        <a href="{% url 'stock:category-list' %}" class="btn-black">
-          <li class="poratl-app-nav-item">
-            <div class="add-text">
-              <span class="material-icons">category</span>
-              <span>Category</span>
-            </div>
-          </li>
-        </a>
-      </ul>
+    <ul class="portal-app-nav">
+      <a href="{% url 'blog:post-list' %}" class="btn-black custom-btn">
+        <li class="poratl-app-nav-item">
+          <div class="add-text">
+            <span class="custom-icon post-icon"></span>
+            <span>Posts</span>
+          </div>
+        </li>
+      </a>
+      <a href="{% url 'blog:page-list' %}" class="btn-black custom-btn">
+        <li class="poratl-app-nav-item">
+          <div class="add-text">
+            <span class="custom-icon page-icon"></span>
+            <span>Pages</span>
+          </div>
+        </li>
+      </a>
+      <a href="{% url 'blog:tags-list' %}" class="btn-black custom-btn">
+        <li class="poratl-app-nav-item">
+          <div class="add-text">
+            <span class="custom-icon tags-icon"></span>
+            <span>Tags</span>
+          </div>
+        </li>
+      </a>
+    </ul>
     <div id="list-search">
-      <form action="{% url 'stock:category-list-search' %}" method="GET">
+      <form action="{% url 'blog:tags-list-search' %}" method="GET">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" name="search">
         </div>
@@ -54,11 +54,11 @@
   <div class="portal-content-body list-with-btn">
     <div class="portal-content-nav">
       <div class="portal-content-nav-title">
-        <h2>Categories</h2>
+        <h2>Tags</h2>
       </div>
       <div class="portal-content-nav-item">
         <ul>
-          <a href="{% url 'stock:category-create' %}">
+          <a href="{% url 'blog:tags-create' %}">
             <li class="nav-item-add">
               <div class="add-text">
                 <span class="material-icons">add_circle_outline</span>
@@ -76,7 +76,7 @@
     </div>
     <div class="portal-content-table">
       
-      {% if filtered_category_list %}
+      {% if filtered_tags_list %}
         <table class="table table-hover">
           <thead>
             <tr>
@@ -87,16 +87,16 @@
           </thead>
           <tbody>
 
-            {% for category in filtered_category_list %}
+            {% for tags in filtered_tags_list %}
               <tr class="table">
-                <th scope="row"><span>{{ category.name }}</span></th>
+                <th scope="row"><span>{{ tags.name }}</span></th>
                 <td>
-                  <a href="{% url 'stock:category-update' category.slug %}">
+                  <a href="{% url 'blog:tags-update' tags.slug %}">
                     <span class="material-icons text-black">edit</span>
                   </a>
                 </td>
                 <td>
-                  <a href="{% url 'stock:category-delete' category.slug %}">
+                  <a href="{% url 'blog:tags-delete' tags.slug %}">
                     <span class="material-icons text-red">clear</span>
                   </a>
                 </td>
@@ -105,7 +105,7 @@
 
           </tbody>
         </table>
-      {% elif category_list %}
+      {% elif tags_list %}
         <table class="table table-hover">
           <thead>
             <tr>
@@ -116,16 +116,16 @@
           </thead>
           <tbody>
 
-            {% for category in category_list %}
+            {% for tags in tags_list %}
               <tr class="table">
-                <th scope="row"><span>{{ category.name }}</span></th>
+                <th scope="row"><span>{{ tags.name }}</span></th>
                 <td>
-                  <a href="{% url 'stock:category-update' category.slug %}">
+                  <a href="{% url 'blog:tags-update' tags.slug %}">
                     <span class="material-icons text-black">edit</span>
                   </a>
                 </td>
                 <td>
-                  <a href="{% url 'stock:category-delete' category.slug %}">
+                  <a href="{% url 'blog:tags-delete' tags.slug %}">
                     <span class="material-icons text-red">clear</span>
                   </a>
                 </td>
@@ -134,9 +134,9 @@
 
           </tbody>
         </table>
-      {% elif category_list|length == 0 %}
+      {% elif tags_list|length == 0 %}
         <div id="empty-table">
-          <p>No category yet, <a href="{% url 'stock:category-create' %}">create one</a></p>
+          <p>No tags yet, <a href="{% url 'blog:tags-create' %}">create one</a></p>
         </div>
       {% else %}
         <div id="search-no-result">

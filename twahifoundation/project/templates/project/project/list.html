@@ -97,7 +97,7 @@
 
           </tbody>
         </table>
-      {% elif project_number == 0 %}
+      {% elif project_list|length == 0 %}
         <div id="empty-table">
           <p>No project, <a href="{% url 'project:project-create' %}">create one</a></p>
         </div>

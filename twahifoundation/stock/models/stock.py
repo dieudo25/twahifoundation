@@ -129,6 +129,7 @@ class ProductStockTransfert(models.Model):
 
         verbose_name = 'Transfert de produits'
         verbose_name_plural = 'Transferts de produits'
+        ordering = ['-id']
 
     def __str__(self):
         """

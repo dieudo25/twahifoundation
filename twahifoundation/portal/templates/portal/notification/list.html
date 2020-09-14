@@ -43,6 +43,10 @@
                     <img src="{% static 'portal/img/task-black.svg' %}">
                   {% elif notice.action_object_content_type.model == 'post' %}
                     <img src="{% static 'portal/img/post-black.svg' %}">
+                  {% elif notice.action_object_content_type.model == 'project' %}
+                    <img src="{% static 'portal/img/project-black.svg' %}">
+                  {% elif notice.action_object_content_type.model == 'transaction' and notice.action_object.transaction_type == 'Donation' %}
+                    <img src="{% static 'portal/img/donate-black.svg' %}">
                   {% endif %}
 
                 </div>
@@ -52,7 +56,12 @@
                   <span class="material-icons text-red">close</span>
                 </a>
                 <p class="notice-text">
+
+                {% if notice.action_object_content_type.model == 'transaction' and notice.action_object.transaction_type == 'Donation' %}
+                  <a href={% url 'contact:person-detail' notice.actor.slug %}>{{ notice.actor }}</a>
+                {% else %}
                   <a href={% url 'user-detail' notice.actor.slug %}>{{ notice.actor }}</a>
+                {% endif %}
 
                   {{ notice.verb }}
 
@@ -69,6 +78,10 @@
                     <a class="" href="{% url 'project:task-detail-notice' notice.action_object.slug notice.pk %}">
                   {% elif notice.action_object_content_type.model == 'post' %}
                     <a class="" href="{% url 'blog:post-detail-notice' notice.action_object.slug notice.pk%}">
+                  {% elif notice.action_object_content_type.model == 'project' %}
+                    <a class="" href="{% url 'project:project-detail-notice' notice.action_object.slug notice.pk%}">
+                  {% elif notice.action_object_content_type.model == 'transaction' and notice.action_object.transaction_type == 'Donation' %}
+                    <a class="" href="{% url 'transaction:donation-detail-notice' notice.action_object.pk notice.pk%}">
                   {% endif %}
 
                   {{ notice.action_object}}

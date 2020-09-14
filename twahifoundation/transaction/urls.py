@@ -6,8 +6,10 @@ from transaction.views.donation import (
     TransactionDonationDetailView,
     TransactionDonationDeleteView,
     TransactionDonationListView,
-    TransactionListDonationFilteredView,
+    TransactionDonationListFilteredView,
     TransactionDonationUpdateView,
+    TransactionPaypalDonationList,
+    TransactionPaypalDonationListFilteredView,
     donation_validate,
 )
 
@@ -42,19 +44,25 @@ urlpatterns = [
     # Donation
     re_path(r'^donation/list/$', TransactionDonationListView.as_view(),
             name="donation-list"),
-    re_path(r'^donation/list/search/$', TransactionListDonationFilteredView.as_view(),
+    re_path(r'^donation/list/search/$', TransactionDonationListFilteredView.as_view(),
             name="donation-list-search"),
     re_path(r'^donation/create/$', TransactionDonationCreateView.as_view(),
             name="donation-create"),
+    re_path(r'^donation/(?P<pk>\d+)/(?P<notice_pk>[0-9]*)/$',
+            TransactionDonationDetailView.as_view(), name="donation-detail-notice"),
     re_path(r'^donation/(?P<pk>\d+)/$',
             TransactionDonationDetailView.as_view(), name="donation-detail"),
     re_path(r'^donation/(?P<pk>\d+)/update/$',
             TransactionDonationUpdateView.as_view(), name="donation-update"),
-
     re_path(r'^donation/(?P<pk>\d+)/delete/$',
             TransactionDonationDeleteView.as_view(), name="donation-delete"),
     re_path(r'^donation/(?P<pk>\d+)/validate/$',
             donation_validate, name="donation-validate"),
+
+    re_path(r'^donation/paypal/list/$', TransactionPaypalDonationList.as_view(),
+            name="donation-paypal-list"),
+    re_path(r'^donation/paypal/list/search/$', TransactionPaypalDonationListFilteredView.as_view(),
+            name="donation-paypal-list-search"),
 
     # Purchase
     re_path(r'^purchase/list/$', TransactionPurchaseListView.as_view(),

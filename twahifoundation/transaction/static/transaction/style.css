@@ -1,3 +1,23 @@
 .portal-app-nav .custom-icon.donation-icon {
   background-image: url(img/donation.svg);
 }
+
+.donation-list-type {
+  padding: 10px 10px 0;
+}
+
+.donation-list-type a {
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+  .donation-list-type {
+    display: flex;
+  }
+
+  .donation-list-type a {
+    margin-right: 10px;
+  }
+}

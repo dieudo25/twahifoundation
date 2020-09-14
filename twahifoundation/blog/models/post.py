@@ -14,7 +14,6 @@ from ckeditor_uploader.fields import RichTextUploadingField
 STATUS_CHOICE = (
     ('Drafted', 'Drafted'),
     ('Published', 'Published'),
-    ('Trashed', 'Trashed'),
 )
 
 
@@ -89,3 +88,13 @@ class Post(models.Model):
     def get_absolute_url(self):
         """Get the absolute url of the object"""
         return reverse("blog:post-detail", kwargs={"slug": self.slug})
+
+    def status_toggle(self):
+        """ Toggle beetwen the status"""
+
+        if self.status == 'Drafted':
+            self.status = 'Published'
+        else:
+            self.status = 'Drafted'
+
+        self.save()

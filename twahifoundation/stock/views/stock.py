@@ -97,37 +97,87 @@ class StockCreateView(CreateView):
     form_class = StockCreateUpdateForm
 
 
-class ProductStockTransfertCreateView(CreateView):
+class ProductStockDeliveryTransfertCreateView(CreateView):
     "Product Stock Transfert create view"
 
     model = ProductStockTransfert
-    template_name = 'stock/product_stock_transfert/create.html'
+    template_name = 'stock/delivery/create.html'
     form_class = ProductStockTransferCreateUpdateForm
 
     def get_success_url(self):
         "Get the absolute url of the object"
-        if self.object.transfert_type == 'RECEPTION':
-            return reverse_lazy('stock:stock-reception-detail', kwargs={'slug': self.object.stock.slug})
-        else:
-            return reverse_lazy('stock:stock-delivery-detail', kwargs={'slug': self.object.stock.slug})
+        return reverse_lazy('stock:stock-delivery-detail', kwargs={'slug': self.object.stock.slug})
 
     def form_valid(self, form):
         stock = Stock.objects.get(slug=self.kwargs['slug'])
         form.instance.stock = stock
-        return super(ProductStockTransfertCreateView, self).form_valid(form)
+        form.instance.transfert_type = 'DELIVERY'
+        return super(ProductStockDeliveryTransfertCreateView, self).form_valid(form)
 
 
-class ProductStockTransfertUpdateView(UpdateView):
-    "Transaction update view"
+class ProductStockDeliveryTransfertDeleteView(DeleteView):
+    "Delivery Delete View"
 
     model = ProductStockTransfert
-    template_name = 'stock/product_stock_transfert/update.html'
+    template_name = 'stock/delivery/delete.html'
+    context_object_name = 'transfert'
+
+    def get_success_url(self):
+        "Get the absolute url of the object"
+        return reverse_lazy('stock:stock-delivery-detail', kwargs={'slug': self.object.stock.slug})
+
+
+class ProductStockDeliveryTransfertUpdateView(UpdateView):
+    "Delivery update view"
+
+    model = ProductStockTransfert
+    template_name = 'stock/delivery/update.html'
     context_object_name = 'transfert'
     form_class = ProductStockTransferCreateUpdateForm
 
     def get_success_url(self):
         "Get the absolute url of the object"
-        if self.object.transfert_type == 'RECEPTION':
-            return reverse_lazy('stock:stock-reception-detail', kwargs={'slug': self.object.stock.slug})
-        else:
-            return reverse_lazy('stock:stock-delivery-detail', kwargs={'slug': self.object.stock.slug})
+        return reverse_lazy('stock:stock-delivery-detail', kwargs={'slug': self.object.stock.slug})
+
+
+class ProductStockReceptionTransfertCreateView(CreateView):
+    "Product Stock Transfert create view"
+
+    model = ProductStockTransfert
+    template_name = 'stock/reception/create.html'
+    form_class = ProductStockTransferCreateUpdateForm
+
+    def get_success_url(self):
+        "Get the absolute url of the object"
+        return reverse_lazy('stock:stock-reception-detail', kwargs={'slug': self.object.stock.slug})
+
+    def form_valid(self, form):
+        stock = Stock.objects.get(slug=self.kwargs['slug'])
+        form.instance.stock = stock
+        form.instance.transfert_type = 'RECEPTION'
+        return super(ProductStockReceptionTransfertCreateView, self).form_valid(form)
+
+
+class ProductStockReceptionTransfertUpdateView(UpdateView):
+    "Reception update view"
+
+    model = ProductStockTransfert
+    template_name = 'stock/reception/update.html'
+    context_object_name = 'transfert'
+    form_class = ProductStockTransferCreateUpdateForm
+
+    def get_success_url(self):
+        "Get the absolute url of the object"
+        return reverse_lazy('stock:stock-reception-detail', kwargs={'slug': self.object.stock.slug})
+
+
+class ProductStockReceptionTransfertDeleteView(DeleteView):
+    "Reception Delete View"
+
+    model = ProductStockTransfert
+    template_name = 'stock/reception/delete.html'
+    context_object_name = 'transfert'
+
+    def get_success_url(self):
+        "Get the absolute url of the object"
+        return reverse_lazy('stock:stock-reception-detail', kwargs={'slug': self.object.stock.slug})

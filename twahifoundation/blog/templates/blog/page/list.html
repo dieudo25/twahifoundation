@@ -33,7 +33,7 @@
             </div>
           </li>
         </a>
-        <a href="#" class="btn-black custom-btn">
+        <a href="{% url 'blog:tags-list' %}" class="btn-black custom-btn">
           <li class="poratl-app-nav-item">
             <div class="add-text">
               <span class="custom-icon tags-icon"></span>
@@ -126,7 +126,7 @@
 
           </tbody>
         </table>
-      {% elif page_number == 0 %}
+      {% elif page_list|length == 0 %}
         <div id="empty-table">
           <p>No page, <a href="{% url 'blog:page-create' %}">create one</a></p>
         </div>

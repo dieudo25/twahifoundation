@@ -33,7 +33,7 @@
             </div>
           </li>
         </a>
-        <a href="#" class="btn-black custom-btn">
+        <a href="{% url 'blog:tags-list' %}" class="btn-black custom-btn">
           <li class="poratl-app-nav-item">
             <div class="add-text">
               <span class="custom-icon tags-icon"></span>
@@ -146,7 +146,7 @@
 
           </tbody>
         </table>
-      {% elif post_number == 0 %}
+      {% elif post_list|length == 0 %}
         <div id="empty-table">
           <p>No post, <a href="{% url 'blog:post-create' %}">create one</a></p>
         </div>

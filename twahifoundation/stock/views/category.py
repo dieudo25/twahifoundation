@@ -14,12 +14,6 @@ class CategoryListView(ListView):
     context_object_name = 'category_list'
     paginate_by = 10
 
-    def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
-        context = super().get_context_data(**kwargs)
-        context['category_number'] = Category.objects.all().count()
-        return context
-
 
 class CategoryListFilteredView(ListView):
     "Category list filterd by title, location"

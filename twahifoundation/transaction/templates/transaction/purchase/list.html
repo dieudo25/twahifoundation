@@ -150,7 +150,7 @@
 
           </tbody>
         </table>
-      {% elif transaction_number == 0 %}
+      {% elif purchase_list|length == 0 %}
         <div id="empty-table">
           <p>No transaction yet, <a href="{% url 'transaction:purchase-create' %}">create one</a></p>
         </div>

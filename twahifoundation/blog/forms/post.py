@@ -15,7 +15,6 @@ class PostCreateUpdateForm(forms.ModelForm):
             'meta_description',
             'content',
             'tags',
-            'status',
             'keywords',
             'image',
         ]
@@ -33,6 +32,5 @@ class PageCreateUpdateForm(forms.ModelForm):
             'meta_description',
             'content',
             'tags',
-            'status',
             'keywords',
         ]

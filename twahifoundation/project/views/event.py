@@ -1,7 +1,8 @@
 from django.contrib.auth import get_user
 from django.db.models import Q
+from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 
 from notifications.models import Notification
 
@@ -102,3 +103,16 @@ class EventDeleteView(DeleteView):
     template_name = 'project/event/delete.html'
     context_object_name = 'event'
     success_url = reverse_lazy('project:event-list')
+
+
+def participate(request, slug):
+    "Place a message in the trash"
+
+    current_user = get_user(request)
+    event = get_object_or_404(Event, slug=slug)
+
+    if not current_user in event.users.all():
+        event.users.add(current_user)
+    else:
+        event.users.remove(current_user)
+    return redirect(reverse("project:event-detail", kwargs={"slug": event.slug}))

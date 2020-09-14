@@ -3,6 +3,8 @@ from django.shortcuts import redirect
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
 
+from notifications.models import Notification
+
 from transaction.models.transaction import Transaction
 from transaction.forms.donation import TransactionDonationCreateUpdateForm
 
@@ -21,7 +23,7 @@ class TransactionDonationListView(ListView):
         return Transaction.objects.filter(transaction_type='Donation').exclude(with_paypal=True)
 
 
-class TransactionListDonationFilteredView(ListView):
+class TransactionDonationListFilteredView(ListView):
     "Transaction list filterd by title, location"
 
     model = Transaction
@@ -44,6 +46,20 @@ class TransactionDonationDetailView(DetailView):
     model = Transaction
     template_name = 'transaction/donation/detail.html'
     context_object_name = 'transaction'
+
+    def get_object(self):
+        instance = super().get_object()
+
+        try:
+            notice_id = self.kwargs['notice_pk']
+            notice = Notification.objects.get(id=notice_id)
+
+            if notice.unread:
+                notice.mark_as_read()
+
+            return instance
+        except:
+            return instance
 
 
 class TransactionDonationUpdateView(UpdateView):
@@ -85,6 +101,37 @@ class TransactionDonationCreateView(CreateView):
         TransactionDonationCreateUpdateForm.instance.user = user
         TransactionDonationCreateUpdateForm.instance.tranfert_type = transfert_type
         return super(TransactionDonationCreateView, self).form_valid(TransactionDonationCreateUpdateForm)
+
+
+class TransactionPaypalDonationList(ListView):
+    "Transaction Paypal list view"
+    model = Transaction
+    template_name = 'transaction/donation/paypal_list.html'
+    context_object_name = 'donation_list'
+    paginate_by = 10
+
+    def get_queryset(self):
+        """Returns Donation that were created today"""
+
+        return Transaction.objects.filter(transaction_type='Donation', is_valid=True).exclude(with_paypal=False)
+
+
+class TransactionPaypalDonationListFilteredView(ListView):
+    "Transaction Paypallist filterd by title, location"
+
+    model = Transaction
+    template_name = 'transaction/donation/paypal_list.html'
+    context_object_name = 'filtered_donation_list'
+    paginate_by = 10
+
+    def get_queryset(self):
+        query = self.request.GET.get('search')
+        object_list = Transaction.objects.filter(
+            Q(user__username__icontains=query) |
+            Q(transaction_type__icontains='Donation') |
+            Q(is_valid=True)
+        ).exclude(with_paypal=False)
+        return object_list
 
 
 def donation_validate(request, pk):

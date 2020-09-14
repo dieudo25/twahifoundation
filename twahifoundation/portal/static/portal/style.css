@@ -154,7 +154,6 @@ tr.cke_dialog_ui_hbox > td {
 .portal-content-body {
   background-color: white;
   max-height: 77vh;
-  padding-left: 8px;
 }
 
 .notification-content {
@@ -237,6 +236,10 @@ tr.cke_dialog_ui_hbox > td {
 .portal-content-table {
   overflow: auto;
   padding: 0 15px;
+}
+
+.transfert-table {
+  max-height: 69.5vh;
 }
 
 .portal-content-table thead {
@@ -443,7 +446,7 @@ input[type="radio"] {
 
 .portal-top-bar {
   background-color: #eee;
-  padding: 20px;
+  padding: 20px 10px;
 }
 
 .notification-bar {
@@ -572,7 +575,7 @@ form .control-group .django-ckeditor-widget > div {
     display: unset;
     flex-shrink: 0;
     position: absolute;
-    height: calc(100vh - 70px);
+    height: calc(100vh - 56px);
     transition: all 0.3s ease-in-out;
     z-index: 100;
   }

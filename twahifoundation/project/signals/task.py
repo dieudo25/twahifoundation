@@ -26,12 +26,16 @@ def task_user(sender, instance, action, pk_set, ** kwargs):
                 action_object=instance
             )
 
-    if action == 'post_remove':
+    if action == 'pre_remove':
         users = {}
         for pk in pk_set:
             user = User.objects.get(pk=pk)
             users[pk] = user
 
         for recipient in users.values():
-            notice = recipient.notifications.unread()
-            notice.delete()
+            notifications = recipient.notifications.unread()
+
+            for notice in notifications:
+
+                if notice.action_object.slug == instance.slug:
+                    notice.delete()

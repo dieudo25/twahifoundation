@@ -142,7 +142,7 @@
 
           </tbody>
         </table>
-      {% elif stock_number == 0 %}
+      {% elif stock_list|length == 0 %}
         <div id="empty-table">
           <p>No stock yet, <a href="{% url 'stock:stock-create' %}">create one</a></p>
         </div>

@@ -178,7 +178,7 @@
 
           </tbody>
         </table>
-      {% elif product_number == 0 %}
+      {% elif product_list|length == 0 %}
         <div id="empty-table">
           <p>No product yet, <a href="{% url 'stock:product-create' %}">create one</a></p>
         </div>

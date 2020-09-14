@@ -7,6 +7,7 @@ from project.views.event import (
     EventUpdateView,
     EventCreateView,
     EventDeleteView,
+    participate,
 )
 from project.views.project import (
     ProjectListView,
@@ -43,6 +44,8 @@ urlpatterns = [
             EventUpdateView.as_view(), name="event-update"),
     re_path(r'^event/(?P<slug>[a-z0-9-]*)/delete/$',
             EventDeleteView.as_view(), name="event-delete"),
+    re_path(r'^event/(?P<slug>[a-z0-9-]*)/participate/$',
+            participate, name="event-participate"),
 
     # Project CRUD
     re_path(r'^project/list/$', ProjectListView.as_view(), name="project-list"),
@@ -50,6 +53,8 @@ urlpatterns = [
             name="project-list-search"),
     re_path(r'^project/create/$', ProjectCreateView.as_view(),
             name="project-create"),
+    re_path(r'^project/(?P<slug>[a-z0-9-]*)/(?P<notice_pk>[0-9]*)$',
+            ProjectDetailView.as_view(), name="project-detail-notice"),
     re_path(r'^project/(?P<slug>[a-z0-9-]*)/$',
             ProjectDetailView.as_view(), name="project-detail"),
     re_path(r'^project/(?P<slug>[a-z0-9-]*)/update/$',

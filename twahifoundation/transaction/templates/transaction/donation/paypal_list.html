@@ -43,7 +43,7 @@
         </a>
       </ul>
     <div id="list-search">
-      <form action="{% url 'transaction:sale-list-search' %}" method="GET">
+      <form action="{% url 'transaction:donation-list-search' %}" method="GET">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" name="search">
         </div>
@@ -54,20 +54,16 @@
   <div class="portal-content-body">
     <div class="portal-content-nav">
       <div class="portal-content-nav-title">
-        <h2>Sales</h2>
+        <h2 class="paypal-donation-title">Paypal donations</h2>
       </div>
-      <div class="portal-content-nav-item">
-        <ul>
-          <a href="{% url 'transaction:sale-create' %}">
-            <li class="nav-item-add">
-              <div class="add-text">
-                <span class="material-icons">add_circle_outline</span>
-                <span>Add</span>
-              </div>
-            </li>
-          </a>
-        </ul>
-      </div>
+    </div>
+    <div class="donation-list-type">
+      <a href="{% url 'transaction:donation-list' %}" class="btn-black custom-btn">
+        Encode
+      </a>
+      <a href="{% url 'transaction:donation-paypal-list' %}" class="btn-black custom-btn">
+        Paypal
+      </a> 
     </div>
     <div class="portal-list-paginate-header">
 
@@ -76,13 +72,12 @@
     </div>
     <div class="portal-content-table">
       
-      {% if filtered_sale_list %}
+      {% if filtered_donation_list %}
         <table class="table table-hover">
           <thead>
             <tr>
               <th scope="col">ID</th>
               <th scope="col">Date created</th>
-              <th scope="col">Created by</th>
               <th scope="col">Costumer</th>
               <th scope="col">Total</th>
               <th scope="col">Is valid ?</th>
@@ -90,11 +85,10 @@
           </thead>
           <tbody>
 
-            {% for transaction in filtered_sale_list %}
+            {% for transaction in filtered_donation_list %}
               <tr class="table">
-                <th scope="row"><a href="{% url 'transaction:sale-detail' transaction.pk %}">{{ transaction }}</a></th>
+                <th scope="row"><a href="{% url 'transaction:donation-detail' transaction.pk %}">{{ transaction }}</a></th>
                 <td>{{ transaction.date_time_created }}</td>
-                <td>{{ transaction.user }}</td>
                 <td>{{ transaction.person }}</td>
                 <td>{{ transaction.total }} €</td>
                 <td class="img-bool">
@@ -113,13 +107,12 @@
 
           </tbody>
         </table>
-      {% elif sale_list %}
+      {% elif donation_list %}
         <table class="table table-hover">
           <thead>
             <tr>
               <th scope="col">ID</th>
               <th scope="col">Date created</th>
-              <th scope="col">Created by</th>
               <th scope="col">Costumer</th>
               <th scope="col">Total</th>
               <th scope="col">Is valid ?</th>
@@ -127,11 +120,10 @@
           </thead>
           <tbody>
 
-            {% for transaction in sale_list %}
+            {% for transaction in donation_list %}
               <tr class="table">
-                <th scope="row"><a href="{% url 'transaction:sale-detail' transaction.pk %}">{{ transaction }}</a></th>
+                <th scope="row"><a href="{% url 'transaction:donation-detail' transaction.pk %}">{{ transaction }}</a></th>
                 <td>{{ transaction.date_time_created }}</td>
-                <td>{{ transaction.user }}</td>
                 <td>{{ transaction.person }}</td>
                 <td>{{ transaction.total }} €</td>
                 <td class="img-bool">
@@ -150,9 +142,9 @@
 
           </tbody>
         </table>
-      {% elif sale_list|length == 0 %}
+      {% elif donation_list|length == 0 %}
         <div id="empty-table">
-          <p>No transaction yet, <a href="{% url 'transaction:sale-create' %}">create one</a></p>
+          <p>No transaction yet, <a href="{% url 'transaction:donation-create' %}">create one</a></p>
         </div>
       {% else %}
         <div id="search-no-result">

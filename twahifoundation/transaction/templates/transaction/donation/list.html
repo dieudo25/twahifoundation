@@ -69,6 +69,14 @@
         </ul>
       </div>
     </div>
+    <div class="donation-list-type">
+      <a href="{% url 'transaction:donation-list' %}" class="btn-black custom-btn">
+        Encode
+      </a>
+      <a href="{% url 'transaction:donation-paypal-list' %}" class="btn-black custom-btn">
+        Paypal
+      </a> 
+    </div>
     <div class="portal-list-paginate-header">
 
       {% include 'portal/components/paginate_header.html' %}
@@ -150,7 +158,7 @@
 
           </tbody>
         </table>
-      {% elif transaction_number == 0 %}
+      {% elif donation_list|length == 0 %}
         <div id="empty-table">
           <p>No transaction yet, <a href="{% url 'transaction:donation-create' %}">create one</a></p>
         </div>

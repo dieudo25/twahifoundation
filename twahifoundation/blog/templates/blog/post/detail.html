@@ -102,6 +102,15 @@
       </a>
     </div>
     <div class="detail-bar-col-2">
+      <a href="{% url 'blog:post-status-update' post.slug %}">
+      
+        {% if post.status == 'Drafted'%}
+          <p class="detail-bar-btn btn-black">Publish</p>
+        {% else %}
+          <p class="detail-bar-btn btn-black">Draft</p>
+        {% endif %}
+        
+      </a>
       <a href="{% url 'page:news-detail' post.slug %}">
         <p class="detail-bar-btn btn-black">View on site</p>
       </a>

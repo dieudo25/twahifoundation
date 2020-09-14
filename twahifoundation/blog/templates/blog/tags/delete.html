@@ -4,39 +4,31 @@
 
 {% load static %}
 
-{% block title %} Portal | Update profile {{ user.username }} {% endblock title %}
-
-{% block css %}
-
-  {{ block.super }}
-
-  <link rel="stylesheet" href="{% static 'account/style.css' %}" type="text/css">
-{% endblock css %}
+{% block title %} Portal | Delete {{ tags }} {% endblock title %}
 
 {% block portal_content %}
   <div class="portal-content-title">
-    <h1>Update password</h1>
+    <h1>Delete {{ tags }}</h1>
   </div>
   <div class="portal-wrapper">
     <div class="portal-update-form-wrapper">
-      <form method="POST" enctype="multipart/form-data" id="update-form">
+      <form method="POST" id="delete-form">
 
           {% csrf_token %}
-
-          {{ form | crispy }}
-
-
+          <div>
+            <p>Are you sure you want to delete "{{ tags }}"?</p>
+          </div>
       </form>
     </div>
   </div>
   <div class="detail-bar">
     <div class="detail-bar-col-1">
-      <a href="{% url 'user-detail' user.slug %}">
+      <a href="{% url 'blog:tags-list' %}">
         <p class="detail-bar-btn btn-black">Back</p>
       </a>
     </div>
     <div class="detail-bar-col-2">
-      <button form="update-form" class="detail-bar-btn btn-green btn-last" type="submit">Confirm</button>
+      <button form="delete-form" class="detail-bar-btn btn-red btn-last" type="submit">Delete</button>
     </div>
   </div>
 {% endblock portal_content %}
