@@ -96,7 +96,7 @@ class ProductStockTransfert(models.Model):
 
     TYPE_CHOICES = [
         ('RECEPTION', 'Reception'),
-        ('DELIVRY', 'Delivry'),
+        ('DELIVERY', 'Delivery'),
     ]
 
     stock = models.ForeignKey(
@@ -143,11 +143,4 @@ class ProductStockTransfert(models.Model):
         return 'ST' + add_zero + stock_transfert_id
 
     def getstock(self):
-        return self.stock_slug
-
-    def get_absolute_url(self):
-        """
-        Return absolute url for ProductStockStock.
-        """
-
-        return reverse('stock:stock-reception-detail', kwargs={'slug': self.request.META.get('HTTP_REFERER')})
+        return self.stock.slug

@@ -93,6 +93,17 @@
       </a>
     </div>
     <div class="detail-bar-col-2">
+    
+      {% if object.slug == 'about-us' %}
+        <a href="{% url 'page:about' %}">
+      {% elif object.slug == 'attributions' %}
+        <a href="{% url 'page:attributions' %}">
+      {% elif object.slug == 'legal-mentions' %}
+        <a href="{% url 'page:legal' %}">
+      {% endif %}
+
+        <p class="detail-bar-btn btn-black">View on site</p>
+      </a>
       <a href="{% url 'blog:page-update' post.slug %}">
         <p class="detail-bar-btn btn-black">Edit</p>
       </a>

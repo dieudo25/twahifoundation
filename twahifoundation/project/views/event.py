@@ -15,6 +15,7 @@ class EventListView(ListView):
     model = Event
     template_name = 'project/event/list.html'
     context_object_name = 'event_list'
+    paginate_by = 10
 
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
@@ -29,6 +30,7 @@ class EventListFilteredView(ListView):
     model = Event
     template_name = 'project/event/list.html'
     context_object_name = 'filtered_event_list'
+    paginate_by = 10
 
     def get_queryset(self):
         query = self.request.GET.get('search')

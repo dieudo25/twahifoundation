@@ -1,16 +1,18 @@
 {% load static %}
 
 <div class="projects-list">
-  <h2 class="title-h2">Latest news</h2>
-  <div class="object-control-link">
-    <a class="control-link text-white" href="{% url 'blog:post-create' %}">
-        <p class="btn-green text-center">New</p>
-    </a>
+  <div class="page-title">
+    <h2 class="title-h2">Latest news</h2>
+    <div class="object-control-link">
+      <a class="control-link text-white" href="{% url 'blog:post-create' %}">
+          <p class="btn-green text-center">New</p>
+      </a>
+    </div>
   </div>
 
-  {% if post_list %}
+  {% if news_list %}
   
-    {% for post in post_list %}
+    {% for post in news_list %}
       <div class="projects-item">
         <div class="title-img-wrapper">
         <div class="img-wrapper">

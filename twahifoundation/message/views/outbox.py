@@ -13,8 +13,9 @@ class OutboxListView(ListView):
     "Message list view"
 
     model = Message
-    template_name = 'message/outbox/outbox.html'
-    context_object_name = 'message_list'
+    template_name = 'message/outbox/list.html'
+    context_object_name = 'outbox_list'
+    paginate_by = 10
 
     def get_queryset(self):
         """Get message outbox list"""
@@ -27,8 +28,9 @@ class OutboxListFilteredView(ListView):
     "Message list filterd by title, location"
 
     model = Message
-    template_name = 'message/outbox/outbox.html'
-    context_object_name = 'filtered_message_list'
+    template_name = 'message/outbox/list.html'
+    context_object_name = 'filtered_outbox_list'
+    paginate_by = 10
 
     def get_queryset(self):
         current_user = get_user(self.request)

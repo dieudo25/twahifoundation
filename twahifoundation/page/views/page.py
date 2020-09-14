@@ -17,11 +17,11 @@ class HomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["project_list"] = Project.objects.all().order_by(
+        context["page_project_list"] = Project.objects.all().order_by(
             '-date_created')[:3]
-        context["post_list"] = Post.objects.filter(status='Published', category__name="Post").order_by(
+        context["news_list"] = Post.objects.filter(status='Published', category__name="Post").order_by(
             '-created_on')[:3]
-        context["event_list"] = Event.objects.filter(event_type="FundRaising").order_by(
+        context["page_event_list"] = Event.objects.filter(event_type="FundRaising").order_by(
             '-date_created')[:2]
 
         cookie = self.request.COOKIES.get('cookie_consent_user_accepted')
@@ -95,6 +95,26 @@ class FundRaisingEventListView(ListView):
     "Event list view"
 
     model = Event
+    paginate_by = 5
     template_name = 'page/event/list.html'
-    context_object_name = 'event_list'
+    context_object_name = 'page_event_list'
     queryset = Event.objects.filter(event_type="FundRaising")
+
+
+class ProjectListView(ListView):
+    "Event list view"
+
+    model = Project
+    paginate_by = 5
+    template_name = 'page/project/list.html'
+    context_object_name = 'page_project_list'
+
+
+class NewsListView(ListView):
+    "Event list view"
+
+    model = Post
+    paginate_by = 5
+    template_name = 'page/news/list.html'
+    context_object_name = 'news_list'
+    queryset = Post.objects.filter(status='Published', category__name="Post")

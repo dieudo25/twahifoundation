@@ -15,12 +15,7 @@ class ProjectListView(ListView):
     model = Project
     template_name = 'project/project/list.html'
     context_object_name = 'project_list'
-
-    def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
-        context = super().get_context_data(**kwargs)
-        context['project_number'] = Project.objects.all().count()
-        return context
+    paginate_by = 10
 
 
 class ProjectListFilteredView(ListView):
@@ -29,6 +24,7 @@ class ProjectListFilteredView(ListView):
     model = Project
     template_name = 'project/project/list.html'
     context_object_name = 'filtered_project_list'
+    paginate_by = 10
 
     def get_queryset(self):
         query = self.request.GET.get('search')

@@ -73,6 +73,6 @@ urlpatterns = [
             StockDeleteView.as_view(), name="stock-delete"),
 
     # ProductStockTransfert CRUD
-    re_path(r'^product-stock-transfert/create/$', ProductStockTransfertCreateView.as_view(),
+    re_path(r'^stock/(?P<slug>[a-z0-9-]*)/transfert/create/$', ProductStockTransfertCreateView.as_view(),
             name="product-stock-create"),
 ]

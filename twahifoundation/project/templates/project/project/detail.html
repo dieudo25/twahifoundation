@@ -64,6 +64,9 @@
       </a>
     </div>
     <div class="detail-bar-col-2">
+      <a href="{% url 'page:project-detail' project.slug %}">
+        <p class="detail-bar-btn btn-black">View on site</p>
+      </a>
       <a href="{% url 'project:project-update' project.slug %}">
         <p class="detail-bar-btn btn-black">Edit</p>
       </a>

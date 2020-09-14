@@ -12,6 +12,7 @@ class ProductListView(ListView):
     model = Product
     template_name = 'stock/product/list.html'
     context_object_name = 'product_list'
+    paginate_by = 10
 
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
@@ -26,6 +27,7 @@ class ProductListFilteredView(ListView):
     model = Product
     template_name = 'stock/product/list.html'
     context_object_name = 'filtered_product_list'
+    paginate_by = 10
 
     def get_queryset(self):
         query = self.request.GET.get('search')

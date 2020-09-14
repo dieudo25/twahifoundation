@@ -16,6 +16,7 @@ class UserListView(PermissionRequiredMixin, ListView):
     permission_required = 'account.view.user'
     template_name = 'account/user/list.html'
     context_object_name = 'user_list'
+    paginate_by = 10
 
 
 class UserListFilteredView(PermissionRequiredMixin, ListView):
@@ -25,6 +26,7 @@ class UserListFilteredView(PermissionRequiredMixin, ListView):
     permission_required = 'account.view.user'
     template_name = 'account/user/list.html'
     context_object_name = 'filtered_user_list'
+    paginate_by = 10
 
     def get_queryset(self):
         query = self.request.GET.get('search')

@@ -7,7 +7,7 @@
 {% block header %}
     <div class="sub-header bg-image">
         <div class="content-width-wrapper">
-            <h3>Event</h3>
+            <h3>Events</h3>
         </div>
     </div>  
     <div class="sub-clearfix"></div>
@@ -17,16 +17,23 @@
     <div>
         <h1 class="title-h1">{{ event.title }}</h1>
     </div>
-    <div class="object-control-link">
-        <a class="control-link text-white" href="{% url 'project:event-update' event.slug %}">
-            <p class="btn-blue text-center">Edit</p>
-        </a>
-        <a class="control-link text-white" href="{% url 'project:event-delete' event.slug %}">
-            <p class="btn-red text-center">Delete</p>
-        </a>
-    </div>
     <div class="page-content-detail">
         <p><span class="first font-weight-bold">Created on </span>{{ event.date_created }}</p>
         <p>{{ event.description|safe }}</p>
+    </div>
+    <div class="detail-bar">
+        <div class="detail-bar-col-1">
+        <a href="{% url 'page:event-list' %}">
+            <p class="detail-bar-btn btn-blue text-center">Back</p>
+        </a>
+        </div>
+        <div class="detail-bar-col-2">
+            <a class="control-link text-white" href="{% url 'project:event-update' event.slug %}">
+                <p class="detail-bar-btn btn-blue text-center">Edit</p>
+            </a>
+            <a class="control-link text-white" href="{% url 'project:event-delete' event.slug %}">
+                <p class="detail-bar-btn btn-red text-center">Delete</p>
+            </a>
+        </div>
     </div>
 {% endblock content_with_sidebar %}

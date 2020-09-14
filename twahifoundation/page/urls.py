@@ -15,10 +15,10 @@ from page.views.donate import (
     DonationCancelView,
 )
 
-from blog.views.post import PostListView, PostDetailView
-from page.views.page import FundRaisingEventListView
+from blog.views.post import PostDetailView
+from page.views.page import FundRaisingEventListView, ProjectListView, NewsListView
 from project.views.event import EventDetailView
-from project.views.project import ProjectListView, ProjectDetailView
+from project.views.project import ProjectDetailView
 
 app_name = 'page'
 
@@ -44,8 +44,7 @@ urlpatterns = [
 
 
     # Project
-    re_path(r'^projects/$', ProjectListView.as_view(
-        template_name="page/project/list.html"), name="project-list"),
+    re_path(r'^projects/$', ProjectListView.as_view(), name="project-list"),
     re_path(r'^projects/(?P<slug>[a-z0-9-]*)/$', ProjectDetailView.as_view(
         template_name="page/project/detail.html"), name="project-detail"),
 
@@ -55,8 +54,7 @@ urlpatterns = [
         template_name="page/event/detail.html"), name="event-detail"),
 
     # Post
-    re_path(r'^news/$', PostListView.as_view(
-        template_name="page/news/list.html"), name="news-list"),
+    re_path(r'^news/$', NewsListView.as_view(), name="news-list"),
     re_path(r'^news/(?P<slug>[a-z0-9-]*)/$', PostDetailView.as_view(
         template_name="page/news/detail.html"), name="news-detail"),
 

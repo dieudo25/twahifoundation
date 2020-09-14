@@ -11,6 +11,7 @@ class CompanyListView(ListView):
     model = Company
     template_name = 'contact/company/list.html'
     context_object_name = 'company_list'
+    paginate_by = 10
 
 
 class CompanyListFilteredView(ListView):
@@ -19,6 +20,7 @@ class CompanyListFilteredView(ListView):
     model = Company
     template_name = 'contact/company/list.html'
     context_object_name = 'filtered_company_list'
+    paginate_by = 10
 
     def get_queryset(self):
         query = self.request.GET.get('search')

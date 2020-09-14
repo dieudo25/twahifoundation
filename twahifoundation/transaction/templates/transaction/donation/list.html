@@ -69,11 +69,14 @@
         </ul>
       </div>
     </div>
-    <div class="portal-content-search">
+    <div class="portal-list-paginate-header">
+
+      {% include 'portal/components/paginate_header.html' %}
+
     </div>
     <div class="portal-content-table">
       
-      {% if filtered_transaction_list %}
+      {% if filtered_donation_list %}
         <table class="table table-hover">
           <thead>
             <tr>
@@ -87,7 +90,7 @@
           </thead>
           <tbody>
 
-            {% for transaction in filtered_transaction_list %}
+            {% for transaction in filtered_donation_list %}
               <tr class="table">
                 <th scope="row"><a href="{% url 'transaction:donation-detail' transaction.pk %}">{{ transaction }}</a></th>
                 <td>{{ transaction.date_time_created }}</td>
@@ -110,7 +113,7 @@
 
           </tbody>
         </table>
-      {% elif transaction_list %}
+      {% elif donation_list %}
         <table class="table table-hover">
           <thead>
             <tr>
@@ -124,7 +127,7 @@
           </thead>
           <tbody>
 
-            {% for transaction in transaction_list %}
+            {% for transaction in donation_list %}
               <tr class="table">
                 <th scope="row"><a href="{% url 'transaction:donation-detail' transaction.pk %}">{{ transaction }}</a></th>
                 <td>{{ transaction.date_time_created }}</td>
@@ -157,6 +160,11 @@
         </div>
       {% endif%}
       
+    </div>
+    <div class="portal-list-paginate-footer">
+
+      {% include 'portal/components/paginate_footer.html' %}
+
     </div>
   </div>
   {% endblock portal_content %}

@@ -1,0 +1,27 @@
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center pagination-sm">
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">
+            <small>
+                On page <strong>{{ page_obj.number }}</strong> : Showing <strong>{{ page_obj.object_list.count }}</strong> of total <strong>{{ page_obj.paginator.count }}</strong> 
+                {% if post_list %}post{{ post_list|pluralize }}{% endif %}
+                {% if page_list %}page{{ page_list|pluralize }}{% endif %}
+                {% if user_list %}user{{ user_list|pluralize }}{% endif %}
+                {% if company_list %}compan{{ company_list|pluralize:"y,ies" }}{% endif %}
+                {% if person_list %}individual{{ person_list|pluralize }}{% endif %}
+                {% if inbox_list %}message{{ inbox_list|pluralize }}{% endif %}
+                {% if outbox_list %}message{{ outbox_list|pluralize }}{% endif %}
+                {% if trash_list %}message{{ trash_list|pluralize }}{% endif %}
+                {% if event_list %}event{{ event_list|pluralize }}{% endif %}
+                {% if project_list %}project{{ project_list|pluralize }}{% endif %}
+                {% if donation_list %}donation{{ donation_list|pluralize }}{% endif %}
+                {% if purchase_list %}purchase{{ purchase_list|pluralize }}{% endif %}
+                {% if sale_list %}sale{{ sale_list|pluralize }}{% endif %}
+                {% if category_list %}categor{{ category_list|pluralize:"y,ies" }}{% endif %}
+                {% if product_list %}product{{ product_list|pluralize }}{% endif %}
+                {% if stock_list %}stock{{ stock_list|pluralize }}{% endif %}
+            </small>
+            </a>
+        </li>
+    </ul>
+</nav>

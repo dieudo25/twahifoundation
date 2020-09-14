@@ -69,7 +69,10 @@
         </ul>
       </div>
     </div>
-    <div class="portal-content-search">
+    <div class="portal-list-paginate-header">
+
+      {% include 'portal/components/paginate_header.html' %}
+
     </div>
     <div class="portal-content-table">
       
@@ -149,6 +152,11 @@
         </div>
       {% endif%}
       
+    </div>
+    <div class="portal-list-paginate-footer">
+
+      {% include 'portal/components/paginate_footer.html' %}
+
     </div>
   </div>
   {% endblock portal_content %}

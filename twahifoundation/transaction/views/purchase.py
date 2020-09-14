@@ -14,7 +14,8 @@ class TransactionPurchaseListView(ListView):
 
     model = Transaction
     template_name = 'transaction/purchase/list.html'
-    context_object_name = 'transaction_list'
+    context_object_name = 'purchase_list'
+    paginate_by = 10
 
     def get_queryset(self):
         """Returns Donation that were created today"""
@@ -27,7 +28,8 @@ class TransactionListPurchaseFilteredView(ListView):
 
     model = Transaction
     template_name = 'transaction/purchase/list.html'
-    context_object_name = 'filtered_transaction_list'
+    context_object_name = 'filtered_purchase_list'
+    paginate_by = 10
 
     def get_queryset(self):
         query = self.request.GET.get('search')

@@ -21,6 +21,7 @@ class PostListView(ListView):
     context_object_name = 'post_list'
     queryset = Post.objects.filter(
         category__name="Post").order_by('-created_on')
+    paginate_by = 10
 
 
 class PostListFilteredView(ListView):
@@ -29,6 +30,7 @@ class PostListFilteredView(ListView):
     model = Post
     template_name = 'blog/post/list.html'
     context_object_name = 'filtered_post_list'
+    paginate_by = 10
 
     def get_queryset(self):
         query = self.request.GET.get('search')
@@ -116,6 +118,7 @@ class PageListView(ListView):
     context_object_name = 'page_list'
     queryset = Post.objects.filter(
         category__name="Page").order_by('-created_on')
+    paginate_by = 10
 
 
 class PageListFilteredView(ListView):
@@ -124,6 +127,7 @@ class PageListFilteredView(ListView):
     model = Post
     template_name = 'blog/page/list.html'
     context_object_name = 'filtered_page_list'
+    paginate_by = 10
 
     def get_queryset(self):
         query = self.request.GET.get('search')

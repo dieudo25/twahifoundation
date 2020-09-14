@@ -12,6 +12,7 @@ class StockListView(ListView):
     model = Stock
     template_name = 'stock/stock/list.html'
     context_object_name = 'stock_list'
+    paginate_by = 10
 
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
@@ -26,6 +27,7 @@ class StockListFilteredView(ListView):
     model = Stock
     template_name = 'stock/stock/list.html'
     context_object_name = 'filtered_stock_list'
+    paginate_by = 10
 
     def get_queryset(self):
         query = self.request.GET.get('search')
@@ -62,9 +64,9 @@ class StockDetailDeliveryView(DetailView):
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
-        context['delivry'] = ProductStockTransfert.objects.filter(
+        context['delivery'] = ProductStockTransfert.objects.filter(
             stock=self.get_object(),
-            transfert_type='DELIVRY'
+            transfert_type='DELIVERY'
         )
         return context
 
@@ -101,3 +103,31 @@ class ProductStockTransfertCreateView(CreateView):
     model = ProductStockTransfert
     template_name = 'stock/product_stock_transfert/create.html'
     form_class = ProductStockTransferCreateUpdateForm
+
+    def get_success_url(self):
+        "Get the absolute url of the object"
+        if self.object.transfert_type == 'RECEPTION':
+            return reverse_lazy('stock:stock-reception-detail', kwargs={'slug': self.object.stock.slug})
+        else:
+            return reverse_lazy('stock:stock-delivery-detail', kwargs={'slug': self.object.stock.slug})
+
+    def form_valid(self, form):
+        stock = Stock.objects.get(slug=self.kwargs['slug'])
+        form.instance.stock = stock
+        return super(ProductStockTransfertCreateView, self).form_valid(form)
+
+
+class ProductStockTransfertUpdateView(UpdateView):
+    "Transaction update view"
+
+    model = ProductStockTransfert
+    template_name = 'stock/product_stock_transfert/update.html'
+    context_object_name = 'transfert'
+    form_class = ProductStockTransferCreateUpdateForm
+
+    def get_success_url(self):
+        "Get the absolute url of the object"
+        if self.object.transfert_type == 'RECEPTION':
+            return reverse_lazy('stock:stock-reception-detail', kwargs={'slug': self.object.stock.slug})
+        else:
+            return reverse_lazy('stock:stock-delivery-detail', kwargs={'slug': self.object.stock.slug})

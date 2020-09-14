@@ -40,6 +40,8 @@ urlpatterns = [
             name="inbox-search"),
     re_path(r'^inbox/(?P<pk>\d+)/$',
             InboxMessageDetailView.as_view(), name="inbox-detail"),
+    re_path(r'^inbox/(?P<pk>[a-z0-9-]*)/(?P<notice_pk>[0-9]*)$',
+            InboxMessageDetailView.as_view(), name="inbox-detail-notice"),
     re_path(r'^inbox/(?P<pk>\d+)/delete/$',
             inbox_to_trash, name="inbox-delete"),
 

@@ -1,0 +1,141 @@
+{% if is_paginated %}
+    <hr>
+    <nav aria-label="Page navigation example pagination-footer">
+        <ul class="pagination justify-content-center pagination-sm">
+
+            {% if page_obj.has_previous %}
+                <!-- If it ain't a search result display, don't append the search query to the URL. -->
+
+                {% if not search %}
+                    <li class="page-item">
+                        {% if post_list %}<a class="page-link" href="{% url 'blog:post-list' %}?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if page_list %}<a class="page-link" href="{% url 'blog:page-list' %}?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if user_list %}<a class="page-link" href="{% url 'user-list' %}?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if company_list %}<a class="page-link" href="{% url 'contact:company-list' %}?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if person_list %}<a class="page-link" href="{% url 'contact:person-list' %}?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if inbox_list %}<a class="page-link" href="{% url 'message:inbox' %}?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if outbox_list %}<a class="page-link" href="{% url 'message:outbox' %}?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if trash_list %}<a class="page-link" href="{% url 'message:trash' %}?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if page_project_list %}<a class="page-link" href="{% url 'page:project-list' %}?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if project_list %}<a class="page-link" href="{% url 'project:project-list' %}?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if page_event_list %}<a class="page-link" href="{% url 'page:event-list' %}?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if event_list %}<a class="page-link" href="{% url 'project:event-list' %}?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if news_list %}<a class="page-link" href="{% url 'page:news-list' %}?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if donation_list %}<a class="page-link" href="{% url 'transaction:donation-list' %}?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if purchase_list %}<a class="page-link" href="{% url 'transaction:purchase-list' %}?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if sale_list %}<a class="page-link" href="{% url 'transaction:sale-list' %}?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if category_list %}<a class="page-link" href="{% url 'stock:category-list' %}?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if product_list %}<a class="page-link" href="{% url 'stock:product-list' %}?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if stock_list %}<a class="page-link" href="{% url 'stock:stock-list' %}?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                    </li>
+                {% else %}
+                    <!-- Append the searched query to the URL, so that on a search results page, the pagination don't revert to listing all the listview items. -->
+                    <li class="page-item">
+                        {% if post_list %}<a class="page-link" href="{% url 'blog:post-list' %}?{{search}}&page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if page_list %}<a class="page-link" href="{% url 'blog:page-list' %}?{{search}}&page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if user_list %}<a class="page-link" href="{% url 'user-list' %}?{{search}}&page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if company_list %}<a class="page-link" href="{% url 'contact:company-list' %}?{{search}}&page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if person_list %}<a class="page-link" href="{% url 'contact:person-list' %}?{{search}}&page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if inbox_list %}<a class="page-link" href="{% url 'message:inbox' %}?{{search}}&page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if outbox_list %}<a class="page-link" href="{% url 'message:outbox' %}?{{search}}&page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if trash_list %}<a class="page-link" href="{% url 'message:trash' %}?{{search}}&page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if page_project_list %}<a class="page-link" href="{% url 'page:project-list' %}?{{search}}&page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if project_list %}<a class="page-link" href="{% url 'project:project-list' %}?{{search}}&page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if page_event_list %}<a class="page-link" href="{% url 'page:event-list' %}?{{search}}&page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if event_list %}<a class="page-link" href="{% url 'project:event-list' %}?{{search}}&page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if news_list %}<a class="page-link" href="{% url 'page:news-list' %}?{{search}}&page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if donation_list %}<a class="page-link" href="{% url 'transaction:donation-list' %}?{{search}}&page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if purchase_list %}<a class="page-link" href="{% url 'transaction:purchase-list' %}?{{search}}&page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if sale_list %}<a class="page-link" href="{% url 'transaction:sale-list' %}?{{search}}&page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if category_list %}<a class="page-link" href="{% url 'stock:category-list' %}?{{search}}&page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if product_list %}<a class="page-link" href="{% url 'stock:product-list' %}?{{search}}&page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                        {% if stock_list %}<a class="page-link" href="{% url 'stock:stock-list' %}?{{search}}&page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>{% endif %}
+                    </li>
+                {% endif %}
+            {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                </li>
+            {% endif %}
+
+            {% for object in page_obj.paginator.page_range %}
+                <li class="page-item">
+                    {% if post_list %}<a class="page-link" href="{% url 'blog:post-list' %}?page={{ forloop.counter }}">{{ forloop.counter }}</a>{% endif %}
+                    {% if page_list %}<a class="page-link" href="{% url 'blog:page-list' %}?page={{ forloop.counter }}">{{ forloop.counter }}</a>{% endif %}
+                    {% if user_list %}<a class="page-link" href="{% url 'user-list' %}?page={{ forloop.counter }}">{{ forloop.counter }}</a>{% endif %}
+                    {% if company_list %}<a class="page-link" href="{% url 'contact:company-list' %}?page={{ forloop.counter }}">{{ forloop.counter }}</a>{% endif %}
+                    {% if person_list %}<a class="page-link" href="{% url 'contact:person-list' %}?page={{ forloop.counter }}">{{ forloop.counter }}</a>{% endif %}
+                    {% if inbox_list %}<a class="page-link" href="{% url 'message:inbox' %}?page={{ forloop.counter }}">{{ forloop.counter }}</a>{% endif %}
+                    {% if outbox_list %}<a class="page-link" href="{% url 'message:outbox' %}?page={{ forloop.counter }}">{{ forloop.counter }}</a>{% endif %}
+                    {% if trash_list %}<a class="page-link" href="{% url 'message:trash' %}?page={{ forloop.counter }}">{{ forloop.counter }}</a>{% endif %}
+                    {% if page_project_list %}<a class="page-link" href="{% url 'page:project-list' %}?page={{ forloop.counter }}">{{ forloop.counter }}</a>{% endif %}
+                    {% if project_list %}<a class="page-link" href="{% url 'project:project-list' %}?page={{ forloop.counter }}">{{ forloop.counter }}</a>{% endif %}
+                    {% if page_event_list %}<a class="page-link" href="{% url 'page:event-list' %}?page={{ forloop.counter }}">{{ forloop.counter }}</a>{% endif %}
+                    {% if event_list %}<a class="page-link" href="{% url 'project:event-list' %}?page={{ forloop.counter }}">{{ forloop.counter }}</a>{% endif %}
+                    {% if news_list %}<a class="page-link" href="{% url 'page:news-list' %}?page={{ forloop.counter }}">{{ forloop.counter }}</a>{% endif %}
+                    {% if donation_list %}<a class="page-link" href="{% url 'transaction:donation-list' %}?page={{ forloop.counter }}">{{ forloop.counter }}</a>{% endif %}
+                    {% if purchase_list %}<a class="page-link" href="{% url 'transaction:purchase-list' %}?page={{ forloop.counter }}">{{ forloop.counter }}</a>{% endif %}
+                    {% if sale_list %}<a class="page-link" href="{% url 'transaction:sale-list' %}?page={{ forloop.counter }}">{{ forloop.counter }}</a>{% endif %}
+                    {% if category_list %}<a class="page-link" href="{% url 'stock:category-list' %}?page={{ forloop.counter }}">{{ forloop.counter }}</a>{% endif %}
+                    {% if product_list %}<a class="page-link" href="{% url 'stock:product-list' %}?page={{ forloop.counter }}">{{ forloop.counter }}</a>{% endif %}
+                    {% if stock_list %}<a class="page-link" href="{% url 'stock:stock-list' %}?page={{ forloop.counter }}">{{ forloop.counter }}</a>{% endif %}
+                </li>
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+
+                {% if not search %}
+                <li class="page-item">
+                    {% if post_list %}<a class="page-link" href="{% url 'blog:post-list' %}?page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                    {% if page_list %}<a class="page-link" href="{% url 'blog:page-list' %}?page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                    {% if user_list %}<a class="page-link" href="{% url 'user-list' %}?page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                    {% if company_list %}<a class="page-link" href="{% url 'contact:company-list' %}?page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                    {% if person_list %}<a class="page-link" href="{% url 'contact:person-list' %}?page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                    {% if inbox_list %}<a class="page-link" href="{% url 'message:inbox' %}?page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                    {% if outbox_list %}<a class="page-link" href="{% url 'message:outbox' %}?page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                    {% if trash_list %}<a class="page-link" href="{% url 'message:trash' %}?page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                    {% if page_project_list %}<a class="page-link" href="{% url 'page:project-list' %}?page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                    {% if project_list %}<a class="page-link" href="{% url 'project:project-list' %}?page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                    {% if page_event_list %}<a class="page-link" href="{% url 'page:event-list' %}?page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                    {% if event_list %}<a class="page-link" href="{% url 'project:event-list' %}?page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                    {% if news_list %}<a class="page-link" href="{% url 'page:news-list' %}?page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                    {% if donation_list %}<a class="page-link" href="{% url 'transaction:donation-list' %}?page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                    {% if purchase_list %}<a class="page-link" href="{% url 'transaction:purchase-list' %}?page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                    {% if sale_list %}<a class="page-link" href="{% url 'transaction:sale-list' %}?page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                    {% if category_list %}<a class="page-link" href="{% url 'stock:category-list' %}?page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                    {% if product_list %}<a class="page-link" href="{% url 'stock:product-list' %}?page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                    {% if stock_list %}<a class="page-link" href="{% url 'stock:stock-list' %}?page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                </li>
+                {% else %}
+                    <li class="page-item">
+                        {% if post_list %}<a class="page-link" href="{% url 'blog:post-list' %}?{{search}}&page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                        {% if page_list %}<a class="page-link" href="{% url 'blog:post-list' %}?{{search}}&page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                        {% if user_list %}<a class="page-link" href="{% url 'user-list' %}?{{search}}&page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                        {% if company_list %}<a class="page-link" href="{% url 'contact:company-list' %}?{{search}}&page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                        {% if person_list %}<a class="page-link" href="{% url 'contact:person-list' %}?{{search}}&page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                        {% if inbox_list %}<a class="page-link" href="{% url 'message:inbox' %}?{{search}}&page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                        {% if outbox_list %}<a class="page-link" href="{% url 'message:outbox' %}?{{search}}&page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                        {% if trash_list %}<a class="page-link" href="{% url 'message:trash' %}?{{search}}&page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                        {% if page_project_list %}<a class="page-link" href="{% url 'page:project-list' %}?{{search}}&page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                        {% if project_list %}<a class="page-link" href="{% url 'project:project-list' %}?{{search}}&page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                        {% if page_event_list %}<a class="page-link" href="{% url 'page:event-list' %}?{{search}}&page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                        {% if event_list %}<a class="page-link" href="{% url 'project:event-list' %}?{{search}}&page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                        {% if news_list %}<a class="page-link" href="{% url 'page:news-list' %}?{{search}}&page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                        {% if donation_list %}<a class="page-link" href="{% url 'transaction:donation-list' %}?{{search}}&page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                        {% if purchase_list %}<a class="page-link" href="{% url 'transaction:purchase-list' %}?{{search}}&page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                        {% if sale_list %}<a class="page-link" href="{% url 'transaction:sale-list' %}?{{search}}&page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                        {% if category_list %}<a class="page-link" href="{% url 'stock:category-list' %}?{{search}}&page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                        {% if product_list %}<a class="page-link" href="{% url 'stock:product-list' %}?{{search}}&page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                        {% if stock_list %}<a class="page-link" href="{% url 'stock:stock-list' %}?{{search}}&page={{ page_obj.next_page_number }}">Next</a>{% endif %}
+                    </li>
+                {% endif %}
+
+            {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            {% endif %}
+
+        </ul>
+    </nav>
+{% endif %}

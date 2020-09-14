@@ -82,6 +82,73 @@ a {
   display: none;
 }
 
+/* CKEDITOR */
+
+.cke_dialog_ui_hbox {
+  display: flex;
+  flex-direction: column;
+}
+
+tr.cke_dialog_ui_hbox > td {
+  width: 100% !important;
+}
+
+.cke_dialog_ui_hbox .cke_dialog_ui_html {
+  width: 98% !important;
+}
+
+.cke_dialog .ImagePreviewBox {
+  width: 100% !important;
+}
+
+.cke_dialog_footer_buttons {
+  display: block !important;
+}
+
+.cke_dialog_ui_button {
+  padding: 7px 15px !important;
+  color: white !important;
+  background-color: #212529 !important;
+}
+.cke_dialog_ui_button.cke_dialog_ui_button_ok {
+  background-color: #212529 !important;
+}
+
+.cke_dialog_ui_button.cke_dialog_ui_button_cancel,
+.cke_dialog_ui_button.cke_dialog_ui_button_cancel .cke_dialog_ui_button {
+  background-color: #971507 !important;
+}
+
+.cke_dialog_ui_hbox.cke_dialog_footer_buttons .cke_dialog_ui_hbox {
+  flex-direction: row;
+  width: 290px;
+}
+
+.cke_dialog_ui_html.cke_dialog_image_ratiolock {
+  width: 40px !important;
+  margin: 16px 0 0 auto !important;
+}
+
+#cke_122_uiElement .cke_dialog_ui_hbox {
+  flex-direction: row !important;
+}
+
+#cke_120_uiElement tbody {
+  display: flex;
+  justify-content: space-between;
+}
+
+#cke_120_uiElement .cke_dialog_ui_input_text {
+  width: 100px !important;
+}
+
+#cke_120_uiElement .cke_dialog_ui_input_text input {
+  width: 98px !important;
+}
+
+#cke_122_uiElement .cke_dialog_ui_hbox_last {
+  width: 50px !important;
+}
 /* PORTAL LIST AND CONTENT */
 
 .portal-content-body {
@@ -463,6 +530,23 @@ form .control-group .django-ckeditor-widget > div {
   }
 }
 @media (min-width: 768px) {
+  /* CKEDITOR */
+
+  tr.cke_dialog_ui_hbox > td {
+    width: auto !important;
+  }
+
+  .cke_dialog_ui_hbox {
+    flex-direction: row;
+  }
+
+  #cke_120_uiElement tbody {
+    display: unset;
+  }
+
+  .cke_dialog_ui_html.cke_dialog_image_ratiolock {
+    margin: 16px 0 !important;
+  }
   /* ALL */
 
   .max-767 {

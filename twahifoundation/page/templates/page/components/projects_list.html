@@ -1,16 +1,18 @@
 {% load static %}
 
 <div class="projects-list">
-  <h2 class="title-h2">Our project{{ project_list|pluralize }}</h2>
-  <div class="object-control-link">
-    <a class="control-link text-white" href="{% url 'project:project-create' %}">
-        <p class="btn-green text-center">New</p>
-    </a>
+  <div class="page-title">
+    <h2 class="title-h2">Our project{{ page_project_list|pluralize }}</h2>
+    <div class="object-control-link">
+      <a class="control-link text-white" href="{% url 'project:project-create' %}">
+          <p class="btn-green text-center">New</p>
+      </a>
+    </div>
   </div>
 
-  {% if project_list %}
+  {% if page_project_list %}
 
-    {% for project in project_list %}
+    {% for project in page_project_list %}
       <div class="projects-item">
         <div class="title-img-wrapper">
         <div class="img-wrapper">

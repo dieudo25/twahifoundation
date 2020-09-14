@@ -134,6 +134,13 @@
       </a>
     </div>
     <div class="detail-bar-col-2">
+
+      {% if event.event_type == 'FundRaising' %}
+        <a href="{% url 'page:event-detail' event.slug %}">
+          <p class="detail-bar-btn btn-black">View on site</p>
+        </a>
+      {% endif %}
+      
       <a href="{% url 'project:event-update' event.slug %}">
         <p class="detail-bar-btn btn-black">Edit</p>
       </a>

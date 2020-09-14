@@ -94,7 +94,7 @@
           </div>
           <div class="portal-content-nav-item">
             <ul>
-              <a href="{% url 'stock:stock-create' %}">
+              <a href="{% url 'stock:product-stock-create' stock.slug %}">
                 <li class="nav-item-add">
                   <div class="add-text">
                     <span class="material-icons">add_circle_outline</span>
@@ -133,7 +133,7 @@
                     <th scope="row">{{ product_transfert }}</th>
                     <td>{{ product_transfert.product.name }}</td>
                     <td>{{ product_transfert.quantity }}</td>
-                    <td>{{ product_transfert.date_created }}</td>
+                    <td>{{ product_transfert.date_time_created }}</td>
                     <td>
                       <span class="material-icons text-black">edit</span>
                     </td>
