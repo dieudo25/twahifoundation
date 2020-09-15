@@ -274,3 +274,7 @@ CKEDITOR_CONFIGS = {
 }
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
+
+# Paypal
+
+PAYPAL_RECEIVER_EMAIL = os.getenv('PAYPAL_ACCOUNT')

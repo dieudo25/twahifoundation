@@ -6,10 +6,9 @@ from .base import *
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['IP-ADDRESS', 'www.yourwebsite.com']
+ALLOWED_HOSTS = ['94.177.240.168', ]
 
 
 # Paypal
 
-PAYPAL_RECEIVER_EMAIL = os.getenv('PAYPAL_ACCOUNT')
-PAYPAL_TEST = True
+PAYPAL_TEST = False
