@@ -14,6 +14,7 @@ import os
 
 from dotenv import load_dotenv
 
+DEBUG = True
 
 load_dotenv(verbose=True)
 
@@ -141,21 +142,12 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
-
+# Static
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'static_root/')
 
 # Media
 
 MEDIA_URL = '/media/'
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # SMTP configuration
 
@@ -275,6 +267,49 @@ CKEDITOR_CONFIGS = {
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 
-# Paypal
 
-PAYPAL_RECEIVER_EMAIL = os.getenv('PAYPAL_ACCOUNT')
+if DEBUG:
+
+    ALLOWED_HOSTS = ['*']
+
+    INSTALLED_APPS += [
+        'debug_toolbar',
+    ]
+
+    MIDDLEWARE += [
+        'debug_toolbar.middleware.DebugToolbarMiddleware',
+    ]
+
+    # Internal IPS for django-debug-toolbar
+
+    INTERNAL_IPS = [
+        '127.0.0.1',
+    ]
+
+    # Static files (CSS, JavaScript, Images)
+    # https://docs.djangoproject.com/en/2.2/howto/static-files/
+
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+    # Media
+
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+    # Paypal
+
+    PAYPAL_RECEIVER_EMAIL = os.getenv('PAYPAL_ACCOUNT')
+    PAYPAL_TEST = True
+
+else:
+
+    ALLOWED_HOSTS = ['94.177.240.168', '127.0.0.1']
+
+    # Paypal
+
+    PAYPAL_RECEIVER_EMAIL = os.getenv('PAYPAL_ACCOUNT')
+    PAYPAL_TEST = True
+
+    SECRET_KEY = os.getenv("SECRET_KEY")
+
+    MEDIA_ROOT = "/home/dieudo/media/"
+    STATIC_ROOT = "/home/dieudo/static/"

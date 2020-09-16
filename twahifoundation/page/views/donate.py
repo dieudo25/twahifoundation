@@ -35,7 +35,6 @@ class DonateView(CreateView):
         transaction_type = 'Donation'
         price = self.request.POST.get("total")
 
-        form.instance.user = user
         form.instance.total = price
         form.instance.transaction_type = transaction_type
         form.instance.with_paypal = True
