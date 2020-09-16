@@ -28,6 +28,7 @@ django-storages==1.10.1
 dropbox==10.4.1
 enum34==1.1.10
 et-xmlfile==1.0.1
+gunicorn==20.0.4
 idna==2.10
 importlib-metadata==1.7.0
 isort==4.3.21
