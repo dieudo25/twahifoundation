@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 
 load_dotenv(verbose=True)
 
-DEBUG = os.environ.get('DEBUG')
+DEBUG = False
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(
@@ -269,7 +269,23 @@ CKEDITOR_CONFIGS = {
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 
 
-# DEBUG TRUE
+############ DEBUG False ############
+
+ALLOWED_HOSTS = ['94.177.240.168', '127.0.0.1', 'localhost']
+
+# Paypal
+
+PAYPAL_RECEIVER_EMAIL = os.getenv('PAYPAL_ACCOUNT')
+PAYPAL_TEST = True
+
+# Media
+MEDIA_ROOT = "/home/dieudo/media/"
+
+# Static
+STATIC_ROOT = "/home/dieudo/static/"
+
+
+############ DEBUG TRUE ############
 
 """ ALLOWED_HOSTS = ['*']
 
@@ -301,16 +317,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 PAYPAL_RECEIVER_EMAIL = os.getenv('PAYPAL_ACCOUNT')
 PAYPAL_TEST = True
 ALLOWED_HOSTS = ['127.0.0.1', ] """
-
-
-# DEBUG TRUE
-
-# Paypal
-
-PAYPAL_RECEIVER_EMAIL = os.getenv('PAYPAL_ACCOUNT')
-PAYPAL_TEST = True
-
-SECRET_KEY = os.getenv("SECRET_KEY")
-
-MEDIA_ROOT = "/home/dieudo/media/"
-STATIC_ROOT = "/home/dieudo/static/"
