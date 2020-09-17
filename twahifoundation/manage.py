@@ -9,8 +9,6 @@ from dotenv import load_dotenv
 def main():
 
     try:
-        from twahifoundation.settings import production
-
         os.environ.setdefault('DJANGO_SETTINGS_MODULE',
                               'twahifoundation.settings.production')
     except ImportError:
