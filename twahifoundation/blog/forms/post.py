@@ -13,6 +13,7 @@ class PostCreateUpdateForm(forms.ModelForm):
         fields = [
             'title',
             'meta_description',
+            'description',
             'content',
             'tags',
             'keywords',
