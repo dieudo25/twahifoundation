@@ -3,10 +3,20 @@
 import os
 import sys
 
+from dotenv import load_dotenv
+
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE',
-                          'twahifoundation.settings.production')
+
+    try:
+        from twahifoundation.settings import production
+
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE',
+                              'twahifoundation.settings.production')
+    except ImportError:
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE',
+                              'twahifoundation.settings.developement')
+
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

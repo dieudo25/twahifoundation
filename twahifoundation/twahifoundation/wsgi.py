@@ -11,7 +11,13 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE',
-                      'twahifoundation.settings.production')
+try:
+    from twahifoundation.settings import production
+
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE',
+                          'twahifoundation.settings.production')
+except ImportError:
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE',
+                          'twahifoundation.settings.developement')
 
 application = get_wsgi_application()
