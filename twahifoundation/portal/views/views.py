@@ -5,10 +5,13 @@ from django.urls import reverse_lazy
 
 from notifications.models import Notification
 
+from account.permissions.group import GroupRequiredMixin
 
-class Home(TemplateView):
+
+class Home(GroupRequiredMixin, TemplateView):
     "Portal Home page"
 
+    group_required = [u'Administrator', u'Member']
     template_name = 'portal/home.html'
 
     def get_context_data(self, **kwargs):
@@ -19,8 +22,9 @@ class Home(TemplateView):
         return context
 
 
-class NotificationList(TemplateView):
+class NotificationList(GroupRequiredMixin, TemplateView):
 
+    group_required = [u'Administrator', u'Member']
     template_name = 'portal/notification/list.html'
 
     def get_context_data(self, **kwargs):

@@ -3,13 +3,12 @@ from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.db.models import Q
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
-from django.contrib.auth.mixins import PermissionRequiredMixin
 
 from account.forms.user import UserCreateForm, UserUpdateForm
 from account.models.user import User
 
 
-class UserListView(PermissionRequiredMixin, ListView):
+class UserListView(ListView):
     "User list view"
 
     model = get_user_model()
@@ -19,7 +18,7 @@ class UserListView(PermissionRequiredMixin, ListView):
     paginate_by = 10
 
 
-class UserListFilteredView(PermissionRequiredMixin, ListView):
+class UserListFilteredView(ListView):
     "User list filterd by username, lastname or firstname"
 
     model = get_user_model()

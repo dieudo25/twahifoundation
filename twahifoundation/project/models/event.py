@@ -42,7 +42,7 @@ class Event(models.Model):
         blank=True,
         verbose_name="Image URL"
     )
-    description = RichTextUploadingField()
+    content = RichTextUploadingField()
     date_created = models.DateField(
         auto_now_add=True,
         null=True,

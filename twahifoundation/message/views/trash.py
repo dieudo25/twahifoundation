@@ -4,15 +4,16 @@ from django.shortcuts import redirect
 from django.views.generic import DetailView, ListView
 from django.urls import reverse_lazy
 
+from account.permissions.group import group_required, GroupRequiredMixin
 from message.models.message import Message
-
 from message.forms.message import MessageCreateUpdateForm
 
 
-class TrashListView(ListView):
+class TrashListView(GroupRequiredMixin, ListView):
     "Message list view"
 
     model = Message
+    group_required = [u'Administrator', u'Member']
     template_name = 'message/trash/list.html'
     context_object_name = 'trash_list'
     paginate_by = 10
@@ -24,10 +25,11 @@ class TrashListView(ListView):
         return Message.objects.trash_for(current_user)
 
 
-class TrashListFilteredView(ListView):
+class TrashListFilteredView(GroupRequiredMixin, ListView):
     "Message list filterd by title, location"
 
     model = Message
+    group_required = [u'Administrator', u'Member']
     template_name = 'message/trash/list.html'
     context_object_name = 'filtered_trash_list'
     paginate_by = 10
@@ -50,14 +52,16 @@ class TrashListFilteredView(ListView):
         return object_list
 
 
-class TrashMessageDetailView(DetailView):
+class TrashMessageDetailView(GroupRequiredMixin, DetailView):
     "Message detail view"
 
     model = Message
+    group_required = [u'Administrator', u'Member']
     template_name = 'message/trash/detail.html'
     context_object_name = 'message'
 
 
+@group_required('Administrateur', 'Member')
 def message_restore(request, pk):
     "Place a message in the trash"
 

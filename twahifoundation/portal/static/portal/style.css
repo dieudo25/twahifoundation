@@ -65,17 +65,6 @@
   border-bottom: 3px solid #212529;
 }
 
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-a {
-  word-wrap: break-word;
-}
-
 /* SIDEBAR */
 
 #portal-sidebar {
@@ -149,13 +138,12 @@ tr.cke_dialog_ui_hbox > td {
 #cke_122_uiElement .cke_dialog_ui_hbox_last {
   width: 50px !important;
 }
+
 /* PORTAL LIST AND CONTENT */
 
 .portal-content-body {
   background-color: white;
-  max-height: 77vh;
 }
-
 .notification-content {
   padding-left: 0;
 }
@@ -510,6 +498,12 @@ form .control-group .django-ckeditor-widget > div {
   padding: 0 20px;
 }
 
+/* PAGINATION */
+
+.portal-list-paginate-footer {
+  background-color: #f9f9f9;
+}
+
 @media (min-width: 375px) {
   .portal-title h1 {
     max-width: 320px;
@@ -773,6 +767,12 @@ form .control-group .django-ckeditor-widget > div {
 
   .notification-dropdown .nav-link {
     padding: 11px 5px 0 !important;
+  }
+
+  /* SIDEBAR */
+
+  #portal-sidebar {
+    height: calc(100vh - 67px);
   }
 
   /* HOME */

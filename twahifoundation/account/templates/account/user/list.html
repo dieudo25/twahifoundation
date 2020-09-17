@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %} Portal | User list {% endblock title %}
+{% block title %} Portal | Member list {% endblock title %}
 
 {% block css %}
 
@@ -13,7 +13,7 @@
 
 {% block portal_content %}
   <div class="portal-content-title">
-    <h1>Manage User and Permissions</h1>
+    <h1>Manage Members and Groups</h1>
   </div>
   <div class="portal-top-bar">
       <ul class="portal-app-nav">
@@ -21,7 +21,7 @@
           <li class="poratl-app-nav-item">
             <div class="add-text">
               <span class="material-icons">person</span>
-              <span>Users</span>
+              <span>Members</span>
             </div>
           </li>
         </a>
@@ -29,7 +29,7 @@
           <li class="poratl-app-nav-item">
             <div class="add-text">
               <span class="material-icons">admin_panel_settings</span>
-              <span>Permissions</span>
+              <span>Groups</span>
             </div>
           </li>
         </a>
@@ -46,7 +46,7 @@
   <div class="portal-content-body">
     <div class="portal-content-nav">
       <div class="portal-content-nav-title">
-        <h2>Users</h2>
+        <h2>Members</h2>
       </div>
       <div class="portal-content-nav-item">
         <ul>
@@ -115,7 +115,7 @@
           </tbody>
         {% elif user_list|length == 0 %}
           <div id="empty-table">
-            <p>No user, <a href="{% url 'user-create' %}">create one</a></p>
+            <p>No member, <a href="{% url 'user-create' %}">create one</a></p>
           </div>
         {% else %}
           <div id="search-no-result">

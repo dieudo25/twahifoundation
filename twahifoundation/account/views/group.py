@@ -1,25 +1,28 @@
 from django.db.models import Q
 from django.views.generic import DetailView, ListView
 from django.contrib.auth.models import Group
-from django.contrib.auth.mixins import PermissionRequiredMixin
+
+from account.permissions.group import GroupRequiredMixin
 
 
-class GroupListView(PermissionRequiredMixin, ListView):
+class GroupListView(GroupRequiredMixin, ListView):
     "Group list view"
 
     model = Group
-    permission_required = 'account.view.group'
+    group_required = [u'Administrator', u'President']
     template_name = 'account/group/list.html'
     context_object_name = 'group_list'
+    ordering = ['name']
 
 
-class GroupListFilteredView(PermissionRequiredMixin, ListView):
+class GroupListFilteredView(GroupRequiredMixin, ListView):
     "Group list filterd by groupname, lastname or firstname"
 
     model = Group
-    permission_required = 'account.view.group'
+    group_required = [u'Administrator', u'President']
     template_name = 'account/group/list.html'
     context_object_name = 'filtered_group_list'
+    ordering = ['name']
 
     def get_queryset(self):
         query = self.request.GET.get('search')
@@ -32,9 +35,10 @@ class GroupListFilteredView(PermissionRequiredMixin, ListView):
         return object_list
 
 
-class GroupDetailView(DetailView):
+class GroupDetailView(GroupRequiredMixin, DetailView):
     "Group detail view"
 
     model = Group
+    group_required = [u'Administrator', u'President']
     template_name = 'account/group/detail.html'
     context_object_name = 'group'

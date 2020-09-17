@@ -2,23 +2,28 @@ from django.db.models import Q
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
 
+from account.permissions.group import group_required, GroupRequiredMixin
 from stock.models.category import Category
 from stock.forms.category import CategoryCreateUpdateForm
 
 
-class CategoryListView(ListView):
+class CategoryListView(GroupRequiredMixin, ListView):
     "Category list view"
 
     model = Category
+    group_required = [u'Administrator',
+                      u'President', u'Stock manager', u'Member']
     template_name = 'stock/category/list.html'
     context_object_name = 'category_list'
     paginate_by = 10
 
 
-class CategoryListFilteredView(ListView):
+class CategoryListFilteredView(GroupRequiredMixin, ListView):
     "Category list filterd by title, location"
 
     model = Category
+    group_required = [u'Administrator',
+                      u'President', u'Stock manager', u'Member']
     template_name = 'stock/category/list.html'
     context_object_name = 'filtered_category_list'
     paginate_by = 10
@@ -31,27 +36,30 @@ class CategoryListFilteredView(ListView):
         return object_list
 
 
-class CategoryUpdateView(UpdateView):
+class CategoryUpdateView(GroupRequiredMixin, UpdateView):
     "Category update view"
 
     model = Category
+    group_required = [u'Administrator', u'President', u'Stock manager', ]
     template_name = 'stock/category/update.html'
     context_object_name = 'category'
     form_class = CategoryCreateUpdateForm
 
 
-class CategoryDeleteView(DeleteView):
+class CategoryDeleteView(GroupRequiredMixin, DeleteView):
     "Category Delete View"
 
     model = Category
+    group_required = [u'Administrator', u'President', u'Stock manager', ]
     template_name = 'stock/category/delete.html'
     context_object_name = 'category'
     success_url = reverse_lazy('stock:category-list')
 
 
-class CategoryCreateView(CreateView):
+class CategoryCreateView(GroupRequiredMixin, CreateView):
     "Category create view"
 
     model = Category
+    [u'Administrator', u'President', u'Stock manager', ]
     template_name = 'stock/category/create.html'
     form_class = CategoryCreateUpdateForm

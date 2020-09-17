@@ -2,14 +2,17 @@ from django.db.models import Q
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
 
+from account.permissions.group import GroupRequiredMixin
 from stock.models.stock import Stock, ProductStockTransfert
 from stock.forms.stock import StockCreateUpdateForm, ProductStockTransferCreateUpdateForm
 
 
-class StockListView(ListView):
+class StockListView(GroupRequiredMixin, ListView):
     "Stock list view"
 
     model = Stock
+    group_required = [u'Administrator',
+                      u'Stock manager', u'President', u'Member']
     template_name = 'stock/stock/list.html'
     context_object_name = 'stock_list'
     paginate_by = 10
@@ -21,10 +24,12 @@ class StockListView(ListView):
         return context
 
 
-class StockListFilteredView(ListView):
+class StockListFilteredView(GroupRequiredMixin, ListView):
     "Stock list filterd by title, location"
 
     model = Stock
+    group_required = [u'Administrator',
+                      u'Stock manager', u'President', u'Member']
     template_name = 'stock/stock/list.html'
     context_object_name = 'filtered_stock_list'
     paginate_by = 10
@@ -37,10 +42,12 @@ class StockListFilteredView(ListView):
         return object_list
 
 
-class StockDetailReceptionView(DetailView):
+class StockDetailReceptionView(GroupRequiredMixin, DetailView):
     "Stock detail reception view"
 
     model = Stock
+    group_required = [u'Administrator',
+                      u'Stock manager', u'President', u'Member']
     template_name = 'stock/stock/detail_reception.html'
     context_object_name = 'stock'
 
@@ -54,10 +61,12 @@ class StockDetailReceptionView(DetailView):
         return context
 
 
-class StockDetailDeliveryView(DetailView):
+class StockDetailDeliveryView(GroupRequiredMixin, DetailView):
     "Stock detail delivery view"
 
     model = Stock
+    group_required = [u'Administrator',
+                      u'Stock manager', u'President', u'Member']
     template_name = 'stock/stock/detail_delivery.html'
     context_object_name = 'stock'
 
@@ -71,36 +80,40 @@ class StockDetailDeliveryView(DetailView):
         return context
 
 
-class StockUpdateView(UpdateView):
+class StockUpdateView(GroupRequiredMixin, UpdateView):
     "Stock update view"
 
     model = Stock
+    group_required = [u'Administrator', u'Stock manager', u'President', ]
     template_name = 'stock/stock/update.html'
     context_object_name = 'stock'
     form_class = StockCreateUpdateForm
 
 
-class StockDeleteView(DeleteView):
+class StockDeleteView(GroupRequiredMixin, DeleteView):
     "Stock Delete View"
 
     model = Stock
+    group_required = [u'Administrator', u'Stock manager', u'President', ]
     template_name = 'stock/stock/delete.html'
     context_object_name = 'stock'
     success_url = reverse_lazy('stock:stock-list')
 
 
-class StockCreateView(CreateView):
+class StockCreateView(GroupRequiredMixin, CreateView):
     "Stock create view"
 
     model = Stock
+    group_required = [u'Administrator', u'Stock manager', u'President', ]
     template_name = 'stock/stock/create.html'
     form_class = StockCreateUpdateForm
 
 
-class ProductStockDeliveryTransfertCreateView(CreateView):
+class ProductStockDeliveryTransfertCreateView(GroupRequiredMixin, CreateView):
     "Product Stock Transfert create view"
 
     model = ProductStockTransfert
+    group_required = [u'Administrator', u'Stock manager', u'President', ]
     template_name = 'stock/delivery/create.html'
     form_class = ProductStockTransferCreateUpdateForm
 
@@ -115,10 +128,11 @@ class ProductStockDeliveryTransfertCreateView(CreateView):
         return super(ProductStockDeliveryTransfertCreateView, self).form_valid(form)
 
 
-class ProductStockDeliveryTransfertDeleteView(DeleteView):
+class ProductStockDeliveryTransfertDeleteView(GroupRequiredMixin, DeleteView):
     "Delivery Delete View"
 
     model = ProductStockTransfert
+    group_required = [u'Administrator', u'Stock manager', u'President', ]
     template_name = 'stock/delivery/delete.html'
     context_object_name = 'transfert'
 
@@ -127,10 +141,11 @@ class ProductStockDeliveryTransfertDeleteView(DeleteView):
         return reverse_lazy('stock:stock-delivery-detail', kwargs={'slug': self.object.stock.slug})
 
 
-class ProductStockDeliveryTransfertUpdateView(UpdateView):
+class ProductStockDeliveryTransfertUpdateView(GroupRequiredMixin, UpdateView):
     "Delivery update view"
 
     model = ProductStockTransfert
+    group_required = [u'Administrator', u'Stock manager', u'President', ]
     template_name = 'stock/delivery/update.html'
     context_object_name = 'transfert'
     form_class = ProductStockTransferCreateUpdateForm
@@ -140,10 +155,11 @@ class ProductStockDeliveryTransfertUpdateView(UpdateView):
         return reverse_lazy('stock:stock-delivery-detail', kwargs={'slug': self.object.stock.slug})
 
 
-class ProductStockReceptionTransfertCreateView(CreateView):
+class ProductStockReceptionTransfertCreateView(GroupRequiredMixin, CreateView):
     "Product Stock Transfert create view"
 
     model = ProductStockTransfert
+    group_required = [u'Administrator', u'Stock manager', u'President', ]
     template_name = 'stock/reception/create.html'
     form_class = ProductStockTransferCreateUpdateForm
 
@@ -158,10 +174,11 @@ class ProductStockReceptionTransfertCreateView(CreateView):
         return super(ProductStockReceptionTransfertCreateView, self).form_valid(form)
 
 
-class ProductStockReceptionTransfertUpdateView(UpdateView):
+class ProductStockReceptionTransfertUpdateView(GroupRequiredMixin, UpdateView):
     "Reception update view"
 
     model = ProductStockTransfert
+    group_required = [u'Administrator', u'Stock manager', u'President', ]
     template_name = 'stock/reception/update.html'
     context_object_name = 'transfert'
     form_class = ProductStockTransferCreateUpdateForm
@@ -171,10 +188,11 @@ class ProductStockReceptionTransfertUpdateView(UpdateView):
         return reverse_lazy('stock:stock-reception-detail', kwargs={'slug': self.object.stock.slug})
 
 
-class ProductStockReceptionTransfertDeleteView(DeleteView):
+class ProductStockReceptionTransfertDeleteView(GroupRequiredMixin, DeleteView):
     "Reception Delete View"
 
     model = ProductStockTransfert
+    group_required = [u'Administrator', u'Stock manager', u'President', ]
     template_name = 'stock/reception/delete.html'
     context_object_name = 'transfert'
 

@@ -1,4 +1,5 @@
 import json
+import mailchimp_marketing as MailchimpMarketing
 
 from django.conf import settings
 from django.shortcuts import render
@@ -6,16 +7,19 @@ from django.views.generic import TemplateView, ListView
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
-import mailchimp_marketing as MailchimpMarketing
 from mailchimp_marketing.api_client import ApiClientError
+
+from account.permissions.group import GroupRequiredMixin
 
 list_id = settings.MAILCHIMP_EMAIL_LIST_ID
 api_key = settings.MAILCHIMP_API_KEY
 server = settings.MAILCHIMP_DATA_CENTER
 
 
-class SubsciberListView(TemplateView):
+class SubsciberListView(GroupRequiredMixin, TemplateView):
 
+    group_required = [u'Administrator',
+                      u'Project manager', u'Member']
     template_name = "newsletter/subscriber/list.html"
 
     try:

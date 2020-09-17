@@ -46,7 +46,7 @@ h4,
 h5,
 h6,
 a {
-  word-wrap: break-word;
+  word-break: break-word;
 }
 
 img {
@@ -949,6 +949,7 @@ footer #newsletters-title h2 {
 
   .events-wrapper {
     padding: 0 20px 0 0;
+    flex-grow: 1;
   }
 
   .events-item {
@@ -1103,10 +1104,6 @@ footer #newsletters-title h2 {
 
   #welcome-section {
     width: 930px;
-  }
-
-  #welcome-section div {
-    margin: 30px 38.3px;
   }
 
   .welcome-p {

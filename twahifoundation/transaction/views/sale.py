@@ -3,16 +3,17 @@ from django.shortcuts import redirect
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
 
+from account.permissions.group import GroupRequiredMixin
 from transaction.models.transaction import Transaction, ProductTransactionLine
 from transaction.forms.sale import TransactionSaleCreateUpdateForm
-
 from transaction.forms.transaction_line import ProductTransactionLineCreateUpdateForm
 
 
-class TransactionSaleListView(ListView):
+class TransactionSaleListView(GroupRequiredMixin, ListView):
     "Transaction list view"
 
     model = Transaction
+    group_required = [u'Administrator', u'President', u'Member']
     template_name = 'transaction/sale/list.html'
     context_object_name = 'sale_list'
     paginate_by = 10
@@ -23,10 +24,11 @@ class TransactionSaleListView(ListView):
         return Transaction.objects.filter(transaction_type='Sale')
 
 
-class TransactionListSaleFilteredView(ListView):
+class TransactionListSaleFilteredView(GroupRequiredMixin, ListView):
     "Transaction list filterd by title, location"
 
     model = Transaction
+    group_required = [u'Administrator', u'President', u'Member']
     template_name = 'transaction/sale/list.html'
     context_object_name = 'filtered_sale_list'
     paginate_by = 10
@@ -40,10 +42,11 @@ class TransactionListSaleFilteredView(ListView):
         return object_list
 
 
-class TransactionSaleDetailView(DetailView):
+class TransactionSaleDetailView(GroupRequiredMixin, DetailView):
     "Transaction detail view"
 
     model = Transaction
+    group_required = [u'Administrator', u'President', u'Member']
     template_name = 'transaction/sale/detail.html'
     context_object_name = 'transaction'
 
@@ -62,10 +65,11 @@ class TransactionSaleDetailView(DetailView):
         return context
 
 
-class TransactionSaleUpdateView(UpdateView):
+class TransactionSaleUpdateView(GroupRequiredMixin, UpdateView):
     "Transaction update view"
 
     model = Transaction
+    group_required = [u'Administrator', u'President', u'Member']
     template_name = 'transaction/sale/update.html'
     context_object_name = 'transaction'
     form_class = TransactionSaleCreateUpdateForm
@@ -75,19 +79,21 @@ class TransactionSaleUpdateView(UpdateView):
         return reverse_lazy("transaction:sale-detail", kwargs={"pk": self.object.pk})
 
 
-class TransactionSaleDeleteView(DeleteView):
+class TransactionSaleDeleteView(GroupRequiredMixin, DeleteView):
     "Transaction Delete View"
 
     model = Transaction
+    group_required = [u'Administrator', u'President', u'Member']
     template_name = 'transaction/sale/delete.html'
     context_object_name = 'transaction'
     success_url = reverse_lazy('transaction:sale-list')
 
 
-class TransactionSaleCreateView(CreateView):
+class TransactionSaleCreateView(GroupRequiredMixin, CreateView):
     "Transaction create view"
 
     model = Transaction
+    group_required = [u'Administrator', u'President', u'Member']
     template_name = 'transaction/sale/create.html'
     form_class = TransactionSaleCreateUpdateForm
 
@@ -102,9 +108,10 @@ class TransactionSaleCreateView(CreateView):
         return super(TransactionSaleCreateView, self).form_valid(form)
 
 
-class ProductTransactionSaleLineCreateView(CreateView):
+class ProductTransactionSaleLineCreateView(GroupRequiredMixin, CreateView):
 
     model = ProductTransactionLine
+    group_required = [u'Administrator', u'President', u'Member']
     template_name = 'transaction/product_transaction_line/create.html'
     form_class = ProductTransactionLineCreateUpdateForm
 
@@ -118,10 +125,11 @@ class ProductTransactionSaleLineCreateView(CreateView):
         return super(ProductTransactionSaleLineCreateView, self).form_valid(form)
 
 
-class ProductTransactionSaleLineUpdateView(UpdateView):
+class ProductTransactionSaleLineUpdateView(GroupRequiredMixin, UpdateView):
     "Transaction update view"
 
     model = ProductTransactionLine
+    group_required = [u'Administrator', u'President', u'Member']
     template_name = 'transaction/product_transaction_line/update.html'
     context_object_name = 'transaction_line'
     form_class = ProductTransactionLineCreateUpdateForm
@@ -131,10 +139,11 @@ class ProductTransactionSaleLineUpdateView(UpdateView):
         return reverse_lazy("transaction:sale-detail", kwargs={"pk": self.object.transaction.pk})
 
 
-class ProductTransactionSaleLineDeleteView(DeleteView):
+class ProductTransactionSaleLineDeleteView(GroupRequiredMixin, DeleteView):
     "Transaction Delete View"
 
     model = ProductTransactionLine
+    group_required = [u'Administrator', u'President', u'Member']
     template_name = 'transaction/product_transaction_line/delete.html'
     context_object_name = 'transaction_line'
 

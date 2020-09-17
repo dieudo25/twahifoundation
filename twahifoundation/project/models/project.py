@@ -19,7 +19,8 @@ class Project(models.Model):
     title = models.CharField(max_length=255)
     image = models.URLField(max_length=255, null=True, blank=True,
                             verbose_name="Image URL")
-    description = RichTextUploadingField()
+    description = models.TextField()
+    content = RichTextUploadingField()
     date_created = models.DateField(
         auto_now_add=True,
         null=True,

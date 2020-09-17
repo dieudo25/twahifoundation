@@ -6,14 +6,17 @@ from django.urls import reverse_lazy, reverse
 
 from notifications.models import Notification
 
+from account.permissions.group import group_required, GroupRequiredMixin
 from project.models.event import Event
 from project.forms.event import EventCreateUpdateForm
 
 
-class EventListView(ListView):
+class EventListView(GroupRequiredMixin, ListView):
     "Event list view"
 
     model = Event
+    group_required = [u'Administrator',
+                      u'Project manager', u'Editor', u'Member']
     template_name = 'project/event/list.html'
     context_object_name = 'event_list'
     paginate_by = 10
@@ -25,10 +28,12 @@ class EventListView(ListView):
         return context
 
 
-class EventListFilteredView(ListView):
+class EventListFilteredView(GroupRequiredMixin, ListView):
     "Event list filterd by title, location"
 
     model = Event
+    group_required = [u'Administrator',
+                      u'Project manager', u'Editor', u'Member']
     template_name = 'project/event/list.html'
     context_object_name = 'filtered_event_list'
     paginate_by = 10
@@ -42,10 +47,11 @@ class EventListFilteredView(ListView):
         return object_list
 
 
-class EventCreateView(CreateView):
+class EventCreateView(GroupRequiredMixin, CreateView):
     "Event create view"
 
     model = Event
+    group_required = [u'Administrator', u'Project manager']
     template_name = 'project/event/create.html'
     form_class = EventCreateUpdateForm
 
@@ -59,10 +65,12 @@ class EventCreateView(CreateView):
         return super().form_valid(form)
 
 
-class EventDetailView(DetailView):
+class EventDetailView(GroupRequiredMixin, DetailView):
     "Event detail view"
 
     model = Event
+    group_required = [u'Administrator',
+                      u'Project manager', u'Editor', u'Member']
     template_name = 'project/event/detail.html'
     context_object_name = 'event'
 
@@ -87,24 +95,27 @@ class EventDetailView(DetailView):
             return instance
 
 
-class EventUpdateView(UpdateView):
+class EventUpdateView(GroupRequiredMixin, UpdateView):
     "Event update view"
 
     model = Event
+    group_required = [u'Administrator', u'Project manager']
     template_name = 'project/event/update.html'
     context_object_name = 'event'
     form_class = EventCreateUpdateForm
 
 
-class EventDeleteView(DeleteView):
+class EventDeleteView(GroupRequiredMixin, DeleteView):
     "Event Delete View"
 
     model = Event
+    group_required = [u'Administrator', u'Project manager']
     template_name = 'project/event/delete.html'
     context_object_name = 'event'
     success_url = reverse_lazy('project:event-list')
 
 
+@group_required('Administrateur', 'Member')
 def participate(request, slug):
     "Place a message in the trash"
 

@@ -6,6 +6,7 @@ from django.urls import reverse_lazy, reverse
 
 from notifications.models import Notification
 
+from account.permissions.group import group_required, GroupRequiredMixin
 from blog.forms.post import PostCreateUpdateForm, PageCreateUpdateForm
 from blog.models.post import Post
 from blog.models.category import Category
@@ -13,10 +14,12 @@ from blog.models.category import Category
 
 # Post
 
-class PostListView(ListView):
+class PostListView(GroupRequiredMixin, ListView):
     "Post list view"
 
     model = Post
+    group_required = [u'Administrator',
+                      u'Project manager', u'Editor', u'Member']
     template_name = 'blog/post/list.html'
     context_object_name = 'post_list'
     queryset = Post.objects.filter(
@@ -24,10 +27,12 @@ class PostListView(ListView):
     paginate_by = 10
 
 
-class PostListFilteredView(ListView):
+class PostListFilteredView(GroupRequiredMixin, ListView):
     "Post list filterd by title, location"
 
     model = Post
+    group_required = [u'Administrator',
+                      u'Project manager', u'Editor', u'Member']
     template_name = 'blog/post/list.html'
     context_object_name = 'filtered_post_list'
     paginate_by = 10
@@ -42,10 +47,12 @@ class PostListFilteredView(ListView):
         return object_list
 
 
-class PostDetailView(DetailView):
+class PostDetailView(GroupRequiredMixin, DetailView):
     "Post detail view"
 
     model = Post
+    group_required = [u'Administrator',
+                      u'Project manager', u'Editor', u'Member']
     template_name = 'blog/post/detail.html'
     context_object_name = 'post'
 
@@ -64,10 +71,11 @@ class PostDetailView(DetailView):
             return instance
 
 
-class PostUpdateView(UpdateView):
+class PostUpdateView(GroupRequiredMixin, UpdateView):
     "Post update view"
 
     model = Post
+    group_required = [u'Administrator', u'Project manager', u'Editor']
     template_name = 'blog/post/update.html'
     context_object_name = 'post'
     form_class = PostCreateUpdateForm
@@ -77,19 +85,21 @@ class PostUpdateView(UpdateView):
         return reverse_lazy("blog:post-detail", kwargs={"slug": self.object.slug})
 
 
-class PostDeleteView(DeleteView):
+class PostDeleteView(GroupRequiredMixin, DeleteView):
     "Post Delete View"
 
     model = Post
+    group_required = [u'Administrator', u'Project manager', u'Editor']
     template_name = 'blog/post/delete.html'
     context_object_name = 'post'
     success_url = reverse_lazy('blog:post-list')
 
 
-class PostCreateView(CreateView):
+class PostCreateView(GroupRequiredMixin, CreateView):
     "Post create view"
 
     model = Post
+    group_required = [u'Administrator', u'Project manager', u'Editor']
     template_name = 'blog/post/create.html'
     form_class = PostCreateUpdateForm
 
@@ -110,10 +120,11 @@ class PostCreateView(CreateView):
 # Static page
 
 
-class PageListView(ListView):
+class PageListView(GroupRequiredMixin, ListView):
     "Page list view"
 
     model = Post
+    group_required = [u'Administrator', u'Project Manager', u'Editor']
     template_name = 'blog/page/list.html'
     context_object_name = 'page_list'
     queryset = Post.objects.filter(
@@ -121,10 +132,11 @@ class PageListView(ListView):
     paginate_by = 10
 
 
-class PageListFilteredView(ListView):
+class PageListFilteredView(GroupRequiredMixin, ListView):
     "Page list filterd by title, location"
 
     model = Post
+    group_required = [u'Administrator', u'Project Manager', u'Editor']
     template_name = 'blog/page/list.html'
     context_object_name = 'filtered_page_list'
     paginate_by = 10
@@ -139,10 +151,11 @@ class PageListFilteredView(ListView):
         return object_list
 
 
-class PageCreateView(CreateView):
+class PageCreateView(GroupRequiredMixin, CreateView):
     "Page create view"
 
     model = Post
+    group_required = [u'Administrator', ]
     template_name = 'blog/page/create.html'
     form_class = PageCreateUpdateForm
 
@@ -163,10 +176,11 @@ class PageCreateView(CreateView):
         return super().form_valid(form)
 
 
-class PageUpdateView(UpdateView):
+class PageUpdateView(GroupRequiredMixin, UpdateView):
     "Page update view"
 
     model = Post
+    group_required = [u'Administrator', u'Project manager']
     template_name = 'blog/page/update.html'
     context_object_name = 'post'
     form_class = PageCreateUpdateForm
@@ -190,15 +204,17 @@ class PageUpdateView(UpdateView):
             return instance
 
 
-class PageDeleteView(DeleteView):
+class PageDeleteView(GroupRequiredMixin, DeleteView):
     "Page Delete View"
 
     model = Post
+    group_required = [u'Administrator', ]
     template_name = 'blog/page/delete.html'
     context_object_name = 'post'
     success_url = reverse_lazy('blog:page-list')
 
 
+@group_required('Administrateur', 'Project manager')
 def post_draft_publish(request, slug):
     "Change the status of a post"
 
