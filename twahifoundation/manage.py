@@ -2,16 +2,18 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-
-from dotenv import load_dotenv
+from importlib.util import find_spec
 
 
 def main():
 
-    try:
+    production_module_exists = find_spec(
+        "twahifoundation.settings.production") is not None
+
+    if production_module_exists:
         os.environ.setdefault('DJANGO_SETTINGS_MODULE',
                               'twahifoundation.settings.production')
-    except ImportError:
+    else:
         os.environ.setdefault('DJANGO_SETTINGS_MODULE',
                               'twahifoundation.settings.developement')
 
