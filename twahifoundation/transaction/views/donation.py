@@ -5,14 +5,16 @@ from django.urls import reverse_lazy
 
 from notifications.models import Notification
 
+from account.permissions.group import GroupRequiredMixin
 from transaction.models.transaction import Transaction
 from transaction.forms.donation import TransactionDonationCreateUpdateForm
 
 
-class TransactionDonationListView(ListView):
+class TransactionDonationListView(GroupRequiredMixin, ListView):
     "Transaction list view"
 
     model = Transaction
+    group_required = [u'Administrator', u'Member']
     template_name = 'transaction/donation/list.html'
     context_object_name = 'donation_list'
     paginate_by = 10
@@ -23,10 +25,11 @@ class TransactionDonationListView(ListView):
         return Transaction.objects.filter(transaction_type='Donation').exclude(with_paypal=True)
 
 
-class TransactionDonationListFilteredView(ListView):
+class TransactionDonationListFilteredView(GroupRequiredMixin, ListView):
     "Transaction list filterd by title, location"
 
     model = Transaction
+    group_required = [u'Administrator', u'Member']
     template_name = 'transaction/donation/list.html'
     context_object_name = 'filtered_donation_list'
     paginate_by = 10
@@ -40,10 +43,11 @@ class TransactionDonationListFilteredView(ListView):
         return object_list
 
 
-class TransactionDonationDetailView(DetailView):
+class TransactionDonationDetailView(GroupRequiredMixin, DetailView):
     "Transaction detail view"
 
     model = Transaction
+    group_required = [u'Administrator', u'Member']
     template_name = 'transaction/donation/detail.html'
     context_object_name = 'transaction'
 
@@ -62,10 +66,11 @@ class TransactionDonationDetailView(DetailView):
             return instance
 
 
-class TransactionDonationUpdateView(UpdateView):
+class TransactionDonationUpdateView(GroupRequiredMixin, UpdateView):
     "Transaction update view"
 
     model = Transaction
+    group_required = [u'Administrator', u'Member']
     template_name = 'transaction/donation/update.html'
     context_object_name = 'transaction'
     form_class = TransactionDonationCreateUpdateForm
@@ -75,19 +80,21 @@ class TransactionDonationUpdateView(UpdateView):
         return reverse_lazy("transaction:donation-detail", kwargs={"pk": self.object.pk})
 
 
-class TransactionDonationDeleteView(DeleteView):
+class TransactionDonationDeleteView(GroupRequiredMixin, DeleteView):
     "Transaction Delete View"
 
     model = Transaction
+    group_required = [u'Administrator', u'Member']
     template_name = 'transaction/donation/delete.html'
     context_object_name = 'transaction'
     success_url = reverse_lazy('transaction:donation-list')
 
 
-class TransactionDonationCreateView(CreateView):
+class TransactionDonationCreateView(GroupRequiredMixin, CreateView):
     "Transaction create view"
 
     model = Transaction
+    group_required = [u'Administrator', u'Member']
     template_name = 'transaction/donation/create.html'
     form_class = TransactionDonationCreateUpdateForm
 
@@ -103,9 +110,10 @@ class TransactionDonationCreateView(CreateView):
         return super(TransactionDonationCreateView, self).form_valid(TransactionDonationCreateUpdateForm)
 
 
-class TransactionPaypalDonationList(ListView):
+class TransactionPaypalDonationList(GroupRequiredMixin, ListView):
     "Transaction Paypal list view"
     model = Transaction
+    group_required = [u'Administrator', u'Member']
     template_name = 'transaction/donation/paypal_list.html'
     context_object_name = 'donation_list'
     paginate_by = 10
@@ -116,10 +124,11 @@ class TransactionPaypalDonationList(ListView):
         return Transaction.objects.filter(transaction_type='Donation', is_valid=True).exclude(with_paypal=False)
 
 
-class TransactionPaypalDonationListFilteredView(ListView):
+class TransactionPaypalDonationListFilteredView(GroupRequiredMixin, ListView):
     "Transaction Paypallist filterd by title, location"
 
     model = Transaction
+    group_required = [u'Administrator', u'Member']
     template_name = 'transaction/donation/paypal_list.html'
     context_object_name = 'filtered_donation_list'
     paginate_by = 10

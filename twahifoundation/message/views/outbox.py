@@ -4,15 +4,16 @@ from django.shortcuts import redirect
 from django.views.generic import DetailView, ListView
 from django.urls import reverse_lazy
 
+from account.permissions.group import group_required, GroupRequiredMixin
+from message.forms.message import MessageCreateUpdateForm
 from message.models.message import Message
 
-from message.forms.message import MessageCreateUpdateForm
 
-
-class OutboxListView(ListView):
+class OutboxListView(GroupRequiredMixin, ListView):
     "Message list view"
 
     model = Message
+    group_required = [u'Administrator', u'Member']
     template_name = 'message/outbox/list.html'
     context_object_name = 'outbox_list'
     paginate_by = 10
@@ -24,10 +25,11 @@ class OutboxListView(ListView):
         return Message.objects.outbox_for(current_user)
 
 
-class OutboxListFilteredView(ListView):
+class OutboxListFilteredView(GroupRequiredMixin, ListView):
     "Message list filterd by title, location"
 
     model = Message
+    group_required = [u'Administrator', u'Member']
     template_name = 'message/outbox/list.html'
     context_object_name = 'filtered_outbox_list'
     paginate_by = 10
@@ -48,10 +50,11 @@ class OutboxListFilteredView(ListView):
         return object_list
 
 
-class OutboxMessageDetailView(DetailView):
+class OutboxMessageDetailView(GroupRequiredMixin, DetailView):
     "Message detail view"
 
     model = Message
+    group_required = [u'Administrator', u'Member']
     template_name = 'message/outbox/detail.html'
     context_object_name = 'message'
 

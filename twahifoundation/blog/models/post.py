@@ -27,7 +27,7 @@ class Post(models.Model):
                              on_delete=models.CASCADE)
     description = models.TextField()
     content = RichTextUploadingField()
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.PROTECT)
     tags = models.ManyToManyField(
         Tags, related_name='rel_posts', blank=True)
     status = models.CharField(

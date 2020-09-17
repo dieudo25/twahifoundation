@@ -6,15 +6,17 @@ from django.urls import reverse_lazy
 
 from notifications.models import Notification
 
+from account.permissions.group import group_required, GroupRequiredMixin
 from message.models.message import Message
 from message.forms.message import MessageCreateUpdateForm
 """ from portal.views.views import mark_as_read """
 
 
-class InboxListView(ListView):
+class InboxListView(GroupRequiredMixin, ListView):
     "Message list view"
 
     model = Message
+    group_required = [u'Administrator', u'Member']
     template_name = 'message/inbox/list.html'
     context_object_name = 'inbox_list'
     paginate_by = 10
@@ -26,10 +28,11 @@ class InboxListView(ListView):
         return Message.objects.inbox_for(current_user)
 
 
-class InboxListFilteredView(ListView):
+class InboxListFilteredView(GroupRequiredMixin, ListView):
     "Message list filterd by title, location"
 
     model = Message
+    group_required = [u'Administrator', u'Member']
     template_name = 'message/inbox/inbox.html'
     context_object_name = 'filtered_inbox_list'
     paginate_by = 10
@@ -50,10 +53,11 @@ class InboxListFilteredView(ListView):
         return object_list
 
 
-class InboxMessageDetailView(DetailView):
+class InboxMessageDetailView(GroupRequiredMixin, DetailView):
     "Message detail view"
 
     model = Message
+    group_required = [u'Administrator', u'Member']
     template_name = 'message/inbox/detail.html'
     context_object_name = 'message'
 
@@ -72,6 +76,7 @@ class InboxMessageDetailView(DetailView):
             return instance
 
 
+@group_required('Administrateur', 'Member')
 def inbox_to_trash(request, pk):
     "Place a message in the trash"
 

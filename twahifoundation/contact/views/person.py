@@ -3,13 +3,15 @@ from django.db.models import Q
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
 
+from account.permissions.group import GroupRequiredMixin
 from contact.models.person import Company, Person
 
 
-class PersonListView(ListView):
+class PersonListView(GroupRequiredMixin, ListView):
     "Person list view"
 
     model = Person
+    group_required = [u'Administrator', u'Member']
     template_name = 'contact/person/list.html'
     context_object_name = 'person_list'
     paginate_by = 10
@@ -20,10 +22,11 @@ class PersonListView(ListView):
         return object_list
 
 
-class PersonListFilteredView(ListView):
+class PersonListFilteredView(GroupRequiredMixin, ListView):
     "Person list filterd by email, lastname or firstname"
 
     model = Person
+    group_required = [u'Administrator', u'Member']
     template_name = 'contact/person/list.html'
     context_object_name = 'filtered_person_list'
     paginate_by = 10
@@ -38,18 +41,20 @@ class PersonListFilteredView(ListView):
         return object_list
 
 
-class PersonDetailView(DetailView):
+class PersonDetailView(GroupRequiredMixin, DetailView):
     "Person detail view"
 
     model = Person
+    group_required = [u'Administrator', u'Member']
     template_name = 'contact/person/detail.html'
     context_object_name = 'person'
 
 
-class PersonUpdateView(UpdateView):
+class PersonUpdateView(GroupRequiredMixin, UpdateView):
     "Person update view"
 
     model = Person
+    group_required = [u'Administrator', u'Member']
     template_name = 'contact/person/update.html'
     context_object_name = 'person'
     fields = [
@@ -64,19 +69,21 @@ class PersonUpdateView(UpdateView):
     ]
 
 
-class PersonDeleteView(DeleteView):
+class PersonDeleteView(GroupRequiredMixin, DeleteView):
     "Person Delete View"
 
     model = Person
+    group_required = [u'Administrator', u'Member']
     template_name = 'contact/person/delete.html'
     context_object_name = 'person'
     success_url = reverse_lazy('contact:person-list')
 
 
-class PersonCreateView(CreateView):
+class PersonCreateView(GroupRequiredMixin, CreateView):
     "Person create view"
 
     model = Person
+    group_required = [u'Administrator', u'Member']
     template_name = 'contact/person/create.html'
     fields = [
         'first_name',

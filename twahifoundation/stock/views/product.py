@@ -2,14 +2,17 @@ from django.db.models import Q
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
 
+from account.permissions.group import GroupRequiredMixin
 from stock.models.product import Product
 from stock.forms.product import ProductCreateUpdateForm
 
 
-class ProductListView(ListView):
+class ProductListView(GroupRequiredMixin, ListView):
     "Product list view"
 
     model = Product
+    group_required = [u'Administrator',
+                      u'Stock manager', u'President', u'Member']
     template_name = 'stock/product/list.html'
     context_object_name = 'product_list'
     paginate_by = 10
@@ -21,10 +24,12 @@ class ProductListView(ListView):
         return context
 
 
-class ProductListFilteredView(ListView):
+class ProductListFilteredView(GroupRequiredMixin, ListView):
     "Product list filterd by title, location"
 
     model = Product
+    group_required = [u'Administrator',
+                      u'Stock manager', u'President', u'Member']
     template_name = 'stock/product/list.html'
     context_object_name = 'filtered_product_list'
     paginate_by = 10
@@ -38,35 +43,40 @@ class ProductListFilteredView(ListView):
         return object_list
 
 
-class ProductDetailView(DetailView):
+class ProductDetailView(GroupRequiredMixin, DetailView):
     "Product detail view"
 
     model = Product
+    group_required = [u'Administrator',
+                      u'Stock manager', u'President', u'Member']
     template_name = 'stock/product/detail.html'
     context_object_name = 'product'
 
 
-class ProductUpdateView(UpdateView):
+class ProductUpdateView(GroupRequiredMixin, UpdateView):
     "Product update view"
 
     model = Product
+    group_required = [u'Administrator', u'Stock manager', u'President', ]
     template_name = 'stock/product/update.html'
     context_object_name = 'product'
     form_class = ProductCreateUpdateForm
 
 
-class ProductDeleteView(DeleteView):
+class ProductDeleteView(GroupRequiredMixin, DeleteView):
     "Product Delete View"
 
     model = Product
+    group_required = [u'Administrator', u'Stock manager', u'President', ]
     template_name = 'stock/product/delete.html'
     context_object_name = 'product'
     success_url = reverse_lazy('stock:product-list')
 
 
-class ProductCreateView(CreateView):
+class ProductCreateView(GroupRequiredMixin, CreateView):
     "Product create view"
 
     model = Product
+    group_required = [u'Administrator', u'Stock manager', u'President', ]
     template_name = 'stock/product/create.html'
     form_class = ProductCreateUpdateForm

@@ -5,23 +5,26 @@ from django.urls import reverse_lazy
 
 from message.forms.message import MessageCreateUpdateForm
 
+from account.permissions.group import GroupRequiredMixin
 from account.models.user import User
 from message.models.message import Message
 
 
-class MessageDeleteView(DeleteView):
+class MessageDeleteView(GroupRequiredMixin, DeleteView):
     "Message Delete View"
 
     model = Message
+    group_required = [u'Administrator', u'Member']
     template_name = 'message/message/delete.html'
     context_object_name = 'message'
     success_url = reverse_lazy('message:trash')
 
 
-class MessageCreateView(CreateView):
+class MessageCreateView(GroupRequiredMixin, CreateView):
     "Message create view"
 
     model = Message
+    group_required = [u'Administrator', u'Member']
     template_name = 'message/message/create.html'
     form_class = MessageCreateUpdateForm
 

@@ -5,23 +5,28 @@ from django.urls import reverse_lazy
 
 from notifications.models import Notification
 
+from account.permissions.group import group_required, GroupRequiredMixin
 from project.models.project import Project
 from project.forms.project import ProjectCreateUpdateForm
 
 
-class ProjectListView(ListView):
+class ProjectListView(GroupRequiredMixin, ListView):
     "Project list view"
 
     model = Project
+    group_required = [u'Administrator',
+                      u'Project manager', u'Editor', u'Member']
     template_name = 'project/project/list.html'
     context_object_name = 'project_list'
     paginate_by = 10
 
 
-class ProjectListFilteredView(ListView):
+class ProjectListFilteredView(GroupRequiredMixin, ListView):
     "Project list filterd by title, location"
 
     model = Project
+    group_required = [u'Administrator',
+                      u'Project manager', u'Editor', u'Member']
     template_name = 'project/project/list.html'
     context_object_name = 'filtered_project_list'
     paginate_by = 10
@@ -34,10 +39,12 @@ class ProjectListFilteredView(ListView):
         return object_list
 
 
-class ProjectDetailView(DetailView):
+class ProjectDetailView(GroupRequiredMixin, DetailView):
     "Project detail view"
 
     model = Project
+    group_required = [u'Administrator',
+                      u'Project manager', u'Editor', u'Member']
     template_name = 'project/project/detail.html'
     context_object_name = 'project'
 
@@ -57,28 +64,31 @@ class ProjectDetailView(DetailView):
         return instance
 
 
-class ProjectUpdateView(UpdateView):
+class ProjectUpdateView(GroupRequiredMixin, UpdateView):
     "Project update view"
 
     model = Project
+    group_required = [u'Administrator', u'Project manager']
     template_name = 'project/project/update.html'
     context_object_name = 'project'
     form_class = ProjectCreateUpdateForm
 
 
-class ProjectDeleteView(DeleteView):
+class ProjectDeleteView(GroupRequiredMixin, DeleteView):
     "Project Delete View"
 
     model = Project
+    group_required = [u'Administrator', u'Project manager']
     template_name = 'project/project/delete.html'
     context_object_name = 'project'
     success_url = reverse_lazy('project:project-list')
 
 
-class ProjectCreateView(CreateView):
+class ProjectCreateView(GroupRequiredMixin, CreateView):
     "Project create view"
 
     model = Project
+    group_required = [u'Administrator', u'Project manager']
     template_name = 'project/project/create.html'
     form_class = ProjectCreateUpdateForm
 

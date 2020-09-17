@@ -22,7 +22,7 @@ class EventCreateUpdateForm(forms.ModelForm):
             'time_ended',
             'event_type',
             'image',
-            'description',
+            'content',
         ]
         help_texts = {
 

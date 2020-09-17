@@ -119,6 +119,10 @@
   text-align: center;
 }
 
+.detail-info {
+  margin: 20px 0 0;
+}
+
 .detail-info-group:last-child .detail-info-item-2 p {
   margin-bottom: 0;
 }
@@ -260,10 +264,6 @@
   .profile-img .img-wrapper {
     width: 200px;
     height: 200px;
-  }
-
-  .detail-info {
-    padding: 20px 0;
   }
 }
 

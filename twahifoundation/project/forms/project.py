@@ -14,4 +14,5 @@ class ProjectCreateUpdateForm(forms.ModelForm):
             'title',
             'image',
             'description',
+            'content',
         ]

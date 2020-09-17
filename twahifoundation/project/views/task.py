@@ -6,14 +6,16 @@ from django.urls import reverse_lazy
 from notifications.models import Notification
 from notifications.signals import notify
 
+from account.permissions.group import GroupRequiredMixin
 from project.models.task import Task
 from project.forms.task import TaskCreateUpdateForm
 
 
-class TaskListView(ListView):
+class TaskListView(GroupRequiredMixin, ListView):
     "Task list view"
 
     model = Task
+    group_required = [u'Administrator', u'Project manager', u'Member']
     template_name = 'project/task/list.html'
     context_object_name = 'task_list'
 
@@ -29,10 +31,11 @@ class TaskListView(ListView):
         return context
 
 
-class TaskListFilteredView(ListView):
+class TaskListFilteredView(GroupRequiredMixin, ListView):
     "Task list filterd by title, location"
 
     model = Task
+    group_required = [u'Administrator', u'Project manager', u'Member']
     template_name = 'project/task/list.html'
     context_object_name = 'filtered_task_list'
 
@@ -44,10 +47,11 @@ class TaskListFilteredView(ListView):
         return object_list
 
 
-class TaskDetailView(DetailView):
+class TaskDetailView(GroupRequiredMixin, DetailView):
     "Task detail view"
 
     model = Task
+    group_required = [u'Administrator', u'Project manager', u'Member']
     template_name = 'project/task/detail.html'
     context_object_name = 'task'
 
@@ -66,28 +70,31 @@ class TaskDetailView(DetailView):
             return instance
 
 
-class TaskUpdateView(UpdateView):
+class TaskUpdateView(GroupRequiredMixin, UpdateView):
     "Task update view"
 
     model = Task
+    group_required = [u'Administrator', u'Project manager', u'Member']
     template_name = 'project/task/update.html'
     context_object_name = 'task'
     form_class = TaskCreateUpdateForm
 
 
-class TaskDeleteView(DeleteView):
+class TaskDeleteView(GroupRequiredMixin, DeleteView):
     "Task Delete View"
 
     model = Task
+    group_required = [u'Administrator', u'Project manager']
     template_name = 'project/task/delete.html'
     context_object_name = 'task'
     success_url = reverse_lazy('project:task-list')
 
 
-class TaskCreateView(CreateView):
+class TaskCreateView(GroupRequiredMixin, CreateView):
     "Task create view"
 
     model = Task
+    group_required = [u'Administrator', u'Project manager']
     template_name = 'project/task/create.html'
     form_class = TaskCreateUpdateForm
 
