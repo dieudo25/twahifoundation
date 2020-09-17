@@ -17,8 +17,6 @@ from dotenv import load_dotenv
 
 load_dotenv(verbose=True)
 
-DEBUG = os.environ.get('DEBUG')
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))))
@@ -267,50 +265,3 @@ CKEDITOR_CONFIGS = {
 }
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
-
-
-# DEBUG TRUE
-
-""" ALLOWED_HOSTS = ['*']
-
-INSTALLED_APPS += [
-    'debug_toolbar',
-]
-
-MIDDLEWARE += [
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
-]
-
-# Internal IPS for django-debug-toolbar
-
-INTERNAL_IPS = [
-    '127.0.0.1',
-]
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-
-# Media
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-
-# Paypal
-
-PAYPAL_RECEIVER_EMAIL = os.getenv('PAYPAL_ACCOUNT')
-PAYPAL_TEST = True
-ALLOWED_HOSTS = ['127.0.0.1', ] """
-
-
-# DEBUG TRUE
-
-# Paypal
-
-PAYPAL_RECEIVER_EMAIL = os.getenv('PAYPAL_ACCOUNT')
-PAYPAL_TEST = True
-
-SECRET_KEY = os.getenv("SECRET_KEY")
-
-MEDIA_ROOT = "/home/dieudo/media/"
-STATIC_ROOT = "/home/dieudo/static/"
