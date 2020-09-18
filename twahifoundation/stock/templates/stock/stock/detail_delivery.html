@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% load group_tags %}
+
 {% block title %} Portal | {{ stock.name }} {% endblock title %}
 
 {% block css %}
@@ -84,18 +86,22 @@
           <div class="portal-content-nav-title">
             <h3>Deliveries</h3>
           </div>
-          <div class="portal-content-nav-item">
-            <ul>
-              <a href="{% url 'stock:delivery-transfert-create' stock.slug %}">
-                <li class="nav-item-add">
-                  <div class="add-text">
-                    <span class="material-icons">add_circle_outline</span>
-                      <span>Add</span>
-                  </div>
-                </li>
-              </a>
-            </ul>
-          </div>
+
+          {% if user|has_group:"Administrator" or user|has_group:"Stock manager"%}
+            <div class="portal-content-nav-item">
+              <ul>
+                <a href="{% url 'stock:delivery-transfert-create' stock.slug %}">
+                  <li class="nav-item-add">
+                    <div class="add-text">
+                      <span class="material-icons">add_circle_outline</span>
+                        <span>Add</span>
+                    </div>
+                  </li>
+                </a>
+              </ul>
+            </div>
+          {% endif %}
+
         </div>
         <div class="portal-content-search">
         </div>
@@ -113,8 +119,11 @@
                   <th scope="col">Product name</th>
                   <th scope="col">Quantity</th>
                   <th scope="col">Created date</th>
-                  <th scope="col" class="table-icon">Edit</a></th>
-                  <th scope="col" class="table-icon">Delete</th>
+
+                  {% if user|has_group:"Administrator" or user|has_group:"Stock manager"%}
+                    <th scope="col" class="table-icon">Edit</a></th>
+                    <th scope="col" class="table-icon">Delete</th>
+                  {% endif %}
                   
                 </tr>
               </thead>
@@ -126,16 +135,19 @@
                     <td>{{ product_transfert.product.name }}</td>
                     <td>{{ product_transfert.quantity }}</td>
                     <td>{{ product_transfert.date_time_created }}</td>
-                    <td>
-                      <a href="{% url 'stock:delivery-transfert-update' product_transfert.pk %}">
-                        <span class="material-icons text-black">edit</span>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="{% url 'stock:delivery-transfert-delete' product_transfert.pk %}">
-                        <span class="material-icons text-red">clear</span>
-                      </a>
-                    </td>
+
+                    {% if user|has_group:"Administrator" or user|has_group:"Stock manager"%}
+                      <td>
+                        <a href="{% url 'stock:delivery-transfert-update' product_transfert.pk %}">
+                          <span class="material-icons text-black">edit</span>
+                        </a>
+                      </td>
+                      <td>
+                        <a href="{% url 'stock:delivery-transfert-delete' product_transfert.pk %}">
+                          <span class="material-icons text-red">clear</span>
+                        </a>
+                      </td>
+                    {% endif %}
                   </tr>
                 {% endfor %}
 
@@ -158,12 +170,19 @@
       </a>
     </div>
     <div class="detail-bar-col-2">
-      <a href="{% url 'stock:stock-update' stock.slug %}">
-        <p class="detail-bar-btn btn-black">Edit</p>
-      </a>
+
+      {% if user|has_group:"Administrator" or user|has_group:"Stock manager"%}
+        <a href="{% url 'stock:stock-update' stock.slug %}">
+          <p class="detail-bar-btn btn-black">Edit</p>
+        </a>
+      {% endif %}
+
+      {% if user|has_group:"Administrator"%}
       <a href="{% url 'stock:stock-delete' stock.slug %}">
         <p class="detail-bar-btn btn-red btn-last">Delete</p>
       </a>
+      {% endif %}
+      
     </div>
   </div>
 {% endblock portal_content %}

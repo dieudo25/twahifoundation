@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% load group_tags %}
+
 {% block title %} Portal | {{ user_profile.username }} {% endblock title %}
 
 {% block css %}
@@ -60,21 +62,26 @@
   </div>
   <div class="detail-bar">
     <div class="detail-bar-col-1">
-      {% if perms.account.can_view_user %}
-        <a href="{% url 'user-list' %}">
-          <p class="detail-bar-btn btn-black">Back</p>
+      <a href="{% url 'user-list' %}">
+        <p class="detail-bar-btn btn-black">Back</p>
+      </a>
+    </div>
+
+    
+    <div class="detail-bar-col-2">
+
+      {% if user|has_group:"Administrator" or user_profile == user%} 
+        <a href="{% url 'user-update' user_profile.slug %}">
+          <p class="detail-bar-btn btn-black">Edit</p>
         </a>
       {% endif %}
-    </div>
-    <div class="detail-bar-col-2">
-      <a href="{% url 'user-update' user_profile.slug %}">
-        <p class="detail-bar-btn btn-black">Edit</p>
-      </a>
-      {% if perms.account.can_delete_user %}
+
+      {% if user|has_group:"Administrator" %} 
         <a href="{% url 'user-delete' user_profile.slug %}">
           <p class="detail-bar-btn btn-red btn-last">Delete</p>
         </a>
       {% endif %}
+
     </div>
   </div>
 {% endblock portal_content %}

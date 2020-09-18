@@ -1,0 +1,41 @@
+{% load group_tags %}
+
+<div class="portal-top-bar">
+    <ul class="portal-app-nav">
+
+    <a href="{% url 'user-list' %}" class="btn-black">
+        <li class="poratl-app-nav-item">
+        <div class="add-text">
+            <span class="material-icons">person</span>
+            <span>Users</span>
+        </div>
+        </li>
+    </a>
+
+      {% if user|has_group:"Administrator" or user|has_group:"President" %} 
+        <a href="{% url 'group-list' %}" class="btn-black">
+          <li class="poratl-app-nav-item">
+            <div class="add-text">
+              <span class="material-icons">admin_panel_settings</span>
+              <span>Groups</span>
+            </div>
+          </li>
+        </a>
+      {% endif %}
+
+    </ul>
+    <div id="list-search">
+    
+        {% if user_list %}
+            <form action="{% url 'user-list-search' %}" method="GET">
+        {% else %}
+            <form action="{% url 'group-list-search' %}" method="GET">
+        {% endif %}
+
+            <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search" name="search">
+            </div>
+            <button type="submit" class="btn-black"><div class="search-img"></button>
+        </form>
+    </div>      
+</div>

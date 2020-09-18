@@ -126,6 +126,14 @@
   max-height: 551px;
 }
 
+.portal-app-nav .custom-icon.member-meeting-icon {
+  background-image: url(img/member_meeting.svg);
+}
+
+.portal-app-nav .custom-icon.fund-raising-icon {
+  background-image: url(img/fund_rainsing.svg);
+}
+
 @media (min-width: 768px) {
   .event-detail .detail-card {
     display: flex;
@@ -170,6 +178,7 @@
 
   .event-detail .detail-info .column:nth-child(2) {
     padding-left: 20px;
+    flex-grow: 1;
   }
 
   .project.event-detail .detail-info .column:nth-child(2) {

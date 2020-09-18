@@ -27,10 +27,7 @@ class GroupListFilteredView(GroupRequiredMixin, ListView):
     def get_queryset(self):
         query = self.request.GET.get('search')
         object_list = Group.objects.filter(
-            Q(groupname__icontains=query) |
-            Q(first_name__icontains=query) |
-            Q(last_name__icontains=query) |
-            Q(email__icontains=query)
+            Q(name__icontains=query)
         )
         return object_list
 

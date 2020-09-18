@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% load group_tags %}
+
 {% block title %} Portal | {{ post.title }} {% endblock title %}
 
 {% block css %}
@@ -16,13 +18,17 @@
   <div class="portal-wrapper event-detail event">
     <div class="detail-info-section">
       <div class="detail-card">
-        <div class="detail-img">
-          <div class="img-wrapper">
-            {% if post.image %}
-              <img src="{{ post.image }}">
-            {% endif %}
+
+        {% if post.category == 'Post' %}
+          <div class="detail-img">
+            <div class="img-wrapper">
+              {% if post.image %}
+                <img src="{{ post.image }}">
+              {% endif %}
+            </div>
           </div>
-        </div>
+        {% endif %}
+        
         <div class="portal-title">
           <h1>{{ post.title }}</h1>
         </div>
@@ -63,6 +69,14 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
+              <p>Status :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  post.status }}</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
               <p>Tags :</p>
             </div>
             <div class="detail-info-item-2">
@@ -71,14 +85,6 @@
                   {{ tags }},
                 {% endfor %}
               </p>
-            </div>
-          </div>
-          <div class="detail-info-group">
-            <div class="detail-info-item-1">
-              <p>Status :</p>
-            </div>
-            <div class="detail-info-item-2">
-              <p>{{  post.status }}</p>
             </div>
           </div>
         </div>
@@ -110,24 +116,35 @@
       </a>
     </div>
     <div class="detail-bar-col-2">
-      <a href="{% url 'blog:post-status-update' post.slug %}">
-      
-        {% if post.status == 'Drafted'%}
-          <p class="detail-bar-btn btn-black">Publish</p>
-        {% else %}
-          <p class="detail-bar-btn btn-black">Draft</p>
-        {% endif %}
-        
-      </a>
+
+      {% if user|has_group:"Administrator" or user|has_group:"Project manager" %} 
+        <a href="{% url 'blog:post-status-update' post.slug %}">
+          
+          {% if post.status == 'Drafted'%}
+            <p class="detail-bar-btn btn-black">Publish</p>
+          {% else %}
+            <p class="detail-bar-btn btn-black">Draft</p>
+          {% endif %}
+          
+        </a>
+      {% endif %}
+
       <a href="{% url 'page:news-detail' post.slug %}">
         <p class="detail-bar-btn btn-black">View on site</p>
       </a>
-      <a href="{% url 'blog:post-update' post.slug %}">
-        <p class="detail-bar-btn btn-black">Edit</p>
-      </a>
-      <a href="{% url 'blog:post-delete' post.slug %}">
-        <p class="detail-bar-btn btn-red btn-last">Delete</p>
-      </a>
+
+      {% if user|has_group:"Administrator" or user|has_group:"Project manager" or user|has_group:"Editor" %}
+        <a href="{% url 'blog:post-update' post.slug %}">
+          <p class="detail-bar-btn btn-black">Edit</p>
+        </a>
+      {% endif %}
+
+      {% if user|has_group:"Administrator" or user|has_group:"Project manager" %}
+        <a href="{% url 'blog:post-delete' post.slug %}">
+          <p class="detail-bar-btn btn-red btn-last">Delete</p>
+        </a>
+      {% endif %}
+
     </div>
   </div>
 {% endblock portal_content %}

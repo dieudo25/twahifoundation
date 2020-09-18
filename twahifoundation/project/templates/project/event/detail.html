@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% load group_tags %}
+
 {% block title %} Portal | {{ event.title }} {% endblock title %}
 
 {% block css %}
@@ -136,11 +138,13 @@
     <div class="detail-bar-col-2">
 
       <a href="{% url 'project:event-participate' event.slug %}">
+
         {% if not user in event.users.all %}
             <p class="detail-bar-btn btn-black">Participate</p>
         {% else %}
             <p class="detail-bar-btn btn-black">Cancel participation</p>
         {% endif %}
+
       </a>
 
       {% if event.event_type == 'FundRaising' %}
@@ -149,12 +153,15 @@
         </a>
       {% endif %}
       
-      <a href="{% url 'project:event-update' event.slug %}">
-        <p class="detail-bar-btn btn-black">Edit</p>
-      </a>
-      <a href="{% url 'project:event-delete' event.slug %}">
-        <p class="detail-bar-btn btn-red btn-last">Delete</p>
-      </a>
+      {% if user|has_group:"Administrator" or user|has_group:"Project manager"%}
+        <a href="{% url 'project:event-update' event.slug %}">
+          <p class="detail-bar-btn btn-black">Edit</p>
+        </a>
+        <a href="{% url 'project:event-delete' event.slug %}">
+          <p class="detail-bar-btn btn-red btn-last">Delete</p>
+        </a>
+      {% endif %}
+      
     </div>
   </div>
 {% endblock portal_content %}

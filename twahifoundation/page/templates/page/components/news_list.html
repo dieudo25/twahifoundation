@@ -1,13 +1,18 @@
 {% load static %}
 
+{% load group_tags %}
+
 <div class="projects-list">
   <div class="page-title">
     <h2 class="title-h2">Latest news</h2>
-    <div class="object-control-link">
-      <a class="control-link text-white" href="{% url 'blog:post-create' %}">
-          <p class="btn-green text-center">New</p>
-      </a>
-    </div>
+
+    {% if user|has_group:"Administrator" or user|has_group:"Project manager" or user|has_group:"Editor" %}
+      <div class="object-control-link">
+        <a class="control-link text-white" href="{% url 'blog:post-create' %}">
+            <p class="btn-green text-center">New</p>
+        </a>
+      </div>
+    {% endif %}
   </div>
 
   {% if news_list %}

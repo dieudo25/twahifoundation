@@ -124,7 +124,8 @@ class PageListView(GroupRequiredMixin, ListView):
     "Page list view"
 
     model = Post
-    group_required = [u'Administrator', u'Project Manager', u'Editor']
+    group_required = [u'Administrator',
+                      u'Project Manager', u'Editor', u'Member']
     template_name = 'blog/page/list.html'
     context_object_name = 'page_list'
     queryset = Post.objects.filter(
@@ -136,7 +137,8 @@ class PageListFilteredView(GroupRequiredMixin, ListView):
     "Page list filterd by title, location"
 
     model = Post
-    group_required = [u'Administrator', u'Project Manager', u'Editor']
+    group_required = [u'Administrator',
+                      u'Project Manager', u'Editor', u'Member']
     template_name = 'blog/page/list.html'
     context_object_name = 'filtered_page_list'
     paginate_by = 10
@@ -214,7 +216,7 @@ class PageDeleteView(GroupRequiredMixin, DeleteView):
     success_url = reverse_lazy('blog:page-list')
 
 
-@group_required('Administrateur', 'Project manager')
+@group_required('Administrator', 'Project manager')
 def post_draft_publish(request, slug):
     "Change the status of a post"
 

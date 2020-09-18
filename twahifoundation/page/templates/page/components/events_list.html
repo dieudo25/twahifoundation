@@ -1,16 +1,22 @@
 {% load static %}
 
+{% load group_tags %}
+
 <div class="page-title title-event">
     <h2 class="title-h2">Upcoming Event{{ page_event_list|pluralize }}</h2>
-    <div class="object-control-link">
-      <a class="control-link text-white" href="{% url 'project:event-create' %}">
-          <p class="btn-green text-center">New</p>
-      </a>
-    </div>
+
+    {% if user|has_group:"Administrator" or user|has_group:"Project manager"%}
+      <div class="object-control-link">
+        <a class="control-link text-white" href="{% url 'project:event-create' %}">
+            <p class="btn-green text-center">New</p>
+        </a>
+      </div>
+    {% endif %}
+
   </div>
 <div class="events-list">
 
-  {% if page_event_lists %}
+  {% if page_event_list %}
 
     {% for event in page_event_list  %}
       <div class="events-item">

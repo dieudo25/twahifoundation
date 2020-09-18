@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% load group_tags %}
+
 {% block title %} Portal | Project list {% endblock title %}
 
 {% block portal_content %}
@@ -23,18 +25,22 @@
       <div class="portal-content-nav-title">
         <h2>Projects</h2>
       </div>
-      <div class="portal-content-nav-item">
-        <ul>
-          <a href="{% url 'project:project-create' %}">
-            <li class="nav-item-add">
-              <div class="add-text">
-                <span class="material-icons">add_circle_outline</span>
-                <span>Add</span>
-              </div>
-            </li>
-          </a>
-        </ul>
-      </div>
+
+      {% if user|has_group:"Administrator" or user|has_group:"Project manager" %}
+        <div class="portal-content-nav-item">
+          <ul>
+            <a href="{% url 'project:project-create' %}">
+              <li class="nav-item-add">
+                <div class="add-text">
+                  <span class="material-icons">add_circle_outline</span>
+                  <span>Add</span>
+                </div>
+              </li>
+            </a>
+          </ul>
+        </div>
+      {% endif %}
+
     </div>
     <div class="portal-list-paginate-header">
 

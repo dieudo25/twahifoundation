@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% load group_tags %}
+
 {% block title %} Portal | {{ post.title }} {% endblock title %}
 
 {% block css %}
@@ -96,12 +98,19 @@
 
         <p class="detail-bar-btn btn-black">View on site</p>
       </a>
-      <a href="{% url 'blog:page-update' post.slug %}">
-        <p class="detail-bar-btn btn-black">Edit</p>
-      </a>
-      <a href="{% url 'blog:page-delete' post.slug %}">
-        <p class="detail-bar-btn btn-red btn-last">Delete</p>
-      </a>
+
+      {% if user|has_group:"Administrator" or user|has_group:"Project manager" %}
+        <a href="{% url 'blog:page-update' post.slug %}">
+          <p class="detail-bar-btn btn-black">Edit</p>
+        </a>
+      {% endif %}
+
+      {% if user|has_group:"Administrator"%}
+        <a href="{% url 'blog:page-delete' post.slug %}">
+          <p class="detail-bar-btn btn-red btn-last">Delete</p>
+        </a>
+      {% endif %}
+
     </div>
   </div>
 {% endblock portal_content %}

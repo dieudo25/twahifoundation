@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% load group_tags %}
+
 {% block title %} Portal | Tags list {% endblock title %}
 
 {% block css %}
@@ -16,32 +18,9 @@
     <h1>Manage tags</h1>
   </div>
   <div class="portal-top-bar">
-    <ul class="portal-app-nav">
-      <a href="{% url 'blog:post-list' %}" class="btn-black custom-btn">
-        <li class="poratl-app-nav-item">
-          <div class="add-text">
-            <span class="custom-icon post-icon"></span>
-            <span>Posts</span>
-          </div>
-        </li>
-      </a>
-      <a href="{% url 'blog:page-list' %}" class="btn-black custom-btn">
-        <li class="poratl-app-nav-item">
-          <div class="add-text">
-            <span class="custom-icon page-icon"></span>
-            <span>Pages</span>
-          </div>
-        </li>
-      </a>
-      <a href="{% url 'blog:tags-list' %}" class="btn-black custom-btn">
-        <li class="poratl-app-nav-item">
-          <div class="add-text">
-            <span class="custom-icon tags-icon"></span>
-            <span>Tags</span>
-          </div>
-        </li>
-      </a>
-    </ul>
+
+    {% include 'blog/components/navlist.html' %}
+
     <div id="list-search">
       <form action="{% url 'blog:tags-list-search' %}" method="GET">
         <div class="form-group">
@@ -49,25 +28,29 @@
         </div>
         <button type="submit" class="btn-black"><div class="search-img"></button>
       </form>
-    </div>  
+    </div> 
   </div>
   <div class="portal-content-body list-with-btn">
     <div class="portal-content-nav">
       <div class="portal-content-nav-title">
         <h2>Tags</h2>
       </div>
-      <div class="portal-content-nav-item">
-        <ul>
-          <a href="{% url 'blog:tags-create' %}">
-            <li class="nav-item-add">
-              <div class="add-text">
-                <span class="material-icons">add_circle_outline</span>
-                <span>Add</span>
-              </div>
-            </li>
-          </a>
-        </ul>
-      </div>
+
+      {% if user|has_group:"Administrator" or user|has_group:"Project manager" or user|has_group:"Editor" %} 
+        <div class="portal-content-nav-item">
+          <ul>
+            <a href="{% url 'blog:tags-create' %}">
+              <li class="nav-item-add">
+                <div class="add-text">
+                  <span class="material-icons">add_circle_outline</span>
+                  <span>Add</span>
+                </div>
+              </li>
+            </a>
+          </ul>
+        </div>
+      {% endif %}
+
     </div>
     <div class="portal-list-paginate-header">
 
@@ -81,8 +64,11 @@
           <thead>
             <tr>
               <th scope="col">Name</th>
-              <th scope="col" class="table-icon">Edit</th>
-              <th scope="col" class="table-icon">Delete</th>
+
+              {% if user|has_group:"Administrator" or user|has_group:"Project manager" or user|has_group:"Editor" %}
+                <th scope="col" class="table-icon">Edit</th>
+                <th scope="col" class="table-icon">Delete</th>
+              {% endif %}
             </tr>
           </thead>
           <tbody>
@@ -90,16 +76,20 @@
             {% for tags in filtered_tags_list %}
               <tr class="table">
                 <th scope="row"><span>{{ tags.name }}</span></th>
-                <td>
-                  <a href="{% url 'blog:tags-update' tags.slug %}">
-                    <span class="material-icons text-black">edit</span>
-                  </a>
-                </td>
-                <td>
-                  <a href="{% url 'blog:tags-delete' tags.slug %}">
-                    <span class="material-icons text-red">clear</span>
-                  </a>
-                </td>
+                
+                {% if user|has_group:"Administrator" or user|has_group:"Project manager" or user|has_group:"Editor" %}
+                  <td>
+                    <a href="{% url 'blog:tags-update' tags.slug %}">
+                      <span class="material-icons text-black">edit</span>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="{% url 'blog:tags-delete' tags.slug %}">
+                      <span class="material-icons text-red">clear</span>
+                    </a>
+                  </td>
+                {% endif %}
+
               </tr>
             {% endfor %}
 
@@ -110,8 +100,12 @@
           <thead>
             <tr>
               <th scope="col"><span>Name</span></th>
-              <th scope="col" class="table-icon">Edit</th>
-              <th scope="col" class="table-icon">Delete</th>
+
+              {% if user|has_group:"Administrator" or user|has_group:"Project manager" or user|has_group:"Editor" %}
+                <th scope="col" class="table-icon">Edit</th>
+                <th scope="col" class="table-icon">Delete</th>
+              {% endif %}
+
             </tr>
           </thead>
           <tbody>
@@ -119,28 +113,32 @@
             {% for tags in tags_list %}
               <tr class="table">
                 <th scope="row"><span>{{ tags.name }}</span></th>
-                <td>
-                  <a href="{% url 'blog:tags-update' tags.slug %}">
-                    <span class="material-icons text-black">edit</span>
-                  </a>
-                </td>
-                <td>
-                  <a href="{% url 'blog:tags-delete' tags.slug %}">
-                    <span class="material-icons text-red">clear</span>
-                  </a>
-                </td>
+                
+                {% if user|has_group:"Administrator" or user|has_group:"Project manager" or user|has_group:"Editor" %}
+                  <td>
+                    <a href="{% url 'blog:tags-update' tags.slug %}">
+                      <span class="material-icons text-black">edit</span>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="{% url 'blog:tags-delete' tags.slug %}">
+                      <span class="material-icons text-red">clear</span>
+                    </a>
+                  </td>
+                {% endif %}
+
               </tr>
             {% endfor %}
 
           </tbody>
         </table>
-      {% elif tags_list|length == 0 %}
-        <div id="empty-table">
-          <p>No tags yet, <a href="{% url 'blog:tags-create' %}">create one</a></p>
-        </div>
-      {% else %}
+      {% elif filtered_tags_list|length == 0  %}
         <div id="search-no-result">
           <p>No results found</p>
+        </div>
+      {% else %}
+        <div id="empty-table">
+          <p>No tags yet, <a href="{% url 'blog:tags-create' %}">create one</a></p>
         </div>
       {% endif%}
       

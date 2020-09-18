@@ -6,13 +6,13 @@ from django.urls import reverse_lazy
 
 from account.forms.user import UserCreateForm, UserUpdateForm
 from account.models.user import User
+from account.permissions.group import GroupRequiredMixin
 
 
 class UserListView(ListView):
     "User list view"
 
     model = get_user_model()
-    permission_required = 'account.view.user'
     template_name = 'account/user/list.html'
     context_object_name = 'user_list'
     paginate_by = 10
@@ -22,7 +22,6 @@ class UserListFilteredView(ListView):
     "User list filterd by username, lastname or firstname"
 
     model = get_user_model()
-    permission_required = 'account.view.user'
     template_name = 'account/user/list.html'
     context_object_name = 'filtered_user_list'
     paginate_by = 10
@@ -54,27 +53,30 @@ class UserUpdateView(UpdateView):
     template_name = 'account/user/update.html'
 
 
-class UserDeleteView(DeleteView):
+class UserDeleteView(GroupRequiredMixin, DeleteView):
     "User Delete View"
 
     model = get_user_model()
+    group_required = [u'Administrator', ]
     template_name = 'account/user/delete.html'
     context_object_name = 'user_profile'
     success_url = reverse_lazy('user-list')
 
 
-class UserCreateView(CreateView):
+class UserCreateView(GroupRequiredMixin, CreateView):
     "User create view"
 
     model = get_user_model()
+    group_required = [u'Administrator', u'President']
     form_class = UserCreateForm
     template_name = 'account/user/create.html'
 
 
-class UserPasswordChangeView(UpdateView):
+class UserPasswordChangeView(GroupRequiredMixin, UpdateView):
     "User update view"
 
     model = get_user_model()
+    group_required = [u'Member', ]
     form_class = PasswordChangeForm
     template_name = 'account/auth/password_change_form.html'
 

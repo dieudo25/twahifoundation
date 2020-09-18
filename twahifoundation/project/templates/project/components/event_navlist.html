@@ -1,0 +1,21 @@
+{% load group_tags %}
+
+<ul class="portal-app-nav">
+    <a href="{% url 'blog:post-list' %}" class="btn-black custom-btn">
+        <li class="poratl-app-nav-item">
+            <div class="add-text">
+                <span class="custom-icon member-meeting-icon"></span>
+                <span>Member meeting</span>
+            </div>
+        </li>
+    </a>
+    
+    <a href="{% url 'blog:page-list' %}" class="btn-black custom-btn">
+        <li class="poratl-app-nav-item">
+            <div class="add-text">
+                <span class="custom-icon fund-raising-icon"></span>
+                <span>Fund raising</span>
+            </div>
+        </li>
+    </a>
+</ul>

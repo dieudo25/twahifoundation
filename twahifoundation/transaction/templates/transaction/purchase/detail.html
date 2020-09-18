@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% load group_tags %}
+
 {% block title %} Portal | {{ transaction }} {% endblock title %}
 
 {% block css %}
@@ -76,21 +78,26 @@
         <div class="portal-content-nav-title">
           <h3>Products</h3>
         </div>
-        <div class="portal-content-nav-item">
-          <ul>
-            {% if not transaction.is_valid %}
-              <a href="{% url 'transaction:purchase-line-create' transaction.pk %}">
-                <li class="nav-item-add">
-                  <div class="add-text">
-                    <span class="material-icons">add_circle_outline</span>
-                      <span>Add</span>
-                  </div>
-                </li>
-              </a>
-            {% endif %}
-            
-          </ul>
-        </div>
+
+        {% if user|has_group:"Administrator" or user|has_group:"President"%}
+          <div class="portal-content-nav-item">
+            <ul>
+
+              {% if not transaction.is_valid %}
+                <a href="{% url 'transaction:purchase-line-create' transaction.pk %}">
+                  <li class="nav-item-add">
+                    <div class="add-text">
+                      <span class="material-icons">add_circle_outline</span>
+                        <span>Add</span>
+                    </div>
+                  </li>
+                </a>
+              {% endif %}
+              
+            </ul>
+          </div>
+        {% endif %}
+
       </div>
         <div class="portal-content-table">
           
@@ -108,9 +115,13 @@
                   <th scope="col">Quantity</th>
                   <th scope="col">Sub-total</th>
 
-                  {% if not transaction.is_valid %}
-                    <th scope="col" class="table-icon">Edit</th>
-                    <th scope="col" class="table-icon">Delete</th>
+                  {% if user|has_group:"Administrator" or user|has_group:"President"%}
+
+                    {% if not transaction.is_valid %}
+                      <th scope="col" class="table-icon">Edit</th>
+                      <th scope="col" class="table-icon">Delete</th>
+                    {% endif %}
+
                   {% endif %}
                   
                 </tr>
@@ -125,17 +136,21 @@
                     <td>{{ transaction_line.quantity }}</td>
                     <td>{{ transaction_line.subtotal }} €</td>
 
-                    {% if not transaction.is_valid %}
-                      <td>
-                        <a href="{% url 'transaction:purchase-line-update' transaction_line.pk %}">
-                          <span class="material-icons text-black">edit</span>
-                        </a>
-                      </td>
-                      <td>
-                        <a href="{% url 'transaction:purchase-line-delete' transaction_line.pk %}">
-                          <span class="material-icons text-red">clear</span>
-                        </a>
-                      </td>
+                    {% if user|has_group:"Administrator" or user|has_group:"President"%}
+
+                      {% if not transaction.is_valid %}
+                        <td>
+                          <a href="{% url 'transaction:purchase-line-update' transaction_line.pk %}">
+                            <span class="material-icons text-black">edit</span>
+                          </a>
+                        </td>
+                        <td>
+                          <a href="{% url 'transaction:purchase-line-delete' transaction_line.pk %}">
+                            <span class="material-icons text-red">clear</span>
+                          </a>
+                        </td>
+                      {% endif %}
+
                     {% endif %}
                     
                   </tr>
@@ -156,16 +171,21 @@
       </a>
     </div>
     <div class="detail-bar-col-2">
-      {% if not transaction.is_valid %}
-        <a href="{% url 'transaction:purchase-update' transaction.pk %}">
-          <p class="detail-bar-btn btn-black">Edit</p>
-        </a>
-        <a href="{% url 'transaction:purchase-delete' transaction.pk %}">
-          <p class="detail-bar-btn btn-red btn-last">Delete</p>
-        </a>
-        <a href="{% url 'transaction:purchase-validate' transaction.pk %}">
-          <p class="detail-bar-btn btn-green">Validate</p>
-        </a>
+
+      {% if user|has_group:"Administrator" or user|has_group:"President"%}
+
+        {% if not transaction.is_valid %}
+          <a href="{% url 'transaction:purchase-update' transaction.pk %}">
+            <p class="detail-bar-btn btn-black">Edit</p>
+          </a>
+          <a href="{% url 'transaction:purchase-delete' transaction.pk %}">
+            <p class="detail-bar-btn btn-red btn-last">Delete</p>
+          </a>
+          <a href="{% url 'transaction:purchase-validate' transaction.pk %}">
+            <p class="detail-bar-btn btn-green">Validate</p>
+          </a>
+        {% endif %}
+
       {% endif %}
     </div>
   </div>

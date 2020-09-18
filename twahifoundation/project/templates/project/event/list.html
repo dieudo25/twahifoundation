@@ -2,13 +2,25 @@
 
 {% load static %}
 
+{% load group_tags %}
+
 {% block title %} Portal | Event list {% endblock title %}
+
+{% block css %}
+
+  {{ block.super }}
+
+  <link rel="stylesheet" href="{% static 'project/style.css' %}" type="text/css">
+{% endblock css %}
 
 {% block portal_content %}
   <div class="portal-content-title">
     <h1>Manage Events</h1>
   </div>
-  <div class="portal-top-bar no-button">
+  <div class="portal-top-bar">
+
+    {% include 'project/components/event_navlist.html' %}
+
     <div id="list-search">
       <form action="{% url 'project:event-list-search' %}" method="GET">
         <div class="form-group">
@@ -23,18 +35,22 @@
       <div class="portal-content-nav-title">
         <h2>Events</h2>
       </div>
-      <div class="portal-content-nav-item">
-        <ul>
-          <a href="{% url 'project:event-create' %}">
-            <li class="nav-item-add">
-              <div class="add-text">
-                <span class="material-icons">add_circle_outline</span>
-                <span>Add</span>
-              </div>
-            </li>
-          </a>
-        </ul>
-      </div>
+
+      {% if user|has_group:"Administrator" or user|has_group:"Project manager" %}
+        <div class="portal-content-nav-item">
+          <ul>
+            <a href="{% url 'project:event-create' %}">
+              <li class="nav-item-add">
+                <div class="add-text">
+                  <span class="material-icons">add_circle_outline</span>
+                  <span>Add</span>
+                </div>
+              </li>
+            </a>
+          </ul>
+        </div>
+      {% endif %}
+
     </div>
     <div class="portal-list-paginate-header">
 

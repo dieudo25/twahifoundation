@@ -1,5 +1,7 @@
 {% load static %}
 
+{% load group_tags %}
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-black">
   <a class="navbar-brand" href="{% url 'portal:portal-home' %}">TwahiFoundation</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,9 +10,13 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <div class="nav-column-2">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link " href="{% url 'admin:index' %}">Administration</a>
-        </li>
+
+        {% if user|has_group:"Administrator" %} 
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'admin:index' %}">Administration</a>
+          </li>
+        {% endif %}
+        
         <li class="nav-item">
           <a class="nav-link " href="{% url 'page:home' %}">Site Web</a>
         </li>
@@ -46,11 +52,13 @@
         </li>
         <div class="notification-dropdown dropdown nav-item">
           <a class="nav-link" href="{% url 'portal:user-notifications' %}" role="button">
+
             {% if user.notifications.unread|length == 0 %}
               <span class="material-icons">notifications</span>
             {% else %}
               <span class="material-icons text-red">notifications</span>
             {% endif %}
+            
           </a>
         </div>
         <div class="dropdown nav-item">
