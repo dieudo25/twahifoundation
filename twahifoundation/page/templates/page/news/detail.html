@@ -18,11 +18,16 @@
 {% block content_with_sidebar %}
     <div>
         <h1 class="title-h1">{{ post.title }}</h1>
-    </div>
-    <div class="page-content-detail">
-        <p><span class="font-weight-bold">Created on </span>{{ post.created_on }}</p>
-        <p>{{ post.content|safe }}</p>
-    </div>
+    </div>    
+        <div class="page-content-detail">
+
+            {% if post.category.name == 'post' %}
+                <p><span class="font-weight-bold">Created on </span>{{ post.created_on }}</p>
+            {% endif %}
+
+            <p>{{ post.content|safe }}</p>
+        </div>
+    
     <div class="detail-bar">
         <div class="detail-bar-col-1">
         <a href="{% url 'page:news-list' %}">

@@ -30,6 +30,14 @@ class HomeView(TemplateView):
         return context
 
 
+class PageDetailView(DetailView):
+    "Post detail view"
+
+    model = Post
+    template_name = "page/static_page/page.html"
+    context_object_name = 'page'
+
+
 class AboutView(TemplateView):
     "About page"
 

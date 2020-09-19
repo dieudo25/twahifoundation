@@ -31,3 +31,14 @@ class EventCreateUpdateForm(forms.ModelForm):
             'time_started': DateTimePickerInput(),
             'time_ended': DateTimePickerInput(),
         }
+
+    def clean(self):
+        cleaned_data = super(EventCreateUpdateForm, self).clean()
+        time_started = cleaned_data.get("time_started")
+        time_ended = cleaned_data.get("time_ended")
+
+        if time_started and time_ended:
+            if time_ended < time_started:
+                raise forms.ValidationError(
+                    "The end time of a event cannot be earlier than its start time!")
+        return cleaned_data
