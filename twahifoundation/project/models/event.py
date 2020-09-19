@@ -5,6 +5,7 @@ from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
+from PIL import Image
 
 from ckeditor_uploader.fields import RichTextUploadingField
 
@@ -36,11 +37,10 @@ class Event(models.Model):
         choices=EVENT_TYPE_CHOICES,
         default=EVENT_TYPE_CHOICES[0][0],
     )
-    image = models.URLField(
-        max_length=255,
+    image = models.ImageField(
         null=True,
         blank=True,
-        verbose_name="Image URL"
+        upload_to='project/event/%Y/%m/%D',
     )
     content = RichTextUploadingField()
     date_created = models.DateField(
@@ -106,6 +106,13 @@ class Event(models.Model):
             self._generate_slug()
 
         super().save(*args, **kwargs)
+
+        img = Image.open(self.image.path)
+
+        if img.height > 450 or img.width > 450:
+            output_size = (450, 450)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
 
     def get_absolute_url(self):
         """

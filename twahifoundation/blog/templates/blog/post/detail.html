@@ -19,15 +19,15 @@
     <div class="detail-info-section">
       <div class="detail-card">
 
-        {% if post.category == 'Post' %}
+        {% if post.category.name == 'Post' %}
           <div class="detail-img">
-            <div class="img-wrapper">
+            <div class="img-wrapper fefze">
               {% if post.image %}
-                <img src="{{ post.image }}">
+                <img src="{{ post.image.url }}">
               {% endif %}
             </div>
           </div>
-        {% endif %}
+        {% endif %}  
         
         <div class="portal-title">
           <h1>{{ post.title }}</h1>

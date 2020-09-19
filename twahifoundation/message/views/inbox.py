@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
-from django.shortcuts import redirect
+from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import DetailView, ListView
 from django.urls import reverse_lazy
 
@@ -64,6 +64,10 @@ class InboxMessageDetailView(LoginRequiredMixin, GroupRequiredMixin, DetailView)
 
     def get_object(self):
         instance = super().get_object()
+
+        message_id = self.kwargs['pk']
+        message = get_object_or_404(Message, pk=message_id)
+        message.read()
 
         try:
             notice_id = self.kwargs['notice_pk']

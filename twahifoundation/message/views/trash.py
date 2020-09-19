@@ -18,6 +18,7 @@ class TrashListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     template_name = 'message/trash/list.html'
     context_object_name = 'trash_list'
     paginate_by = 10
+    ordering = ['-sent_at']
 
     def get_queryset(self):
         """Get message trash list"""
@@ -34,6 +35,7 @@ class TrashListFilteredView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     template_name = 'message/trash/list.html'
     context_object_name = 'filtered_trash_list'
     paginate_by = 10
+    ordering = ['-sent_at']
 
     def get_queryset(self):
         current_user = get_user(self.request)
@@ -76,5 +78,20 @@ def message_restore(request, pk):
         message.sender_restore()
     else:
         message.recipient_restore()
+
+    return redirect(reverse_lazy("message:trash"))
+
+
+@group_required('Administrator', 'Member')
+def message_delete_once(request, pk):
+    "Place a message in the trash"
+
+    message = Message.objects.get(pk=pk)
+    current_user = get_user(request)
+
+    if message.sender == current_user:
+        message.sender_deleted_once()
+    else:
+        message.recipient_deleted_once()
 
     return redirect(reverse_lazy("message:trash"))

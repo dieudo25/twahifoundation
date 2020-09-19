@@ -4,6 +4,7 @@ from django.conf import settings
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
+from PIL import Image
 
 from ckeditor_uploader.fields import RichTextUploadingField
 
@@ -17,8 +18,11 @@ class Project(models.Model):
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE,)
     slug = models.SlugField(max_length=60, unique=True)
     title = models.CharField(max_length=255)
-    image = models.URLField(max_length=255, null=True, blank=True,
-                            verbose_name="Image URL")
+    image = models.ImageField(
+        null=True,
+        blank=True,
+        upload_to='project/project/%Y/%m/%D',
+    )
     description = models.TextField()
     content = RichTextUploadingField()
     date_created = models.DateField(
@@ -81,6 +85,13 @@ class Project(models.Model):
             self._generate_slug()
 
         super().save(*args, **kwargs)
+
+        img = Image.open(self.image.path)
+
+        if img.height > 450 or img.width > 450:
+            output_size = (450, 450)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
 
     def get_absolute_url(self):
         """

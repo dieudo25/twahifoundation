@@ -22,6 +22,7 @@ from message.views.trash import (
     TrashListFilteredView,
     TrashMessageDetailView,
     message_restore,
+    message_delete_once,
 )
 
 app_name = 'message'
@@ -65,4 +66,6 @@ urlpatterns = [
             TrashMessageDetailView.as_view(), name="trash-detail"),
     re_path(r'^trash/(?P<pk>\d+)/restore/$',
             message_restore, name="trash-restore"),
+    re_path(r'^trash/(?P<pk>\d+)/delete/$',
+            message_delete_once, name="trash-delete"),
 ]

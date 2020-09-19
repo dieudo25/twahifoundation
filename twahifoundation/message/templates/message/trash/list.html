@@ -88,19 +88,37 @@
           <tbody>
 
             {% for message in filtered_trash_list %}
-              <tr class="table">
-                <th scope="row"><a href="{% url 'message:trash-detail' message.pk %}">{{ message.sender }}</a></th>
-                <td>
-                  {% if message.new %}<strong>{% endif %}
 
-                    {% if message.replied %}<em>{% endif %}
-                      <a href="{{ message.get_absolute_url }}">{{ message.subject }}</a>
-                    {% if message.replied %}</em>{% endif %}
+              {% if message.sender == user and message.sender_delete_once == False %}
+                <tr class="table">
+                  <th scope="row"><a href="{% url 'message:trash-detail' message.pk %}">{{ message.sender }}</a></th>
+                  <td>
+                    {% if message.new %}<strong>{% endif %}
 
-                  {% if message.new %}</strong>{% endif %}
-                </td>
-                <td>{{ message.recipient_deleted_at }}</td>
-              </tr>
+                      {% if message.replied %}<em>{% endif %}
+                        <a href="{% url 'message:trash-detail' message.pk %}">{{ message.subject }}</a>
+                      {% if message.replied %}</em>{% endif %}
+
+                    {% if message.new %}</strong>{% endif %}
+                  </td>
+                  <td>{{ message.sender_deleted_at }}</td>
+                </tr>
+              {% elif message.recipient == user and message.recipient_delete_once == False %}
+                <tr class="table">
+                  <th scope="row"><a href="{% url 'message:trash-detail' message.pk %}">{{ message.sender }}</a></th>
+                  <td>
+                    {% if message.new %}<strong>{% endif %}
+
+                      {% if message.replied %}<em>{% endif %}
+                        <a href="{% url 'message:trash-detail' message.pk %}">{{ message.subject }}</a>
+                      {% if message.replied %}</em>{% endif %}
+
+                    {% if message.new %}</strong>{% endif %}
+                  </td>
+                  <td>{{ message.recipient_deleted_at }}</td>
+                </tr>
+              {% endif %}
+
             {% endfor %}
 
           </tbody>
@@ -117,19 +135,37 @@
           <tbody>
 
             {% for message in trash_list %}
-              <tr class="table">
-                <th scope="row"><a href="{% url 'message:trash-detail' message.pk %}">{{ message.sender }}</a></th>
-                <td>
-                  {% if message.new %}<strong>{% endif %}
 
-                    {% if message.replied %}<em>{% endif %}
-                      <a href="{{ message.get_absolute_url }}">{{ message.subject }}</a>
-                    {% if message.replied %}</em>{% endif %}
+              {% if message.sender == user and message.sender_delete_once == False %}
+                <tr class="table">
+                  <th scope="row"><a href="{% url 'message:trash-detail' message.pk %}">{{ message.sender }}</a></th>
+                  <td>
+                    {% if message.new %}<strong>{% endif %}
 
-                  {% if message.new %}</strong>{% endif %}
-                </td>
-                <td>{{ message.recipient_deleted_at }}</td>
-              </tr>
+                      {% if message.replied %}<em>{% endif %}
+                        <a href="{% url 'message:trash-detail' message.pk %}">{{ message.subject }}</a>
+                      {% if message.replied %}</em>{% endif %}
+
+                    {% if message.new %}</strong>{% endif %}
+                  </td>
+                  <td>{{ message.sender_deleted_at }}</td>
+                </tr>
+              {% elif message.recipient == user and message.recipient_delete_once == False %}
+                <tr class="table">
+                  <th scope="row"><a href="{% url 'message:trash-detail' message.pk %}">{{ message.sender }}</a></th>
+                  <td>
+                    {% if message.new %}<strong>{% endif %}
+
+                      {% if message.replied %}<em>{% endif %}
+                        <a href="{% url 'message:trash-detail' message.pk %}">{{ message.subject }}</a>
+                      {% if message.replied %}</em>{% endif %}
+
+                    {% if message.new %}</strong>{% endif %}
+                  </td>
+                  <td>{{ message.recipient_deleted_at }}</td>
+                </tr>
+              {% endif %}
+              
             {% endfor %}
 
           </tbody>

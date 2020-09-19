@@ -75,7 +75,7 @@
                 <th scope="row"><a href="{% url 'project:event-detail' event.slug %}">{{ event.title }}</a></th>
                 <td>
                   <div class="img-wrapper">
-                    <img src="{{ event.image }}">
+                    <img src="{{ event.image.url }}">
                   </div>
                 </td>
                 <td>{{ event.location}}</td>
@@ -106,7 +106,7 @@
                 <th scope="row"><a href="{% url 'project:event-detail' event.slug %}">{{ event.title }}</a></th>
                 <td>
                   <div class="img-wrapper">
-                    <img src="{{ event.image }}">
+                    <img src="{{ event.image.url }}">
                   </div>
                 </td>
                 <td>{{ event.location}}</td>

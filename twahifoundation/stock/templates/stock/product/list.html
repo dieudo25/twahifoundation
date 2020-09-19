@@ -78,7 +78,7 @@
                 <th scope="row"><a href="{% url 'stock:product-detail' product.slug %}">{{ product.name }}</a></th>
                 <td>
                   <div class="img-wrapper">
-                    <img src="{{ product.image }}">
+                    <img src="{{ product.image.url }}">
                   </div>
                 </td>
                 <td>{{ product.price }}€</td>
@@ -129,7 +129,7 @@
                 <th scope="row"><a href="{% url 'stock:product-detail' product.slug %}">{{ product.name }}</a></th>
                 <td>
                   <div class="img-wrapper">
-                    <img src="{{ product.image }}">
+                    <img src="{{ product.image.url }}">
                   </div>
                 </td>
                 <td>{{ product.price }}€</td>

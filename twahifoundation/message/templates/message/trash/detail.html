@@ -70,9 +70,16 @@
       <a href="{% url 'message:trash-restore' message.id %}">
         <p class="detail-bar-btn btn-black btn-last">Restore</p>
       </a>
-      <a href="{% url 'message:message-delete' message.id %}">
+
+      {% if message.sender_delete or message.recipient_delete %}
+        <a href="{% url 'message:message-delete' message.id %}">
+      {% else %}
+        <a href="{% url 'message:trash-delete' message.id %}">
+      {% endif %}
+      
         <p class="detail-bar-btn btn-red btn-last">Delete</p>
       </a>
+      
     </div>
   </div>
 {% endblock portal_content %}

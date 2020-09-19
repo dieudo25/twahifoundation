@@ -76,6 +76,8 @@ class Message(models.Model):
         null=True
     )
     slug = models.SlugField(max_length=60, unique=True)
+    sender_delete_once = models.BooleanField(default=False)
+    recipient_delete_once = models.BooleanField(default=False)
 
     objects = MessageManager()
 
@@ -114,6 +116,12 @@ class Message(models.Model):
             return True
         return False
 
+    def read(self):
+        """instanciate read_at field with now"""
+
+        self.read_at = timezone.now()
+        self.save()
+
     def __str__(self):
         return self.subject
 
@@ -139,6 +147,18 @@ class Message(models.Model):
         "Recipient Restore a message from the trash"
 
         self.recipient_deleted_at = None
+        self.save()
+
+    def sender_deleted_once(self):
+        "Delete the message once in safe mode"
+
+        self.sender_delete_once = True
+        self.save()
+
+    def recipient_deleted_once(self):
+        "Delete the message once in safe mode"
+
+        self.recipient_delete_once = True
         self.save()
 
     def save(self, **kwargs):

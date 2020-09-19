@@ -21,7 +21,7 @@
       <div class="projects-item">
         <div class="title-img-wrapper">
         <div class="img-wrapper">
-          <a href="{% url 'page:news-detail' post.slug %}"><img src="{{ post.image }}"></a>
+          <a href="{% url 'page:news-detail' post.slug %}"><img src="{{ post.image.url }}"></a>
         </div>
         <div class="projects-title">
           <a href="{% url 'page:news-detail' post.slug %}"><h3>{{ post.title }}</h3></a>

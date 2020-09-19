@@ -23,7 +23,7 @@
         <a href="{% url 'page:event-detail' event.slug %}">
           <div class="events-card">
             <div class="img-wrapper">
-              <img src="{{ event.image }}">
+              <img src="{{ event.image.url }}">
             </div>
             <div class="events-date">
               <p>{{ event.date_created }}</p>
