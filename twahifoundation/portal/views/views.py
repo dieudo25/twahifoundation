@@ -36,7 +36,7 @@ class NotificationList(LoginRequiredMixin, GroupRequiredMixin, TemplateView):
         return context
 
 
-@group_required('Administrateur', 'Member')
+@group_required('Administrator', 'Member')
 def mark_as_read(request, pk):
 
     notice = Notification.objects.get(id=pk)
@@ -44,7 +44,7 @@ def mark_as_read(request, pk):
     return redirect(reverse_lazy("portal:user-notifications"))
 
 
-@group_required('Administrateur', 'Member')
+@group_required('Administrator', 'Member')
 def mark_all_as_read(request):
 
     current_user = get_user(request)

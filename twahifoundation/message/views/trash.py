@@ -62,7 +62,7 @@ class TrashMessageDetailView(LoginRequiredMixin, GroupRequiredMixin, DetailView)
     context_object_name = 'message'
 
 
-@group_required('Administrateur', 'Member')
+@group_required('Administrator', 'Member')
 def message_restore(request, pk):
     "Place a message in the trash"
 

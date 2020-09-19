@@ -60,7 +60,7 @@ class OutboxMessageDetailView(LoginRequiredMixin, GroupRequiredMixin, DetailView
     context_object_name = 'message'
 
 
-@group_required('Administrateur', 'Member')
+@group_required('Administrator', 'Member')
 def outbox_to_trash(request, pk):
     "Place a message in the trash"
 

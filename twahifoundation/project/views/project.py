@@ -1,6 +1,8 @@
+from datetime import datetime
 from django.contrib.auth import get_user
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
+from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
 
@@ -100,3 +102,18 @@ class ProjectCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
         # perform a action here
         form.instance.created_by = self.request.user
         return super().form_valid(form)
+
+
+@group_required('Administrator', 'Project manager')
+def open_close_project(request, slug):
+    "Place a message in the trash"
+
+    project = get_object_or_404(Project, slug=slug)
+
+    if not project.date_ended:
+        project.date_ended = datetime.now()
+    else:
+        project.date_ended = None
+    project.save()
+
+    return redirect(reverse_lazy("project:project-detail", kwargs={"slug": project.slug}))

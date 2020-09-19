@@ -78,6 +78,48 @@
         </div>
       </div>
     </div>
+    <div class="detail-bar task-state-update">
+      <div class="detail-bar-col-1">
+        Update state
+      </div>
+      <div class="detail-bar-col-2">
+
+        {% if user|has_group:"Administrator" or user|has_group:"Member"%}
+          
+          {% if task.state != 'TODO' %}
+            <a href="{% url 'project:task-state-update' task.slug 'todo' %}">
+              <p class="detail-bar-btn btn-black">TO DO</p>
+            </a>
+          {% endif %}
+          
+          {% if task.state != 'PENDING' %}
+            <a href="{% url 'project:task-state-update' task.slug 'pending' %}">
+              <p class="detail-bar-btn btn-black btn-last">PENDING</p>
+            </a>
+          {% endif %}
+
+          {% if task.state != 'IN PROGRESS' %}
+            <a href="{% url 'project:task-state-update' task.slug 'in_progress' %}">
+              <p class="detail-bar-btn btn-black btn-last">IN PROGRESS</p>
+            </a>
+          {% endif %}
+
+          {% if task.state != 'LATE' %}
+            <a href="{% url 'project:task-state-update' task.slug 'late' %}">
+              <p class="detail-bar-btn btn-red btn-last">LATE</p>
+            </a>
+          {% endif %}
+
+          {% if task.state != 'DONE' %}
+            <a href="{% url 'project:task-state-update' task.slug 'done' %}">
+              <p class="detail-bar-btn btn-green btn-last">DONE</p>
+            </a>
+          {% endif %}
+
+        {% endif %}
+        
+      </div>
+    </div>  
     <div class="participant-section">
       <h2>
         <span class="material-icons prev">keyboard_arrow_left</span>

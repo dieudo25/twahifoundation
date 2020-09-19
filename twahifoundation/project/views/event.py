@@ -116,7 +116,7 @@ class EventDeleteView(LoginRequiredMixin, GroupRequiredMixin, DeleteView):
     success_url = reverse_lazy('project:event-list')
 
 
-@group_required('Administrateur', 'Member')
+@group_required('Administrator', 'Member')
 def participate(request, slug):
     "Place a message in the trash"
 

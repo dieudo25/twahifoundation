@@ -153,7 +153,7 @@ class ProductTransactionPurchaseLineDeleteView(LoginRequiredMixin, GroupRequired
         return reverse_lazy("transaction:purchase-detail", kwargs={"pk": self.object.transaction.pk})
 
 
-@group_required('Administrateur', 'President')
+@group_required('Administrator', 'President')
 def purchase_validate(request, pk):
 
     transaction = Transaction.objects.get(pk=pk)

@@ -77,7 +77,7 @@ class InboxMessageDetailView(LoginRequiredMixin, GroupRequiredMixin, DetailView)
             return instance
 
 
-@group_required('Administrateur', 'Member')
+@group_required('Administrator', 'Member')
 def inbox_to_trash(request, pk):
     "Place a message in the trash"
 

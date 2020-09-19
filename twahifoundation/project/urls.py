@@ -16,6 +16,7 @@ from project.views.project import (
     ProjectUpdateView,
     ProjectCreateView,
     ProjectDeleteView,
+    open_close_project,
 )
 from project.views.task import (
     TaskListView,
@@ -24,6 +25,7 @@ from project.views.task import (
     TaskUpdateView,
     TaskCreateView,
     TaskDeleteView,
+    update_state,
 )
 
 app_name = 'project'
@@ -61,6 +63,8 @@ urlpatterns = [
             ProjectUpdateView.as_view(), name="project-update"),
     re_path(r'^project/(?P<slug>[a-z0-9-]*)/delete/$',
             ProjectDeleteView.as_view(), name="project-delete"),
+    re_path(r'^project/(?P<slug>[a-z0-9-]*)/close/$',
+            open_close_project, name="project-close"),
 
     # Task CRUD
     re_path(r'^task/list/$', TaskListView.as_view(), name="task-list"),
@@ -76,7 +80,7 @@ urlpatterns = [
             TaskUpdateView.as_view(), name="task-update"),
     re_path(r'^task/(?P<slug>[a-z0-9-]*)/delete/$',
             TaskDeleteView.as_view(), name="task-delete"),
-
-
+    re_path(r'^task/(?P<slug>[a-z0-9-]*)/state/(?P<state>[a-z0-9-_]*)$',
+            update_state, name="task-state-update"),
 
 ]

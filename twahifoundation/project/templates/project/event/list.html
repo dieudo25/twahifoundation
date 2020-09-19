@@ -17,10 +17,7 @@
   <div class="portal-content-title">
     <h1>Manage Events</h1>
   </div>
-  <div class="portal-top-bar">
-
-    {% include 'project/components/event_navlist.html' %}
-
+  <div class="portal-top-bar no-button">
     <div id="list-search">
       <form action="{% url 'project:event-list-search' %}" method="GET">
         <div class="form-group">
@@ -68,7 +65,7 @@
               <th scope="col">Location</th>
               <th scope="col">Start at</th>
               <th scope="col">End at</th>
-              <th scope="col">Created date</th>
+              <th scope="col">Type</th>
             </tr>
           </thead>
           <tbody>
@@ -84,7 +81,7 @@
                 <td>{{ event.location}}</td>
                 <td>{{ event.time_startted }}</td>
                 <td>{{ event.time_ended }}</td>
-                <td>{{ event.date_created }}</td>
+                <td>{{ event.event_type }}</td>
               </tr>
             {% endfor %}
 
@@ -99,7 +96,7 @@
               <th scope="col">Location</th>
               <th scope="col">Start at</th>
               <th scope="col">End at</th>
-              <th scope="col">Created date</th>
+              <th scope="col">Type</th>
             </tr>
           </thead>
           <tbody>
@@ -115,7 +112,7 @@
                 <td>{{ event.location}}</td>
                 <td>{{ event.time_started }}</td>
                 <td>{{ event.time_ended }}</td>
-                <td>{{ event.date_created }}</td>
+                <td>{{ event.event_type }}</td>
               </tr>
             {% endfor %}
 

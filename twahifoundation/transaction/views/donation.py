@@ -144,7 +144,7 @@ class TransactionPaypalDonationListFilteredView(LoginRequiredMixin, GroupRequire
         return object_list
 
 
-@group_required('Administrateur', 'Member')
+@group_required('Administrator', 'Member')
 def donation_validate(request, pk):
 
     transaction = Transaction.objects.get(pk=pk)

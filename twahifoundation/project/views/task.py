@@ -1,13 +1,14 @@
 from django.contrib.auth import get_user
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
-from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
+from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 
 from notifications.models import Notification
 from notifications.signals import notify
 
-from account.permissions.group import GroupRequiredMixin
+from account.permissions.group import group_required, GroupRequiredMixin
 from project.models.task import Task
 from project.forms.task import TaskCreateUpdateForm
 
@@ -26,7 +27,7 @@ class TaskListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
         context['task_number'] = Task.objects.all().count()
         context['todo_list'] = Task.objects.filter(state='TODO')
         context['pending_list'] = Task.objects.filter(state='PENDING')
-        context['in_progress_list'] = Task.objects.filter(state='IN_PROGRESS')
+        context['in_progress_list'] = Task.objects.filter(state='IN PROGRESS')
         context['late_list'] = Task.objects.filter(state='LATE')
         context['done_list'] = Task.objects.filter(state='DONE')
         return context
@@ -107,3 +108,25 @@ class TaskCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
         current_user = get_user(self.request)
         form.instance.created_by = current_user
         return super().form_valid(form)
+
+
+@group_required('Administrator', 'Project manager')
+def update_state(request, slug, state):
+    "Place a message in the trash"
+
+    task = get_object_or_404(Task, slug=slug)
+
+    if state == 'todo':
+        task.state = 'TODO'
+    elif state == 'pending':
+        task.state = 'PENDING'
+    elif state == 'in_progress':
+        task.state = 'IN PROGRESS'
+    elif state == 'late':
+        task.state = 'LATE'
+    elif state == 'done':
+        task.state = 'DONE'
+
+    task.save()
+
+    return redirect(reverse_lazy("project:task-detail", kwargs={"slug": task.slug}))

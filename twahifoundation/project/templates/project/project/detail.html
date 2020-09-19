@@ -79,9 +79,20 @@
       </a>
 
       {% if user|has_group:"Administrator" or user|has_group:"Project manager"%}
-      <a href="{% url 'project:project-update' project.slug %}">
-        <p class="detail-bar-btn btn-black">Edit</p>
-      </a>
+
+        {% if not project.date_ended %}
+          <a href="{% url 'project:project-close' project.slug %}">
+            <p class="detail-bar-btn btn-black">Close</p>
+          </a>
+        {% else %}
+          <a href="{% url 'project:project-close' project.slug %}">
+            <p class="detail-bar-btn btn-black">Open</p>
+          </a>
+        {% endif %}
+
+        <a href="{% url 'project:project-update' project.slug %}">
+          <p class="detail-bar-btn btn-black">Edit</p>
+        </a>
       {% endif %}
 
       {% if user|has_group:"Administrator" %}

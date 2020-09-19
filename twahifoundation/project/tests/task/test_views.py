@@ -44,7 +44,7 @@ class TestViews(TestCase):
         self.STATE_CHOICES = [
             ('TODO', 'TO DO'),
             ('PENDING', 'PENDING'),
-            ('IN_PROGRESS', 'IN PROGRESS'),
+            ('IN PROGRESS', 'IN PROGRESS'),
             ('LATE', 'LATE'),
             ('DONE', 'DONE')
         ]
