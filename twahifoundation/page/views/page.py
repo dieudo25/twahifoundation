@@ -118,3 +118,27 @@ class NewsListView(ListView):
     template_name = 'page/news/list.html'
     context_object_name = 'news_list'
     queryset = Post.objects.filter(status='Published', category__name="Post")
+
+
+class EventDetailView(DetailView):
+    "Event detail view"
+
+    model = Event
+    template_name = 'page/event/detail.html'
+    context_object_name = 'event'
+
+
+class ProjectDetailView(DetailView):
+    "Project detail view"
+
+    model = Project
+    template_name = 'page/project/detail.html'
+    context_object_name = 'project'
+
+
+class NewsDetailView(DetailView):
+    "Post detail view"
+
+    model = Post
+    template_name = 'page/news/detail.html'
+    context_object_name = 'post'
