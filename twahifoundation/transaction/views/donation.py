@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.shortcuts import redirect
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
@@ -5,12 +6,12 @@ from django.urls import reverse_lazy
 
 from notifications.models import Notification
 
-from account.permissions.group import GroupRequiredMixin
+from account.permissions.group import group_required, GroupRequiredMixin
 from transaction.models.transaction import Transaction
 from transaction.forms.donation import TransactionDonationCreateUpdateForm
 
 
-class TransactionDonationListView(GroupRequiredMixin, ListView):
+class TransactionDonationListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Transaction list view"
 
     model = Transaction
@@ -25,7 +26,7 @@ class TransactionDonationListView(GroupRequiredMixin, ListView):
         return Transaction.objects.filter(transaction_type='Donation').exclude(with_paypal=True)
 
 
-class TransactionDonationListFilteredView(GroupRequiredMixin, ListView):
+class TransactionDonationListFilteredView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Transaction list filterd by title, location"
 
     model = Transaction
@@ -43,7 +44,7 @@ class TransactionDonationListFilteredView(GroupRequiredMixin, ListView):
         return object_list
 
 
-class TransactionDonationDetailView(GroupRequiredMixin, DetailView):
+class TransactionDonationDetailView(LoginRequiredMixin, GroupRequiredMixin, DetailView):
     "Transaction detail view"
 
     model = Transaction
@@ -66,7 +67,7 @@ class TransactionDonationDetailView(GroupRequiredMixin, DetailView):
             return instance
 
 
-class TransactionDonationUpdateView(GroupRequiredMixin, UpdateView):
+class TransactionDonationUpdateView(LoginRequiredMixin, GroupRequiredMixin, UpdateView):
     "Transaction update view"
 
     model = Transaction
@@ -80,7 +81,7 @@ class TransactionDonationUpdateView(GroupRequiredMixin, UpdateView):
         return reverse_lazy("transaction:donation-detail", kwargs={"pk": self.object.pk})
 
 
-class TransactionDonationDeleteView(GroupRequiredMixin, DeleteView):
+class TransactionDonationDeleteView(LoginRequiredMixin, GroupRequiredMixin, DeleteView):
     "Transaction Delete View"
 
     model = Transaction
@@ -90,7 +91,7 @@ class TransactionDonationDeleteView(GroupRequiredMixin, DeleteView):
     success_url = reverse_lazy('transaction:donation-list')
 
 
-class TransactionDonationCreateView(GroupRequiredMixin, CreateView):
+class TransactionDonationCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
     "Transaction create view"
 
     model = Transaction
@@ -110,7 +111,7 @@ class TransactionDonationCreateView(GroupRequiredMixin, CreateView):
         return super(TransactionDonationCreateView, self).form_valid(TransactionDonationCreateUpdateForm)
 
 
-class TransactionPaypalDonationList(GroupRequiredMixin, ListView):
+class TransactionPaypalDonationList(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Transaction Paypal list view"
     model = Transaction
     group_required = [u'Administrator', u'Member']
@@ -124,7 +125,7 @@ class TransactionPaypalDonationList(GroupRequiredMixin, ListView):
         return Transaction.objects.filter(transaction_type='Donation', is_valid=True).exclude(with_paypal=False)
 
 
-class TransactionPaypalDonationListFilteredView(GroupRequiredMixin, ListView):
+class TransactionPaypalDonationListFilteredView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Transaction Paypallist filterd by title, location"
 
     model = Transaction
@@ -143,6 +144,7 @@ class TransactionPaypalDonationListFilteredView(GroupRequiredMixin, ListView):
         return object_list
 
 
+@group_required('Administrateur', 'Member')
 def donation_validate(request, pk):
 
     transaction = Transaction.objects.get(pk=pk)

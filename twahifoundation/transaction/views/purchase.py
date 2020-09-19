@@ -1,15 +1,16 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q, Sum
 from django.shortcuts import redirect
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
 
-from account.permissions.group import GroupRequiredMixin
+from account.permissions.group import group_required, GroupRequiredMixin
 from transaction.models.transaction import Transaction, ProductTransactionLine
 from transaction.forms.purchase import TransactionPurchaseCreateUpdateForm
 from transaction.forms.transaction_line import ProductTransactionLineCreateUpdateForm
 
 
-class TransactionPurchaseListView(GroupRequiredMixin, ListView):
+class TransactionPurchaseListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Transaction list view"
 
     model = Transaction
@@ -24,7 +25,7 @@ class TransactionPurchaseListView(GroupRequiredMixin, ListView):
         return Transaction.objects.filter(transaction_type='Purchase')
 
 
-class TransactionListPurchaseFilteredView(GroupRequiredMixin, ListView):
+class TransactionListPurchaseFilteredView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Transaction list filterd by title, location"
 
     model = Transaction
@@ -42,7 +43,7 @@ class TransactionListPurchaseFilteredView(GroupRequiredMixin, ListView):
         return object_list
 
 
-class TransactionPurchaseDetailView(GroupRequiredMixin, DetailView):
+class TransactionPurchaseDetailView(LoginRequiredMixin, GroupRequiredMixin, DetailView):
     "Transaction detail view"
 
     model = Transaction
@@ -65,7 +66,7 @@ class TransactionPurchaseDetailView(GroupRequiredMixin, DetailView):
         return context
 
 
-class TransactionPurchaseUpdateView(GroupRequiredMixin, UpdateView):
+class TransactionPurchaseUpdateView(LoginRequiredMixin, GroupRequiredMixin, UpdateView):
     "Transaction update view"
 
     model = Transaction
@@ -79,7 +80,7 @@ class TransactionPurchaseUpdateView(GroupRequiredMixin, UpdateView):
         return reverse_lazy("transaction:purchase-detail", kwargs={"pk": self.object.pk})
 
 
-class TransactionPurchaseDeleteView(GroupRequiredMixin, DeleteView):
+class TransactionPurchaseDeleteView(LoginRequiredMixin, GroupRequiredMixin, DeleteView):
     "Transaction Delete View"
 
     model = Transaction
@@ -89,7 +90,7 @@ class TransactionPurchaseDeleteView(GroupRequiredMixin, DeleteView):
     success_url = reverse_lazy('transaction:purchase-list')
 
 
-class TransactionPurchaseCreateView(GroupRequiredMixin, CreateView):
+class TransactionPurchaseCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
     "Transaction create view"
 
     model = Transaction
@@ -108,7 +109,7 @@ class TransactionPurchaseCreateView(GroupRequiredMixin, CreateView):
         return super(TransactionPurchaseCreateView, self).form_valid(form)
 
 
-class ProductTransactionPurchaseLineCreateView(GroupRequiredMixin, CreateView):
+class ProductTransactionPurchaseLineCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
 
     model = ProductTransactionLine
     group_required = [u'Administrator', u'President', ]
@@ -125,7 +126,7 @@ class ProductTransactionPurchaseLineCreateView(GroupRequiredMixin, CreateView):
         return super(ProductTransactionPurchaseLineCreateView, self).form_valid(form)
 
 
-class ProductTransactionPurchaseLineUpdateView(GroupRequiredMixin, UpdateView):
+class ProductTransactionPurchaseLineUpdateView(LoginRequiredMixin, GroupRequiredMixin, UpdateView):
     "Transaction update view"
 
     model = ProductTransactionLine
@@ -139,7 +140,7 @@ class ProductTransactionPurchaseLineUpdateView(GroupRequiredMixin, UpdateView):
         return reverse_lazy("transaction:purchase-detail", kwargs={"pk": self.object.transaction.pk})
 
 
-class ProductTransactionPurchaseLineDeleteView(GroupRequiredMixin, DeleteView):
+class ProductTransactionPurchaseLineDeleteView(LoginRequiredMixin, GroupRequiredMixin, DeleteView):
     "Transaction Delete View"
 
     model = ProductTransactionLine
@@ -152,6 +153,7 @@ class ProductTransactionPurchaseLineDeleteView(GroupRequiredMixin, DeleteView):
         return reverse_lazy("transaction:purchase-detail", kwargs={"pk": self.object.transaction.pk})
 
 
+@group_required('Administrateur', 'President')
 def purchase_validate(request, pk):
 
     transaction = Transaction.objects.get(pk=pk)

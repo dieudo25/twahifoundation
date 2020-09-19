@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.shortcuts import redirect
 from django.views.generic import DetailView, ListView
@@ -9,7 +10,7 @@ from message.models.message import Message
 from message.forms.message import MessageCreateUpdateForm
 
 
-class TrashListView(GroupRequiredMixin, ListView):
+class TrashListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Message list view"
 
     model = Message
@@ -25,7 +26,7 @@ class TrashListView(GroupRequiredMixin, ListView):
         return Message.objects.trash_for(current_user)
 
 
-class TrashListFilteredView(GroupRequiredMixin, ListView):
+class TrashListFilteredView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Message list filterd by title, location"
 
     model = Message
@@ -52,7 +53,7 @@ class TrashListFilteredView(GroupRequiredMixin, ListView):
         return object_list
 
 
-class TrashMessageDetailView(GroupRequiredMixin, DetailView):
+class TrashMessageDetailView(LoginRequiredMixin, GroupRequiredMixin, DetailView):
     "Message detail view"
 
     model = Message

@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.shortcuts import redirect
 from django.views.generic import DetailView, ListView
@@ -9,7 +10,7 @@ from message.forms.message import MessageCreateUpdateForm
 from message.models.message import Message
 
 
-class OutboxListView(GroupRequiredMixin, ListView):
+class OutboxListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Message list view"
 
     model = Message
@@ -25,7 +26,7 @@ class OutboxListView(GroupRequiredMixin, ListView):
         return Message.objects.outbox_for(current_user)
 
 
-class OutboxListFilteredView(GroupRequiredMixin, ListView):
+class OutboxListFilteredView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Message list filterd by title, location"
 
     model = Message
@@ -50,7 +51,7 @@ class OutboxListFilteredView(GroupRequiredMixin, ListView):
         return object_list
 
 
-class OutboxMessageDetailView(GroupRequiredMixin, DetailView):
+class OutboxMessageDetailView(LoginRequiredMixin, GroupRequiredMixin, DetailView):
     "Message detail view"
 
     model = Message
@@ -59,6 +60,7 @@ class OutboxMessageDetailView(GroupRequiredMixin, DetailView):
     context_object_name = 'message'
 
 
+@group_required('Administrateur', 'Member')
 def outbox_to_trash(request, pk):
     "Place a message in the trash"
 

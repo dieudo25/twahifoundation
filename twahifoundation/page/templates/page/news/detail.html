@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% load group_tags %}
+
 {% block title %} News {% endblock title %}
 
 {% block header %}
@@ -28,12 +30,19 @@
         </a>
         </div>
         <div class="detail-bar-col-2">
-            <a class="control-link text-white" href="{% url 'blog:post-update' post.slug %}">
-                <p class="detail-bar-btn btn-blue text-center">Edit</p>
-            </a>
-            <a class="control-link text-white" href="{% url 'blog:post-delete' post.slug %}">
-                <p class="detail-bar-btn btn-red text-center">Delete</p>
-            </a>
+
+            {% if user|has_group:"Administrator" or user|has_group:"Project manager" or user|has_group:"Editor" %}
+                <a class="control-link text-white" href="{% url 'blog:post-update' post.slug %}">
+                    <p class="detail-bar-btn btn-blue text-center">Edit</p>
+                </a>
+            {% endif %}
+
+            {% if user|has_group:"Administrator" %}
+                <a class="control-link text-white" href="{% url 'blog:post-delete' post.slug %}">
+                    <p class="detail-bar-btn btn-red text-center">Delete</p>
+                </a>
+            {% endif %}
+            
         </div>
     </div>
 {% endblock content_with_sidebar %}

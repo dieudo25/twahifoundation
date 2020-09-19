@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model, get_user
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
@@ -9,7 +10,7 @@ from account.models.user import User
 from account.permissions.group import GroupRequiredMixin
 
 
-class UserListView(ListView):
+class UserListView(LoginRequiredMixin, ListView):
     "User list view"
 
     model = get_user_model()
@@ -18,7 +19,7 @@ class UserListView(ListView):
     paginate_by = 10
 
 
-class UserListFilteredView(ListView):
+class UserListFilteredView(LoginRequiredMixin, ListView):
     "User list filterd by username, lastname or firstname"
 
     model = get_user_model()
@@ -37,7 +38,7 @@ class UserListFilteredView(ListView):
         return object_list
 
 
-class UserDetailView(DetailView):
+class UserDetailView(LoginRequiredMixin, DetailView):
     "User detail view"
 
     model = get_user_model()
@@ -45,7 +46,7 @@ class UserDetailView(DetailView):
     context_object_name = 'user_profile'
 
 
-class UserUpdateView(UpdateView):
+class UserUpdateView(LoginRequiredMixin, UpdateView):
     "User update view"
 
     model = get_user_model()
@@ -53,7 +54,7 @@ class UserUpdateView(UpdateView):
     template_name = 'account/user/update.html'
 
 
-class UserDeleteView(GroupRequiredMixin, DeleteView):
+class UserDeleteView(LoginRequiredMixin, GroupRequiredMixin, DeleteView):
     "User Delete View"
 
     model = get_user_model()
@@ -63,7 +64,7 @@ class UserDeleteView(GroupRequiredMixin, DeleteView):
     success_url = reverse_lazy('user-list')
 
 
-class UserCreateView(GroupRequiredMixin, CreateView):
+class UserCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
     "User create view"
 
     model = get_user_model()
@@ -72,7 +73,7 @@ class UserCreateView(GroupRequiredMixin, CreateView):
     template_name = 'account/user/create.html'
 
 
-class UserPasswordChangeView(GroupRequiredMixin, UpdateView):
+class UserPasswordChangeView(LoginRequiredMixin, GroupRequiredMixin, UpdateView):
     "User update view"
 
     model = get_user_model()

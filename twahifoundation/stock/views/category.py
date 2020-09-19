@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
@@ -7,7 +8,7 @@ from stock.models.category import Category
 from stock.forms.category import CategoryCreateUpdateForm
 
 
-class CategoryListView(GroupRequiredMixin, ListView):
+class CategoryListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Category list view"
 
     model = Category
@@ -18,7 +19,7 @@ class CategoryListView(GroupRequiredMixin, ListView):
     paginate_by = 10
 
 
-class CategoryListFilteredView(GroupRequiredMixin, ListView):
+class CategoryListFilteredView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Category list filterd by title, location"
 
     model = Category
@@ -36,7 +37,7 @@ class CategoryListFilteredView(GroupRequiredMixin, ListView):
         return object_list
 
 
-class CategoryUpdateView(GroupRequiredMixin, UpdateView):
+class CategoryUpdateView(LoginRequiredMixin, GroupRequiredMixin, UpdateView):
     "Category update view"
 
     model = Category
@@ -46,7 +47,7 @@ class CategoryUpdateView(GroupRequiredMixin, UpdateView):
     form_class = CategoryCreateUpdateForm
 
 
-class CategoryDeleteView(GroupRequiredMixin, DeleteView):
+class CategoryDeleteView(LoginRequiredMixin, GroupRequiredMixin, DeleteView):
     "Category Delete View"
 
     model = Category
@@ -56,10 +57,10 @@ class CategoryDeleteView(GroupRequiredMixin, DeleteView):
     success_url = reverse_lazy('stock:category-list')
 
 
-class CategoryCreateView(GroupRequiredMixin, CreateView):
+class CategoryCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
     "Category create view"
 
     model = Category
-    [u'Administrator', u'President', u'Stock manager', ]
+    group_required = [u'Administrator', u'President', u'Stock manager', ]
     template_name = 'stock/category/create.html'
     form_class = CategoryCreateUpdateForm

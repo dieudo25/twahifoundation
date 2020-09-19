@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
@@ -7,7 +8,7 @@ from stock.models.stock import Stock, ProductStockTransfert
 from stock.forms.stock import StockCreateUpdateForm, ProductStockTransferCreateUpdateForm
 
 
-class StockListView(GroupRequiredMixin, ListView):
+class StockListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Stock list view"
 
     model = Stock
@@ -24,7 +25,7 @@ class StockListView(GroupRequiredMixin, ListView):
         return context
 
 
-class StockListFilteredView(GroupRequiredMixin, ListView):
+class StockListFilteredView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Stock list filterd by title, location"
 
     model = Stock
@@ -42,7 +43,7 @@ class StockListFilteredView(GroupRequiredMixin, ListView):
         return object_list
 
 
-class StockDetailReceptionView(GroupRequiredMixin, DetailView):
+class StockDetailReceptionView(LoginRequiredMixin, GroupRequiredMixin, DetailView):
     "Stock detail reception view"
 
     model = Stock
@@ -61,7 +62,7 @@ class StockDetailReceptionView(GroupRequiredMixin, DetailView):
         return context
 
 
-class StockDetailDeliveryView(GroupRequiredMixin, DetailView):
+class StockDetailDeliveryView(LoginRequiredMixin, GroupRequiredMixin, DetailView):
     "Stock detail delivery view"
 
     model = Stock
@@ -80,7 +81,7 @@ class StockDetailDeliveryView(GroupRequiredMixin, DetailView):
         return context
 
 
-class StockUpdateView(GroupRequiredMixin, UpdateView):
+class StockUpdateView(LoginRequiredMixin, GroupRequiredMixin, UpdateView):
     "Stock update view"
 
     model = Stock
@@ -90,7 +91,7 @@ class StockUpdateView(GroupRequiredMixin, UpdateView):
     form_class = StockCreateUpdateForm
 
 
-class StockDeleteView(GroupRequiredMixin, DeleteView):
+class StockDeleteView(LoginRequiredMixin, GroupRequiredMixin, DeleteView):
     "Stock Delete View"
 
     model = Stock
@@ -100,7 +101,7 @@ class StockDeleteView(GroupRequiredMixin, DeleteView):
     success_url = reverse_lazy('stock:stock-list')
 
 
-class StockCreateView(GroupRequiredMixin, CreateView):
+class StockCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
     "Stock create view"
 
     model = Stock
@@ -109,7 +110,7 @@ class StockCreateView(GroupRequiredMixin, CreateView):
     form_class = StockCreateUpdateForm
 
 
-class ProductStockDeliveryTransfertCreateView(GroupRequiredMixin, CreateView):
+class ProductStockDeliveryTransfertCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
     "Product Stock Transfert create view"
 
     model = ProductStockTransfert
@@ -128,7 +129,7 @@ class ProductStockDeliveryTransfertCreateView(GroupRequiredMixin, CreateView):
         return super(ProductStockDeliveryTransfertCreateView, self).form_valid(form)
 
 
-class ProductStockDeliveryTransfertDeleteView(GroupRequiredMixin, DeleteView):
+class ProductStockDeliveryTransfertDeleteView(LoginRequiredMixin, GroupRequiredMixin, DeleteView):
     "Delivery Delete View"
 
     model = ProductStockTransfert
@@ -141,7 +142,7 @@ class ProductStockDeliveryTransfertDeleteView(GroupRequiredMixin, DeleteView):
         return reverse_lazy('stock:stock-delivery-detail', kwargs={'slug': self.object.stock.slug})
 
 
-class ProductStockDeliveryTransfertUpdateView(GroupRequiredMixin, UpdateView):
+class ProductStockDeliveryTransfertUpdateView(LoginRequiredMixin, GroupRequiredMixin, UpdateView):
     "Delivery update view"
 
     model = ProductStockTransfert
@@ -155,7 +156,7 @@ class ProductStockDeliveryTransfertUpdateView(GroupRequiredMixin, UpdateView):
         return reverse_lazy('stock:stock-delivery-detail', kwargs={'slug': self.object.stock.slug})
 
 
-class ProductStockReceptionTransfertCreateView(GroupRequiredMixin, CreateView):
+class ProductStockReceptionTransfertCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
     "Product Stock Transfert create view"
 
     model = ProductStockTransfert
@@ -174,7 +175,7 @@ class ProductStockReceptionTransfertCreateView(GroupRequiredMixin, CreateView):
         return super(ProductStockReceptionTransfertCreateView, self).form_valid(form)
 
 
-class ProductStockReceptionTransfertUpdateView(GroupRequiredMixin, UpdateView):
+class ProductStockReceptionTransfertUpdateView(LoginRequiredMixin, GroupRequiredMixin, UpdateView):
     "Reception update view"
 
     model = ProductStockTransfert
@@ -188,7 +189,7 @@ class ProductStockReceptionTransfertUpdateView(GroupRequiredMixin, UpdateView):
         return reverse_lazy('stock:stock-reception-detail', kwargs={'slug': self.object.stock.slug})
 
 
-class ProductStockReceptionTransfertDeleteView(GroupRequiredMixin, DeleteView):
+class ProductStockReceptionTransfertDeleteView(LoginRequiredMixin, GroupRequiredMixin, DeleteView):
     "Reception Delete View"
 
     model = ProductStockTransfert

@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
@@ -6,7 +7,7 @@ from account.permissions.group import GroupRequiredMixin
 from contact.models.company import Company
 
 
-class CompanyListView(GroupRequiredMixin, ListView):
+class CompanyListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Company list view"
 
     model = Company
@@ -16,7 +17,7 @@ class CompanyListView(GroupRequiredMixin, ListView):
     paginate_by = 10
 
 
-class CompanyListFilteredView(GroupRequiredMixin, ListView):
+class CompanyListFilteredView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Company list filterd by email, lastname or firstname"
 
     model = Company
@@ -34,7 +35,7 @@ class CompanyListFilteredView(GroupRequiredMixin, ListView):
         return object_list
 
 
-class CompanyDetailView(GroupRequiredMixin, DetailView):
+class CompanyDetailView(LoginRequiredMixin, GroupRequiredMixin, DetailView):
     "Company detail view"
 
     model = Company
@@ -43,7 +44,7 @@ class CompanyDetailView(GroupRequiredMixin, DetailView):
     context_object_name = 'company'
 
 
-class CompanyUpdateView(GroupRequiredMixin, UpdateView):
+class CompanyUpdateView(LoginRequiredMixin, GroupRequiredMixin, UpdateView):
     "Company update view"
 
     model = Company
@@ -60,7 +61,7 @@ class CompanyUpdateView(GroupRequiredMixin, UpdateView):
     ]
 
 
-class CompanyDeleteView(GroupRequiredMixin, DeleteView):
+class CompanyDeleteView(LoginRequiredMixin, GroupRequiredMixin, DeleteView):
     "Company Delete View"
 
     model = Company
@@ -70,7 +71,7 @@ class CompanyDeleteView(GroupRequiredMixin, DeleteView):
     success_url = reverse_lazy('contact:company-list')
 
 
-class CompanyCreateView(GroupRequiredMixin, CreateView):
+class CompanyCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
     "Company create view"
 
     model = Company

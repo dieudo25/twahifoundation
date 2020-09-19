@@ -52,3 +52,8 @@ if settings.DEBUG:
         re_path(r'^media/(?P<path>.*)$', serve,
                 {'document_root': settings.MEDIA_ROOT, })
     ] + urlpatterns
+
+""" handler404 = 'page.views.error.custom_page_not_found_view'
+handler500 = 'page.views.error.custom_error_view'
+handler403 = 'page.views.error.custom_permission_denied_view'
+handler400 = 'page.views.error.custom_bad_request_view' """

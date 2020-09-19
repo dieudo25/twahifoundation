@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% load group_tags %}
+
 {% block title %} Projects {% endblock title %}
 
 {% block header %}
@@ -28,12 +30,20 @@
         </a>
         </div>
         <div class="detail-bar-col-2">
-            <a class="control-link text-white" href="{% url 'project:project-update' project.slug %}">
-                <p class="detail-bar-btn btn-blue text-center">Edit</p>
-            </a>
-            <a class="control-link text-white" href="{% url 'project:project-delete' project.slug %}">
-                <p class="detail-bar-btn btn-red text-center">Delete</p>
-            </a>
+
+            {% if request.user|has_group:"Administrator" or request.user|has_group:"Project manager" %}
+                <a class="control-link text-white" href="{% url 'project:project-update' project.slug %}">
+                    <p class="detail-bar-btn btn-blue text-center">Edit</p>
+                </a>
+            {% endif %}
+
+            {% if request.user|has_group:"Administrator" %}
+                <a class="control-link text-white" href="{% url 'project:project-delete' project.slug %}">
+                    <p class="detail-bar-btn btn-red text-center">Delete</p>
+                </a>
+            {% endif %}
+
         </div>
+        
     </div>
 {% endblock content_with_sidebar %}

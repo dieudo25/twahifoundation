@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.views.generic import DetailView, ListView
 from django.contrib.auth.models import Group
@@ -5,7 +6,7 @@ from django.contrib.auth.models import Group
 from account.permissions.group import GroupRequiredMixin
 
 
-class GroupListView(GroupRequiredMixin, ListView):
+class GroupListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Group list view"
 
     model = Group
@@ -15,7 +16,7 @@ class GroupListView(GroupRequiredMixin, ListView):
     ordering = ['name']
 
 
-class GroupListFilteredView(GroupRequiredMixin, ListView):
+class GroupListFilteredView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Group list filterd by groupname, lastname or firstname"
 
     model = Group
@@ -32,7 +33,7 @@ class GroupListFilteredView(GroupRequiredMixin, ListView):
         return object_list
 
 
-class GroupDetailView(GroupRequiredMixin, DetailView):
+class GroupDetailView(LoginRequiredMixin, GroupRequiredMixin, DetailView):
     "Group detail view"
 
     model = Group

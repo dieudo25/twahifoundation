@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.shortcuts import redirect
 from django.views.generic import DetailView, ListView
@@ -12,7 +13,7 @@ from message.forms.message import MessageCreateUpdateForm
 """ from portal.views.views import mark_as_read """
 
 
-class InboxListView(GroupRequiredMixin, ListView):
+class InboxListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Message list view"
 
     model = Message
@@ -28,7 +29,7 @@ class InboxListView(GroupRequiredMixin, ListView):
         return Message.objects.inbox_for(current_user)
 
 
-class InboxListFilteredView(GroupRequiredMixin, ListView):
+class InboxListFilteredView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Message list filterd by title, location"
 
     model = Message
@@ -53,7 +54,7 @@ class InboxListFilteredView(GroupRequiredMixin, ListView):
         return object_list
 
 
-class InboxMessageDetailView(GroupRequiredMixin, DetailView):
+class InboxMessageDetailView(LoginRequiredMixin, GroupRequiredMixin, DetailView):
     "Message detail view"
 
     model = Message

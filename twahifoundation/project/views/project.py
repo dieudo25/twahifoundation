@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
@@ -10,7 +11,7 @@ from project.models.project import Project
 from project.forms.project import ProjectCreateUpdateForm
 
 
-class ProjectListView(GroupRequiredMixin, ListView):
+class ProjectListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Project list view"
 
     model = Project
@@ -21,7 +22,7 @@ class ProjectListView(GroupRequiredMixin, ListView):
     paginate_by = 10
 
 
-class ProjectListFilteredView(GroupRequiredMixin, ListView):
+class ProjectListFilteredView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Project list filterd by title, location"
 
     model = Project
@@ -39,7 +40,7 @@ class ProjectListFilteredView(GroupRequiredMixin, ListView):
         return object_list
 
 
-class ProjectDetailView(GroupRequiredMixin, DetailView):
+class ProjectDetailView(LoginRequiredMixin, GroupRequiredMixin, DetailView):
     "Project detail view"
 
     model = Project
@@ -64,7 +65,7 @@ class ProjectDetailView(GroupRequiredMixin, DetailView):
         return instance
 
 
-class ProjectUpdateView(GroupRequiredMixin, UpdateView):
+class ProjectUpdateView(LoginRequiredMixin, GroupRequiredMixin, UpdateView):
     "Project update view"
 
     model = Project
@@ -74,7 +75,7 @@ class ProjectUpdateView(GroupRequiredMixin, UpdateView):
     form_class = ProjectCreateUpdateForm
 
 
-class ProjectDeleteView(GroupRequiredMixin, DeleteView):
+class ProjectDeleteView(LoginRequiredMixin, GroupRequiredMixin, DeleteView):
     "Project Delete View"
 
     model = Project
@@ -84,7 +85,7 @@ class ProjectDeleteView(GroupRequiredMixin, DeleteView):
     success_url = reverse_lazy('project:project-list')
 
 
-class ProjectCreateView(GroupRequiredMixin, CreateView):
+class ProjectCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
     "Project create view"
 
     model = Project

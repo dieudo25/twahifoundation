@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.views.generic import CreateView, DeleteView
 from django.urls import reverse_lazy
@@ -10,7 +11,7 @@ from account.models.user import User
 from message.models.message import Message
 
 
-class MessageDeleteView(GroupRequiredMixin, DeleteView):
+class MessageDeleteView(LoginRequiredMixin, GroupRequiredMixin, DeleteView):
     "Message Delete View"
 
     model = Message
@@ -20,7 +21,7 @@ class MessageDeleteView(GroupRequiredMixin, DeleteView):
     success_url = reverse_lazy('message:trash')
 
 
-class MessageCreateView(GroupRequiredMixin, CreateView):
+class MessageCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
     "Message create view"
 
     model = Message

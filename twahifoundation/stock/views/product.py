@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
@@ -7,7 +8,7 @@ from stock.models.product import Product
 from stock.forms.product import ProductCreateUpdateForm
 
 
-class ProductListView(GroupRequiredMixin, ListView):
+class ProductListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Product list view"
 
     model = Product
@@ -24,7 +25,7 @@ class ProductListView(GroupRequiredMixin, ListView):
         return context
 
 
-class ProductListFilteredView(GroupRequiredMixin, ListView):
+class ProductListFilteredView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Product list filterd by title, location"
 
     model = Product
@@ -43,7 +44,7 @@ class ProductListFilteredView(GroupRequiredMixin, ListView):
         return object_list
 
 
-class ProductDetailView(GroupRequiredMixin, DetailView):
+class ProductDetailView(LoginRequiredMixin, GroupRequiredMixin, DetailView):
     "Product detail view"
 
     model = Product
@@ -53,7 +54,7 @@ class ProductDetailView(GroupRequiredMixin, DetailView):
     context_object_name = 'product'
 
 
-class ProductUpdateView(GroupRequiredMixin, UpdateView):
+class ProductUpdateView(LoginRequiredMixin, GroupRequiredMixin, UpdateView):
     "Product update view"
 
     model = Product
@@ -63,7 +64,7 @@ class ProductUpdateView(GroupRequiredMixin, UpdateView):
     form_class = ProductCreateUpdateForm
 
 
-class ProductDeleteView(GroupRequiredMixin, DeleteView):
+class ProductDeleteView(LoginRequiredMixin, GroupRequiredMixin, DeleteView):
     "Product Delete View"
 
     model = Product
@@ -73,7 +74,7 @@ class ProductDeleteView(GroupRequiredMixin, DeleteView):
     success_url = reverse_lazy('stock:product-list')
 
 
-class ProductCreateView(GroupRequiredMixin, CreateView):
+class ProductCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
     "Product create view"
 
     model = Product

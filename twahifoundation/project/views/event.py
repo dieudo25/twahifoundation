@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
@@ -11,7 +12,7 @@ from project.models.event import Event
 from project.forms.event import EventCreateUpdateForm
 
 
-class EventListView(GroupRequiredMixin, ListView):
+class EventListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Event list view"
 
     model = Event
@@ -28,7 +29,7 @@ class EventListView(GroupRequiredMixin, ListView):
         return context
 
 
-class EventListFilteredView(GroupRequiredMixin, ListView):
+class EventListFilteredView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Event list filterd by title, location"
 
     model = Event
@@ -47,7 +48,7 @@ class EventListFilteredView(GroupRequiredMixin, ListView):
         return object_list
 
 
-class EventCreateView(GroupRequiredMixin, CreateView):
+class EventCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
     "Event create view"
 
     model = Event
@@ -65,7 +66,7 @@ class EventCreateView(GroupRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class EventDetailView(GroupRequiredMixin, DetailView):
+class EventDetailView(LoginRequiredMixin, GroupRequiredMixin, DetailView):
     "Event detail view"
 
     model = Event
@@ -95,7 +96,7 @@ class EventDetailView(GroupRequiredMixin, DetailView):
             return instance
 
 
-class EventUpdateView(GroupRequiredMixin, UpdateView):
+class EventUpdateView(LoginRequiredMixin, GroupRequiredMixin, UpdateView):
     "Event update view"
 
     model = Event
@@ -105,7 +106,7 @@ class EventUpdateView(GroupRequiredMixin, UpdateView):
     form_class = EventCreateUpdateForm
 
 
-class EventDeleteView(GroupRequiredMixin, DeleteView):
+class EventDeleteView(LoginRequiredMixin, GroupRequiredMixin, DeleteView):
     "Event Delete View"
 
     model = Event

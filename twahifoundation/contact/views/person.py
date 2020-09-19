@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import get_user
 from django.db.models import Q
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
@@ -7,7 +8,7 @@ from account.permissions.group import GroupRequiredMixin
 from contact.models.person import Company, Person
 
 
-class PersonListView(GroupRequiredMixin, ListView):
+class PersonListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Person list view"
 
     model = Person
@@ -22,7 +23,7 @@ class PersonListView(GroupRequiredMixin, ListView):
         return object_list
 
 
-class PersonListFilteredView(GroupRequiredMixin, ListView):
+class PersonListFilteredView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Person list filterd by email, lastname or firstname"
 
     model = Person
@@ -41,7 +42,7 @@ class PersonListFilteredView(GroupRequiredMixin, ListView):
         return object_list
 
 
-class PersonDetailView(GroupRequiredMixin, DetailView):
+class PersonDetailView(LoginRequiredMixin, GroupRequiredMixin, DetailView):
     "Person detail view"
 
     model = Person
@@ -50,7 +51,7 @@ class PersonDetailView(GroupRequiredMixin, DetailView):
     context_object_name = 'person'
 
 
-class PersonUpdateView(GroupRequiredMixin, UpdateView):
+class PersonUpdateView(LoginRequiredMixin, GroupRequiredMixin, UpdateView):
     "Person update view"
 
     model = Person
@@ -69,7 +70,7 @@ class PersonUpdateView(GroupRequiredMixin, UpdateView):
     ]
 
 
-class PersonDeleteView(GroupRequiredMixin, DeleteView):
+class PersonDeleteView(LoginRequiredMixin, GroupRequiredMixin, DeleteView):
     "Person Delete View"
 
     model = Person
@@ -79,7 +80,7 @@ class PersonDeleteView(GroupRequiredMixin, DeleteView):
     success_url = reverse_lazy('contact:person-list')
 
 
-class PersonCreateView(GroupRequiredMixin, CreateView):
+class PersonCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
     "Person create view"
 
     model = Person

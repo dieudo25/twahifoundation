@@ -2,6 +2,7 @@ import json
 import mailchimp_marketing as MailchimpMarketing
 
 from django.conf import settings
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView
 from django.http import HttpResponseRedirect
@@ -16,7 +17,7 @@ api_key = settings.MAILCHIMP_API_KEY
 server = settings.MAILCHIMP_DATA_CENTER
 
 
-class SubsciberListView(GroupRequiredMixin, TemplateView):
+class SubsciberListView(LoginRequiredMixin, GroupRequiredMixin, TemplateView):
 
     group_required = [u'Administrator',
                       u'Project manager', u'Member']

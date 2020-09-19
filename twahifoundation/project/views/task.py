@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
@@ -11,7 +12,7 @@ from project.models.task import Task
 from project.forms.task import TaskCreateUpdateForm
 
 
-class TaskListView(GroupRequiredMixin, ListView):
+class TaskListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Task list view"
 
     model = Task
@@ -31,7 +32,7 @@ class TaskListView(GroupRequiredMixin, ListView):
         return context
 
 
-class TaskListFilteredView(GroupRequiredMixin, ListView):
+class TaskListFilteredView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Task list filterd by title, location"
 
     model = Task
@@ -47,7 +48,7 @@ class TaskListFilteredView(GroupRequiredMixin, ListView):
         return object_list
 
 
-class TaskDetailView(GroupRequiredMixin, DetailView):
+class TaskDetailView(LoginRequiredMixin, GroupRequiredMixin, DetailView):
     "Task detail view"
 
     model = Task
@@ -70,7 +71,7 @@ class TaskDetailView(GroupRequiredMixin, DetailView):
             return instance
 
 
-class TaskUpdateView(GroupRequiredMixin, UpdateView):
+class TaskUpdateView(LoginRequiredMixin, GroupRequiredMixin, UpdateView):
     "Task update view"
 
     model = Task
@@ -80,7 +81,7 @@ class TaskUpdateView(GroupRequiredMixin, UpdateView):
     form_class = TaskCreateUpdateForm
 
 
-class TaskDeleteView(GroupRequiredMixin, DeleteView):
+class TaskDeleteView(LoginRequiredMixin, GroupRequiredMixin, DeleteView):
     "Task Delete View"
 
     model = Task
@@ -90,7 +91,7 @@ class TaskDeleteView(GroupRequiredMixin, DeleteView):
     success_url = reverse_lazy('project:task-list')
 
 
-class TaskCreateView(GroupRequiredMixin, CreateView):
+class TaskCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
     "Task create view"
 
     model = Task

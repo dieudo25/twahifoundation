@@ -1,14 +1,15 @@
 from django.contrib.auth import get_user
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
 from django.views.generic import TemplateView
 from django.urls import reverse_lazy
 
 from notifications.models import Notification
 
-from account.permissions.group import GroupRequiredMixin
+from account.permissions.group import group_required, GroupRequiredMixin
 
 
-class Home(GroupRequiredMixin, TemplateView):
+class Home(LoginRequiredMixin, GroupRequiredMixin, TemplateView):
     "Portal Home page"
 
     group_required = [u'Administrator', u'Member']
@@ -22,7 +23,7 @@ class Home(GroupRequiredMixin, TemplateView):
         return context
 
 
-class NotificationList(GroupRequiredMixin, TemplateView):
+class NotificationList(LoginRequiredMixin, GroupRequiredMixin, TemplateView):
 
     group_required = [u'Administrator', u'Member']
     template_name = 'portal/notification/list.html'
@@ -35,6 +36,7 @@ class NotificationList(GroupRequiredMixin, TemplateView):
         return context
 
 
+@group_required('Administrateur', 'Member')
 def mark_as_read(request, pk):
 
     notice = Notification.objects.get(id=pk)
@@ -42,6 +44,7 @@ def mark_as_read(request, pk):
     return redirect(reverse_lazy("portal:user-notifications"))
 
 
+@group_required('Administrateur', 'Member')
 def mark_all_as_read(request):
 
     current_user = get_user(request)

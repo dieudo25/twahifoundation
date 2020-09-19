@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.shortcuts import redirect
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
@@ -14,7 +15,7 @@ from blog.models.category import Category
 
 # Post
 
-class PostListView(GroupRequiredMixin, ListView):
+class PostListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Post list view"
 
     model = Post
@@ -27,7 +28,7 @@ class PostListView(GroupRequiredMixin, ListView):
     paginate_by = 10
 
 
-class PostListFilteredView(GroupRequiredMixin, ListView):
+class PostListFilteredView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Post list filterd by title, location"
 
     model = Post
@@ -47,7 +48,7 @@ class PostListFilteredView(GroupRequiredMixin, ListView):
         return object_list
 
 
-class PostDetailView(GroupRequiredMixin, DetailView):
+class PostDetailView(LoginRequiredMixin, GroupRequiredMixin, DetailView):
     "Post detail view"
 
     model = Post
@@ -71,7 +72,7 @@ class PostDetailView(GroupRequiredMixin, DetailView):
             return instance
 
 
-class PostUpdateView(GroupRequiredMixin, UpdateView):
+class PostUpdateView(LoginRequiredMixin, GroupRequiredMixin, UpdateView):
     "Post update view"
 
     model = Post
@@ -85,7 +86,7 @@ class PostUpdateView(GroupRequiredMixin, UpdateView):
         return reverse_lazy("blog:post-detail", kwargs={"slug": self.object.slug})
 
 
-class PostDeleteView(GroupRequiredMixin, DeleteView):
+class PostDeleteView(LoginRequiredMixin, GroupRequiredMixin, DeleteView):
     "Post Delete View"
 
     model = Post
@@ -95,7 +96,7 @@ class PostDeleteView(GroupRequiredMixin, DeleteView):
     success_url = reverse_lazy('blog:post-list')
 
 
-class PostCreateView(GroupRequiredMixin, CreateView):
+class PostCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
     "Post create view"
 
     model = Post
@@ -120,7 +121,7 @@ class PostCreateView(GroupRequiredMixin, CreateView):
 # Static page
 
 
-class PageListView(GroupRequiredMixin, ListView):
+class PageListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Page list view"
 
     model = Post
@@ -133,7 +134,7 @@ class PageListView(GroupRequiredMixin, ListView):
     paginate_by = 10
 
 
-class PageListFilteredView(GroupRequiredMixin, ListView):
+class PageListFilteredView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Page list filterd by title, location"
 
     model = Post
@@ -153,7 +154,7 @@ class PageListFilteredView(GroupRequiredMixin, ListView):
         return object_list
 
 
-class PageCreateView(GroupRequiredMixin, CreateView):
+class PageCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
     "Page create view"
 
     model = Post
@@ -178,7 +179,7 @@ class PageCreateView(GroupRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class PageUpdateView(GroupRequiredMixin, UpdateView):
+class PageUpdateView(LoginRequiredMixin, GroupRequiredMixin, UpdateView):
     "Page update view"
 
     model = Post
@@ -206,7 +207,7 @@ class PageUpdateView(GroupRequiredMixin, UpdateView):
             return instance
 
 
-class PageDeleteView(GroupRequiredMixin, DeleteView):
+class PageDeleteView(LoginRequiredMixin, GroupRequiredMixin, DeleteView):
     "Page Delete View"
 
     model = Post

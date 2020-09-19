@@ -1,15 +1,16 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q, Sum
 from django.shortcuts import redirect
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
 
-from account.permissions.group import GroupRequiredMixin
+from account.permissions.group import group_required, GroupRequiredMixin
 from transaction.models.transaction import Transaction, ProductTransactionLine
 from transaction.forms.sale import TransactionSaleCreateUpdateForm
 from transaction.forms.transaction_line import ProductTransactionLineCreateUpdateForm
 
 
-class TransactionSaleListView(GroupRequiredMixin, ListView):
+class TransactionSaleListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Transaction list view"
 
     model = Transaction
@@ -24,7 +25,7 @@ class TransactionSaleListView(GroupRequiredMixin, ListView):
         return Transaction.objects.filter(transaction_type='Sale')
 
 
-class TransactionListSaleFilteredView(GroupRequiredMixin, ListView):
+class TransactionListSaleFilteredView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Transaction list filterd by title, location"
 
     model = Transaction
@@ -42,7 +43,7 @@ class TransactionListSaleFilteredView(GroupRequiredMixin, ListView):
         return object_list
 
 
-class TransactionSaleDetailView(GroupRequiredMixin, DetailView):
+class TransactionSaleDetailView(LoginRequiredMixin, GroupRequiredMixin, DetailView):
     "Transaction detail view"
 
     model = Transaction
@@ -65,7 +66,7 @@ class TransactionSaleDetailView(GroupRequiredMixin, DetailView):
         return context
 
 
-class TransactionSaleUpdateView(GroupRequiredMixin, UpdateView):
+class TransactionSaleUpdateView(LoginRequiredMixin, GroupRequiredMixin, UpdateView):
     "Transaction update view"
 
     model = Transaction
@@ -79,7 +80,7 @@ class TransactionSaleUpdateView(GroupRequiredMixin, UpdateView):
         return reverse_lazy("transaction:sale-detail", kwargs={"pk": self.object.pk})
 
 
-class TransactionSaleDeleteView(GroupRequiredMixin, DeleteView):
+class TransactionSaleDeleteView(LoginRequiredMixin, GroupRequiredMixin, DeleteView):
     "Transaction Delete View"
 
     model = Transaction
@@ -89,7 +90,7 @@ class TransactionSaleDeleteView(GroupRequiredMixin, DeleteView):
     success_url = reverse_lazy('transaction:sale-list')
 
 
-class TransactionSaleCreateView(GroupRequiredMixin, CreateView):
+class TransactionSaleCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
     "Transaction create view"
 
     model = Transaction
@@ -108,7 +109,7 @@ class TransactionSaleCreateView(GroupRequiredMixin, CreateView):
         return super(TransactionSaleCreateView, self).form_valid(form)
 
 
-class ProductTransactionSaleLineCreateView(GroupRequiredMixin, CreateView):
+class ProductTransactionSaleLineCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
 
     model = ProductTransactionLine
     group_required = [u'Administrator', u'President', u'Member']
@@ -125,7 +126,7 @@ class ProductTransactionSaleLineCreateView(GroupRequiredMixin, CreateView):
         return super(ProductTransactionSaleLineCreateView, self).form_valid(form)
 
 
-class ProductTransactionSaleLineUpdateView(GroupRequiredMixin, UpdateView):
+class ProductTransactionSaleLineUpdateView(LoginRequiredMixin, GroupRequiredMixin, UpdateView):
     "Transaction update view"
 
     model = ProductTransactionLine
@@ -139,7 +140,7 @@ class ProductTransactionSaleLineUpdateView(GroupRequiredMixin, UpdateView):
         return reverse_lazy("transaction:sale-detail", kwargs={"pk": self.object.transaction.pk})
 
 
-class ProductTransactionSaleLineDeleteView(GroupRequiredMixin, DeleteView):
+class ProductTransactionSaleLineDeleteView(LoginRequiredMixin, GroupRequiredMixin, DeleteView):
     "Transaction Delete View"
 
     model = ProductTransactionLine
@@ -152,6 +153,7 @@ class ProductTransactionSaleLineDeleteView(GroupRequiredMixin, DeleteView):
         return reverse_lazy("transaction:sale-detail", kwargs={"pk": self.object.transaction.pk})
 
 
+@group_required('Administrateur', 'Member')
 def sale_validate(request, pk):
 
     transaction = Transaction.objects.get(pk=pk)

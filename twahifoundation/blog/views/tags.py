@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
@@ -7,7 +8,7 @@ from blog.models.tags import Tags
 from blog.forms.tags import TagsCreateUpdateForm
 
 
-class TagsListView(ListView):
+class TagsListView(LoginRequiredMixin, ListView):
     "Tags list view"
 
     model = Tags
@@ -18,7 +19,7 @@ class TagsListView(ListView):
     paginate_by = 10
 
 
-class TagsListFilteredView(ListView):
+class TagsListFilteredView(LoginRequiredMixin, ListView):
     "Tags list filterd by title, location"
 
     model = Tags
@@ -36,7 +37,7 @@ class TagsListFilteredView(ListView):
         return object_list
 
 
-class TagsUpdateView(UpdateView):
+class TagsUpdateView(LoginRequiredMixin, UpdateView):
     "Tags update view"
 
     model = Tags
@@ -47,7 +48,7 @@ class TagsUpdateView(UpdateView):
     success_url = reverse_lazy('blog:tags-list')
 
 
-class TagsDeleteView(DeleteView):
+class TagsDeleteView(LoginRequiredMixin, DeleteView):
     "Tags Delete View"
 
     model = Tags
@@ -57,7 +58,7 @@ class TagsDeleteView(DeleteView):
     success_url = reverse_lazy('blog:tags-list')
 
 
-class TagsCreateView(CreateView):
+class TagsCreateView(LoginRequiredMixin, CreateView):
     "Tags create view"
 
     model = Tags
