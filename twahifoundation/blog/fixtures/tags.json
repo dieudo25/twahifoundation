@@ -1,2 +1,10 @@
 [
+{
+    "model": "blog.tags",
+    "pk": 3,
+    "fields": {
+        "name": "kingdom",
+        "slug": "kingdom"
+    }
+}
 ]

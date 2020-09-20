@@ -1,2 +1,18 @@
 [
+{
+    "model": "stock.category",
+    "pk": 1,
+    "fields": {
+        "name": "kingdom",
+        "slug": "kingdom"
+    }
+},
+{
+    "model": "stock.category",
+    "pk": 2,
+    "fields": {
+        "name": "Construction",
+        "slug": "construction"
+    }
+}
 ]

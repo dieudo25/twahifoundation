@@ -3,16 +3,428 @@
     "model": "project.task",
     "pk": 1,
     "fields": {
+        "created_by": 1,
         "slug": "faire-la-nourriture",
         "project": 1,
-        "state": "TODO",
+        "state": "PENDING",
         "title": "Faire la nourriture",
         "description": "<p>zzefezfze</p>",
         "date_created": "2020-09-06",
         "deadline": "2020-09-23",
         "users": [
+            2,
+            4,
+            3,
             1,
-            3
+            5,
+            6
+        ]
+    }
+},
+{
+    "model": "project.task",
+    "pk": 2,
+    "fields": {
+        "created_by": 1,
+        "slug": "about",
+        "project": 3,
+        "state": "TODO",
+        "title": "About",
+        "description": "<p>zdzd</p>",
+        "date_created": "2020-09-10",
+        "deadline": "2020-09-23",
+        "users": [
+            2,
+            3,
+            1,
+            5
+        ]
+    }
+},
+{
+    "model": "project.task",
+    "pk": 3,
+    "fields": {
+        "created_by": 1,
+        "slug": "about-1",
+        "project": 3,
+        "state": "TODO",
+        "title": "About",
+        "description": "<p>zdzadadazd</p>",
+        "date_created": "2020-09-10",
+        "deadline": "2020-10-01",
+        "users": [
+            2,
+            3,
+            5
+        ]
+    }
+},
+{
+    "model": "project.task",
+    "pk": 4,
+    "fields": {
+        "created_by": 1,
+        "slug": "aboutdzad",
+        "project": 3,
+        "state": "LATE",
+        "title": "Aboutdzad",
+        "description": "<p>zdzadadazd</p>",
+        "date_created": "2020-09-10",
+        "deadline": "2020-10-01",
+        "users": [
+            4,
+            1
+        ]
+    }
+},
+{
+    "model": "project.task",
+    "pk": 5,
+    "fields": {
+        "created_by": 1,
+        "slug": "aboutdzad-1",
+        "project": 3,
+        "state": "TODO",
+        "title": "Aboutdzad",
+        "description": "<p>zdzadadazd</p>",
+        "date_created": "2020-09-10",
+        "deadline": "2020-10-01",
+        "users": [
+            4,
+            1
+        ]
+    }
+},
+{
+    "model": "project.task",
+    "pk": 6,
+    "fields": {
+        "created_by": 1,
+        "slug": "aboutdzad-2",
+        "project": 3,
+        "state": "TODO",
+        "title": "Aboutdzad",
+        "description": "<p>zdzadadazd</p>",
+        "date_created": "2020-09-10",
+        "deadline": "2020-10-01",
+        "users": [
+            1
+        ]
+    }
+},
+{
+    "model": "project.task",
+    "pk": 7,
+    "fields": {
+        "created_by": 1,
+        "slug": "aboutdzad-3",
+        "project": 3,
+        "state": "IN_PROGRESS",
+        "title": "Aboutdzad",
+        "description": "<p>zdzadadazd</p>",
+        "date_created": "2020-09-10",
+        "deadline": "2020-10-01",
+        "users": [
+            2,
+            3,
+            1,
+            5
+        ]
+    }
+},
+{
+    "model": "project.task",
+    "pk": 8,
+    "fields": {
+        "created_by": 1,
+        "slug": "map-with-marker",
+        "project": 6,
+        "state": "TODO",
+        "title": "Map with Marker",
+        "description": "<p>dzdza</p>",
+        "date_created": "2020-09-10",
+        "deadline": null,
+        "users": []
+    }
+},
+{
+    "model": "project.task",
+    "pk": 9,
+    "fields": {
+        "created_by": 1,
+        "slug": "map-with-marker-1",
+        "project": 6,
+        "state": "TODO",
+        "title": "Map with Marker",
+        "description": "<p>dzdza</p>",
+        "date_created": "2020-09-10",
+        "deadline": null,
+        "users": [
+            2
+        ]
+    }
+},
+{
+    "model": "project.task",
+    "pk": 10,
+    "fields": {
+        "created_by": 1,
+        "slug": "map-with-markerdzdza",
+        "project": 6,
+        "state": "TODO",
+        "title": "Map with Markerdzdza",
+        "description": "<p>dzdza</p>",
+        "date_created": "2020-09-10",
+        "deadline": null,
+        "users": []
+    }
+},
+{
+    "model": "project.task",
+    "pk": 11,
+    "fields": {
+        "created_by": 1,
+        "slug": "map-with-markerdzdza-1",
+        "project": 6,
+        "state": "TODO",
+        "title": "Map with Markerdzdza",
+        "description": "<p><img alt=\"\" src=\"/media/uploads/2020/09/13/666514_aa6siU7.jpg\" style=\"height:89px; width:50px\" /><img alt=\"\" src=\"/media/uploads/2020/09/13/666514_hr9idfc.jpg\" style=\"float:left; height:178px; margin-left:5px; margin-right:5px; width:100px\" />dzdzazfef</p>",
+        "date_created": "2020-09-10",
+        "deadline": null,
+        "users": [
+            2,
+            4,
+            1
+        ]
+    }
+},
+{
+    "model": "project.task",
+    "pk": 12,
+    "fields": {
+        "created_by": 1,
+        "slug": "map-with-markerdzdza-2",
+        "project": 6,
+        "state": "TODO",
+        "title": "Map with Markerdzdza",
+        "description": "<p>dzdza</p>",
+        "date_created": "2020-09-10",
+        "deadline": null,
+        "users": []
+    }
+},
+{
+    "model": "project.task",
+    "pk": 13,
+    "fields": {
+        "created_by": 1,
+        "slug": "map-with-markerdzdza-3",
+        "project": 6,
+        "state": "TODO",
+        "title": "Map with Markerdzdza",
+        "description": "<p>dzdza</p>",
+        "date_created": "2020-09-10",
+        "deadline": null,
+        "users": [
+            2,
+            4,
+            1
+        ]
+    }
+},
+{
+    "model": "project.task",
+    "pk": 14,
+    "fields": {
+        "created_by": 1,
+        "slug": "map-with-markerdzdza-4",
+        "project": 6,
+        "state": "TODO",
+        "title": "Map with Markerdzdza",
+        "description": "<p>dzdza</p>",
+        "date_created": "2020-09-10",
+        "deadline": null,
+        "users": []
+    }
+},
+{
+    "model": "project.task",
+    "pk": 15,
+    "fields": {
+        "created_by": 1,
+        "slug": "map-with-markerdzdza-5",
+        "project": 6,
+        "state": "TODO",
+        "title": "Map with Markerdzdza",
+        "description": "<p>dzdza</p>",
+        "date_created": "2020-09-10",
+        "deadline": null,
+        "users": [
+            2,
+            4,
+            1
+        ]
+    }
+},
+{
+    "model": "project.task",
+    "pk": 16,
+    "fields": {
+        "created_by": 1,
+        "slug": "map-with-markerdzdza-6",
+        "project": 6,
+        "state": "TODO",
+        "title": "Map with Markerdzdza",
+        "description": "<p>dzdza</p>",
+        "date_created": "2020-09-10",
+        "deadline": null,
+        "users": []
+    }
+},
+{
+    "model": "project.task",
+    "pk": 17,
+    "fields": {
+        "created_by": 1,
+        "slug": "map-with-markerdzdza-7",
+        "project": 6,
+        "state": "TODO",
+        "title": "Map with Markerdzdza",
+        "description": "<p>dzdza</p>",
+        "date_created": "2020-09-10",
+        "deadline": null,
+        "users": [
+            2,
+            4,
+            1
+        ]
+    }
+},
+{
+    "model": "project.task",
+    "pk": 18,
+    "fields": {
+        "created_by": 1,
+        "slug": "map-with-markerdzdza-8",
+        "project": 6,
+        "state": "TODO",
+        "title": "Map with Markerdzdza",
+        "description": "<p>dzdza</p>",
+        "date_created": "2020-09-10",
+        "deadline": null,
+        "users": []
+    }
+},
+{
+    "model": "project.task",
+    "pk": 19,
+    "fields": {
+        "created_by": 1,
+        "slug": "map-with-markerdzdza-9",
+        "project": 6,
+        "state": "TODO",
+        "title": "Map with Markerdzdza",
+        "description": "<p>dzdza</p>",
+        "date_created": "2020-09-10",
+        "deadline": null,
+        "users": [
+            2,
+            4,
+            1
+        ]
+    }
+},
+{
+    "model": "project.task",
+    "pk": 20,
+    "fields": {
+        "created_by": 1,
+        "slug": "map-with-markerdzdza-10",
+        "project": 6,
+        "state": "TODO",
+        "title": "Map with Markerdzdza",
+        "description": "<p>dzdza</p>",
+        "date_created": "2020-09-10",
+        "deadline": null,
+        "users": [
+            2,
+            4,
+            1
+        ]
+    }
+},
+{
+    "model": "project.task",
+    "pk": 21,
+    "fields": {
+        "created_by": 1,
+        "slug": "map-with-markerdzdza-11",
+        "project": 6,
+        "state": "TODO",
+        "title": "Map with Markerdzdza",
+        "description": "<p>dzdza</p>",
+        "date_created": "2020-09-10",
+        "deadline": null,
+        "users": [
+            2,
+            4,
+            1
+        ]
+    }
+},
+{
+    "model": "project.task",
+    "pk": 22,
+    "fields": {
+        "created_by": 1,
+        "slug": "map-with-markerdzdza-12",
+        "project": 6,
+        "state": "TODO",
+        "title": "Map with Markerdzdza",
+        "description": "<p>dzdza</p>",
+        "date_created": "2020-09-10",
+        "deadline": null,
+        "users": []
+    }
+},
+{
+    "model": "project.task",
+    "pk": 23,
+    "fields": {
+        "created_by": 1,
+        "slug": "map-with-markerdzdza-13",
+        "project": 6,
+        "state": "TODO",
+        "title": "Map with Markerdzdza",
+        "description": "<p>dzdza</p>",
+        "date_created": "2020-09-10",
+        "deadline": null,
+        "users": [
+            2,
+            4,
+            3,
+            1
+        ]
+    }
+},
+{
+    "model": "project.task",
+    "pk": 24,
+    "fields": {
+        "created_by": 1,
+        "slug": "about-2",
+        "project": 5,
+        "state": "IN_PROGRESS",
+        "title": "About",
+        "description": "<p>zerfze</p>",
+        "date_created": "2020-09-11",
+        "deadline": "2020-09-22",
+        "users": [
+            2,
+            1,
+            5,
+            6
         ]
     }
 }

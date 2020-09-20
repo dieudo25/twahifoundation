@@ -9,5 +9,379 @@
         "quantity": 20,
         "date_time_created": "2020-09-06T13:38:30.885Z"
     }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 2,
+    "fields": {
+        "stock": null,
+        "transfert_type": "RECEPTION",
+        "product": 1,
+        "quantity": 20,
+        "date_time_created": "2020-09-14T01:31:19.234Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 3,
+    "fields": {
+        "stock": null,
+        "transfert_type": "RECEPTION",
+        "product": 1,
+        "quantity": 20,
+        "date_time_created": "2020-09-14T01:33:16.872Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 4,
+    "fields": {
+        "stock": null,
+        "transfert_type": "RECEPTION",
+        "product": 1,
+        "quantity": 20,
+        "date_time_created": "2020-09-14T01:34:20.411Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 5,
+    "fields": {
+        "stock": null,
+        "transfert_type": "RECEPTION",
+        "product": 1,
+        "quantity": 20,
+        "date_time_created": "2020-09-14T01:37:49.103Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 6,
+    "fields": {
+        "stock": null,
+        "transfert_type": "RECEPTION",
+        "product": 2,
+        "quantity": 2,
+        "date_time_created": "2020-09-14T01:40:17.773Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 7,
+    "fields": {
+        "stock": null,
+        "transfert_type": "RECEPTION",
+        "product": 2,
+        "quantity": 2,
+        "date_time_created": "2020-09-14T01:41:10.877Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 8,
+    "fields": {
+        "stock": null,
+        "transfert_type": "RECEPTION",
+        "product": 2,
+        "quantity": 2,
+        "date_time_created": "2020-09-14T01:41:19.104Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 9,
+    "fields": {
+        "stock": null,
+        "transfert_type": "RECEPTION",
+        "product": 2,
+        "quantity": 2,
+        "date_time_created": "2020-09-14T01:42:05.531Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 10,
+    "fields": {
+        "stock": null,
+        "transfert_type": "RECEPTION",
+        "product": 2,
+        "quantity": 2,
+        "date_time_created": "2020-09-14T01:42:29.990Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 11,
+    "fields": {
+        "stock": null,
+        "transfert_type": "RECEPTION",
+        "product": 2,
+        "quantity": 2,
+        "date_time_created": "2020-09-14T01:42:39.111Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 12,
+    "fields": {
+        "stock": null,
+        "transfert_type": "RECEPTION",
+        "product": 2,
+        "quantity": 2,
+        "date_time_created": "2020-09-14T01:43:30.637Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 13,
+    "fields": {
+        "stock": null,
+        "transfert_type": "RECEPTION",
+        "product": 2,
+        "quantity": 2,
+        "date_time_created": "2020-09-14T01:44:42.603Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 14,
+    "fields": {
+        "stock": null,
+        "transfert_type": "RECEPTION",
+        "product": 1,
+        "quantity": 2,
+        "date_time_created": "2020-09-14T02:01:51.086Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 15,
+    "fields": {
+        "stock": null,
+        "transfert_type": "RECEPTION",
+        "product": 1,
+        "quantity": 2,
+        "date_time_created": "2020-09-14T02:02:32.290Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 16,
+    "fields": {
+        "stock": null,
+        "transfert_type": "RECEPTION",
+        "product": 1,
+        "quantity": 2,
+        "date_time_created": "2020-09-14T02:02:35.426Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 17,
+    "fields": {
+        "stock": null,
+        "transfert_type": "RECEPTION",
+        "product": 1,
+        "quantity": 2,
+        "date_time_created": "2020-09-14T02:03:34.949Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 18,
+    "fields": {
+        "stock": null,
+        "transfert_type": "RECEPTION",
+        "product": 1,
+        "quantity": 2,
+        "date_time_created": "2020-09-14T02:03:58.391Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 19,
+    "fields": {
+        "stock": null,
+        "transfert_type": "RECEPTION",
+        "product": 1,
+        "quantity": 2,
+        "date_time_created": "2020-09-14T02:06:47.852Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 20,
+    "fields": {
+        "stock": null,
+        "transfert_type": "RECEPTION",
+        "product": 1,
+        "quantity": 2,
+        "date_time_created": "2020-09-14T02:06:59.167Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 21,
+    "fields": {
+        "stock": null,
+        "transfert_type": "RECEPTION",
+        "product": 1,
+        "quantity": 2,
+        "date_time_created": "2020-09-14T02:09:19.247Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 22,
+    "fields": {
+        "stock": null,
+        "transfert_type": "RECEPTION",
+        "product": 1,
+        "quantity": 2,
+        "date_time_created": "2020-09-14T02:09:54.292Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 25,
+    "fields": {
+        "stock": 1,
+        "transfert_type": "RECEPTION",
+        "product": 1,
+        "quantity": 3,
+        "date_time_created": "2020-09-14T02:34:59.928Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 26,
+    "fields": {
+        "stock": 1,
+        "transfert_type": "RECEPTION",
+        "product": 1,
+        "quantity": 200,
+        "date_time_created": "2020-09-14T02:42:03.136Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 27,
+    "fields": {
+        "stock": 1,
+        "transfert_type": "DELIVERY",
+        "product": 1,
+        "quantity": 5,
+        "date_time_created": "2020-09-14T02:46:46.938Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 28,
+    "fields": {
+        "stock": 1,
+        "transfert_type": "RECEPTION",
+        "product": 1,
+        "quantity": 20,
+        "date_time_created": "2020-09-14T11:20:58.119Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 29,
+    "fields": {
+        "stock": 1,
+        "transfert_type": "RECEPTION",
+        "product": 1,
+        "quantity": 2,
+        "date_time_created": "2020-09-14T11:24:56.831Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 30,
+    "fields": {
+        "stock": 1,
+        "transfert_type": "DELIVERY",
+        "product": 2,
+        "quantity": 5,
+        "date_time_created": "2020-09-14T11:25:50.346Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 31,
+    "fields": {
+        "stock": 1,
+        "transfert_type": "RECEPTION",
+        "product": 1,
+        "quantity": 9,
+        "date_time_created": "2020-09-14T11:26:09.979Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 32,
+    "fields": {
+        "stock": 1,
+        "transfert_type": "RECEPTION",
+        "product": 1,
+        "quantity": 90,
+        "date_time_created": "2020-09-14T11:27:13.332Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 33,
+    "fields": {
+        "stock": 1,
+        "transfert_type": "RECEPTION",
+        "product": 2,
+        "quantity": 6,
+        "date_time_created": "2020-09-14T11:28:19.857Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 34,
+    "fields": {
+        "stock": 1,
+        "transfert_type": "RECEPTION",
+        "product": 2,
+        "quantity": 5000,
+        "date_time_created": "2020-09-14T12:31:55.756Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 35,
+    "fields": {
+        "stock": 1,
+        "transfert_type": "RECEPTION",
+        "product": 1,
+        "quantity": 20000,
+        "date_time_created": "2020-09-14T12:32:08.606Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 36,
+    "fields": {
+        "stock": 1,
+        "transfert_type": "RECEPTION",
+        "product": 1,
+        "quantity": 300,
+        "date_time_created": "2020-09-14T12:32:47.216Z"
+    }
+},
+{
+    "model": "stock.productstocktransfert",
+    "pk": 37,
+    "fields": {
+        "stock": 1,
+        "transfert_type": "DELIVERY",
+        "product": 2,
+        "quantity": 800,
+        "date_time_created": "2020-09-14T12:34:12.572Z"
+    }
 }
 ]

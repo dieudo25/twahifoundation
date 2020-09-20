@@ -3,11 +3,111 @@
     "model": "project.project",
     "pk": 1,
     "fields": {
+        "created_by": 1,
         "slug": "water-projet",
         "title": "Water Projet",
         "image": "https://zupimages.net/up/20/34/ds8a.jpg",
         "description": "<p>Canada International (RCI) editors have corrected their reporting which falsely asserted that Tel Aviv is the capital of Israel. As we noted in our alert, RCI&rsquo;s reporting deligitimized Jerusalem as the Israeli capital.</p>\r\n\r\n<p>Radio-Canada&rsquo;s report now features the following correction notice on its website, as well, the RCI Youtube video report has been revised and republished:</p>\r\n\r\n<p>Note to our audience: The previous version of the text included in the video referred to the state of Israel as &ldquo;Tel Aviv&rdquo;. We changed it to &ldquo;Israeli government&rdquo; to avoid confusion as to the city&rsquo;s status and to be more precise.&rdquo;</p>\r\n\r\n<p>Though Radio-Canada couldn&rsquo;t bring itself to acknowledge that Jerusalem is the capital of Israel, at least these corrective measures were executed. We thank Radio-Canada for its cooperation.</p>\r\n\r\n<div id=\"gtx-trans\" style=\"left:-172px; position:absolute; top:-6px\">\r\n<div class=\"gtx-trans-icon\">&nbsp;</div>\r\n</div>",
+        "content": "yoyoyo",
         "date_created": "2020-08-20",
+        "date_ended": null
+    }
+},
+{
+    "model": "project.project",
+    "pk": 2,
+    "fields": {
+        "created_by": 1,
+        "slug": "projet-1",
+        "title": "Projet 1",
+        "image": "https://zupimages.net/up/20/34/ds8a.jpg",
+        "description": "<p>azdazdzaz</p>",
+        "content": "yoyoyo",
+        "date_created": "2020-09-08",
+        "date_ended": null
+    }
+},
+{
+    "model": "project.project",
+    "pk": 3,
+    "fields": {
+        "created_by": 1,
+        "slug": "projet-23",
+        "title": "Projet 23",
+        "image": "https://zupimages.net/up/20/34/afrd.jpg",
+        "description": "<p>fezfefezfdsqdsdqsd</p>",
+        "content": "yoyoyo",
+        "date_created": "2020-09-10",
+        "date_ended": null
+    }
+},
+{
+    "model": "project.project",
+    "pk": 4,
+    "fields": {
+        "created_by": 1,
+        "slug": "projet-2888",
+        "title": "Projet 2888",
+        "image": "https://zupimages.net/up/20/34/afrd.jpg",
+        "description": "<p>dzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfefdzdfafdzaefeftzerezfef</p>",
+        "content": "yoyoyo",
+        "date_created": "2020-09-10",
+        "date_ended": null
+    }
+},
+{
+    "model": "project.project",
+    "pk": 5,
+    "fields": {
+        "created_by": 1,
+        "slug": "about",
+        "title": "About",
+        "image": "https://zupimages.net/up/20/34/afrd.jpg",
+        "description": "<p>fefgezfez</p>",
+        "content": "yoyoyo",
+        "date_created": "2020-09-10",
+        "date_ended": null
+    }
+},
+{
+    "model": "project.project",
+    "pk": 6,
+    "fields": {
+        "created_by": 1,
+        "slug": "about-1",
+        "title": "About",
+        "image": "https://zupimages.net/up/20/34/miru.jpg",
+        "description": "<p>dfazefezfezf</p>",
+        "content": "yoyoyo",
+        "date_created": "2020-09-10",
+        "date_ended": null
+    }
+},
+{
+    "model": "project.project",
+    "pk": 7,
+    "fields": {
+        "created_by": 1,
+        "slug": "map-with-markerdzdzaszas",
+        "title": "Map with Markerdzdzaszas",
+        "image": "project/project/2020/09/09/20/20/drop-of-water-545377_640.jpg",
+        "description": "<p>ezfzeff</p>",
+        "content": "<p>yoyoyo</p>",
+        "date_created": "2020-09-14",
+        "date_ended": null
+    }
+},
+{
+    "model": "project.project",
+    "pk": 8,
+    "fields": {
+        "created_by": 1,
+        "slug": "map-with-marker",
+        "title": "Map with Marker",
+        "image": "https://zupimages.net/up/20/34/afrd.jpg",
+        "description": "sasa",
+        "content": "<p>yoyoyo</p>",
+        "date_created": "2020-09-14",
         "date_ended": null
     }
 }

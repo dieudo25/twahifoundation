@@ -7,8 +7,9 @@
         "user": 1,
         "person": 2,
         "transaction_type": "Purchase",
-        "date_time_created": "2020-08-20T19:54:17.685Z",
+        "date_time_created": "2020-08-20T19:54:17Z",
         "is_valid": false,
+        "with_paypal": false,
         "total": "2800.00"
     }
 },
@@ -20,8 +21,9 @@
         "user": 1,
         "person": 1,
         "transaction_type": "Donation",
-        "date_time_created": "2020-08-21T11:41:17.245Z",
+        "date_time_created": "2020-08-21T11:41:17Z",
         "is_valid": false,
+        "with_paypal": false,
         "total": "30.00"
     }
 },
@@ -33,21 +35,9 @@
         "user": 1,
         "person": 1,
         "transaction_type": "Donation",
-        "date_time_created": "2020-08-21T11:43:33.707Z",
+        "date_time_created": "2020-08-21T11:43:33Z",
         "is_valid": false,
-        "total": "30.00"
-    }
-},
-{
-    "model": "transaction.transaction",
-    "pk": 9,
-    "fields": {
-        "project": 1,
-        "user": 1,
-        "person": 1,
-        "transaction_type": "Donation",
-        "date_time_created": "2020-08-21T11:43:54.020Z",
-        "is_valid": false,
+        "with_paypal": false,
         "total": "30.00"
     }
 },
@@ -59,22 +49,10 @@
         "user": 1,
         "person": 1,
         "transaction_type": "Donation",
-        "date_time_created": "2020-09-05T21:09:34.361Z",
+        "date_time_created": "2020-09-05T21:09:34Z",
         "is_valid": false,
+        "with_paypal": false,
         "total": "300.00"
-    }
-},
-{
-    "model": "transaction.transaction",
-    "pk": 11,
-    "fields": {
-        "project": 1,
-        "user": 1,
-        "person": 2,
-        "transaction_type": "Donation",
-        "date_time_created": "2020-09-06T13:29:30.660Z",
-        "is_valid": false,
-        "total": "0.00"
     }
 },
 {
@@ -85,8 +63,9 @@
         "user": 1,
         "person": 1,
         "transaction_type": "Purchase",
-        "date_time_created": "2020-09-06T14:47:29.674Z",
+        "date_time_created": "2020-09-06T14:47:29Z",
         "is_valid": false,
+        "with_paypal": false,
         "total": "230.00"
     }
 },
@@ -98,8 +77,9 @@
         "user": 1,
         "person": 1,
         "transaction_type": "Donation",
-        "date_time_created": "2020-09-06T14:50:13.607Z",
+        "date_time_created": "2020-09-06T14:50:13Z",
         "is_valid": true,
+        "with_paypal": false,
         "total": "50.00"
     }
 },
@@ -110,9 +90,10 @@
         "project": 1,
         "user": 1,
         "person": 2,
-        "transaction_type": "",
-        "date_time_created": "2020-09-06T14:51:19.900Z",
+        "transaction_type": "Purchase",
+        "date_time_created": "2020-09-06T14:51:19Z",
         "is_valid": false,
+        "with_paypal": false,
         "total": "0.00"
     }
 },
@@ -123,9 +104,10 @@
         "project": 1,
         "user": 1,
         "person": 1,
-        "transaction_type": "",
-        "date_time_created": "2020-09-06T14:52:25.467Z",
+        "transaction_type": "Purchase",
+        "date_time_created": "2020-09-06T14:52:25Z",
         "is_valid": false,
+        "with_paypal": false,
         "total": "0.00"
     }
 },
@@ -136,10 +118,11 @@
         "project": 1,
         "user": 1,
         "person": 1,
-        "transaction_type": "",
-        "date_time_created": "2020-09-06T14:52:41.647Z",
-        "is_valid": false,
-        "total": "0.00"
+        "transaction_type": "Purchase",
+        "date_time_created": "2020-09-06T14:52:41Z",
+        "is_valid": true,
+        "with_paypal": false,
+        "total": "200.00"
     }
 },
 {
@@ -149,10 +132,11 @@
         "project": 1,
         "user": 1,
         "person": 1,
-        "transaction_type": "",
-        "date_time_created": "2020-09-06T15:48:08.221Z",
+        "transaction_type": "Purchase",
+        "date_time_created": "2020-09-06T15:48:08Z",
         "is_valid": false,
-        "total": "0.00"
+        "with_paypal": false,
+        "total": "200.00"
     }
 },
 {
@@ -163,8 +147,9 @@
         "user": 1,
         "person": 1,
         "transaction_type": "Purchase",
-        "date_time_created": "2020-09-06T15:51:05.851Z",
+        "date_time_created": "2020-09-06T15:51:05Z",
         "is_valid": true,
+        "with_paypal": false,
         "total": "40.00"
     }
 },
@@ -176,8 +161,9 @@
         "user": 1,
         "person": 1,
         "transaction_type": "Sale",
-        "date_time_created": "2020-09-06T19:44:23.240Z",
+        "date_time_created": "2020-09-06T19:44:23Z",
         "is_valid": true,
+        "with_paypal": false,
         "total": "50.00"
     }
 },
@@ -189,9 +175,164 @@
         "user": 1,
         "person": 1,
         "transaction_type": "Sale",
-        "date_time_created": "2020-09-06T20:05:47.538Z",
+        "date_time_created": "2020-09-06T20:05:47Z",
         "is_valid": false,
+        "with_paypal": false,
         "total": "0.00"
+    }
+},
+{
+    "model": "transaction.transaction",
+    "pk": 23,
+    "fields": {
+        "project": 3,
+        "user": 1,
+        "person": 6,
+        "transaction_type": "Donation",
+        "date_time_created": "2020-09-11T23:02:49.715Z",
+        "is_valid": false,
+        "with_paypal": false,
+        "total": "0.05"
+    }
+},
+{
+    "model": "transaction.transaction",
+    "pk": 24,
+    "fields": {
+        "project": 3,
+        "user": 1,
+        "person": 6,
+        "transaction_type": "Donation",
+        "date_time_created": "2020-09-11T23:06:48.356Z",
+        "is_valid": true,
+        "with_paypal": true,
+        "total": "0.05"
+    }
+},
+{
+    "model": "transaction.transaction",
+    "pk": 25,
+    "fields": {
+        "project": 3,
+        "user": 1,
+        "person": 6,
+        "transaction_type": "Donation",
+        "date_time_created": "2020-09-11T23:39:20.583Z",
+        "is_valid": false,
+        "with_paypal": true,
+        "total": "0.05"
+    }
+},
+{
+    "model": "transaction.transaction",
+    "pk": 26,
+    "fields": {
+        "project": 4,
+        "user": 1,
+        "person": 7,
+        "transaction_type": "Donation",
+        "date_time_created": "2020-09-12T11:39:35.438Z",
+        "is_valid": false,
+        "with_paypal": true,
+        "total": "10.50"
+    }
+},
+{
+    "model": "transaction.transaction",
+    "pk": 27,
+    "fields": {
+        "project": 4,
+        "user": 1,
+        "person": 7,
+        "transaction_type": "Donation",
+        "date_time_created": "2020-09-12T11:41:22.054Z",
+        "is_valid": false,
+        "with_paypal": true,
+        "total": "10.50"
+    }
+},
+{
+    "model": "transaction.transaction",
+    "pk": 28,
+    "fields": {
+        "project": 3,
+        "user": 1,
+        "person": 6,
+        "transaction_type": "Donation",
+        "date_time_created": "2020-09-12T11:45:05.217Z",
+        "is_valid": false,
+        "with_paypal": true,
+        "total": "10.00"
+    }
+},
+{
+    "model": "transaction.transaction",
+    "pk": 29,
+    "fields": {
+        "project": 3,
+        "user": 1,
+        "person": 6,
+        "transaction_type": "Donation",
+        "date_time_created": "2020-09-12T12:13:00.664Z",
+        "is_valid": false,
+        "with_paypal": true,
+        "total": "0.00"
+    }
+},
+{
+    "model": "transaction.transaction",
+    "pk": 30,
+    "fields": {
+        "project": 3,
+        "user": 1,
+        "person": 6,
+        "transaction_type": "Donation",
+        "date_time_created": "2020-09-12T12:16:21.132Z",
+        "is_valid": false,
+        "with_paypal": true,
+        "total": "30.00"
+    }
+},
+{
+    "model": "transaction.transaction",
+    "pk": 31,
+    "fields": {
+        "project": 3,
+        "user": 1,
+        "person": 6,
+        "transaction_type": "Donation",
+        "date_time_created": "2020-09-12T12:36:59.152Z",
+        "is_valid": true,
+        "with_paypal": true,
+        "total": "50.00"
+    }
+},
+{
+    "model": "transaction.transaction",
+    "pk": 34,
+    "fields": {
+        "project": 5,
+        "user": 1,
+        "person": 9,
+        "transaction_type": "Donation",
+        "date_time_created": "2020-09-14T00:16:20.002Z",
+        "is_valid": true,
+        "with_paypal": true,
+        "total": "50.00"
+    }
+},
+{
+    "model": "transaction.transaction",
+    "pk": 35,
+    "fields": {
+        "project": 3,
+        "user": null,
+        "person": 9,
+        "transaction_type": "Donation",
+        "date_time_created": "2020-09-16T17:45:18.531Z",
+        "is_valid": true,
+        "with_paypal": true,
+        "total": "30.00"
     }
 }
 ]

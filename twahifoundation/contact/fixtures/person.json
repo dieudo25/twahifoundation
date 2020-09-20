@@ -20,7 +20,7 @@
     "pk": 2,
     "fields": {
         "company": null,
-        "created_by": null,
+        "created_by": 1,
         "first_name": "Patrick",
         "last_name": "Litamba",
         "email": "patlit@yopmail.com",
@@ -29,6 +29,54 @@
         "is_donor": false,
         "is_subscribed": false,
         "slug": "patrick-litamba"
+    }
+},
+{
+    "model": "contact.person",
+    "pk": 6,
+    "fields": {
+        "company": null,
+        "created_by": 1,
+        "first_name": "Dieudonn\u00e9",
+        "last_name": "Twahirwa",
+        "email": "twahirwa25@gmail.com",
+        "phone_number": null,
+        "is_supplier": false,
+        "is_donor": true,
+        "is_subscribed": false,
+        "slug": "dieudonne-twahirwa"
+    }
+},
+{
+    "model": "contact.person",
+    "pk": 7,
+    "fields": {
+        "company": null,
+        "created_by": null,
+        "first_name": "Kevin",
+        "last_name": "Deb",
+        "email": "kevin@yopmail.com",
+        "phone_number": null,
+        "is_supplier": false,
+        "is_donor": true,
+        "is_subscribed": false,
+        "slug": "kevin-deb"
+    }
+},
+{
+    "model": "contact.person",
+    "pk": 9,
+    "fields": {
+        "company": null,
+        "created_by": null,
+        "first_name": "Nyirambabajende",
+        "last_name": "Venantie",
+        "email": "twahirwa25@gmail.com",
+        "phone_number": null,
+        "is_supplier": false,
+        "is_donor": true,
+        "is_subscribed": false,
+        "slug": "nyirambabajende-venantie"
     }
 }
 ]

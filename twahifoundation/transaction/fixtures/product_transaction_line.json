@@ -151,5 +151,23 @@
         "product": 2,
         "quantity": 5
     }
+},
+{
+    "model": "transaction.producttransactionline",
+    "pk": 36,
+    "fields": {
+        "transaction": 16,
+        "product": 1,
+        "quantity": 20
+    }
+},
+{
+    "model": "transaction.producttransactionline",
+    "pk": 37,
+    "fields": {
+        "transaction": 17,
+        "product": 1,
+        "quantity": 20
+    }
 }
 ]

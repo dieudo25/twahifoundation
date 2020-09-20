@@ -1,2 +1,44 @@
 [
+{
+    "model": "contact.company",
+    "pk": 1,
+    "fields": {
+        "created_by": null,
+        "name": "Tesla",
+        "address": "Avenue du Ch\u00e2teau 66",
+        "email": "twahirwa25@gmail.com",
+        "phone_number": "+32489512493",
+        "website": "https://www.proximus.be",
+        "is_partner": true,
+        "slug": "tesla"
+    }
+},
+{
+    "model": "contact.company",
+    "pk": 2,
+    "fields": {
+        "created_by": null,
+        "name": "misfit",
+        "address": "Avenue Du Chateu",
+        "email": "twahirwa25@gmail.com",
+        "phone_number": "+32489512493",
+        "website": "https://www.proximus.be",
+        "is_partner": false,
+        "slug": "misfit"
+    }
+},
+{
+    "model": "contact.company",
+    "pk": 3,
+    "fields": {
+        "created_by": null,
+        "name": "Aline Iradukunda",
+        "address": "Rue A Et M Hellinckx 27",
+        "email": "aline@gmail.com",
+        "phone_number": "23456787",
+        "website": "https://www.tesla.com",
+        "is_partner": false,
+        "slug": "aline-iradukunda"
+    }
+}
 ]

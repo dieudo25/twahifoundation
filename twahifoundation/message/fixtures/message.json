@@ -1,36 +1,222 @@
 [
 {
     "model": "message.message",
-    "pk": 11,
+    "pk": 20,
     "fields": {
         "subject": "Welcome to the foundation",
-        "body": "<p>fezf</p>",
+        "body": "<p>zdzadz</p>",
         "sender": 1,
         "recipient": 1,
         "parent_msg": null,
-        "sent_at": "2020-09-07T12:39:09.366Z",
+        "sent_at": "2020-09-09T19:46:59Z",
         "read_at": null,
         "replied_at": null,
-        "sender_deleted_at": null,
-        "recipient_deleted_at": null,
-        "uploaded_file": ""
+        "sender_deleted_at": "2020-09-19T20:55:47.310Z",
+        "recipient_deleted_at": "2020-09-19T20:55:47.336Z",
+        "uploaded_file": "",
+        "slug": "",
+        "sender_delete_once": false,
+        "recipient_delete_once": false
     }
 },
 {
     "model": "message.message",
-    "pk": 12,
+    "pk": 26,
     "fields": {
-        "subject": "Welcome to the foundationfefzefefez",
-        "body": "<p>azfefef</p>",
+        "subject": "qfqf",
+        "body": "<p>dzdd</p>",
         "sender": 1,
-        "recipient": 1,
+        "recipient": 6,
         "parent_msg": null,
-        "sent_at": "2020-09-07T12:43:16.115Z",
+        "sent_at": "2020-09-09T20:17:35.449Z",
         "read_at": null,
         "replied_at": null,
         "sender_deleted_at": null,
-        "recipient_deleted_at": "2020-09-07T12:43:41.444Z",
-        "uploaded_file": ""
+        "recipient_deleted_at": "2020-09-10T00:14:21.403Z",
+        "uploaded_file": "",
+        "slug": "qfqf",
+        "sender_delete_once": false,
+        "recipient_delete_once": false
+    }
+},
+{
+    "model": "message.message",
+    "pk": 28,
+    "fields": {
+        "subject": "Welcome to the foundation",
+        "body": "<p>efzefezfezfezf</p>",
+        "sender": 1,
+        "recipient": 3,
+        "parent_msg": null,
+        "sent_at": "2020-09-10T02:19:13.692Z",
+        "read_at": null,
+        "replied_at": null,
+        "sender_deleted_at": "2020-09-19T20:53:09.189Z",
+        "recipient_deleted_at": null,
+        "uploaded_file": "",
+        "slug": "welcome-to-the-foundation-1",
+        "sender_delete_once": false,
+        "recipient_delete_once": false
+    }
+},
+{
+    "model": "message.message",
+    "pk": 29,
+    "fields": {
+        "subject": "Welcome to the foundation",
+        "body": "<p>jfgj</p>",
+        "sender": 1,
+        "recipient": 1,
+        "parent_msg": null,
+        "sent_at": "2020-09-10T12:23:57Z",
+        "read_at": "2020-09-20T00:04:13.702Z",
+        "replied_at": null,
+        "sender_deleted_at": null,
+        "recipient_deleted_at": null,
+        "uploaded_file": "",
+        "slug": "welcome-to-the-foundation-2",
+        "sender_delete_once": false,
+        "recipient_delete_once": false
+    }
+},
+{
+    "model": "message.message",
+    "pk": 30,
+    "fields": {
+        "subject": "qfqf",
+        "body": "<p>thr</p>",
+        "sender": 1,
+        "recipient": 6,
+        "parent_msg": null,
+        "sent_at": "2020-09-11T00:23:09.991Z",
+        "read_at": null,
+        "replied_at": null,
+        "sender_deleted_at": "2020-09-19T20:53:09.100Z",
+        "recipient_deleted_at": null,
+        "uploaded_file": "",
+        "slug": "qfqf-1",
+        "sender_delete_once": false,
+        "recipient_delete_once": false
+    }
+},
+{
+    "model": "message.message",
+    "pk": 31,
+    "fields": {
+        "subject": "Welcome to the foundation",
+        "body": "<p>jtjtj</p>",
+        "sender": 1,
+        "recipient": 2,
+        "parent_msg": null,
+        "sent_at": "2020-09-12T16:29:12.929Z",
+        "read_at": null,
+        "replied_at": null,
+        "sender_deleted_at": null,
+        "recipient_deleted_at": null,
+        "uploaded_file": "",
+        "slug": "welcome-to-the-foundation-3",
+        "sender_delete_once": false,
+        "recipient_delete_once": false
+    }
+},
+{
+    "model": "message.message",
+    "pk": 32,
+    "fields": {
+        "subject": "Hello",
+        "body": "<p>dazdaz</p>",
+        "sender": 1,
+        "recipient": 3,
+        "parent_msg": null,
+        "sent_at": "2020-09-14T18:33:44.551Z",
+        "read_at": null,
+        "replied_at": null,
+        "sender_deleted_at": "2020-09-19T20:58:19.687Z",
+        "recipient_deleted_at": null,
+        "uploaded_file": "",
+        "slug": "hello",
+        "sender_delete_once": false,
+        "recipient_delete_once": false
+    }
+},
+{
+    "model": "message.message",
+    "pk": 33,
+    "fields": {
+        "subject": "d",
+        "body": "<p>dzd</p>",
+        "sender": 1,
+        "recipient": 3,
+        "parent_msg": null,
+        "sent_at": "2020-09-14T18:48:02.466Z",
+        "read_at": null,
+        "replied_at": null,
+        "sender_deleted_at": "2020-09-19T20:53:09.024Z",
+        "recipient_deleted_at": null,
+        "uploaded_file": "",
+        "slug": "d",
+        "sender_delete_once": false,
+        "recipient_delete_once": false
+    }
+},
+{
+    "model": "message.message",
+    "pk": 34,
+    "fields": {
+        "subject": "qfqf",
+        "body": "<p>fzefze</p>\r\n\r\n<p>&nbsp;</p>",
+        "sender": 1,
+        "recipient": 3,
+        "parent_msg": null,
+        "sent_at": "2020-09-14T19:03:26.441Z",
+        "read_at": null,
+        "replied_at": null,
+        "sender_deleted_at": "2020-09-19T20:57:57.505Z",
+        "recipient_deleted_at": null,
+        "uploaded_file": "",
+        "slug": "qfqf-2",
+        "sender_delete_once": false,
+        "recipient_delete_once": false
+    }
+},
+{
+    "model": "message.message",
+    "pk": 35,
+    "fields": {
+        "subject": "qfqf",
+        "body": "<p>dzada</p>",
+        "sender": 1,
+        "recipient": 3,
+        "parent_msg": null,
+        "sent_at": "2020-09-14T20:03:12.351Z",
+        "read_at": null,
+        "replied_at": null,
+        "sender_deleted_at": "2020-09-19T20:57:01.035Z",
+        "recipient_deleted_at": "2020-09-19T20:57:01.061Z",
+        "uploaded_file": "",
+        "slug": "qfqf-3",
+        "sender_delete_once": false,
+        "recipient_delete_once": false
+    }
+},
+{
+    "model": "message.message",
+    "pk": 37,
+    "fields": {
+        "subject": "qfqf",
+        "body": "<p>zdadz</p>",
+        "sender": 5,
+        "recipient": 1,
+        "parent_msg": null,
+        "sent_at": "2020-09-19T20:11:48Z",
+        "read_at": "2020-09-19T20:12:03Z",
+        "replied_at": null,
+        "sender_deleted_at": "2020-09-19T20:57:07.932Z",
+        "recipient_deleted_at": "2020-09-19T20:57:07.958Z",
+        "uploaded_file": "",
+        "slug": "qfqf-4",
+        "sender_delete_once": false,
+        "recipient_delete_once": true
     }
 }
 ]

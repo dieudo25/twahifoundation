@@ -826,5 +826,41 @@
         "content_type": 23,
         "codename": "view_transaction"
     }
+},
+{
+    "model": "auth.permission",
+    "pk": 93,
+    "fields": {
+        "name": "Can add notification",
+        "content_type": 24,
+        "codename": "add_notification"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 94,
+    "fields": {
+        "name": "Can change notification",
+        "content_type": 24,
+        "codename": "change_notification"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 95,
+    "fields": {
+        "name": "Can delete notification",
+        "content_type": 24,
+        "codename": "delete_notification"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 96,
+    "fields": {
+        "name": "Can view notification",
+        "content_type": 24,
+        "codename": "view_notification"
+    }
 }
 ]

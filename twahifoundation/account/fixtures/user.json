@@ -4,7 +4,7 @@
     "pk": 1,
     "fields": {
         "password": "pbkdf2_sha256$150000$bgOlLYXZKye3$/6u1NouBYchSVdA4PclNpMVbZETHCKKkfLepUVoZ50g=",
-        "last_login": "2020-09-05T19:20:39.088Z",
+        "last_login": "2020-09-19T02:23:30.759Z",
         "is_superuser": true,
         "username": "admin",
         "first_name": "Dieudonn\u00e9",
@@ -12,11 +12,14 @@
         "email": "twahirwa25@gmail.com",
         "is_staff": true,
         "is_active": true,
-        "date_joined": "2020-08-18T13:49:27.901Z",
+        "date_joined": "2020-08-18T13:49:27Z",
         "language": "FR",
         "avatar": "account/user/avatar/default.svg",
         "slug": "admin",
-        "groups": [],
+        "groups": [
+            1,
+            5
+        ],
         "user_permissions": []
     }
 },
@@ -25,8 +28,8 @@
     "pk": 2,
     "fields": {
         "password": "pbkdf2_sha256$150000$WTNh0Ukb9wJK$ghutShGBVAUrTCZ/uD3kHoEWRtVu09JUPtCSU7HShHk=",
-        "last_login": "2020-08-20T11:55:13Z",
-        "is_superuser": true,
+        "last_login": "2020-09-18T22:58:44.978Z",
+        "is_superuser": false,
         "username": "momo974",
         "first_name": "Monique",
         "last_name": "Anberty",
@@ -38,7 +41,7 @@
         "avatar": "account/user/avatar/default.svg",
         "slug": "momo974",
         "groups": [
-            1
+            5
         ],
         "user_permissions": []
     }
@@ -48,7 +51,7 @@
     "pk": 3,
     "fields": {
         "password": "pbkdf2_sha256$150000$CCzcQeqvhG1C$y/i/IEoQze//oXdyjCCA7iCyk0vIvidKbm4+voWE9sg=",
-        "last_login": "2020-09-05T19:20:25.860Z",
+        "last_login": "2020-09-19T00:04:03.550Z",
         "is_superuser": false,
         "username": "patrick50",
         "first_name": "Patrick",
@@ -58,10 +61,12 @@
         "is_active": true,
         "date_joined": "2020-08-19T18:36:52Z",
         "language": "FR",
-        "avatar": "account/user/avatar/default.svg",
+        "avatar": "account/user/avatar/2020/09/09/10/20/666514.jpg",
         "slug": "patrick50",
         "groups": [
-            2
+            2,
+            5,
+            25
         ],
         "user_permissions": []
     }
@@ -71,7 +76,7 @@
     "pk": 4,
     "fields": {
         "password": "pbkdf2_sha256$150000$VvXlEjuT1xoR$glzhFktPge1+w18ZNVsGiHnGqvyAUb3YGiVarEiNW5Y=",
-        "last_login": "2020-09-05T19:20:15.315Z",
+        "last_login": "2020-09-18T23:45:05.402Z",
         "is_superuser": false,
         "username": "lola8",
         "first_name": "lorence",
@@ -84,7 +89,8 @@
         "avatar": "account/user/avatar/default.svg",
         "slug": "lola8",
         "groups": [
-            4
+            4,
+            5
         ],
         "user_permissions": []
     }
@@ -94,7 +100,7 @@
     "pk": 5,
     "fields": {
         "password": "pbkdf2_sha256$150000$XB0AOSJERwhZ$GcWelxLJkismEUO/cDv958ahjtn8rRdFET4NDRVUsYo=",
-        "last_login": null,
+        "last_login": "2020-09-19T14:33:36.074Z",
         "is_superuser": false,
         "username": "azerty258",
         "first_name": "Azerty",
@@ -107,7 +113,31 @@
         "avatar": "account/user/avatar/default.svg",
         "slug": "azerty258",
         "groups": [
-            3
+            5
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "account.user",
+    "pk": 6,
+    "fields": {
+        "password": "lancer25",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "jill",
+        "first_name": "Aline",
+        "last_name": "Iradukunda",
+        "email": "aline@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2020-09-09T16:18:42Z",
+        "language": "FR",
+        "avatar": "account/user/avatar/default.svg",
+        "slug": "jill",
+        "groups": [
+            5,
+            6
         ],
         "user_permissions": []
     }
