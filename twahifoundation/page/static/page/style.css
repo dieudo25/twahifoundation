@@ -1018,6 +1018,15 @@ footer #newsletters-title h2 {
     display: flex;
   }
 
+  .project-home .projects-item h3,
+  .project-home .projects-item p {
+    max-width: unset;
+  }
+
+  .project-home .description {
+    margin-bottom: 0;
+  }
+
   .object-control-link a {
     margin-right: 10px;
   }
@@ -1140,10 +1149,18 @@ footer #newsletters-title h2 {
     margin-bottom: 15px;
   }
 
+  .project-home .title-img-wrapper {
+    margin-bottom: 0;
+  }
+
   .projects-item .img-wrapper {
     width: 270px;
     /* height: 150px; */
     margin-right: 10px;
+  }
+
+  .projects-title {
+    max-width: 330px;
   }
 
   .projects-title {
@@ -1191,9 +1208,18 @@ footer #newsletters-title h2 {
     height: 208px;
   }
 
+  #projects-section .project-home .projects-item {
+    height: unset;
+  }
+
   #projects-section .img-wrapper {
     width: 400px;
     height: 208px;
+  }
+
+  #projects-section .project-home .img-wrapper {
+    width: 400px;
+    height: 100%;
   }
 
   .projects-item h3 {

@@ -6,12 +6,12 @@
     <span class="title">Our project{{ page_project_list|pluralize }}</span>
     <span class="material-icons slide-nav next">keyboard_arrow_right</span>
   </h2>
-  <div class="projects-list content-width-wrapper">
+  <div class="projects-list content-width-wrapper project-home">
     
     {% if page_project_list %}
 
       {% for project in page_project_list %}
-        <div class="projects-item">
+        <div class="projects-item project-home">
           <div class="title-img-wrapper">
             <div class="img-wrapper">
               <img src="{{ project.image.url }}">
@@ -19,10 +19,12 @@
           </div>
           <div class="card-text">
             <div class="projects-title">
-              <a href="{% url 'page:project-detail' project.slug %}"><h3>{{ project.title }}</h3></a>
+              <a href="{% url 'page:project-detail' project.slug %}">
+                <h3 class="project-home">{{ project.title }}</h3>
+              </a>
             </div>
             <p><span>Created on</span> {{ project.date_created }}</p>
-            <p>
+            <p class="description">
               {{ project.description|truncatewords:30|safe }}
             </p>
           </div>

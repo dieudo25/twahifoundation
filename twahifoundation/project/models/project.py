@@ -19,9 +19,8 @@ class Project(models.Model):
     slug = models.SlugField(max_length=60, unique=True)
     title = models.CharField(max_length=255)
     image = models.ImageField(
-        null=True,
-        blank=True,
         upload_to='project/project/%Y/%m/%D',
+        default='project/project/project.png'
     )
     description = models.TextField()
     content = RichTextUploadingField()
@@ -86,12 +85,13 @@ class Project(models.Model):
 
         super().save(*args, **kwargs)
 
-        img = Image.open(self.image.path)
+        if self.image != None:
+            img = Image.open(self.image.path)
 
-        if img.height > 450 or img.width > 450:
-            output_size = (450, 450)
-            img.thumbnail(output_size)
-            img.save(self.image.path)
+            if img.height > 450 or img.width > 450:
+                output_size = (450, 450)
+                img.thumbnail(output_size)
+                img.save(self.image.path)
 
     def get_absolute_url(self):
         """

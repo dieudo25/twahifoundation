@@ -35,9 +35,8 @@ class Post(models.Model):
         max_length=10, choices=STATUS_CHOICE, default='Drafted')
     keywords = models.TextField(max_length=500, blank=True)
     image = models.ImageField(
-        null=True,
-        blank=True,
         upload_to='blog/post/%Y/%m/%D',
+        default='blog/post/post.png'
     )
 
     class Meta:
@@ -55,12 +54,13 @@ class Post(models.Model):
 
         super().save(*args, **kwargs)
 
-        img = Image.open(self.image.path)
+        if self.image != None:
+            img = Image.open(self.image.path)
 
-        if img.height > 450 or img.width > 450:
-            output_size = (450, 450)
-            img.thumbnail(output_size)
-            img.save(self.image.path)
+            if img.height > 450 or img.width > 450:
+                output_size = (450, 450)
+                img.thumbnail(output_size)
+                img.save(self.image.path)
 
     def __str__(self):
         return self.title

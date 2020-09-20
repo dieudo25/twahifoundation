@@ -4,6 +4,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
+from PIL import Image
 
 
 class User(AbstractUser):
@@ -81,3 +82,11 @@ class User(AbstractUser):
             self._generate_slug()
 
         super().save(*args, **kwargs)
+
+        if self.avatar != None:
+            img = Image.open(self.avatar.path)
+
+            if img.height > 450 or img.width > 450:
+                output_size = (450, 450)
+                img.thumbnail(output_size)
+                img.save(self.avatar.path)

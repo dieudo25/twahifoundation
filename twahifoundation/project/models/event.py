@@ -39,6 +39,7 @@ class Event(models.Model):
     )
     image = models.ImageField(
         upload_to='project/event/%Y/%m/%D',
+        default='project/event/event.png'
     )
     content = RichTextUploadingField()
     date_created = models.DateField(
@@ -105,12 +106,13 @@ class Event(models.Model):
 
         super().save(*args, **kwargs)
 
-        img = Image.open(self.image.path)
+        if self.image != None:
+            img = Image.open(self.image.path)
 
-        if img.height > 450 or img.width > 450:
-            output_size = (450, 450)
-            img.thumbnail(output_size)
-            img.save(self.image.path)
+            if img.height > 450 or img.width > 450:
+                output_size = (450, 450)
+                img.thumbnail(output_size)
+                img.save(self.image.path)
 
     def get_absolute_url(self):
         """
