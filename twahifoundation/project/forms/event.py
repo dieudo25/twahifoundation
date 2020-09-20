@@ -40,5 +40,5 @@ class EventCreateUpdateForm(forms.ModelForm):
         if time_started and time_ended:
             if time_ended < time_started:
                 raise forms.ValidationError(
-                    "The end time of a event cannot be earlier than its start time!")
+                    "The end time of a event cannot be earlier than its start time !")
         return cleaned_data

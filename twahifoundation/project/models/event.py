@@ -38,8 +38,6 @@ class Event(models.Model):
         default=EVENT_TYPE_CHOICES[0][0],
     )
     image = models.ImageField(
-        null=True,
-        blank=True,
         upload_to='project/event/%Y/%m/%D',
     )
     content = RichTextUploadingField()
