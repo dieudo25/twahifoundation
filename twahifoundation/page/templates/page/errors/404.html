@@ -1,11 +1,9 @@
-{% load static %}
-
-{% extends '../base.html' %}
+{% extends 'base.html' %}
 
 {% block css %}
 
     {{ block.super }}
-    
+    {% load static %}
     <link rel="stylesheet" href="{% static 'page/errors/404.css' %}" type="text/css">
 {% endblock css %}
 
