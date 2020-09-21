@@ -17,11 +17,11 @@ class HomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["page_project_list"] = Project.objects.all().order_by(
+        context["page_project_list"] = Project.objects.filter(status='Published').order_by(
             '-date_created')[:3]
         context["news_list"] = Post.objects.filter(status='Published', category__name="Post").order_by(
             '-created_on')[:3]
-        context["page_event_list"] = Event.objects.filter(event_type="FundRaising").order_by(
+        context["page_event_list"] = Event.objects.filter(event_type="FundRaising", status='Published').order_by(
             '-date_created')[:2]
 
         cookie = self.request.COOKIES.get('cookie_consent_user_accepted')
@@ -36,39 +36,6 @@ class PageDetailView(DetailView):
     model = Post
     template_name = "page/static_page/page.html"
     context_object_name = 'page'
-
-
-class AboutView(TemplateView):
-    "About page"
-
-    template_name = "page/static_page/page.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["page"] = Post.objects.get(title="About us")
-        return context
-
-
-class LegalMentionsView(TemplateView):
-    "LegalMentions page"
-
-    template_name = "page/static_page/page.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["page"] = Post.objects.get(title="Legal mentions")
-        return context
-
-
-class AttributionsView(TemplateView):
-    "Attributions page"
-
-    template_name = "page/static_page/page.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["page"] = Post.objects.get(title="Attributions")
-        return context
 
 
 class ContactView(FormView):
@@ -106,7 +73,8 @@ class FundRaisingEventListView(ListView):
     paginate_by = 5
     template_name = 'page/event/list.html'
     context_object_name = 'page_event_list'
-    queryset = Event.objects.filter(event_type="FundRaising")
+    queryset = Event.objects.filter(
+        event_type="FundRaising", status='Published')
 
 
 class ProjectListView(ListView):
@@ -116,6 +84,7 @@ class ProjectListView(ListView):
     paginate_by = 5
     template_name = 'page/project/list.html'
     context_object_name = 'page_project_list'
+    queryset = Project.objects.filter(status='Published')
 
 
 class NewsListView(ListView):

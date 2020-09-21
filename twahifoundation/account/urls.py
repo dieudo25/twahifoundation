@@ -8,6 +8,7 @@ from account.views.user import (
     UserListView,
     UserListFilteredView,
     UserUpdateView,
+    user_statut_toggle,
 )
 
 from account.views.group import (
@@ -65,17 +66,19 @@ urlpatterns = [
     re_path(r'^group/(?P<pk>[0-9-]*)/$',
             GroupDetailView.as_view(), name="group-detail"),
 
-
     # User CRUD
     re_path(r'^user/list/$', UserListView.as_view(), name="user-list"),
     re_path(r'^user/list/search/$', UserListFilteredView.as_view(),
             name="user-list-search"),
     re_path(r'^user/create/$', UserCreateView.as_view(), name="user-create"),
-    re_path(r'^user/(?P<slug>[a-z0-9-]*)/$',
-            UserDetailView.as_view(), name="user-detail"),
+    re_path(r'^user/(?P<slug>[a-z0-9-]*)/update_status/$',
+            user_statut_toggle, name="user-update-status"),
     re_path(r'^user/(?P<slug>[a-z0-9-]*)/update/$',
             UserUpdateView.as_view(), name='user-update'),
     re_path(r'^user/(?P<slug>[a-z0-9-]*)/delete/$',
             UserDeleteView.as_view(), name="user-delete"),
+
+    re_path(r'^user/(?P<slug>[a-z0-9-]*)/$',
+            UserDetailView.as_view(), name="user-detail"),
 
 ]

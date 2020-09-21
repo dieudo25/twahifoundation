@@ -60,28 +60,46 @@
         <table class="table table-hover">
           <thead>
             <tr>
+              <th scope="col"></th>
               <th scope="col">Title</th>
-              <th scope="col">Image</th>
-              <th scope="col">Location</th>
               <th scope="col">Start at</th>
               <th scope="col">End at</th>
+              <th scope="col">Location</th>
               <th scope="col">Type</th>
+              <th scope="col">Status</th>
             </tr>
           </thead>
           <tbody>
 
             {% for event in filtered_event_list %}
               <tr class="table">
-                <th scope="row"><a href="{% url 'project:event-detail' event.slug %}">{{ event.title }}</a></th>
+                <th scope="row">
+
+                  {% if event.image %}
+                    <a href="{% url 'project:event-detail' event.slug %}">
+                      <div class="img-wrapper">
+                        <img src="{{ event.image.url }}">
+                      </div>
+                    </a>
+                  {% endif %}
+
+                </th>
                 <td>
-                  <div class="img-wrapper">
-                    <img src="{{ event.image.url }}">
-                  </div>
+                  <a href="{% url 'project:event-detail' event.slug %}" class="font-weight-bold">{{ event.title }}</a>
                 </td>
-                <td>{{ event.location}}</td>
                 <td>{{ event.time_startted }}</td>
                 <td>{{ event.time_ended }}</td>
+                <td>{{ event.location}}</td>
                 <td>{{ event.event_type }}</td>
+                
+                {% if event.event_type == 'FundRaising' %}
+                  <td>{{ event.status }}</td>
+                {% else %}
+                  <td>
+                    <span class="material-icons text-red">cancel</span>
+                  </td>
+                {% endif %}
+                
               </tr>
             {% endfor %}
 
@@ -91,28 +109,46 @@
         <table class="table table-hover">
           <thead>
             <tr>
+              <th scope="col"></th>
               <th scope="col">Title</th>
-              <th scope="col">Image</th>
-              <th scope="col">Location</th>
               <th scope="col">Start at</th>
               <th scope="col">End at</th>
+              <th scope="col">Location</th>
               <th scope="col">Type</th>
+              <th scope="col">Status</th>
             </tr>
           </thead>
           <tbody>
 
             {% for event in event_list %}
               <tr class="table">
-                <th scope="row"><a href="{% url 'project:event-detail' event.slug %}">{{ event.title }}</a></th>
+                <th scope="row">
+
+                  {% if event.image %}
+                    <a href="{% url 'project:event-detail' event.slug %}">
+                      <div class="img-wrapper">
+                        <img src="{{ event.image.url }}">
+                      </div>
+                    </a>
+                  {% endif %}
+
+                </th>
                 <td>
-                  <div class="img-wrapper">
-                    <img src="{{ event.image.url }}">
-                  </div>
+                  <a href="{% url 'project:event-detail' event.slug %}" class="font-weight-bold">{{ event.title }}</a>
                 </td>
-                <td>{{ event.location}}</td>
                 <td>{{ event.time_started }}</td>
                 <td>{{ event.time_ended }}</td>
+                <td>{{ event.location}}</td>
                 <td>{{ event.event_type }}</td>
+                
+                {% if event.event_type == 'FundRaising' %}
+                  <td>{{ event.status }}</td>
+                {% else %}
+                  <td>
+                    <span class="material-icons text-red">cancel</span>
+                  </td>
+                {% endif %}
+
               </tr>
             {% endfor %}
 

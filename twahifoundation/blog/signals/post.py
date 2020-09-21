@@ -33,7 +33,7 @@ def event_created(sender, instance, created, **kwargs):
 
         recipient = Group.objects.get(name="Project manager")
         notify.send(
-            instance.user,
+            instance.updated_by,
             recipient=recipient,
             verb=verb,
             action_object=instance

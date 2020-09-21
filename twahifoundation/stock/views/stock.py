@@ -1,9 +1,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
+from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
 
-from account.permissions.group import GroupRequiredMixin
+from account.permissions.group import group_required, GroupRequiredMixin
 from stock.models.stock import Stock, ProductStockTransfert
 from stock.forms.stock import StockCreateUpdateForm, ProductStockTransferCreateUpdateForm
 
@@ -200,3 +201,15 @@ class ProductStockReceptionTransfertDeleteView(LoginRequiredMixin, GroupRequired
     def get_success_url(self):
         "Get the absolute url of the object"
         return reverse_lazy('stock:stock-reception-detail', kwargs={'slug': self.object.stock.slug})
+
+
+@group_required('Administrator', 'Stock manager')
+def transfert_validate(request, pk):
+
+    transfert = get_object_or_404(ProductStockTransfert, pk=pk)
+    transfert.validate()
+
+    if transfert.transfert_type == 'RECEPTION':
+        return redirect(reverse_lazy("stock:stock-reception-detail", kwargs={'slug': transfert.stock.slug}))
+    else:
+        return redirect(reverse_lazy("stock:stock-delivery-detail", kwargs={'slug': transfert.stock.slug}))

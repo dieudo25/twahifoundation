@@ -123,6 +123,7 @@
                   {% if user|has_group:"Administrator" or user|has_group:"Stock manager"%}
                     <th scope="col" class="table-icon">Edit</th>
                     <th scope="col" class="table-icon">Delete</th>
+                    <th scope="col" class="table-icon">Validate</th>
                   {% endif %}
                   
                 </tr>
@@ -138,14 +139,31 @@
 
                     {% if user|has_group:"Administrator" or user|has_group:"Stock manager"%}
                       <td>
-                        <a href="{% url 'stock:reception-transfert-update' product_transfert.pk %}">
-                          <span class="material-icons text-black">edit</span>
-                        </a>
+                        
+                        {% if not product_transfert.is_valid %}
+                          <a href="{% url 'stock:reception-transfert-update' product_transfert.pk %}">
+                            <span class="material-icons text-black">edit</span>
+                          </a>
+                        {% endif %}
+
                       </td>
                       <td>
-                        <a href="{% url 'stock:reception-transfert-delete' product_transfert.pk %}">
-                          <span class="material-icons text-red">clear</span>
-                        </a>
+                        
+                        {% if not product_transfert.is_valid %}
+                          <a href="{% url 'stock:reception-transfert-delete' product_transfert.pk %}">
+                            <span class="material-icons text-red">clear</span>
+                          </a>
+                        {% endif %}
+
+                      </td>
+                      <td>
+                        
+                        {% if not product_transfert.is_valid %}
+                          <a href="{% url 'stock:transfert-validate' product_transfert.pk %}">
+                            <span class="material-icons text-green">check</span>
+                          </a>
+                        {% endif %}
+
                       </td>
                     {% endif %}
                   </tr>

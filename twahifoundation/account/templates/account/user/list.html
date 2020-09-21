@@ -58,6 +58,7 @@
                 <th scope="col">Email Address</th>
                 <th scope="col">First Name</th>
                 <th scope="col">Last Name</th>
+                <th scope="col">Active</th>
               </tr>
             </thead>
             <tbody>
@@ -68,6 +69,19 @@
                   <td>{{ u.email }}</td>
                   <td>{{ u.first_name }}</td>
                   <td>{{ u.last_name }}</td>
+                  <td class="img-bool">
+
+                    {% if u.is_active %}
+                      <div class="img-wrapper">
+                        <img src="{% static 'portal/img/true.svg' %}">
+                      </div>
+                    {% else %}
+                      <div class="img-wrapper">
+                        <img src="{% static 'portal/img/false.svg' %}">
+                      </div>
+                    {% endif %}
+
+                  </td>
                 </tr>
               {% endfor %}
 
@@ -80,6 +94,7 @@
               <th scope="col">Email Address</th>
               <th scope="col">First Name</th>
               <th scope="col">Last Name</th>
+              <th scope="col">Active</th>
             </tr>
           </thead>
           <tbody>
@@ -90,6 +105,19 @@
                 <td>{{ u.email }}</td>
                 <td>{{ u.first_name }}</td>
                 <td>{{ u.last_name }}</td>
+                <td class="img-bool">
+
+                  {% if u.is_active %}
+                    <div class="img-wrapper">
+                      <img src="{% static 'portal/img/true.svg' %}">
+                    </div>
+                  {% else %}
+                    <div class="img-wrapper">
+                      <img src="{% static 'portal/img/false.svg' %}">
+                    </div>
+                  {% endif %}
+
+                </td>
               </tr>
             {% endfor %}
 

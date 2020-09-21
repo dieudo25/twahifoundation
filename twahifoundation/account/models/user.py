@@ -32,7 +32,7 @@ class User(AbstractUser):
         null=True,
         blank=True,
         upload_to='account/user/avatar/%Y/%m/%D',
-        default='account/user/avatar/default.svg'
+        default='account/user/avatar/default.png'
     )
 
     slug = models.SlugField(max_length=60, unique=True)
@@ -90,3 +90,13 @@ class User(AbstractUser):
                 output_size = (450, 450)
                 img.thumbnail(output_size)
                 img.save(self.avatar.path)
+
+    def activate_deactivate(self):
+        """Deactivate a user"""
+
+        if self.is_active:
+            self.is_active = False
+        else:
+            self.is_active = True
+
+        self.save()

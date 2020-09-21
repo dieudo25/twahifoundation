@@ -121,6 +121,7 @@ class ProductStockTransfert(models.Model):
         null=True,
         blank=True,
     )
+    is_valid = models.BooleanField(default=False)
 
     class Meta:
         """
@@ -145,3 +146,11 @@ class ProductStockTransfert(models.Model):
 
     def getstock(self):
         return self.stock.slug
+
+    def validate(self):
+        """
+        Validate a transfert, after validation no more modification can be done
+        """
+
+        self.is_valid = True
+        self.save()

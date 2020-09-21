@@ -1,12 +1,9 @@
 from django.urls import re_path
 
 from page.views.page import (
-    AttributionsView,
-    AboutView,
     ContactView,
     ContactSuccessView,
     HomeView,
-    LegalMentionsView,
 )
 from page.views.donate import (
     DonateView,

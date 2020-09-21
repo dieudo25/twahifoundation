@@ -40,18 +40,26 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Updated date :</p>
+              <p>Updated by :</p>
             </div>
             <div class="detail-info-item-2">
-              <p>{{  post.updated_on }}</p>
+              
+              {% if post.updated_by %}
+                <p>{{  post.updated_by }}</p>
+              {% endif %}
+
             </div>
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Category :</p>
+              <p>Updated date :</p>
             </div>
             <div class="detail-info-item-2">
-              <p>{{  post.category }}</p>
+              
+              {% if post.updated_on %}
+                <p>{{  post.updated_on }}</p>
+              {% endif %}
+
             </div>
           </div>
           <div class="detail-info-group">

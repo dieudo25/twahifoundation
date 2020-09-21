@@ -65,8 +65,8 @@
             <tr>
               <th scope="col">Title</th>
               <th scope="col">Author</th>
-              <th scope="col">Status</th>
               <th scope="col">Created date</th>
+              <th scope="col">Updated by</th>
               <th scope="col">Updated date</th>
             </tr>
           </thead>
@@ -76,9 +76,13 @@
               <tr class="table">
                 <th scope="row"><a href="{% url 'blog:page-detail' page.slug %}">{{ page.title }}</a></th>
                 <td>{{ page.user }}</td>
-                <td>{{ page.status }}</td>
                 <td>{{ page.created_on }}</td>
-                <td>{{ page.updated_on }}</td>
+                
+                {% if post.updated_on and post.updated_by %}
+                  <td>{{ post.updated_by }}</td>
+                  <td>{{ post.updated_on }}</td>
+                {% endif %}
+
               </tr>
             {% endfor %}
 
@@ -90,8 +94,8 @@
             <tr>
               <th scope="col">Title</th>
               <th scope="col">Author</th>
-              <th scope="col">Status</th>
               <th scope="col">Created date</th>
+              <th scope="col">Updated by</th>
               <th scope="col">Updated date</th>
             </tr>
           </thead>
@@ -101,9 +105,22 @@
               <tr class="table">
                 <th scope="row"><a href="{% url 'blog:page-detail' page.slug %}">{{ page.title }}</a></th>
                 <td>{{ page.user }}</td>
-                <td>{{ page.status }}</td>
                 <td>{{ page.created_on }}</td>
-                <td>{{ page.updated_on }}</td>
+                <td>
+                  
+                  {% if post.updated_by %}
+                    {{ post.updated_by }}
+                  {% endif %}
+
+                </td>
+                <td>
+                  
+                  {% if post.updated_on %}
+                    {{ post.updated_on }}
+                  {% endif %}
+
+                </td>
+
               </tr>
             {% endfor %}
 

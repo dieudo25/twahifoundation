@@ -104,12 +104,19 @@
       </a>
     </div>
     <div class="detail-bar-col-2">
+
+      {% if user|has_group:"Administrator" or user|has_group:"Stock manager"%}
       <a href="{% url 'stock:product-update' product.slug %}">
         <p class="detail-bar-btn btn-black">Edit</p>
       </a>
-      <a href="{% url 'stock:product-delete' product.slug %}">
-        <p class="detail-bar-btn btn-red btn-last">Delete</p>
-      </a>
+      {% endif %}
+
+      {% if user|has_group:"Administrator" or user|has_group:"Stock manager"%}
+        <a href="{% url 'stock:product-delete' product.slug %}">
+          <p class="detail-bar-btn btn-red btn-last">Delete</p>
+        </a>
+      {% endif %}
+      
     </div>
   </div>
 {% endblock portal_content %}

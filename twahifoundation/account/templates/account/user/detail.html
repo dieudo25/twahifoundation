@@ -76,6 +76,18 @@
         </a>
       {% endif %}
 
+      {% if user|has_group:"Administrator" or user|has_group:"President" %} 
+        <a href="{% url 'user-update-status' user_profile.slug %}">
+
+          {% if user_profile.is_active %}
+            <p class="detail-bar-btn btn-red btn-last">Deactivate</p>
+          {% else %}
+            <p class="detail-bar-btn btn-green btn-last">Activate</p>
+          {% endif %}
+          
+        </a>
+      {% endif %}
+
       {% if user|has_group:"Administrator" %} 
         <a href="{% url 'user-delete' user_profile.slug %}">
           <p class="detail-bar-btn btn-red btn-last">Delete</p>

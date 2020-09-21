@@ -128,3 +128,12 @@ def participate(request, slug):
     else:
         event.users.remove(current_user)
     return redirect(reverse("project:event-detail", kwargs={"slug": event.slug}))
+
+
+@group_required('Administrator', 'Project manager')
+def event_draft_publish(request, slug):
+    "Change the status of a event"
+
+    event = get_object_or_404(Event, slug=slug)
+    event.status_toggle()
+    return redirect(reverse("project:event-detail", kwargs={"slug": event.slug}))

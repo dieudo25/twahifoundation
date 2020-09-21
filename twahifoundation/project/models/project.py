@@ -9,6 +9,12 @@ from PIL import Image
 from ckeditor_uploader.fields import RichTextUploadingField
 
 
+STATUS_CHOICE = (
+    ('Drafted', 'Drafted'),
+    ('Published', 'Published'),
+)
+
+
 class Project(models.Model):
     """
     Project model definition
@@ -35,6 +41,8 @@ class Project(models.Model):
         blank=True,
         verbose_name="Termination date"
     )
+    status = models.CharField(
+        max_length=10, choices=STATUS_CHOICE, default='Drafted')
 
     class Meta:
         """
@@ -99,3 +107,13 @@ class Project(models.Model):
         """
 
         return reverse('project:project-detail', kwargs={'slug': self.slug})
+
+    def status_toggle(self):
+        """ Toggle beetwen the status"""
+
+        if self.status == 'Drafted':
+            self.status = 'Published'
+        else:
+            self.status = 'Drafted'
+
+        self.save()

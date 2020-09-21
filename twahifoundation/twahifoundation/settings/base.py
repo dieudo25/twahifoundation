@@ -205,63 +205,69 @@ BOOTSTRAP4 = {
 
 # CKEditor
 
-""" CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': '',
-    },
-    'full': {
-        'toolbar': 'Basic',
-    },
-} """
+CKEDITOR_UPLOAD_PATH = 'uploads/'
 
 CKEDITOR_CONFIGS = {
     'default': {
         'skin': 'office2013',
-        'toolbar_Basic': [
-            ['Source', '-', 'Bold', 'Italic']
-        ],
-        'toolbar_YourCustomToolbarConfig': ['Youtube'],
         'toolbar': 'toolbarGroups',  # put selected toolbar config here
         'toolbarGroups': [
-            {'name': 'document', 'groups': ['mode', 'document', 'doctools']},
-            {'name': 'clipboard', 'groups': ['undo']},
-            {'name': 'styles', 'groups': ['styles']},
-            {'name': 'basicstyles', 'groups': ['basicstyles', 'cleanup']},
-            {'name': 'colors', 'groups': ['colors']},
-            {'name': 'editing', 'groups': [
-                'find', 'selection', 'spellchecker', 'editing']},
-            {'name': 'paragraph', 'groups': [
-                'indent', 'blocks', 'align', 'list', 'bidi', 'paragraph']},
-            {'name': 'links', 'groups': ['links']},
-            {'name': 'insert', 'groups': ['insert']},
-            {'name': 'tools', 'groups': ['tools']},
-            {'name': 'others', 'groups': ['others']},
+            {
+                'name': 'document', 'groups': ['mode', 'document', 'doctools']
+            },
+
+            {
+                'name': 'clipboard', 'groups': ['undo']
+            },
+
+            {
+                'name': 'styles', 'groups': ['styles'],
+            },
+
+            {
+                'name': 'basicstyles', 'groups': ['basicstyles', 'cleanup']
+            },
+
+            {
+                'name': 'colors', 'groups': ['colors']
+            },
+
+            {
+                'name': 'editing', 'groups': [
+
+                    'find', 'selection', 'spellchecker', 'editing']
+            },
+
+            {
+                'name': 'paragraph', 'groups': [
+
+                    'indent', 'blocks', 'align', 'list', 'bidi', 'paragraph']
+            },
+
+            {
+                'name': 'links', 'groups': ['links']
+            },
+
+            {
+                'name': 'insert', 'groups': ['insert']
+            },
+
+            {
+                'name': 'tools', 'groups': ['tools']
+            },
+
+            {
+                'name': 'others', 'groups': ['others', 'youtube']
+            },
+
 
         ],
-        # 'height': 291,
-        # 'width': '100%',
-        # 'filebrowserWindowHeight': 725,
-        # 'filebrowserWindowWidth': 940,
-        # 'toolbarCanCollapse': True,
-        # 'mathJaxLib': '//cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML',
+        'extraPlugins': ','.join(
+            ['youtube', 'autolink', ]
+        ),
         'tabSpaces': 4,
-        'extraPlugins': ','.join([
-            'uploadimage',  # the upload image feature
-            'div',
-            'autolink',
-            'autoembed',
-            'embedsemantic',
-            'autogrow',
-            'widget',
-            'lineutils',
-            'dialog',
-            'dialogui',
-            'elementspath',
-        ]),
     },
     'full': {
         'toolbar': 'Basic',
     },
 }
-
-CKEDITOR_UPLOAD_PATH = 'uploads/'

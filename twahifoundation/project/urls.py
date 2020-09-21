@@ -8,6 +8,7 @@ from project.views.event import (
     EventCreateView,
     EventDeleteView,
     participate,
+    event_draft_publish,
 )
 from project.views.project import (
     ProjectListView,
@@ -17,6 +18,7 @@ from project.views.project import (
     ProjectCreateView,
     ProjectDeleteView,
     open_close_project,
+    project_draft_publish,
 )
 from project.views.task import (
     TaskListView,
@@ -38,6 +40,8 @@ urlpatterns = [
             name="event-list-search"),
     re_path(r'^event/create/$', EventCreateView.as_view(),
             name="event-create"),
+    re_path(r'^event/(?P<slug>[a-z0-9-]*)/status/update$',
+            event_draft_publish, name="event-status-update"),
     re_path(r'^post/(?P<slug>[a-z0-9-]*)/(?P<notice_pk>[0-9]*)$',
             EventDetailView.as_view(), name="event-detail-notice"),
     re_path(r'^event/(?P<slug>[a-z0-9-]*)/$',
@@ -55,6 +59,8 @@ urlpatterns = [
             name="project-list-search"),
     re_path(r'^project/create/$', ProjectCreateView.as_view(),
             name="project-create"),
+    re_path(r'^project/(?P<slug>[a-z0-9-]*)/status/update$',
+            project_draft_publish, name="project-status-update"),
     re_path(r'^project/(?P<slug>[a-z0-9-]*)/(?P<notice_pk>[0-9]*)$',
             ProjectDetailView.as_view(), name="project-detail-notice"),
     re_path(r'^project/(?P<slug>[a-z0-9-]*)/$',

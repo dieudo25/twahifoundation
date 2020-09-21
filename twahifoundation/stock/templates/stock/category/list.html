@@ -64,8 +64,12 @@
           <thead>
             <tr>
               <th scope="col">Name</th>
-              <th scope="col" class="table-icon">Edit</th>
-              <th scope="col" class="table-icon">Delete</th>
+
+              {% if user|has_group:"Administrator" or user|has_group:"Stock manager"%}
+                <th scope="col" class="table-icon">Edit</th>
+                <th scope="col" class="table-icon">Delete</th>
+              {% endif %}
+
             </tr>
           </thead>
           <tbody>
@@ -73,16 +77,20 @@
             {% for category in filtered_category_list %}
               <tr class="table">
                 <th scope="row"><span>{{ category.name }}</span></th>
-                <td>
-                  <a href="{% url 'stock:category-update' category.slug %}">
-                    <span class="material-icons text-black">edit</span>
-                  </a>
-                </td>
-                <td>
-                  <a href="{% url 'stock:category-delete' category.slug %}">
-                    <span class="material-icons text-red">clear</span>
-                  </a>
-                </td>
+                
+                {% if user|has_group:"Administrator" or user|has_group:"Stock manager"%}
+                  <td>
+                    <a href="{% url 'stock:category-update' category.slug %}">
+                      <span class="material-icons text-black">edit</span>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="{% url 'stock:category-delete' category.slug %}">
+                      <span class="material-icons text-red">clear</span>
+                    </a>
+                  </td>
+                {% endif %}
+
               </tr>
             {% endfor %}
 
@@ -93,8 +101,12 @@
           <thead>
             <tr>
               <th scope="col"><span>Name</span></th>
-              <th scope="col" class="table-icon">Edit</th>
-              <th scope="col" class="table-icon">Delete</th>
+
+              {% if user|has_group:"Administrator" or user|has_group:"Stock manager"%}
+                <th scope="col" class="table-icon">Edit</th>
+                <th scope="col" class="table-icon">Delete</th>
+              {% endif %}
+
             </tr>
           </thead>
           <tbody>
@@ -102,16 +114,20 @@
             {% for category in category_list %}
               <tr class="table">
                 <th scope="row"><span>{{ category.name }}</span></th>
-                <td>
-                  <a href="{% url 'stock:category-update' category.slug %}">
-                    <span class="material-icons text-black">edit</span>
-                  </a>
-                </td>
-                <td>
-                  <a href="{% url 'stock:category-delete' category.slug %}">
-                    <span class="material-icons text-red">clear</span>
-                  </a>
-                </td>
+                
+                {% if user|has_group:"Administrator" or user|has_group:"Stock manager"%}
+                  <td>
+                    <a href="{% url 'stock:category-update' category.slug %}">
+                      <span class="material-icons text-black">edit</span>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="{% url 'stock:category-delete' category.slug %}">
+                      <span class="material-icons text-red">clear</span>
+                    </a>
+                  </td>
+                {% endif %}
+
               </tr>
             {% endfor %}
 

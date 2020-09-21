@@ -14,10 +14,26 @@ from account.models.user import User
 from project.models.project import Project
 
 
+STATUS_CHOICE = (
+    ('Drafted', 'Drafted'),
+    ('Published', 'Published'),
+)
+
+EVENT_TYPE_CHOICES = [
+    ('MemberMeeting', 'Meeting between members'),
+    ('FundRaising', 'Fund rainsing'),
+]
+
+
 class Event(models.Model):
     """
     Base abstract class of the Event model 
     """
+
+    STATUS_CHOICE = (
+        ('Drafted', 'Drafted'),
+        ('Published', 'Published'),
+    )
 
     EVENT_TYPE_CHOICES = [
         ('MemberMeeting', 'Meeting between members'),
@@ -56,6 +72,8 @@ class Event(models.Model):
         blank=True,
         verbose_name="End of the event"
     )
+    status = models.CharField(
+        max_length=10, choices=STATUS_CHOICE, default='Drafted')
 
     class Meta:
         """
@@ -120,3 +138,13 @@ class Event(models.Model):
         """
 
         return reverse('project:event-detail', kwargs={'slug': self.slug})
+
+    def status_toggle(self):
+        """ Toggle beetwen the status"""
+
+        if self.status == 'Drafted':
+            self.status = 'Published'
+        else:
+            self.status = 'Drafted'
+
+        self.save()

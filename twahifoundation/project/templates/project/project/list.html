@@ -53,24 +53,42 @@
         <table class="table table-hover">
           <thead>
             <tr>
+              <th scope="col"></th>
               <th scope="col">Title</th>
-              <th scope="col">Image</th>
               <th scope="col">Created date</th>
               <th scope="col">Closing date</th>
+              <th scope="col">Status</th>
             </tr>
           </thead>
           <tbody>
 
             {% for project in filtered_project_list %}
               <tr class="table">
-                <th scope="row"><a href="{% url 'project:project-detail' project.slug %}">{{ project.title }}</a></th>
+                <th scope="row">
+
+                  {% if project.image %}
+                  <a href="{% url 'project:project-detail' project.slug %}">
+                    <div class="img-wrapper">
+                        <img src="{{ project.image.url }}">
+                    </div>
+                  </a>
+                  {% endif %}
+
+                </th>
                 <td>
-                  <div class="img-wrapper">
-                    <img src="{{ project.image.url }}">
-                  </div>
+                  <a href="{% url 'project:project-detail' project.slug %}" class="font-weight-bold">{{ project.title }}</a>
                 </td>
                 <td>{{ project.date_created }}</td>
-                <td>{{ project.date_ended }}</td>
+                
+                {% if project.date_ended %}
+                  <td>{{ project.date_ended }}</td>
+                {% else %}
+                  <td>
+                    <span class="material-icons text-red">cancel</span>
+                  </td>
+                {% endif %}
+                
+                <td>{{ project.status }}</td>
               </tr>
             {% endfor %}
 
@@ -80,24 +98,42 @@
         <table class="table table-hover">
           <thead>
             <tr>
+              <th scope="col"></th>
               <th scope="col">Title</th>
-              <th scope="col">Image</th>
               <th scope="col">Created date</th>
               <th scope="col">Closing date</th>
+              <th scope="col">Status</th>
             </tr>
           </thead>
           <tbody>
 
             {% for project in project_list %}
               <tr class="table">
-                <th scope="row"><a href="{% url 'project:project-detail' project.slug %}">{{ project.title }}</a></th>
+                <th scope="row">
+
+                  {% if project.image %}
+                  <a href="{% url 'project:project-detail' project.slug %}">
+                    <div class="img-wrapper">
+                        <img src="{{ project.image.url }}">
+                    </div>
+                  </a>
+                  {% endif %}
+                  
+                </th>
                 <td>
-                  <div class="img-wrapper">
-                    <img src="{{ project.image.url }}">
-                  </div>
+                  <a href="{% url 'project:project-detail' project.slug %}" class="font-weight-bold">{{ project.title }}</a>
                 </td>
                 <td>{{ project.date_created }}</td>
-                <td>{{ project.date_ended }}</td>
+
+                {% if project.date_ended %}
+                  <td>{{ project.date_ended }}</td>
+                {% else %}
+                  <td>
+                    <span class="material-icons text-red">cancel</span>
+                  </td>
+                {% endif %}
+
+                <td>{{ project.status }}</td>
               </tr>
             {% endfor %}
 

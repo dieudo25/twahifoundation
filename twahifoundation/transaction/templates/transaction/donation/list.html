@@ -83,6 +83,7 @@
                 <td>{{ transaction.person }}</td>
                 <td>{{ transaction.total }} €</td>
                 <td class="img-bool">
+
                   {% if transaction.is_valid %}
                     <div class="img-wrapper">
                       <img src="{% static 'portal/img/true.svg' %}">
@@ -92,6 +93,7 @@
                       <img src="{% static 'portal/img/false.svg' %}">
                     </div>
                   {% endif %}
+
                 </td>
               </tr>
             {% endfor %}
@@ -120,6 +122,7 @@
                 <td>{{ transaction.person }}</td>
                 <td>{{ transaction.total }} €</td>
                 <td class="img-bool">
+
                   {% if transaction.is_valid %}
                     <div class="img-wrapper">
                       <img src="{% static 'portal/img/true.svg' %}">
@@ -129,6 +132,7 @@
                       <img src="{% static 'portal/img/false.svg' %}">
                     </div>
                   {% endif %}
+                  
                 </td>
               </tr>
             {% endfor %}

@@ -85,6 +85,15 @@ class PostUpdateView(LoginRequiredMixin, GroupRequiredMixin, UpdateView):
         "Get the absolute url of the object"
         return reverse_lazy("blog:post-detail", kwargs={"slug": self.object.slug})
 
+    def form_valid(self, form):
+        # This method is called when valid form data has been POSTed.
+        # It should return an HttpResponse.
+
+        # perform a action here
+        current_user = get_user(self.request)
+        form.instance.updated_by = current_user
+        return super().form_valid(form)
+
 
 class PostDeleteView(LoginRequiredMixin, GroupRequiredMixin, DeleteView):
     "Post Delete View"
@@ -192,19 +201,14 @@ class PageUpdateView(LoginRequiredMixin, GroupRequiredMixin, UpdateView):
         "Get the absolute url of the object"
         return reverse_lazy("blog:page-detail", kwargs={"slug": self.object.slug})
 
-    def get_object(self):
-        instance = super().get_object()
+    def form_valid(self, form):
+        # This method is called when valid form data has been POSTed.
+        # It should return an HttpResponse.
 
-        try:
-            notice_id = self.kwargs['notice_pk']
-            notice = Notification.objects.get(id=notice_id)
-
-            if notice.unread:
-                notice.mark_as_read()
-
-            return instance
-        except:
-            return instance
+        # perform a action here
+        current_user = get_user(self.request)
+        form.instance.updated_by = current_user
+        return super().form_valid(form)
 
 
 class PageDeleteView(LoginRequiredMixin, GroupRequiredMixin, DeleteView):

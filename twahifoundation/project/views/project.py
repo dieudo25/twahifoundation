@@ -117,3 +117,12 @@ def open_close_project(request, slug):
     project.save()
 
     return redirect(reverse_lazy("project:project-detail", kwargs={"slug": project.slug}))
+
+
+@group_required('Administrator', 'Project manager')
+def project_draft_publish(request, slug):
+    "Change the status of a project"
+
+    project = get_object_or_404(Project, slug=slug)
+    project.status_toggle()
+    return redirect(reverse_lazy("project:project-detail", kwargs={"slug": project.slug}))

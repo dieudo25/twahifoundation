@@ -41,8 +41,10 @@
                     <img src="{% static 'portal/img/event-black.svg' %}">
                   {% elif notice.action_object_content_type.model == 'task' %}
                     <img src="{% static 'portal/img/task-black.svg' %}">
-                  {% elif notice.action_object_content_type.model == 'post' %}
+                  {% elif notice.action_object_content_type.model == 'post' and notice.action_object.category.name == 'Post' %}
                     <img src="{% static 'portal/img/post-black.svg' %}">
+                  {% elif notice.action_object_content_type.model == 'post' and notice.action_object.category.name == 'Page' %}
+                    <img src="{% static 'portal/img/page-black.svg' %}">
                   {% elif notice.action_object_content_type.model == 'project' %}
                     <img src="{% static 'portal/img/project-black.svg' %}">
                   {% elif notice.action_object_content_type.model == 'transaction' and notice.action_object.transaction_type == 'Donation' %}

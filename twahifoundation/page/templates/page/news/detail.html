@@ -20,7 +20,16 @@
         <h1 class="title-h1">{{ post.title }}</h1>
     </div>    
         <div class="page-content-detail">
-            <p><span class="font-weight-bold">Created on </span>{{ post.created_on }}</p>
+            {% if post.updated_on %}
+                <p>
+                    <span class="font-weight-bold">Updated on</span> {{ post.updated_on }} <span class="font-weight-bold">by</span> {{ post.updated_by }}
+                </p>
+            {% else %}
+                <p>
+                    <span class="font-weight-bold">Created on</span> {{ post.created_on }} <span class="font-weight-bold">by</span> {{ post.created_by }}
+                </p>
+            {% endif %}
+            
             <p>{{ post.content|safe }}</p>
         </div>
     

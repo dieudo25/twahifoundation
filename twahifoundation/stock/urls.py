@@ -29,6 +29,7 @@ from stock.views.stock import (
     StockUpdateView,
     StockCreateView,
     StockDeleteView,
+    transfert_validate,
 )
 
 
@@ -93,4 +94,6 @@ urlpatterns = [
             ProductStockReceptionTransfertUpdateView.as_view(), name="reception-transfert-update"),
     re_path(r'^stock/reception/transfert/(?P<pk>\d+)/delete/$',
             ProductStockReceptionTransfertDeleteView.as_view(), name="reception-transfert-delete"),
+    re_path(r'^stock/reception/transfert/(?P<pk>\d+)/validate/$',
+            transfert_validate, name="transfert-validate"),
 ]

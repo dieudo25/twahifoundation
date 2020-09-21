@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model, get_user
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
+from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
 
@@ -83,4 +84,13 @@ class UserPasswordChangeView(LoginRequiredMixin, GroupRequiredMixin, UpdateView)
 
     def get_success_url(self):
         "Get the absolute url of the object"
-        return reverse_lazy("user-detail", kwargs={"pk": self.object.pk})
+        return reverse_lazy("user-detail", kwargs={"slug": self.object.slug})
+
+
+def user_statut_toggle(request, slug):
+    "Change the status of the user"
+
+    user = get_object_or_404(get_user_model(), slug=slug)
+    user.activate_deactivate()
+
+    return redirect(reverse_lazy("user-detail", kwargs={"slug": user.slug}))

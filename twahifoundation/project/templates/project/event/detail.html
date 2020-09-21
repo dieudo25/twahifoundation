@@ -52,22 +52,6 @@
           
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Location :</p>
-            </div>
-            <div class="detail-info-item-2">
-              <p>{{  event.location }}</p>
-            </div>
-          </div>
-          <div class="detail-info-group">
-            <div class="detail-info-item-1">
-              <p>Type :</p>
-            </div>
-            <div class="detail-info-item-2">
-              <p>{{  event.event_type }}</p>
-            </div>
-          </div>
-          <div class="detail-info-group">
-            <div class="detail-info-item-1">
               <p>Date of creation :</p>
             </div>
             <div class="detail-info-item-2">
@@ -88,6 +72,38 @@
             </div>
             <div class="detail-info-item-2">
               <p>{{  event.time_ended }}</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Location :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  event.location }}</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Type :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p>{{  event.event_type }}</p>
+            </div>
+          </div>
+          <div class="detail-info-group">
+            <div class="detail-info-item-1">
+              <p>Status :</p>
+            </div>
+            <div class="detail-info-item-2">
+
+              {% if event.event_type == 'FundRaising' %}
+                <p>{{ event.status }}</p>
+              {% else %}
+                <p>
+                  <span class="material-icons text-red">cancel</span>
+                </p>
+              {% endif %}
+
             </div>
           </div>
         </div>
@@ -120,7 +136,7 @@
                     <img src="{{ user.avatar.url }}">
                   </div>
                 </div>
-                <p>{{ user.username }}</p>
+                <p>{{ user.last_name }} {{ user.first_name }}</p>
               </div>
             </a>
           </div>
@@ -129,7 +145,7 @@
       </div>
     </div>
   </div>
-  <div class="detail-bar">
+  <div class="detail-bar btn-6">
     <div class="detail-bar-col-1">
       <a href="{% url 'project:event-list' %}">
         <p class="detail-bar-btn btn-black">Back</p>
@@ -146,11 +162,24 @@
         {% endif %}
 
       </a>
-
+      
       {% if event.event_type == 'FundRaising' %}
-        <a href="{% url 'page:event-detail' event.slug %}">
-          <p class="detail-bar-btn btn-black">View on site</p>
-        </a>
+
+        {% if user|has_group:"Administrator" or user|has_group:"Project manager" %} 
+          <a href="{% url 'project:event-status-update' event.slug %}">
+            
+            {% if event.status == 'Drafted'%}
+              <p class="detail-bar-btn btn-black">Publish</p>
+            {% else %}
+              <p class="detail-bar-btn btn-black">Draft</p>
+            {% endif %}
+            
+          </a>
+        {% endif %}
+        
+          <a href="{% url 'page:event-detail' event.slug %}">
+            <p class="detail-bar-btn btn-black">View on site</p>
+          </a>
       {% endif %}
       
       {% if user|has_group:"Administrator" or user|has_group:"Project manager"%}

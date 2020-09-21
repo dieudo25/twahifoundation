@@ -28,7 +28,13 @@
         </div>
         </div>
         <div>
-          <p><span>Created on</span> {{ post.created_on }}</p>
+
+          {% if post.updated_on %}
+            <p><span>Updated on</span> {{ post.updated_on }}</p>
+          {% else %}
+            <p><span>Created on</span> {{ post.created_on }}</p>
+          {% endif %}
+
           <p>
             {{ post.description|truncatewords:30|safe }}
           </p>

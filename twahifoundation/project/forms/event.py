@@ -1,3 +1,6 @@
+import pytz
+
+from datetime import datetime
 from django import forms
 from django.contrib.auth import get_user
 
@@ -36,9 +39,15 @@ class EventCreateUpdateForm(forms.ModelForm):
         cleaned_data = super(EventCreateUpdateForm, self).clean()
         time_started = cleaned_data.get("time_started")
         time_ended = cleaned_data.get("time_ended")
+        now = datetime.now(pytz.timezone('Europe/Brussels'))
 
         if time_started and time_ended:
-            if time_ended < time_started:
+            if time_started < now:
+                raise forms.ValidationError(
+                    "The beginning of an event cannot be in the past !")
+
+            elif time_ended < time_started:
                 raise forms.ValidationError(
                     "The end time of a event cannot be earlier than its start time !")
+
         return cleaned_data
