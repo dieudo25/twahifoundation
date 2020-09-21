@@ -10,7 +10,7 @@
   -o-transform: skew(0deg, -10deg);
   -ms-transform: skew(0deg, -10deg);
   transform: skew(0deg, -10deg);
-  background-color: #1dbc9c;
+  background-color: #05721d;
   padding: 60px;
 }
 
@@ -54,7 +54,7 @@
 }
 
 .error-wrapper .error-container .error .error-or .or-line {
-  background-color: #169077;
+  background-color: #292929;
   height: 1px;
   left: 40px;
   position: absolute;
@@ -67,7 +67,7 @@
   left: -webkit-calc(50% - 30px);
   left: -moz-calc(50% - 30px);
   left: calc(50% - 30px);
-  background-color: #1dbc9c;
+  background-color: #05721c;
   height: 20px;
   margin: 0 auto;
   position: absolute;
@@ -135,6 +135,27 @@
 
 .error-wrapper .error-container.error-401 .error .error-or .or {
   background-color: #34b5dc;
+}
+
+.text-link {
+  font-weight: 900;
+  color: white;
+}
+
+.bg-red {
+  background-color: #971507 !important;
+}
+
+.bg-green {
+  background-color: #05721d !important;
+}
+
+.bg-blue {
+  background-color: #064f5d !important;
+}
+
+.bg-orange-light {
+  background-color: #bd834c !important;
 }
 
 @media only screen and (max-width: 600px) {
