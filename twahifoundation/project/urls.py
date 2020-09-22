@@ -19,6 +19,7 @@ from project.views.project import (
     ProjectDeleteView,
     open_close_project,
     project_draft_publish,
+    delete_restore,
 )
 from project.views.task import (
     TaskListView,
@@ -71,6 +72,8 @@ urlpatterns = [
             ProjectDeleteView.as_view(), name="project-delete"),
     re_path(r'^project/(?P<slug>[a-z0-9-]*)/close/$',
             open_close_project, name="project-close"),
+    re_path(r'^project/(?P<slug>[a-z0-9-]*)/restore-delete/$',
+            delete_restore, name="project-delete-toggle"),
 
     # Task CRUD
     re_path(r'^task/list/$', TaskListView.as_view(), name="task-list"),

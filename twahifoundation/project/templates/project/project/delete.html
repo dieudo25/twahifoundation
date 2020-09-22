@@ -12,41 +12,9 @@
   </div>
   <div class="portal-wrapper">
     <div class="portal-update-form-wrapper">
-      <form method="POST" id="delete-form">
-
-          {% csrf_token %}
-          <div>
-          <p>Are you sure you want to delete "{{ project }}"?</p>
-
-          {% if project.event_set.all or project.task_set.all %}
-            <p>If you confirm, these items will also be deleted : <p>
-
-            {% if project.event_set.all %}
-              <p>Event :</p>
-              <ul>
-
-                {% for event in project.event_set.all %}
-                  <li>{{ event.title }}</li>
-                {% endfor %}
-
-              </ul>
-            {% endif %}
-
-            {% if project.task_set.all %}
-              <p>Task :</p>
-              <ul>
-
-                {% for task in project.task_set.all %}
-                  <li>{{ task.title }}</li>
-                {% endfor %}
-
-              </ul> 
-            {% endif %}
-            
-          {% endif %}
-
-          </div>
-      </form>
+      <div>
+        <p>Are you sure you want to delete "{{ project }}"?</p>
+      </div>
     </div>
   </div>
   <div class="detail-bar">
@@ -56,7 +24,9 @@
       </a>
     </div>
     <div class="detail-bar-col-2">
-      <button form="delete-form" class="detail-bar-btn btn-red btn-last" type="submit">Delete</button>
+      <a href="{% url 'project:project-delete-toggle' project.slug %}">
+        <p class="detail-bar-btn btn-red btn-last">Delete</p>
+      </a>
     </div>
   </div>
 {% endblock portal_content %}

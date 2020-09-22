@@ -122,12 +122,17 @@
         <a href="{% url 'project:project-update' project.slug %}">
           <p class="detail-bar-btn btn-black">Edit</p>
         </a>
-      {% endif %}
 
-      {% if user|has_group:"Administrator" %}
-        <a href="{% url 'project:project-delete' project.slug %}">
-          <p class="detail-bar-btn btn-red btn-last">Delete</p>
-        </a>
+        {% if not project.is_deleted %}
+          <a href="{% url 'project:project-delete' project.slug %}">
+            <p class="detail-bar-btn btn-red btn-last">Delete</p>
+          </a>
+        {% else %}
+          <a href="{% url 'project:project-delete-toggle' project.slug %}">
+            <p class="detail-bar-btn btn-green btn-last">Restore</p>
+          </a>
+        {% endif %}
+
       {% endif %}
 
     </div>

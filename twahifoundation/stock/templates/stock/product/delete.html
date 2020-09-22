@@ -12,13 +12,9 @@
   </div>
   <div class="portal-wrapper">
     <div class="portal-update-form-wrapper">
-      <form method="POST" id="delete-form">
-
-          {% csrf_token %}
-          <div>
+        <div>
           <p>Are you sure you want to delete "{{ product }}"?</p>
-          </div>
-      </form>
+        </div>
     </div>
   </div>
   <div class="detail-bar">
@@ -28,7 +24,9 @@
       </a>
     </div>
     <div class="detail-bar-col-2">
-      <button form="delete-form" class="detail-bar-btn btn-red btn-last" type="submit">Delete</button>
+      <a href="{% url 'stock:product-delete-toggle' product.slug %}">
+        <p class="detail-bar-btn btn-red btn-last">Delete</p>
+      </a>
     </div>
   </div>
 {% endblock portal_content %}

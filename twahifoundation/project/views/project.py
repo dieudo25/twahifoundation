@@ -23,6 +23,10 @@ class ProjectListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     context_object_name = 'project_list'
     paginate_by = 10
 
+    def get_queryset(self):
+        object_list = Project.objects.exclude(is_deleted=True)
+        return object_list
+
 
 class ProjectListFilteredView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     "Project list filterd by title, location"
@@ -38,7 +42,7 @@ class ProjectListFilteredView(LoginRequiredMixin, GroupRequiredMixin, ListView):
         query = self.request.GET.get('search')
         object_list = Project.objects.filter(
             Q(title__icontains=query)
-        )
+        ).exclude(is_deleted=True)
         return object_list
 
 
@@ -56,13 +60,14 @@ class ProjectDetailView(LoginRequiredMixin, GroupRequiredMixin, DetailView):
         current_user = get_user(self.request)
 
         try:
-            notice = Notification.objects.get(
+            notifications = Notification.objects.filter(
                 action_object_object_id=instance.pk, recipient=current_user.pk)
         except Notification.DoesNotExist:
             return instance
 
-        if notice.unread:
-            notice.mark_as_read()
+        for notice in notifications:
+            if notice.unread:
+                notice.mark_as_read()
 
         return instance
 
@@ -77,14 +82,13 @@ class ProjectUpdateView(LoginRequiredMixin, GroupRequiredMixin, UpdateView):
     form_class = ProjectCreateUpdateForm
 
 
-class ProjectDeleteView(LoginRequiredMixin, GroupRequiredMixin, DeleteView):
+class ProjectDeleteView(LoginRequiredMixin, GroupRequiredMixin, DetailView):
     "Project Delete View"
 
     model = Project
     group_required = [u'Administrator', u'Project manager']
     template_name = 'project/project/delete.html'
     context_object_name = 'project'
-    success_url = reverse_lazy('project:project-list')
 
 
 class ProjectCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
@@ -126,3 +130,12 @@ def project_draft_publish(request, slug):
     project = get_object_or_404(Project, slug=slug)
     project.status_toggle()
     return redirect(reverse_lazy("project:project-detail", kwargs={"slug": project.slug}))
+
+
+@group_required('Administrator', 'Project manager')
+def delete_restore(request, slug):
+    "Change the status of a project"
+
+    project = get_object_or_404(Project, slug=slug)
+    project.delete_toggle()
+    return redirect(reverse_lazy("project:project-list"))

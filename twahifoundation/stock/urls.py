@@ -14,6 +14,7 @@ from stock.views.product import (
     ProductUpdateView,
     ProductCreateView,
     ProductDeleteView,
+    delete_restore,
 )
 from stock.views.stock import (
     ProductStockDeliveryTransfertCreateView,
@@ -61,6 +62,8 @@ urlpatterns = [
             ProductUpdateView.as_view(), name="product-update"),
     re_path(r'^product/(?P<slug>[a-z0-9-]*)/delete/$',
             ProductDeleteView.as_view(), name="product-delete"),
+    re_path(r'^product/(?P<slug>[a-z0-9-]*)/restore-delete/$',
+            delete_restore, name="product-delete-toggle"),
 
     # Stock CRUD
     re_path(r'^stock/list/$', StockListView.as_view(), name="stock-list"),

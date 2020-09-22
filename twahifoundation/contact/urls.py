@@ -7,6 +7,7 @@ from contact.views.person import (
     PersonUpdateView,
     PersonCreateView,
     PersonDeleteView,
+    delete_restore,
 )
 
 from contact.views.company import (
@@ -32,9 +33,10 @@ urlpatterns = [
             PersonDetailView.as_view(), name="person-detail"),
     re_path(r'^person/(?P<slug>[a-z0-9-]*)/update/$',
             PersonUpdateView.as_view(), name="person-update"),
-
     re_path(r'^person/(?P<slug>[a-z0-9-]*)/delete/$',
             PersonDeleteView.as_view(), name="person-delete"),
+    re_path(r'^person/(?P<slug>[a-z0-9-]*)/restore-delete/$',
+            delete_restore, name="person-delete-toggle"),
 
     # Company CRUD
     re_path(r'^company/list/$', CompanyListView.as_view(), name="company-list"),

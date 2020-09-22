@@ -1,10 +1,11 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import get_user
 from django.db.models import Q
+from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
 
-from account.permissions.group import GroupRequiredMixin
+from account.permissions.group import group_required, GroupRequiredMixin
 from contact.models.person import Company, Person
 
 
@@ -19,7 +20,8 @@ class PersonListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
 
     def get_queryset(self):
         current_user = get_user(self.request)
-        object_list = Person.objects.filter(created_by=current_user.pk)
+        object_list = Person.objects.filter(
+            created_by=current_user.pk, is_deleted=False)
         return object_list
 
 
@@ -38,7 +40,7 @@ class PersonListFilteredView(LoginRequiredMixin, GroupRequiredMixin, ListView):
             Q(email__icontains=query) |
             Q(first_name__icontains=query) |
             Q(last_name__icontains=query)
-        )
+        ).exclude(is_deleted=True)
         return object_list
 
 
@@ -70,14 +72,13 @@ class PersonUpdateView(LoginRequiredMixin, GroupRequiredMixin, UpdateView):
     ]
 
 
-class PersonDeleteView(LoginRequiredMixin, GroupRequiredMixin, DeleteView):
+class PersonDeleteView(LoginRequiredMixin, GroupRequiredMixin, DetailView):
     "Person Delete View"
 
     model = Person
     group_required = [u'Administrator', u'Member']
     template_name = 'contact/person/delete.html'
     context_object_name = 'person'
-    success_url = reverse_lazy('contact:person-list')
 
 
 class PersonCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
@@ -96,3 +97,12 @@ class PersonCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
         'is_donor',
         'is_subscribed',
     ]
+
+
+@group_required('Administrator', 'Member')
+def delete_restore(request, slug):
+    "Change the status of a project"
+
+    person = get_object_or_404(Person, slug=slug)
+    person.delete_toggle()
+    return redirect(reverse_lazy("contact:person-list"))

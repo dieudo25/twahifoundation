@@ -47,6 +47,7 @@ class Product(models.Model):
     )
     is_saleable = models.BooleanField(default=True,)
     is_purchasable = models.BooleanField(default=True,)
+    is_deleted = models.BooleanField(default=False)
 
     def __str__(self):
         """
@@ -96,3 +97,13 @@ class Product(models.Model):
         """
 
         return reverse('stock:product-detail', kwargs={'slug': self.slug})
+
+    def delete_toggle(self):
+        """Toggle beetwen the is_deleted field"""
+
+        if self.is_deleted:
+            self.is_deleted = False
+        else:
+            self.is_deleted = True
+
+        self.save()

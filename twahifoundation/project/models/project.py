@@ -43,6 +43,7 @@ class Project(models.Model):
     )
     status = models.CharField(
         max_length=10, choices=STATUS_CHOICE, default='Drafted')
+    is_deleted = models.BooleanField(default=False)
 
     class Meta:
         """
@@ -115,5 +116,15 @@ class Project(models.Model):
             self.status = 'Published'
         else:
             self.status = 'Drafted'
+
+        self.save()
+
+    def delete_toggle(self):
+        """Toggle beetwen the is_deleted field"""
+
+        if self.is_deleted:
+            self.is_deleted = False
+        else:
+            self.is_deleted = True
 
         self.save()

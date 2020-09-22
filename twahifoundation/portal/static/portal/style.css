@@ -768,8 +768,8 @@ form .control-group .django-ckeditor-widget > div {
   /* NAVBAR */
 
   .nav-item.dropdown-menu {
-    left: -80px;
-    top: 57px;
+    left: -95px;
+    top: 56px;
     border-radius: 0;
     border: 1px solid #212529;
   }

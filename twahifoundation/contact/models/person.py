@@ -14,7 +14,7 @@ class Person(models.Model):
     """
 
     company = models.ForeignKey(
-        Company, on_delete=models.PROTECT, null=True, blank=True)
+        Company, on_delete=models.SET_NULL, null=True, blank=True)
     created_by = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.PROTECT, null=True, blank=True)
     first_name = models.CharField(
@@ -31,6 +31,7 @@ class Person(models.Model):
     is_subscribed = models.BooleanField(
         default=False, verbose_name="Is subscribed to the newsletter")
     slug = models.SlugField(max_length=60, unique=True)
+    is_deleted = models.BooleanField(default=False)
 
     class Meta:
         """
@@ -85,3 +86,13 @@ class Person(models.Model):
             self._generate_slug()
 
         super().save(*args, **kwargs)
+
+    def delete_toggle(self):
+        """Toggle beetwen the is_deleted field"""
+
+        if self.is_deleted:
+            self.is_deleted = False
+        else:
+            self.is_deleted = True
+
+        self.save()

@@ -126,9 +126,17 @@
       <a href="{% url 'contact:person-update' person.slug %}">
         <p class="detail-bar-btn btn-black">Edit</p>
       </a>
-      <a href="{% url 'contact:person-delete' person.slug %}">
-        <p class="detail-bar-btn btn-red btn-last">Delete</p>
-      </a>
+      
+      {% if not person.is_deleted %}
+        <a href="{% url 'contact:person-delete' person.slug %}">
+          <p class="detail-bar-btn btn-red btn-last">Delete</p>
+        </a>
+      {% else %}
+        <a href="{% url 'contact:person-delete-toggle' person.slug %}">
+          <p class="detail-bar-btn btn-green btn-last">Restore</p>
+        </a>
+      {% endif %}
+
     </div>
   </div>
 {% endblock portal_content %}
