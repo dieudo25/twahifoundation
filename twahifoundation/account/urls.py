@@ -8,6 +8,7 @@ from account.views.user import (
     UserListView,
     UserListFilteredView,
     UserUpdateView,
+    UserUpdateGroupsView,
     user_statut_toggle,
 )
 
@@ -26,7 +27,7 @@ urlpatterns = [
 
 
     # Password Change
-    re_path(r'^password/change/$',
+    re_path(r'^user/(?P<username>[a-zA-Z0-9]*)/password/$',
             auth_views.PasswordChangeView.as_view(
                 template_name="account/auth/password_change_form.html"
             ),
@@ -73,6 +74,8 @@ urlpatterns = [
     re_path(r'^user/create/$', UserCreateView.as_view(), name="user-create"),
     re_path(r'^user/(?P<slug>[a-z0-9-]*)/update_status/$',
             user_statut_toggle, name="user-update-status"),
+    re_path(r'^user/(?P<slug>[a-z0-9-]*)/update/group$',
+            UserUpdateGroupsView.as_view(), name='user-update-group'),
     re_path(r'^user/(?P<slug>[a-z0-9-]*)/update/$',
             UserUpdateView.as_view(), name='user-update'),
     re_path(r'^user/(?P<slug>[a-z0-9-]*)/delete/$',

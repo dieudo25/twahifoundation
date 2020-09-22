@@ -6,7 +6,7 @@ from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
 from django.urls import reverse_lazy
 
-from account.forms.user import UserCreateForm, UserUpdateForm
+from account.forms.user import UserCreateForm, UserUpdateForm, UserGroupUpdateForm
 from account.models.user import User
 from account.permissions.group import GroupRequiredMixin
 
@@ -87,10 +87,24 @@ class UserPasswordChangeView(LoginRequiredMixin, GroupRequiredMixin, UpdateView)
         return reverse_lazy("user-detail", kwargs={"slug": self.object.slug})
 
 
+class UserUpdateGroupsView(LoginRequiredMixin, UpdateView):
+    "User detail view"
+
+    model = get_user_model()
+    template_name = 'account/user/update_group.html'
+    context_object_name = 'user_profile'
+    form_class = UserGroupUpdateForm
+
+
 def user_statut_toggle(request, slug):
     "Change the status of the user"
 
     user = get_object_or_404(get_user_model(), slug=slug)
-    user.activate_deactivate()
 
-    return redirect(reverse_lazy("user-detail", kwargs={"slug": user.slug}))
+    if user.is_active:
+        user.activate_deactivate()
+        user.groups.clear()
+        return redirect(reverse_lazy("user-detail", kwargs={"slug": user.slug}))
+    else:
+        user.activate_deactivate()
+        return redirect(reverse_lazy("user-update-group", kwargs={"slug": user.slug}))

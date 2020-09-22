@@ -58,6 +58,20 @@
           <p>{{  user_profile.language }}</p>
         </div>
       </div>
+
+      {% if user|has_group:"Administrator" or user|has_group:"President" %} 
+        <div class="detail-info-group">
+          <div class="detail-info-item-1">
+            <p>Groups :</p>
+          </div>
+          <div class="detail-info-item-2">
+            {% for group in user_profile.groups.all %}
+              <p>{{  group.name }}</p>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+
     </div>
   </div>
   <div class="detail-bar">
@@ -66,8 +80,6 @@
         <p class="detail-bar-btn btn-black">Back</p>
       </a>
     </div>
-
-    
     <div class="detail-bar-col-2">
 
       {% if user|has_group:"Administrator" or user_profile == user%} 
@@ -76,7 +88,14 @@
         </a>
       {% endif %}
 
-      {% if user|has_group:"Administrator" or user|has_group:"President" %} 
+      {% if user|has_group:"Administrator" or user|has_group:"President" %}
+
+        {% if user_profile.is_active %}
+          <a href="{% url 'user-update-group' user_profile.slug %}">
+            <p class="detail-bar-btn btn-black btn-last">Edit groups</p>
+          </a> 
+        {% endif %}
+
         <a href="{% url 'user-update-status' user_profile.slug %}">
 
           {% if user_profile.is_active %}

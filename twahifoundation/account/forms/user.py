@@ -1,3 +1,4 @@
+from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 from account.models.user import User
@@ -37,6 +38,17 @@ class UserUpdateForm(UserChangeForm):
             'password',
         ]
 
-    def __init__(self, *args, **kwargs):
-        super(UserUpdateForm, self).__init__(*args, **kwargs)
-        self.fields['password'].help_text = ''
+
+class UserGroupUpdateForm(forms.ModelForm):
+    """UserCreateForm custom made class"""
+
+    class Meta:
+        """Meta definition of UserCreateForm"""
+
+        model = User
+        fields = [
+            'groups'
+        ]
+        widgets = {
+            'groups': forms.widgets.CheckboxSelectMultiple
+        }

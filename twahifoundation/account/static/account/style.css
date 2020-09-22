@@ -111,8 +111,13 @@
   overflow: hidden;
 }
 
+.profile-img .img-wrapper img {
+  height: 100%;
+}
+
 .profile .portal-title h1 {
   text-align: center;
+  max-width: unset !important;
 }
 
 .profile .detail-info {
@@ -149,6 +154,15 @@
 .password-reset-confirm {
   margin: 0px auto;
   width: 326px;
+}
+
+#div_id_groups .controls {
+  display: flex;
+  flex-direction: column;
+}
+
+#div_id_groups .controls .checkbox input {
+  margin-right: 10px;
 }
 
 @media (min-width: 375px) {

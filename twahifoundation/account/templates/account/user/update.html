@@ -24,17 +24,7 @@
           {% csrf_token %}
 
           {{ form | crispy }}
-
-          <div id="user_password" class="control-group">
-            <label for="id_first_name" class="control-label ">
-            </label> 
-            <div class="controls"> 
-              <p class="help-block">
-                Raw passwords are not stored, so there is no way to see this user's password, but you can change the password using <a href="{% url 'password_change_form' %}">this form</a>.
-              </p>
-            </div> 
-          </div>
-
+          
       </form>
     </div>
   </div>

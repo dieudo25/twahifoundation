@@ -86,8 +86,8 @@ class User(AbstractUser):
         if self.avatar != None:
             img = Image.open(self.avatar.path)
 
-            if img.height > 450 or img.width > 450:
-                output_size = (450, 450)
+            if img.height > 250 or img.width > 250:
+                output_size = (250, 250)
                 img.thumbnail(output_size)
                 img.save(self.avatar.path)
 
