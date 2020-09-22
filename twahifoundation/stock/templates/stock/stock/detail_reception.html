@@ -133,7 +133,9 @@
                 {% for product_transfert in reception %}
                   <tr class="table">
                     <th scope="row">{{ product_transfert }}</th>
-                    <td>{{ product_transfert.product.name }}</td>
+                    <td>
+                      <a href="{% url 'stock:product-detail' product_transfert.product.slug %}" class="font-weight-bold">{{ product_transfert.product.name }}</a>
+                    </td>
                     <td>{{ product_transfert.quantity }}</td>
                     <td>{{ product_transfert.date_time_created }}</td>
 

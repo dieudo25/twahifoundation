@@ -73,6 +73,8 @@ urlpatterns = [
             name="stock-create"),
     re_path(r'^stock/(?P<slug>[a-z0-9-]*)/reception/$',
             StockDetailReceptionView.as_view(), name="stock-reception-detail"),
+    re_path(r'^stock/(?P<slug>[a-z0-9-]*)/delivery/(?P<error>[.]*)$',
+            StockDetailDeliveryView.as_view(), name="stock-delivery-detail-error"),
     re_path(r'^stock/(?P<slug>[a-z0-9-]*)/delivery/$',
             StockDetailDeliveryView.as_view(), name="stock-delivery-detail"),
 

@@ -61,6 +61,24 @@
       <div class="portal-content-title">
         <h2>Manage transferts</h2>
       </div>
+
+      {% if messages %}
+
+        {% for message in messages %}
+          <div class="alert alert-danger" role="alert">
+            {{ message }}
+          </div>
+        {% endfor %}
+
+      {% endif %}
+
+        {% comment %} <div class="alert alert-block alert-error">
+          <ul>
+            <li>{{ request.session.error_message }}</li>
+          </ul>
+        </div> {% endcomment %}
+      
+
       <div class="portal-top-bar">
         <ul class="portal-app-nav">
           <a href="{% url 'stock:stock-reception-detail' stock.slug %}" class="btn-black custom-btn">
@@ -133,7 +151,7 @@
                 {% for product_transfert in delivery %}
                   <tr class="table">
                     <th scope="row">{{ product_transfert }}</th>
-                    <td>{{ product_transfert.product.name }}</td>
+                    <td><a href="{% url 'stock:product-detail' product_transfert.product.slug %}" class="font-weight-bold">{{ product_transfert.product.name }}</a></td>
                     <td>{{ product_transfert.quantity }}</td>
                     <td>{{ product_transfert.date_time_created }}</td>
 

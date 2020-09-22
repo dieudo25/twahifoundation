@@ -48,6 +48,7 @@ class Product(models.Model):
     is_saleable = models.BooleanField(default=True,)
     is_purchasable = models.BooleanField(default=True,)
     is_deleted = models.BooleanField(default=False)
+    quantity = quantity = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         """

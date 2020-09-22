@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect
@@ -6,7 +7,11 @@ from django.urls import reverse_lazy
 
 from account.permissions.group import group_required, GroupRequiredMixin
 from stock.models.stock import Stock, ProductStockTransfert
-from stock.forms.stock import StockCreateUpdateForm, ProductStockTransferCreateUpdateForm
+from stock.forms.stock import (
+    StockCreateUpdateForm,
+    ProductStockDeliveryTransferCreateUpdateForm,
+    ProductStockReceptionTransferCreateUpdateForm,
+)
 
 
 class StockListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
@@ -117,7 +122,7 @@ class ProductStockDeliveryTransfertCreateView(LoginRequiredMixin, GroupRequiredM
     model = ProductStockTransfert
     group_required = [u'Administrator', u'Stock manager', u'President', ]
     template_name = 'stock/delivery/create.html'
-    form_class = ProductStockTransferCreateUpdateForm
+    form_class = ProductStockDeliveryTransferCreateUpdateForm
 
     def get_success_url(self):
         "Get the absolute url of the object"
@@ -150,7 +155,7 @@ class ProductStockDeliveryTransfertUpdateView(LoginRequiredMixin, GroupRequiredM
     group_required = [u'Administrator', u'Stock manager', u'President', ]
     template_name = 'stock/delivery/update.html'
     context_object_name = 'transfert'
-    form_class = ProductStockTransferCreateUpdateForm
+    form_class = ProductStockDeliveryTransferCreateUpdateForm
 
     def get_success_url(self):
         "Get the absolute url of the object"
@@ -163,7 +168,7 @@ class ProductStockReceptionTransfertCreateView(LoginRequiredMixin, GroupRequired
     model = ProductStockTransfert
     group_required = [u'Administrator', u'Stock manager', u'President', ]
     template_name = 'stock/reception/create.html'
-    form_class = ProductStockTransferCreateUpdateForm
+    form_class = ProductStockReceptionTransferCreateUpdateForm
 
     def get_success_url(self):
         "Get the absolute url of the object"
@@ -183,7 +188,7 @@ class ProductStockReceptionTransfertUpdateView(LoginRequiredMixin, GroupRequired
     group_required = [u'Administrator', u'Stock manager', u'President', ]
     template_name = 'stock/reception/update.html'
     context_object_name = 'transfert'
-    form_class = ProductStockTransferCreateUpdateForm
+    form_class = ProductStockReceptionTransferCreateUpdateForm
 
     def get_success_url(self):
         "Get the absolute url of the object"
@@ -207,9 +212,22 @@ class ProductStockReceptionTransfertDeleteView(LoginRequiredMixin, GroupRequired
 def transfert_validate(request, pk):
 
     transfert = get_object_or_404(ProductStockTransfert, pk=pk)
-    transfert.validate()
+
+    product = transfert.product
+    quantity = transfert.quantity
 
     if transfert.transfert_type == 'RECEPTION':
+        product.quantity += quantity
+        product.save()
+        transfert.validate()
         return redirect(reverse_lazy("stock:stock-reception-detail", kwargs={'slug': transfert.stock.slug}))
     else:
+        if quantity <= product.quantity:
+            product.quantity -= quantity
+            product.save()
+            transfert.validate()
+        else:
+            messages.error(
+                request, f"The quantity of products is too high, you currently own { product.quantity } { product.name }")
+
         return redirect(reverse_lazy("stock:stock-delivery-detail", kwargs={'slug': transfert.stock.slug}))
