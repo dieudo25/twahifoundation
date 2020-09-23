@@ -18,6 +18,11 @@ class DonationForm(forms.ModelForm):
             'project',
         ]
 
+    def __init__(self, user=None, **kwargs):
+        super(DonationForm, self).__init__(**kwargs)
+        self.fields['project'].queryset = Project.objects.filter(
+            is_deleted=False, status='Published')
+
 
 class PriceFieldDonationForm(forms.Form):
 

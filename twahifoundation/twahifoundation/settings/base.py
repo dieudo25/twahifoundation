@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+from django_archive import archivers
 from dotenv import load_dotenv
 
 
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'crispy_forms',
+    'django_archive',
     'django_extensions',
     'paypal.standard.ipn',
     'import_export',
@@ -202,6 +204,10 @@ MAILCHIMP_EMAIL_LIST_ID = os.getenv('TF_EMAIL_LIST_ID')
 BOOTSTRAP4 = {
     'include_jquery': False,
 }
+
+# Django archive
+
+ARCHIVE_FORMAT = archivers.ZIP
 
 # CKEditor
 

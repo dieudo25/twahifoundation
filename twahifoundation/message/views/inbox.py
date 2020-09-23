@@ -10,7 +10,6 @@ from notifications.models import Notification
 from account.permissions.group import group_required, GroupRequiredMixin
 from message.models.message import Message
 from message.forms.message import MessageCreateUpdateForm
-""" from portal.views.views import mark_as_read """
 
 
 class InboxListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
@@ -62,23 +61,23 @@ class InboxMessageDetailView(LoginRequiredMixin, GroupRequiredMixin, DetailView)
     template_name = 'message/inbox/detail.html'
     context_object_name = 'message'
 
-    def get_object(self):
-        instance = super().get_object()
+    def dispatch(self, request, *args, **kwargs):
 
         message_id = self.kwargs['pk']
         message = get_object_or_404(Message, pk=message_id)
         message.read()
 
-        try:
-            notice_id = self.kwargs['notice_pk']
-            notice = Notification.objects.get(id=notice_id)
+        return super().dispatch(request, *args, **kwargs)
 
-            if notice.unread:
-                notice.mark_as_read()
+    def get_object(self):
+        instance = super().get_object()
+        current_user = get_user(self.request)
+        notifications = Notification.objects.filter(
+            recipient=current_user, action_object_object_id=instance.id)
 
-            return instance
-        except:
-            return instance
+        notifications.delete()
+
+        return instance
 
 
 @group_required('Administrator', 'Member')

@@ -60,7 +60,7 @@ class TransactionDonationDetailView(LoginRequiredMixin, GroupRequiredMixin, Deta
             notice = Notification.objects.get(id=notice_id)
 
             if notice.unread:
-                notice.mark_as_read()
+                notice.delete()
 
             return instance
         except:

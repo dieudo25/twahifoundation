@@ -19,7 +19,7 @@ if [ $status -ne 0 ] ;then
     printf ">>> STATUT : $status\n"
     exit $status
 else
-    printf ">>> SUCCES : command makemigrations success\n"
+    printf ">>> SUCCES : command makemigrations has successed\n"
 fi
 
 # Migrate
@@ -32,5 +32,5 @@ if [ $status -ne 0 ] ;then
     printf ">>> STATUT : $status\n"
     exit $status
 else
-    printf ">>> SUCCES : command migrate success\n"
+    printf ">>> SUCCES : command migrate has successed\n"
 fi

@@ -33,3 +33,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 PAYPAL_RECEIVER_EMAIL = os.getenv('PAYPAL_ACCOUNT')
 PAYPAL_TEST = True
+
+# Django archive
+
+ARCHIVE_DIRECTORY = os.path.join(BASE_DIR, 'archive/')

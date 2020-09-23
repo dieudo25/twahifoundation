@@ -294,3 +294,9 @@
     width: 600px;
   }
 }
+
+@media (min-width: 2000px) {
+  .login-img {
+    width: 750px;
+  }
+}

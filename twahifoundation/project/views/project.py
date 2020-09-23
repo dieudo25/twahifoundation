@@ -67,7 +67,7 @@ class ProjectDetailView(LoginRequiredMixin, GroupRequiredMixin, DetailView):
 
         for notice in notifications:
             if notice.unread:
-                notice.mark_as_read()
+                notice.delete()
 
         return instance
 

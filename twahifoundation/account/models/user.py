@@ -16,6 +16,7 @@ class User(AbstractUser):
         """
             Meta definition for User.
         """
+        ordering = ['username']
 
     LANGUAGE_CHOICES = [
         ('FR', 'Français'),
