@@ -45,7 +45,7 @@ def event_created(sender, instance, created, **kwargs):
 
         }
         html_message = render_to_string(
-            'blog/email/post.html', context)
+            'portal/notification/email.html', context)
         plain_message = strip_tags(html_message)
         from_email = f'{ settings.EMAIL_HOST_USER }'
 
