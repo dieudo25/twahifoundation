@@ -41,8 +41,6 @@ def event_created(sender, instance, created, **kwargs):
         context = {
             'verb': verb,
             'user': instance.user,
-            'host': settings.ALLOWED_HOSTS[0]
-
         }
         html_message = render_to_string(
             'portal/notification/email.html', context)

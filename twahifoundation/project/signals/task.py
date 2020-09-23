@@ -1,5 +1,4 @@
 from django.conf import settings
-from django.contrib.auth.models import Group
 from django.core import mail
 from django.db.models.signals import m2m_changed
 from django.dispatch import receiver
