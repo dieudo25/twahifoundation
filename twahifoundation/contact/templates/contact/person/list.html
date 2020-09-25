@@ -2,11 +2,13 @@
 
 {% load static %}
 
-{% block title %} Portal | Individuals list {% endblock title %}
+{% load i18n %}
+
+{% block title %} {% trans "Portal" %} | {% trans "Individuals list" %} {% endblock title %}
 
 {% block portal_content %}
   <div class="portal-content-title">
-    <h1>Manage Contacts</h1>
+    <h1>{% trans "Manage Contacts" %}</h1>
   </div>
   <div class="portal-top-bar">
       <ul class="portal-app-nav">
@@ -14,7 +16,7 @@
           <li class="poratl-app-nav-item">
             <div class="add-text">
               <span class="material-icons">person</span>
-              <span>Individuals</span>
+              <span>{% trans "Individuals" %}</span>
             </div>
           </li>
         </a>
@@ -22,7 +24,7 @@
           <li class="poratl-app-nav-item">
             <div class="add-text">
               <span class="material-icons">business</span>
-              <span>Companies</span>
+              <span>{% trans "Companies" %}</span>
             </div>
           </li>
         </a>
@@ -39,7 +41,7 @@
   <div class="portal-content-body">
     <div class="portal-content-nav">
       <div class="portal-content-nav-title">
-        <h2>Individuals</h2>
+        <h2>{% trans "Individuals" %}</h2>
       </div>
       <div class="portal-content-nav-item">
         <ul>
@@ -47,7 +49,7 @@
             <li class="nav-item-add">
               <div class="add-text">
                 <span class="material-icons">add_circle_outline</span>
-                <span>Add</span>
+                <span>{% trans "Add" %}</span>
               </div>
             </li>
           </a>
@@ -65,13 +67,13 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Email</th>
-              <th scope="col">Phone number</th>
-              <th scope="col">Company</th>
-              <th scope="col">Supplier</th>
-              <th scope="col">Donor</th>
-              <th scope="col">Subscriber</th>
+              <th scope="col">{% trans "Name" %}</th>
+              <th scope="col">{% trans "Email" %}</th>
+              <th scope="col">{% trans "Phone number" %}</th>
+              <th scope="col">{% trans "Company" %}</th>
+              <th scope="col">{% trans "Supplier" %}</th>
+              <th scope="col">{% trans "Donor" %}</th>
+              <th scope="col">{% trans "Subscriber" %}</th>
             </tr>
           </thead>
           <tbody>
@@ -124,13 +126,13 @@
           <table class="table table-hover">
           <thead>
             <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Email</th>
-              <th scope="col">Phone number</th>
-              <th scope="col">Company</th>
-              <th scope="col">Supplier</th>
-              <th scope="col">Donor</th>
-              <th scope="col">Subscriber</th>
+              <th scope="col">{% trans "Name" %}</th>
+              <th scope="col">{% trans "Email" %}</th>
+              <th scope="col">{% trans "Phone number" %}</th>
+              <th scope="col">{% trans "Company" %}</th>
+              <th scope="col">{% trans "Supplier" %}</th>
+              <th scope="col">{% trans "Donor" %}</th>
+              <th scope="col">{% trans "Subscriber" %}</th>
             </tr>
           </thead>
           <tbody>
@@ -181,11 +183,11 @@
         </table>
       {% elif person_list|length == 0 %}
         <div id="empty-table">
-          <p>No person, <a href="{% url 'contact:person-create' %}">create one</a></p>
+          <p>{% trans "No person" %}, <a href="{% url 'contact:person-create' %}">{% trans "create one" %}</a></p>
         </div>
       {% else %}
         <div id="search-no-result">
-          <p>No result found</p>
+          <p>{% trans "No result found" %}</p>
         </div>
       {% endif%}
       

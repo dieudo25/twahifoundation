@@ -2,7 +2,9 @@
 
 {% load static %}
 
-{% block title %} Portal | Company list {% endblock title %}
+{% load i18n %}
+
+{% block title %} {% trans "Portal" %} | {% trans "Companies list" %} {% endblock title %}
 
 {% block css %}
 
@@ -13,7 +15,7 @@
 
 {% block portal_content %}
   <div class="portal-content-title">
-    <h1>Manage Contacts</h1>
+    <h1>{% trans "Manage Contacts" %}</h1>
   </div>
   <div class="portal-top-bar">
       <ul class="portal-app-nav">
@@ -21,7 +23,7 @@
           <li class="poratl-app-nav-item">
             <div class="add-text">
               <span class="material-icons">person</span>
-              <span>Individuals</span>
+              <span>{% trans "Individuals" %}</span>
             </div>
           </li>
         </a>
@@ -29,7 +31,7 @@
           <li class="poratl-app-nav-item">
             <div class="add-text">
               <span class="material-icons">business</span>
-              <span>Companies</span>
+              <span>{% trans "Companies" %}</span>
             </div>
           </li>
         </a>
@@ -37,7 +39,7 @@
     <div id="list-search">
       <form action="{% url 'contact:company-list-search' %}" method="GET">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" name="search">
+          <input type="text" class="form-control" placeholder="{% trans "Search" %}" name="search">
         </div>
         <button type="submit" class="btn-black"><div class="search-img"></button>
       </form>
@@ -46,7 +48,7 @@
   <div class="portal-content-body">
     <div class="portal-content-nav">
       <div class="portal-content-nav-title">
-        <h2>Companies</h2>
+        <h2>{% trans "Companies" %}</h2>
       </div>
       <div class="portal-content-nav-item">
         <ul>
@@ -54,7 +56,7 @@
             <li class="nav-item-add">
               <div class="add-text">
                 <span class="material-icons">add_circle_outline</span>
-                <span>Add</span>
+                <span>{% trans "Add" %}</span>
               </div>
             </li>
           </a>
@@ -72,12 +74,12 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <th scope="col">Name</th>
-              <th scope="col">address</th>
-              <th scope="col">Email</th>
-              <th scope="col">Phone number</th>
-              <th scope="col">Web site</th>
-              <th scope="col">Partner</th>
+              <th scope="col">{% trans "Name" %}</th>
+              <th scope="col">{% trans "Address" %}</th>
+              <th scope="col">{% trans "Email" %}</th>
+              <th scope="col">{% trans "Phone number" %}</th>
+              <th scope="col">{% trans "Web site" %}</th>
+              <th scope="col">{% trans "Partner" %}</th>
             </tr>
           </thead>
           <tbody>
@@ -109,12 +111,12 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <th scope="col">Name</th>
-              <th scope="col">address</th>
-              <th scope="col">Email</th>
-              <th scope="col">Phone number</th>
-              <th scope="col">Web site</th>
-              <th scope="col">Partner</th>
+              <th scope="col">{% trans "Name" %}</th>
+              <th scope="col">{% trans "Address" %}</th>
+              <th scope="col">{% trans "Email" %}</th>
+              <th scope="col">{% trans "Phone number" %}</th>
+              <th scope="col">{% trans "Web site" %}</th>
+              <th scope="col">{% trans "Partner" %}</th>
             </tr>
           </thead>
           <tbody>
@@ -144,11 +146,11 @@
         </table>
       {% elif company_list|length == 0 %}
         <div id="empty-table">
-          <p>No company, <a href="{% url 'contact:company-create' %}">create one</a></p>
+          <p>{% trans "No company" %}, <a href="{% url 'contact:company-create' %}">{% trans "create one" %}</a></p>
         </div>
       {% else %}
         <div id="search-no-result">
-          <p>No result found</p>
+          <p>{% trans "No result found" %}</p>
         </div>
       {% endif%}
       

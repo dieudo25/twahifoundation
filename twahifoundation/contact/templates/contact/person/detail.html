@@ -2,7 +2,9 @@
 
 {% load static %}
 
-{% block title %} Portal | {{ person.first_name }} {% endblock title %}
+{% load i18n %}
+
+{% block title %} {% trans "Portal" %} | {{ person.first_name }} {% endblock title %}
 
 {% block css %}
 
@@ -22,7 +24,7 @@
     <div class="detail-info">
       <div class="detail-info-group">
         <div class="detail-info-item-1">
-          <p>First name :</p>
+          <p>{% trans "First name" %} :</p>
         </div>
         <div class="detail-info-item-2">
           <p>{{  person.first_name }}</p>
@@ -30,7 +32,7 @@
       </div>
       <div class="detail-info-group">
         <div class="detail-info-item-1">
-          <p>Last name :</p>
+          <p>{% trans "Last name" %} :</p>
         </div>
         <div class="detail-info-item-2">
           <p>{{  person.last_name }}</p>
@@ -38,7 +40,7 @@
       </div>
       <div class="detail-info-group">
         <div class="detail-info-item-1">
-          <p>Email :</p>
+          <p>{% trans "Email" %} :</p>
         </div>
         <div class="detail-info-item-2">
           <p>{{  person.email }}</p>
@@ -46,7 +48,7 @@
       </div>
       <div class="detail-info-group">
         <div class="detail-info-item-1">
-          <p>Phone number :</p>
+          <p>{% trans "Phone number" %} :</p>
         </div>
         <div class="detail-info-item-2">
           <p>{{  person.phone_number }}</p>
@@ -54,21 +56,21 @@
       </div>
       <div class="detail-info-group">
         <div class="detail-info-item-1">
-          <p>Company :</p>
+          <p>{% trans "Company" %} :</p>
         </div>
         <div class="detail-info-item-2">
 
           {% if person.company %}
             <p><a href="{% url 'contact:company-detail' person.company.slug %}">{{  person.company }}</a></p>
           {% else %}
-            <p>None</p>
+            <p></p>
           {% endif %}
           
         </div>
       </div>
       <div class="detail-info-group">
         <div class="detail-info-item-1">
-          <p>Is a donor ? :</p>
+          <p>{% trans "Is a donor" %} ? :</p>
         </div>
         <div class="detail-info-item-2 img-bool">
           {% if person.is_donor %}
@@ -84,7 +86,7 @@
       </div>
       <div class="detail-info-group">
         <div class="detail-info-item-1">
-          <p>Is subscribed ? :</p>
+          <p>{% trans "Is subscribed" %} ? :</p>
         </div>
         <div class="detail-info-item-2 img-bool">
           {% if person.is_subscribed %}
@@ -100,7 +102,7 @@
       </div>
       <div class="detail-info-group">
         <div class="detail-info-item-1">
-          <p>Is a supplier ? :</p>
+          <p>{% trans "Is a supplier" %} ? :</p>
         </div>
         <div class="detail-info-item-2 img-bool">
           {% if person.is_supplier %}
@@ -119,21 +121,21 @@
   <div class="detail-bar">
     <div class="detail-bar-col-1">
       <a href="{% url 'contact:person-list' %}">
-        <p class="detail-bar-btn btn-black">Back</p>
+        <p class="detail-bar-btn btn-black">{% trans "Back" %}</p>
       </a>
     </div>
     <div class="detail-bar-col-2">
       <a href="{% url 'contact:person-update' person.slug %}">
-        <p class="detail-bar-btn btn-black">Edit</p>
+        <p class="detail-bar-btn btn-black">{% trans "Edit" %}</p>
       </a>
       
       {% if not person.is_deleted %}
         <a href="{% url 'contact:person-delete' person.slug %}">
-          <p class="detail-bar-btn btn-red btn-last">Delete</p>
+          <p class="detail-bar-btn btn-red btn-last">{% trans "Delete" %}</p>
         </a>
       {% else %}
         <a href="{% url 'contact:person-delete-toggle' person.slug %}">
-          <p class="detail-bar-btn btn-green btn-last">Restore</p>
+          <p class="detail-bar-btn btn-green btn-last">{% trans "Restore" %}</p>
         </a>
       {% endif %}
 

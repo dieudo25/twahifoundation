@@ -2,7 +2,9 @@
 
 {% load static %}
 
-{% block title %} Portal | {{ company.name }} {% endblock title %}
+{% load i18n %}
+
+{% block title %} {% trans "Portal" %} | {{ company.name }} {% endblock title %}
 
 {% block css %}
 
@@ -22,7 +24,7 @@
     <div class="detail-info">
       <div class="detail-info-group">
         <div class="detail-info-item-1">
-          <p>Email :</p>
+          <p>{% trans "Email" %} :</p>
         </div>
         <div class="detail-info-item-2">
           <p>{{  company.email }}</p>
@@ -30,7 +32,7 @@
       </div>
       <div class="detail-info-group">
         <div class="detail-info-item-1">
-          <p>Phone number :</p>
+          <p>{% trans "Phone number" %} :</p>
         </div>
         <div class="detail-info-item-2">
           <p>{{  company.phone_number }}</p>
@@ -38,7 +40,7 @@
       </div>
       <div class="detail-info-group">
         <div class="detail-info-item-1">
-          <p>Address :</p>
+          <p>{% trans "Address" %} :</p>
         </div>
         <div class="detail-info-item-2">
             <p>{{  company.address }}</p>
@@ -46,7 +48,7 @@
       </div>
       <div class="detail-info-group">
         <div class="detail-info-item-1">
-          <p>Web site :</p>
+          <p>{% trans "Web site" %} :</p>
         </div>
         <div class="detail-info-item-2">
             <p><a href="{{ company.website }}">{{  company.website }}</a></p>
@@ -54,7 +56,7 @@
       </div>
       <div class="detail-info-group">
         <div class="detail-info-item-1">
-          <p>Is a partner ? :</p>
+          <p>{% trans "Is a partner" %} ? :</p>
         </div>
         <div class="detail-info-item-2 img-bool">
           {% if company.is_partner %}
@@ -73,15 +75,15 @@
   <div class="detail-bar">
     <div class="detail-bar-col-1">
       <a href="{% url 'contact:company-list' %}">
-        <p class="detail-bar-btn btn-black">Back</p>
+        <p class="detail-bar-btn btn-black">{% trans "Back" %}</p>
       </a>
     </div>
     <div class="detail-bar-col-2">
       <a href="{% url 'contact:company-update' company.slug %}">
-        <p class="detail-bar-btn btn-black">Edit</p>
+        <p class="detail-bar-btn btn-black">{% trans "Edit" %}</p>
       </a>
       <a href="{% url 'contact:company-delete' company.slug %}">
-        <p class="detail-bar-btn btn-red btn-last">Delete</p>
+        <p class="detail-bar-btn btn-red btn-last">{% trans "Delete" %}</p>
       </a>
     </div>
   </div>

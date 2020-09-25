@@ -544,6 +544,15 @@ form .control-group .django-ckeditor-widget > div {
   }
   /* ALL */
 
+  body {
+    font-size: 12px;
+  }
+
+  .portal-app-nav a:not(.custom-btn) .add-text {
+    display: flex;
+    align-items: center;
+  }
+
   .max-767 {
     display: none;
   }
@@ -765,6 +774,15 @@ form .control-group .django-ckeditor-widget > div {
 
 @media (min-width: 992px) {
   /* ALL */
+
+  body {
+    font-size: unset;
+  }
+
+  .portal-app-nav a:not(.custom-btn) .add-text {
+    display: unset;
+    align-items: unset;
+  }
 
   /* NAVBAR */
 
