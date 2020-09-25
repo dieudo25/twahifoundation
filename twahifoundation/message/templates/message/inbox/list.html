@@ -2,7 +2,9 @@
 
 {% load static %}
 
-{% block title %} Portal | Message list {% endblock title %}
+{% load i18n %}
+
+{% block title %} {% trans "Portal" %} | {% trans "Messages list" %} {% endblock title %}
 
 {% block css %}
 
@@ -13,7 +15,7 @@
 
 {% block portal_content %}
   <div class="portal-content-title">
-    <h1>Manage Messages</h1>
+    <h1>{% trans "Manage Messages" %}</h1>
   </div>
   <div class="portal-top-bar">
     <ul class="portal-app-nav">
@@ -21,7 +23,7 @@
           <li class="poratl-app-nav-item">
             <div class="add-text">
               <span class="custom-icon inbox-icon"></span>
-              <span>Inbox</span>
+              <span>{% trans "Inbox" %}</span>
             </div>
           </li>
         </a>
@@ -29,7 +31,7 @@
           <li class="poratl-app-nav-item">
             <div class="add-text">
               <span class="custom-icon outbox-icon"></span>
-              <span>Outbox</span>
+              <span>{% trans "Outbox" %}</span>
             </div>
           </li>
         </a>
@@ -37,7 +39,7 @@
           <li class="poratl-app-nav-item">
             <div class="add-text">
               <span class="custom-icon trash-icon"></span>
-              <span>Trash</span>
+              <span>{% trans "Trash" %}</span>
             </div>
           </li>
         </a>
@@ -54,7 +56,7 @@
   <div class="portal-content-body">
     <div class="portal-content-nav">
       <div class="portal-content-nav-title">
-        <h2>Inbox</h2>
+        <h2>{% trans "Inbox" %}</h2>
       </div>
       <div class="portal-content-nav-item">
         <ul>
@@ -62,7 +64,7 @@
             <li class="nav-item-add">
               <div class="add-text">
                 <span class="material-icons">add_circle_outline</span>
-                <span>Add</span>
+                <span>{% trans "Add" %}</span>
               </div>
             </li>
           </a>
@@ -80,9 +82,9 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <th scope="col">Sender</th>
-              <th scope="col">Subject</th>
-              <th scope="col">Received at</th>
+              <th scope="col">{% trans "Sender" %}</th>
+              <th scope="col">{% trans "Subject" %}</th>
+              <th scope="col">{% trans "Received at" %}</th>
             </tr>
           </thead>
           <tbody>
@@ -109,9 +111,9 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <th scope="col">Sender</th>
-              <th scope="col">Subject</th>
-              <th scope="col">Received at</th>
+              <th scope="col">{% trans "Sender" %}</th>
+              <th scope="col">{% trans "Subject" %}</th>
+              <th scope="col">{% trans "Received at" %}</th>
             </tr>
           </thead>
           <tbody>
@@ -136,11 +138,11 @@
         </table>
       {% elif inbox_list|length == 0 %}
         <div id="empty-table">
-          <p>No message received</p>
+          <p>{% trans "No message received" %}</p>
         </div>
       {% else %}
         <div id="search-no-result">
-          <p>No result found</p>
+          <p>{% trans "No result found" %}</p>
         </div>
       {% endif%}
       

@@ -2,9 +2,11 @@
 
 {% load static %}
 
+{% load i18n %}
+
 {% load group_tags %}
 
-{% block title %} Portal | {{ event.title }} {% endblock title %}
+{% block title %} {% trans "Portal" %} | {{ event.title }} {% endblock title %}
 
 {% block css %}
 
@@ -42,7 +44,7 @@
           {% if event.project %}
             <div class="detail-info-group">
               <div class="detail-info-item-1">
-                <p>Project :</p>
+                <p>{% trans "Project" %} :</p>
               </div>
               <div class="detail-info-item-2">
                 <p>{{  event.project }}</p>
@@ -52,7 +54,7 @@
           
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Date of creation :</p>
+              <p>{% trans "Date of creation" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  event.date_created }}</p>
@@ -60,7 +62,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Start at :</p>
+              <p>{% trans "Start at" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  event.time_started }}</p>
@@ -68,7 +70,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>End at :</p>
+              <p>{% trans "End at" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  event.time_ended }}</p>
@@ -76,7 +78,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Location :</p>
+              <p>{% trans "Location" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  event.location }}</p>
@@ -84,7 +86,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Type :</p>
+              <p>{% trans "Type" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  event.event_type }}</p>
@@ -92,7 +94,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Status :</p>
+              <p>{% trans "Status" %} :</p>
             </div>
             <div class="detail-info-item-2">
 
@@ -110,7 +112,7 @@
         <div class="column">
           <div class="">
             <div class="detail-info-item-1">
-              <p>Content :</p>
+              <p>{% trans "Content" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  event.content|safe|linebreaks  }}</p>
@@ -122,7 +124,7 @@
     <div class="participant-section">
       <h2>
         <span class="material-icons prev">keyboard_arrow_left</span>
-        {{ event.users.count }} Participant{{ event.users.count|pluralize }}
+        {{ event.users.count }} {% trans "Participant" %}{{ event.users.count|pluralize }}
         <span class="material-icons next">keyboard_arrow_right</span>
       </h2>
       <div class="participant-list">
@@ -148,7 +150,7 @@
   <div class="detail-bar btn-6">
     <div class="detail-bar-col-1">
       <a href="{% url 'project:event-list' %}">
-        <p class="detail-bar-btn btn-black">Back</p>
+        <p class="detail-bar-btn btn-black">{% trans "Back" %}</p>
       </a>
     </div>
     <div class="detail-bar-col-2">
@@ -156,9 +158,9 @@
       <a href="{% url 'project:event-participate' event.slug %}">
 
         {% if not user in event.users.all %}
-            <p class="detail-bar-btn btn-black">Participate</p>
+            <p class="detail-bar-btn btn-black">{% trans "Participate" %}</p>
         {% else %}
-            <p class="detail-bar-btn btn-black">Cancel participation</p>
+            <p class="detail-bar-btn btn-black">{% trans "Cancel participation" %}</p>
         {% endif %}
 
       </a>
@@ -169,25 +171,25 @@
           <a href="{% url 'project:event-status-update' event.slug %}">
             
             {% if event.status == 'Drafted'%}
-              <p class="detail-bar-btn btn-black">Publish</p>
+              <p class="detail-bar-btn btn-black">{% trans "Publish" %}</p>
             {% else %}
-              <p class="detail-bar-btn btn-black">Draft</p>
+              <p class="detail-bar-btn btn-black">{% trans "Draft" %}</p>
             {% endif %}
             
           </a>
         {% endif %}
         
           <a href="{% url 'page:event-detail' event.slug %}">
-            <p class="detail-bar-btn btn-black">View on site</p>
+            <p class="detail-bar-btn btn-black">{% trans "View on site" %}</p>
           </a>
       {% endif %}
       
       {% if user|has_group:"Administrator" or user|has_group:"Project manager"%}
         <a href="{% url 'project:event-update' event.slug %}">
-          <p class="detail-bar-btn btn-black">Edit</p>
+          <p class="detail-bar-btn btn-black">{% trans "Edit" %}</p>
         </a>
         <a href="{% url 'project:event-delete' event.slug %}">
-          <p class="detail-bar-btn btn-red btn-last">Delete</p>
+          <p class="detail-bar-btn btn-red btn-last">{% trans "Delete" %}</p>
         </a>
       {% endif %}
       

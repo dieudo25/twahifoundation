@@ -1,5 +1,7 @@
 {% load static %}
 
+{% load i18n %}
+
 {% load group_tags %}
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-black">
@@ -13,42 +15,42 @@
 
         {% if user|has_group:"Administrator" %} 
           <li class="nav-item">
-            <a class="nav-link " href="{% url 'admin:index' %}">Administration</a>
+            <a class="nav-link " href="{% url 'admin:index' %}">{% trans "Administration" %}</a>
           </li>
         {% endif %}
         
         <li class="nav-item">
-          <a class="nav-link " href="{% url 'page:home' %}">Site Web</a>
+          <a class="nav-link " href="{% url 'page:home' %}">{% trans "Web site" %}</a>
         </li>
         <li class="nav-item max-767">
-          <a class="nav-link " href="{% url 'blog:post-list' %}">Blog</a>
+          <a class="nav-link " href="{% url 'blog:post-list' %}">{% trans "Blog" %}</a>
         </li>
         <li class="nav-item max-767">
-          <a class="nav-link " href="{% url 'contact:person-list' %}">Contact</a>
+          <a class="nav-link " href="{% url 'contact:person-list' %}">{% trans "Contact" %}</a>
         </li>
         <li class="nav-item max-767">
-          <a class="nav-link " href="{% url 'project:event-list' %}">Event</a>
+          <a class="nav-link " href="{% url 'project:event-list' %}">{% trans "Event" %}</a>
         </li>
         <li class="nav-item max-767">
-          <a class="nav-link " href="{% url 'message:inbox' %}">Message</a>
+          <a class="nav-link " href="{% url 'message:inbox' %}">{% trans "Message" %}</a>
         </li>
         <li class="nav-item max-767">
-          <a class="nav-link " href="{% url 'newsletter:subcriber-list' %}">Newsletter</a>
+          <a class="nav-link " href="{% url 'newsletter:subcriber-list' %}">{% trans "Newsletter" %}</a>
         </li>
         <li class="nav-item max-767">
-          <a class="nav-link " href="{% url 'project:project-list' %}">Project</a>
+          <a class="nav-link " href="{% url 'project:project-list' %}">{% trans "Project" %}</a>
         </li>
         <li class="nav-item max-767">
-          <a class="nav-link " href="{% url 'stock:stock-list' %}">Stock</a>
+          <a class="nav-link " href="{% url 'stock:stock-list' %}">{% trans "Stock" %}</a>
         </li>
         <li class="nav-item max-767">
-          <a class="nav-link " href="{% url 'project:task-list' %}">Task</a>
+          <a class="nav-link " href="{% url 'project:task-list' %}">{% trans "Task" %}</a>
         </li>
         <li class="nav-item max-767">
-          <a class="nav-link " href="{% url 'transaction:donation-list' %}">Transaction</a>
+          <a class="nav-link " href="{% url 'transaction:donation-list' %}">{% trans "Transaction" %}</a>
         </li>
         <li class="nav-item max-767">
-          <a class="nav-link " href="{% url 'user-list' %}">Members</a>
+          <a class="nav-link " href="{% url 'user-list' %}">{% trans "Members" %}</a>
         </li>
         <div class="notification-dropdown dropdown nav-item">
           <a class="nav-link" href="{% url 'portal:user-notifications' %}" role="button">
@@ -66,8 +68,8 @@
                 {{ user.username }}
           </a>
           <div class="nav-item dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item nav-link" href="{% url 'user-detail' user.slug %}"><span class="sign-in text-grey">Profile</span></a>
-              <a class="dropdown-item nav-link" href="{% url 'logout' %}"><span class="sign-in text-red">Sign out</span></a>
+              <a class="dropdown-item nav-link" href="{% url 'user-detail' user.slug %}"><span class="sign-in text-grey">{% trans "Profile" %}</span></a>
+              <a class="dropdown-item nav-link" href="{% url 'logout' %}"><span class="sign-in text-red">{% trans "Sign out" %}</span></a>
           </div>
         </div>
       </ul>

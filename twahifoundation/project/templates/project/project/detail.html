@@ -2,9 +2,11 @@
 
 {% load static %}
 
+{% load i18n %}
+
 {% load group_tags %}
 
-{% block title %} Portal | {{ project.title }} {% endblock title %}
+{% block title %} {% trans "Portal" %} | {{ project.title }} {% endblock title %}
 
 {% block css %}
 
@@ -31,7 +33,7 @@
         <div class="column">
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Created date :</p>
+              <p>{% trans "Created date" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  project.date_created }}</p>
@@ -39,7 +41,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Closing date :</p>
+              <p>{% trans "Closing date" %} :</p>
             </div>
             <div class="detail-info-item-2">
 
@@ -55,7 +57,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Status :</p>
+              <p>{% trans "Status" %} :</p>
             </div>
             <div class="detail-info-item-2">
                 <p>{{ project.status }}</p>
@@ -65,7 +67,7 @@
         <div class="column">
           <div class="">
             <div class="detail-info-item-1">
-              <p>Description :</p>
+              <p>{% trans "Description" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  project.description|safe|linebreaks  }}</p>
@@ -73,7 +75,7 @@
           </div>
           <div class="">
             <div class="detail-info-item-1">
-              <p>Content :</p>
+              <p>{% trans "Content" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  project.content|safe|linebreaks  }}</p>
@@ -86,7 +88,7 @@
   <div class="detail-bar">
     <div class="detail-bar-col-1">
       <a href="{% url 'project:project-list' %}">
-        <p class="detail-bar-btn btn-black">Back</p>
+        <p class="detail-bar-btn btn-black">{% trans "Back" %}</p>
       </a>
     </div>
     <div class="detail-bar-col-2">
@@ -95,41 +97,41 @@
           <a href="{% url 'project:project-status-update' project.slug %}">
             
             {% if project.status == 'Drafted'%}
-              <p class="detail-bar-btn btn-black">Publish</p>
+              <p class="detail-bar-btn btn-black">{% trans "Publish" %}</p>
             {% else %}
-              <p class="detail-bar-btn btn-black">Draft</p>
+              <p class="detail-bar-btn btn-black">{% trans "Draft" %}</p>
             {% endif %}
             
           </a>
         {% endif %}
 
       <a href="{% url 'page:project-detail' project.slug %}">
-        <p class="detail-bar-btn btn-black">View on site</p>
+        <p class="detail-bar-btn btn-black">{% trans "View on site" %}</p>
       </a>
 
       {% if user|has_group:"Administrator" or user|has_group:"Project manager"%}
 
         {% if not project.date_ended %}
           <a href="{% url 'project:project-close' project.slug %}">
-            <p class="detail-bar-btn btn-black">Close</p>
+            <p class="detail-bar-btn btn-black">{% trans "Close" %}</p>
           </a>
         {% else %}
           <a href="{% url 'project:project-close' project.slug %}">
-            <p class="detail-bar-btn btn-black">Open</p>
+            <p class="detail-bar-btn btn-black">{% trans "Open" %}</p>
           </a>
         {% endif %}
 
         <a href="{% url 'project:project-update' project.slug %}">
-          <p class="detail-bar-btn btn-black">Edit</p>
+          <p class="detail-bar-btn btn-black">{% trans "Edit" %}</p>
         </a>
 
         {% if not project.is_deleted %}
           <a href="{% url 'project:project-delete' project.slug %}">
-            <p class="detail-bar-btn btn-red btn-last">Delete</p>
+            <p class="detail-bar-btn btn-red btn-last">{% trans "Delete" %}</p>
           </a>
         {% else %}
           <a href="{% url 'project:project-delete-toggle' project.slug %}">
-            <p class="detail-bar-btn btn-green btn-last">Restore</p>
+            <p class="detail-bar-btn btn-green btn-last">{% trans "Restore" %}</p>
           </a>
         {% endif %}
 

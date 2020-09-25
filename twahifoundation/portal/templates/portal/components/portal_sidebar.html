@@ -2,6 +2,8 @@
 
 {% load group_tags %}
 
+{% load i18n %}
+
 <div class="portal-sidebar-toggle">
   <span id="portal-side-bar-minimize-btn" class="bg-black">
     <div id="toggle-collapse" class="rotateY180"></div>
@@ -12,7 +14,7 @@
     <div class="portal-sidebar-app">
       <div class="img-text-wrapper">
         <div class="text-wrapper hide">
-          Blog
+          {% trans "Blog" %}
         </div>
         <div class="img-wrapper">
           <img src="{% static 'portal/img/blog.svg' %}">
@@ -24,7 +26,7 @@
     <div class="portal-sidebar-app">
       <div class="img-text-wrapper">
         <div class="text-wrapper hide">
-          Contact
+          {% trans "Contact" %}
         </div>
         <div class="img-wrapper">
           <img src="{% static 'portal/img/contact.svg' %}">
@@ -36,7 +38,7 @@
     <div class="portal-sidebar-app">
       <div class="img-text-wrapper">
         <div class="text-wrapper hide">
-          Event
+          {% trans "Event" %}
         </div>
         <div class="img-wrapper">
           <img src="{% static 'portal/img/event.svg' %}">
@@ -48,7 +50,7 @@
     <div class="portal-sidebar-app">
       <div class="img-text-wrapper">
         <div class="text-wrapper hide">
-          Message
+          {% trans "Message" %}
         </div>
         <div class="img-wrapper">
           <img src="{% static 'portal/img/message.svg' %}">
@@ -60,7 +62,7 @@
     <div class="portal-sidebar-app">
       <div class="img-text-wrapper">
         <div class="text-wrapper hide">
-          Newsletter
+          {% trans "Newsletter" %}
         </div>
         <div class="img-wrapper">
           <img src="{% static 'portal/img/newsletter.svg' %}">
@@ -72,7 +74,7 @@
     <div class="portal-sidebar-app">
       <div class="img-text-wrapper">
         <div class="text-wrapper hide">
-          Project
+          {% trans "Project" %}
         </div>
         <div class="img-wrapper">
           <img src="{% static 'portal/img/project.svg' %}">
@@ -84,7 +86,7 @@
     <div class="portal-sidebar-app">
       <div class="img-text-wrapper">
         <div class="text-wrapper hide">
-          Stock
+          {% trans "Stock" %}
         </div>
         <div class="img-wrapper">
           <img src="{% static 'portal/img/stock.svg' %}">
@@ -96,7 +98,7 @@
     <div class="portal-sidebar-app">
       <div class="img-text-wrapper">
         <div class="text-wrapper hide">
-          Task
+          {% trans "Task" %}
         </div>
         <div class="img-wrapper">
           <img src="{% static 'portal/img/task.svg' %}">
@@ -108,7 +110,7 @@
     <div class="portal-sidebar-app user-app">
       <div class="img-text-wrapper">
         <div class="text-wrapper hide">
-          Transaction
+          {% trans "Transaction" %}
         </div>
         <div class="img-wrapper">
           <img src="{% static 'portal/img/transaction2.svg' %}">
@@ -120,7 +122,7 @@
     <div class="portal-sidebar-app user-app">
       <div class="img-text-wrapper">
         <div class="text-wrapper hide">
-          Members
+          {% trans "Members" %}
         </div>
         <div class="img-wrapper">
           <img src="{% static 'portal/img/user.svg' %}">

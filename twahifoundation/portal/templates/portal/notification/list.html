@@ -4,7 +4,9 @@
 
 {% load static %}
 
-{% block title %} Portal | Notifications Center {% endblock title %}
+{% load i18n %}
+
+{% block title %} {% trans "Portal" %} | {% trans "Notifications Center" %} {% endblock title %}
 
 {% block css %}
 
@@ -14,14 +16,15 @@
 {% endblock css %}
 
 {% block portal_content %}
+{{ LANGUAGE_CODE }} {{LANGUAGES}}
   <div class="portal-content-title">
-    <h1>Notifications</h1>
+    <h1>{% trans "Notifications" %}</h1>
   </div>
   <div class="portal-top-bar notification-bar">
-    <p>{% notifications_unread %} Notification{{notifications_unread|pluralize}}</p>
+    <p>{% notifications_unread %} {% trans "Notification" %}{{notifications_unread|pluralize}}</p>
     {% if notifications_unread %}
       <p>
-        <a class="btn-black" href="{% url 'portal:notice-read-all' %}">Clear all</a>
+        <a class="btn-black" href="{% url 'portal:notice-read-all' %}">{% trans "Clear all" %}</a>
       </p>
     {% endif %}
   </div>
@@ -91,7 +94,10 @@
 
                   </a>
                 </p>
-                <p class="notice-timesince">{{ notice.timesince }} ago</p>
+                <p class="notice-timesince">
+                  {{ notice.timesince }} {% trans "ago" %}
+                </p>
+                
 
                 {% if notice.description %}
                   <p>{{ notice.description|linebreaksbr }}</p>

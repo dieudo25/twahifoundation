@@ -4,7 +4,9 @@
 
 {% load group_tags %}
 
-{% block title %} Portal | {{ task.title }} {% endblock title %}
+{% load i18n %}
+
+{% block title %} {% trans "Portal" %} | {{ task.title }} {% endblock title %}
 
 {% block css %}
 
@@ -35,7 +37,7 @@
         <div class="column">
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Project :</p>
+              <p>{% trans "Project" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  task.project }}</p>
@@ -43,7 +45,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Status :</p>
+              <p>{% trans "Status" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  task.state }}</p>
@@ -51,7 +53,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Created date :</p>
+              <p>{% trans "Created date" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  task.date_created }}</p>
@@ -59,7 +61,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Deadline</p>
+              <p>{% trans "Deadline" %}</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  task.deadline }}</p>
@@ -69,7 +71,7 @@
         <div class="column">
           <div class="">
             <div class="detail-info-item-1">
-              <p>Description :</p>
+              <p>{% trans "Description" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  task.description|safe|linebreaks  }}</p>
@@ -80,7 +82,7 @@
     </div>
     <div class="detail-bar task-state-update">
       <div class="detail-bar-col-1">
-        Update state
+        {% trans "Update state" %}
       </div>
       <div class="detail-bar-col-2">
 
@@ -88,31 +90,31 @@
           
           {% if task.state != 'TODO' %}
             <a href="{% url 'project:task-state-update' task.slug 'todo' %}">
-              <p class="detail-bar-btn btn-black">TO DO</p>
+              <p class="detail-bar-btn btn-black">{% trans "TO DO" %}</p>
             </a>
           {% endif %}
           
           {% if task.state != 'PENDING' %}
             <a href="{% url 'project:task-state-update' task.slug 'pending' %}">
-              <p class="detail-bar-btn btn-black btn-last">PENDING</p>
+              <p class="detail-bar-btn btn-black btn-last">{% trans "PENDING" %}</p>
             </a>
           {% endif %}
 
           {% if task.state != 'IN PROGRESS' %}
             <a href="{% url 'project:task-state-update' task.slug 'in_progress' %}">
-              <p class="detail-bar-btn btn-black btn-last">IN PROGRESS</p>
+              <p class="detail-bar-btn btn-black btn-last">{% trans "IN PROGRESS" %}</p>
             </a>
           {% endif %}
 
           {% if task.state != 'LATE' %}
             <a href="{% url 'project:task-state-update' task.slug 'late' %}">
-              <p class="detail-bar-btn btn-red btn-last">LATE</p>
+              <p class="detail-bar-btn btn-red btn-last">{% trans "LATE" %}</p>
             </a>
           {% endif %}
 
           {% if task.state != 'DONE' %}
             <a href="{% url 'project:task-state-update' task.slug 'done' %}">
-              <p class="detail-bar-btn btn-green btn-last">DONE</p>
+              <p class="detail-bar-btn btn-green btn-last">{% trans "DONE" %}</p>
             </a>
           {% endif %}
 
@@ -123,7 +125,7 @@
     <div class="participant-section">
       <h2>
         <span class="material-icons prev">keyboard_arrow_left</span>
-        {{ task.users.count }} Participants
+        {{ task.users.count }} {% trans "Participants" %}
         <span class="material-icons next">keyboard_arrow_right</span>
       </h2>
       <div class="prev"></div>
@@ -150,17 +152,17 @@
   <div class="detail-bar">
     <div class="detail-bar-col-1">
       <a href="{% url 'project:task-list' %}">
-        <p class="detail-bar-btn btn-black">Back</p>
+        <p class="detail-bar-btn btn-black">{% trans "Back" %}</p>
       </a>
     </div>
     <div class="detail-bar-col-2">
 
       {% if user|has_group:"Administrator" or user|has_group:"Project manager"%}
         <a href="{% url 'project:task-update' task.slug %}">
-          <p class="detail-bar-btn btn-black">Edit</p>
+          <p class="detail-bar-btn btn-black">{% trans "Edit" %}</p>
         </a>
         <a href="{% url 'project:task-delete' task.slug %}">
-          <p class="detail-bar-btn btn-red btn-last">Delete</p>
+          <p class="detail-bar-btn btn-red btn-last">{% trans "Delete" %}</p>
         </a>
       {% endif %}
       

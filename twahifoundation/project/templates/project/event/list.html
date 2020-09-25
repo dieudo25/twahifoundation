@@ -2,9 +2,11 @@
 
 {% load static %}
 
+{% load i18n %}
+
 {% load group_tags %}
 
-{% block title %} Portal | Event list {% endblock title %}
+{% block title %} {% trans "Portal" %} | {% trans "Event list" %} {% endblock title %}
 
 {% block css %}
 
@@ -15,7 +17,7 @@
 
 {% block portal_content %}
   <div class="portal-content-title">
-    <h1>Manage Events</h1>
+    <h1>{% trans "Manage Events" %}</h1>
   </div>
   <div class="portal-top-bar no-button">
     <div id="list-search">
@@ -30,7 +32,7 @@
   <div class="portal-content-body">
     <div class="portal-content-nav">
       <div class="portal-content-nav-title">
-        <h2>Events</h2>
+        <h2>{% trans "Events" %}</h2>
       </div>
 
       {% if user|has_group:"Administrator" or user|has_group:"Project manager" %}
@@ -40,7 +42,7 @@
               <li class="nav-item-add">
                 <div class="add-text">
                   <span class="material-icons">add_circle_outline</span>
-                  <span>Add</span>
+                  <span>{% trans "Add" %}</span>
                 </div>
               </li>
             </a>
@@ -61,12 +63,12 @@
           <thead>
             <tr>
               <th scope="col"></th>
-              <th scope="col">Title</th>
-              <th scope="col">Start at</th>
-              <th scope="col">End at</th>
-              <th scope="col">Location</th>
-              <th scope="col">Type</th>
-              <th scope="col">Status</th>
+              <th scope="col">{% trans "Title" %}</th>
+              <th scope="col">{% trans "Start at" %}</th>
+              <th scope="col">{% trans "End at" %}</th>
+              <th scope="col">{% trans "Location" %}</th>
+              <th scope="col">{% trans "Type" %}</th>
+              <th scope="col">{% trans "Status" %}</th>
             </tr>
           </thead>
           <tbody>
@@ -110,12 +112,12 @@
           <thead>
             <tr>
               <th scope="col"></th>
-              <th scope="col">Title</th>
-              <th scope="col">Start at</th>
-              <th scope="col">End at</th>
-              <th scope="col">Location</th>
-              <th scope="col">Type</th>
-              <th scope="col">Status</th>
+              <th scope="col">{% trans "Title" %}</th>
+              <th scope="col">{% trans "Start at" %}</th>
+              <th scope="col">{% trans "End at" %}</th>
+              <th scope="col">{% trans "Location" %}</th>
+              <th scope="col">{% trans "Type" %}</th>
+              <th scope="col">{% trans "Status" %}</th>
             </tr>
           </thead>
           <tbody>
@@ -156,11 +158,11 @@
         </table>
       {% elif event_list|length == 0 %}
         <div id="empty-table">
-          <p>No event, <a href="{% url 'project:event-create' %}">create one</a></p>
+          <p>{% trans "No event" %}, <a href="{% url 'project:event-create' %}">{% trans "create one" %}</a></p>
         </div>
       {% else %}
         <div id="search-no-result">
-          <p>No result found</p>
+          <p>{% trans "No result found" %}</p>
         </div>
       {% endif%}
       

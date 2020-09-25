@@ -4,28 +4,30 @@
 
 {% load static %}
 
-{% block title %} Portal | Delete {{ project }} {% endblock title %}
+{% load i18n %}
+
+{% block title %} {% trans "Portal" %} | {% trans "Delete" %} {{ project }} {% endblock title %}
 
 {% block portal_content %}
   <div class="portal-content-title">
-    <h1>Delete {{ project }}</h1>
+    <h1>{% trans "Delete" %} {{ project }}</h1>
   </div>
   <div class="portal-wrapper">
     <div class="portal-update-form-wrapper">
       <div>
-        <p>Are you sure you want to delete "{{ project }}"?</p>
+        <p>{% trans "Are you sure you want to delete" %} "{{ project }}"?</p>
       </div>
     </div>
   </div>
   <div class="detail-bar">
     <div class="detail-bar-col-1">
       <a href="{% url 'project:project-detail' project.slug %}">
-        <p class="detail-bar-btn btn-black">Back</p>
+        <p class="detail-bar-btn btn-black">{% trans "Back" %}</p>
       </a>
     </div>
     <div class="detail-bar-col-2">
       <a href="{% url 'project:project-delete-toggle' project.slug %}">
-        <p class="detail-bar-btn btn-red btn-last">Delete</p>
+        <p class="detail-bar-btn btn-red btn-last">{% trans "Delete" %}</p>
       </a>
     </div>
   </div>

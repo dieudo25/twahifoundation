@@ -2,7 +2,9 @@
 
 {% load static %}
 
-{% block title %} Portal | Task list {% endblock title %}
+{% load i18n %}
+
+{% block title %} {% trans "Portal" %} | {% trans "Task list" %} {% endblock title %}
 
 {% block css %}
 
@@ -21,7 +23,7 @@
 
 {% block portal_content %}
   <div class="portal-content-title">
-    <h1>Manage Tasks</h1>
+    <h1>{% trans "Manage Tasks" %}</h1>
   </div>
   <div class="portal-top-bar no-button">
     <div id="list-search">
@@ -36,7 +38,7 @@
   <div class="portal-content-body">
     <div class="portal-content-nav">
       <div class="portal-content-nav-title">
-        <h2>Tasks</h2>
+        <h2>{% trans "Tasks" %}</h2>
       </div>
       <div class="portal-content-nav-item">
         <ul>
@@ -44,7 +46,7 @@
             <li class="nav-item-add">
               <div class="add-text">
                 <span class="material-icons">add_circle_outline</span>
-                <span>Add</span>
+                <span>{% trans "Add" %}</span>
               </div>
             </li>
           </a>
@@ -56,70 +58,70 @@
     <div class="portal-content-table">
       <div class="task-column task-todo">
         <div class="task-column-title">
-          <h3>{{ todo_list|length}} TODO <span class="material-icons color-light">keyboard_arrow_down</span></h3>
+          <h3>{{ todo_list|length}} {% trans "TO DO" %} <span class="material-icons color-light">keyboard_arrow_down</span></h3>
         </div>
         <div class="task-list task-todo">
           
           {% for task in todo_list %}
             <div class="task-item">
               <a href="{% url 'project:task-detail' task.slug %}"><p>{{ task.title }}</p></a>
-              <p><span class="font-weight-bold">Deadline</span> : {{ task.deadline }}</p>
+              <p><span class="font-weight-bold">{% trans "Deadline" %}</span> : {{ task.deadline }}</p>
             </div>
           {% endfor %}
         </div>
       </div>
       <div class="task-column task-pending">
         <div class="task-column-title">
-          <h3>{{ pending_list|length}} PENDING <span class="material-icons color-light">keyboard_arrow_down</span></h3>
+          <h3>{{ pending_list|length}} {% trans "PENDING" %} <span class="material-icons color-light">keyboard_arrow_down</span></h3>
         </div>
         <div class="task-list task-pending">
           
           {% for task in pending_list %}
             <div class="task-item">
               <a href="{% url 'project:task-detail' task.slug %}"><p>{{ task.title }}</p></a>
-              <p><span class="font-weight-bold">Deadline</span> : {{ task.deadline }}</p>
+              <p><span class="font-weight-bold">{% trans "Deadline" %}</span> : {{ task.deadline }}</p>
             </div>
           {% endfor %}
         </div>
       </div>
       <div class="task-column task-progress">
         <div class="task-column-title">
-          <h3>{{ in_progress_list|length}} IN PROGRESS <span class="material-icons color-light">keyboard_arrow_down</span></h3>
+          <h3>{{ in_progress_list|length}} {% trans "IN PROGRESS" %} <span class="material-icons color-light">keyboard_arrow_down</span></h3>
         </div>
         <div class="task-list task-progress">
           
           {% for task in in_progress_list %}
             <div class="task-item">
               <a href="{% url 'project:task-detail' task.slug %}"><p>{{ task.title }}</p></a>
-              <p><span class="font-weight-bold">Deadline</span> : {{ task.deadline }}</p>
+              <p><span class="font-weight-bold">{% trans "Deadline" %}</span> : {{ task.deadline }}</p>
             </div>
           {% endfor %}
         </div>
       </div>
       <div class="task-column task-late">
         <div class="task-column-title">
-          <h3>{{ late_list|length}} LATE <span class="material-icons color-light">keyboard_arrow_down</span></h3>
+          <h3>{{ late_list|length}} {% trans "LATE" %} <span class="material-icons color-light">keyboard_arrow_down</span></h3>
         </div>
         <div class="task-list task-late">
           
           {% for task in late_list %}
             <div class="task-item">
               <a href="{% url 'project:task-detail' task.slug %}"><p>{{ task.title }}</p></a>
-              <p><span class="font-weight-bold">Deadline</span> : {{ task.deadline }}</p>
+              <p><span class="font-weight-bold">{% trans "Deadline" %}</span> : {{ task.deadline }}</p>
             </div>
           {% endfor %}
         </div>
       </div>
       <div class="task-column task-done">
         <div class="task-column-title">
-          <h3>{{ done_list|length}} DONE <span class="material-icons color-light">keyboard_arrow_down</span></h3>
+          <h3>{{ done_list|length}} {% trans "DONE" %} <span class="material-icons color-light">keyboard_arrow_down</span></h3>
         </div>
         <div class="task-list task-done">
           
           {% for task in done_list %}
             <div class="task-item">
               <a href="{% url 'project:task-detail' task.slug %}"><p>{{ task.title }}</p></a>
-              <p><span class="font-weight-bold">Deadline</span> : {{ task.deadline }}</p>
+              <p><span class="font-weight-bold">{% trans "Deadline" %}</span> : {{ task.deadline }}</p>
             </div>
           {% endfor %}
         </div>

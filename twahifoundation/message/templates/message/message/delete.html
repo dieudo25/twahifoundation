@@ -4,11 +4,13 @@
 
 {% load static %}
 
-{% block title %} Portal | Delete {{ message }} {% endblock title %}
+{% load i18n %}
+
+{% block title %} {% trans "Portal" %} | {% trans "Delete" %} {{ message }} {% endblock title %}
 
 {% block portal_content %}
   <div class="portal-content-title">
-    <h1>Delete {{ message }}</h1>
+    <h1>{% trans "Delete" %} {{ message }}</h1>
   </div>
   <div class="portal-wrapper">
     <div class="portal-update-form-wrapper">
@@ -17,7 +19,7 @@
           {% csrf_token %}
 
           <div>
-            <p>Are you sure you want to delete the message "{{ message }}" from {{ message.sender }}?</p>
+            <p>{% trans "Are you sure you want to delete the message" %} "{{ message }}" {% trans "from" %} {{ message.sender }}?</p>
           </div>
       </form>
     </div>
@@ -25,11 +27,11 @@
   <div class="detail-bar">
     <div class="detail-bar-col-1">
       <a href="{% url 'message:trash-detail' message.pk %}">
-        <p class="detail-bar-btn btn-black">Back</p>
+        <p class="detail-bar-btn btn-black">{% trans "Back" %}</p>
       </a>
     </div>
     <div class="detail-bar-col-2">
-      <button form="delete-form" class="detail-bar-btn btn-red btn-last" type="submit">Delete</button>
+      <button form="delete-form" class="detail-bar-btn btn-red btn-last" type="submit">{% trans "Delete" %}</button>
     </div>
   </div>
 {% endblock portal_content %}
