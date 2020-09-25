@@ -2,9 +2,11 @@
 
 {% load static %}
 
+{% load i18n %}
+
 {% load group_tags %}
 
-{% block title %} Portal | {{ post.title }} {% endblock title %}
+{% block title %} {% trans "Portal" %} | {{ post.title }} {% endblock title %}
 
 {% block css %}
 
@@ -37,7 +39,7 @@
         <div class="column">
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Author:</p>
+              <p>{% trans "Author" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  post.user }}</p>
@@ -45,7 +47,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Created date :</p>
+              <p>{% trans "Created date" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  post.created_on }}</p>
@@ -53,7 +55,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Updated by :</p>
+              <p>{% trans "Updated by" %} :</p>
             </div>
             <div class="detail-info-item-2">
               
@@ -65,7 +67,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Updated date :</p>
+              <p>{% trans "Updated date" %} :</p>
             </div>
             <div class="detail-info-item-2">
               
@@ -77,7 +79,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Status :</p>
+              <p>{% trans "Status" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  post.status }}</p>
@@ -85,7 +87,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Tags :</p>
+              <p>{% trans "Tags" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>
@@ -99,7 +101,7 @@
         <div class="column">
           <div class="">
             <div class="detail-info-item-1">
-              <p>Description :</p>
+              <p>{% trans "Description" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  post.description|safe|linebreaks }}</p>
@@ -107,7 +109,7 @@
           </div>
           <div class="">
             <div class="detail-info-item-1">
-              <p>Content :</p>
+              <p>{% trans "Content" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  post.content|safe|linebreaks }}</p>
@@ -120,7 +122,7 @@
   <div class="detail-bar">
     <div class="detail-bar-col-1">
       <a href="{% url 'blog:post-list' %}">
-        <p class="detail-bar-btn btn-black">Back</p>
+        <p class="detail-bar-btn btn-black">{% trans "Back" %}</p>
       </a>
     </div>
     <div class="detail-bar-col-2">
@@ -129,27 +131,27 @@
         <a href="{% url 'blog:post-status-update' post.slug %}">
           
           {% if post.status == 'Drafted'%}
-            <p class="detail-bar-btn btn-black">Publish</p>
+            <p class="detail-bar-btn btn-black">{% trans "Publish" %}</p>
           {% else %}
-            <p class="detail-bar-btn btn-black">Draft</p>
+            <p class="detail-bar-btn btn-black">{% trans "Draft" %}</p>
           {% endif %}
           
         </a>
       {% endif %}
 
       <a href="{% url 'page:news-detail' post.slug %}">
-        <p class="detail-bar-btn btn-black">View on site</p>
+        <p class="detail-bar-btn btn-black">{% trans "View on site" %}</p>
       </a>
 
       {% if user|has_group:"Administrator" or user|has_group:"Project manager" or user|has_group:"Editor" %}
         <a href="{% url 'blog:post-update' post.slug %}">
-          <p class="detail-bar-btn btn-black">Edit</p>
+          <p class="detail-bar-btn btn-black">{% trans "Edit" %}</p>
         </a>
       {% endif %}
 
       {% if user|has_group:"Administrator" or user|has_group:"Project manager" %}
         <a href="{% url 'blog:post-delete' post.slug %}">
-          <p class="detail-bar-btn btn-red btn-last">Delete</p>
+          <p class="detail-bar-btn btn-red btn-last">{% trans "Delete" %}</p>
         </a>
       {% endif %}
 

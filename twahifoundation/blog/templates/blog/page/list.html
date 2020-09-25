@@ -4,7 +4,9 @@
 
 {% load group_tags %}
 
-{% block title %} Portal | Page list {% endblock title %}
+{% load i18n %}
+
+{% block title %} {% trans "Portal" %} | {% trans "Page list" %} {% endblock title %}
 
 {% block css %}
 
@@ -15,7 +17,7 @@
 
 {% block portal_content %}
   <div class="portal-content-title">
-    <h1>Manage Blog</h1>
+    <h1>{% trans "Manage Blog" %}</h1>
   </div>
   <div class="portal-top-bar">
   
@@ -33,7 +35,7 @@
   <div class="portal-content-body">
     <div class="portal-content-nav">
       <div class="portal-content-nav-title">
-        <h2>Pages</h2>
+        <h2>{% trans "Pages" %}</h2>
       </div>
 
       {% if user|has_group:"Administrator"%} 
@@ -43,7 +45,7 @@
               <li class="nav-item-add">
                 <div class="add-text">
                   <span class="material-icons">add_circle_outline</span>
-                  <span>Add</span>
+                  <span>{% trans "Add" %}</span>
                 </div>
               </li>
             </a>
@@ -63,11 +65,11 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <th scope="col">Title</th>
-              <th scope="col">Author</th>
-              <th scope="col">Created date</th>
-              <th scope="col">Updated by</th>
-              <th scope="col">Updated date</th>
+              <th scope="col">{% trans "Title" %}</th>
+              <th scope="col">{% trans "Author" %}</th>
+              <th scope="col">{% trans "Created date" %}</th>
+              <th scope="col">{% trans "Updated by" %}</th>
+              <th scope="col">{% trans "Updated date" %}</th>
             </tr>
           </thead>
           <tbody>
@@ -92,11 +94,11 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <th scope="col">Title</th>
-              <th scope="col">Author</th>
-              <th scope="col">Created date</th>
-              <th scope="col">Updated by</th>
-              <th scope="col">Updated date</th>
+              <th scope="col">{% trans "Title" %}</th>
+              <th scope="col">{% trans "Author" %}</th>
+              <th scope="col">{% trans "Created date" %}</th>
+              <th scope="col">{% trans "Updated by" %}</th>
+              <th scope="col">{% trans "Updated date" %}</th>
             </tr>
           </thead>
           <tbody>
@@ -128,11 +130,11 @@
         </table>
       {% elif filtered_page_list|length == 0 %}
         <div id="search-no-result">
-          <p>No results found</p>
+          <p>{% trans "No result found" %}</p>
         </div>
       {% else %}
         <div id="empty-table">
-          <p>No page, <a href="{% url 'blog:page-create' %}">create one</a></p>
+          <p>{% trans "No page" %}, <a href="{% url 'blog:page-create' %}">{% trans "create one" %}</a></p>
         </div>
       {% endif%}
       

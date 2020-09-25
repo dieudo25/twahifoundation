@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-24 23:15+0200\n"
+"POT-Creation-Date: 2020-09-25 15:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,15 +38,26 @@ msgstr "Oublié votre mot de passe ?"
 #: twahifoundation/account/templates/account/user/delete.html:9
 #: twahifoundation/account/templates/account/user/detail.html:9
 #: twahifoundation/account/templates/account/user/list.html:9
-#: twahifoundation/account/templates/account/user/update.html:7
+#: twahifoundation/account/templates/account/user/update.html:9
 #: twahifoundation/account/templates/account/user/update_group.html:9
+#: twahifoundation/blog/templates/blog/page/delete.html:9
+#: twahifoundation/blog/templates/blog/page/detail.html:9
+#: twahifoundation/blog/templates/blog/page/list.html:9
+#: twahifoundation/blog/templates/blog/page/update.html:9
+#: twahifoundation/blog/templates/blog/post/delete.html:9
+#: twahifoundation/blog/templates/blog/post/detail.html:9
+#: twahifoundation/blog/templates/blog/post/list.html:9
+#: twahifoundation/blog/templates/blog/post/update.html:9
+#: twahifoundation/blog/templates/blog/tags/delete.html:9
+#: twahifoundation/blog/templates/blog/tags/list.html:9
+#: twahifoundation/blog/templates/blog/tags/update.html:9
 msgid "Portal"
 msgstr "Portail"
 
 #: twahifoundation/account/templates/account/auth/password_change_done.html:9
 #: twahifoundation/account/templates/account/auth/password_change_form.html:9
-#: twahifoundation/account/templates/account/user/update.html:7
-#: twahifoundation/account/templates/account/user/update.html:18
+#: twahifoundation/account/templates/account/user/update.html:9
+#: twahifoundation/account/templates/account/user/update.html:20
 #: twahifoundation/account/templates/account/user/update_group.html:9
 msgid "Update profile"
 msgstr "Mise à jour du profil"
@@ -64,9 +75,17 @@ msgstr "Le mot de passe a été modifié avec succès"
 #: twahifoundation/account/templates/account/group/detail.html:41
 #: twahifoundation/account/templates/account/user/create.html:36
 #: twahifoundation/account/templates/account/user/delete.html:35
-#: twahifoundation/account/templates/account/user/detail.html:82
-#: twahifoundation/account/templates/account/user/update.html:34
+#: twahifoundation/account/templates/account/user/detail.html:88
+#: twahifoundation/account/templates/account/user/update.html:36
 #: twahifoundation/account/templates/account/user/update_group.html:36
+#: twahifoundation/blog/templates/blog/page/delete.html:30
+#: twahifoundation/blog/templates/blog/page/detail.html:96
+#: twahifoundation/blog/templates/blog/page/update.html:31
+#: twahifoundation/blog/templates/blog/post/delete.html:30
+#: twahifoundation/blog/templates/blog/post/detail.html:125
+#: twahifoundation/blog/templates/blog/post/update.html:31
+#: twahifoundation/blog/templates/blog/tags/delete.html:29
+#: twahifoundation/blog/templates/blog/tags/update.html:29
 #: twahifoundation/page/templates/page/event/detail.html:31
 #: twahifoundation/page/templates/page/news/detail.html:41
 #: twahifoundation/page/templates/page/project/detail.html:31
@@ -75,8 +94,11 @@ msgstr "Retour"
 
 #: twahifoundation/account/templates/account/auth/password_change_done.html:32
 #: twahifoundation/account/templates/account/auth/password_change_form.html:41
-#: twahifoundation/account/templates/account/user/update.html:38
+#: twahifoundation/account/templates/account/user/update.html:40
 #: twahifoundation/account/templates/account/user/update_group.html:40
+#: twahifoundation/blog/templates/blog/page/update.html:35
+#: twahifoundation/blog/templates/blog/post/update.html:35
+#: twahifoundation/blog/templates/blog/tags/update.html:33
 #: twahifoundation/page/templates/page/static_page/donate/donate.html:49
 msgid "Confirm"
 msgstr "Confirmer"
@@ -160,8 +182,15 @@ msgstr "Permissions"
 msgid "Group list"
 msgstr "Liste des groupes"
 
+#: twahifoundation/account/templates/account/group/list.html:18
+#: twahifoundation/account/templates/account/user/list.html:20
+msgid "Manage Members and Groups"
+msgstr "Gérer les membres et les groupes"
+
 #: twahifoundation/account/templates/account/group/list.html:36
 #: twahifoundation/account/templates/account/group/list.html:52
+#: twahifoundation/blog/templates/blog/tags/list.html:68
+#: twahifoundation/blog/templates/blog/tags/list.html:104
 #: twahifoundation/newsletter/templates/newsletter/subscriber/list.html:46
 msgid "Name"
 msgstr "Nom"
@@ -182,6 +211,19 @@ msgstr "Créer"
 #: twahifoundation/account/templates/account/user/delete.html:20
 #: twahifoundation/account/templates/account/user/delete.html:39
 #: twahifoundation/account/templates/account/user/detail.html:114
+#: twahifoundation/blog/templates/blog/page/delete.html:9
+#: twahifoundation/blog/templates/blog/page/delete.html:13
+#: twahifoundation/blog/templates/blog/page/delete.html:34
+#: twahifoundation/blog/templates/blog/page/detail.html:112
+#: twahifoundation/blog/templates/blog/post/delete.html:9
+#: twahifoundation/blog/templates/blog/post/delete.html:13
+#: twahifoundation/blog/templates/blog/post/delete.html:34
+#: twahifoundation/blog/templates/blog/post/detail.html:154
+#: twahifoundation/blog/templates/blog/tags/delete.html:9
+#: twahifoundation/blog/templates/blog/tags/delete.html:13
+#: twahifoundation/blog/templates/blog/tags/delete.html:33
+#: twahifoundation/blog/templates/blog/tags/list.html:72
+#: twahifoundation/blog/templates/blog/tags/list.html:108
 #: twahifoundation/page/templates/page/event/detail.html:43
 #: twahifoundation/page/templates/page/news/detail.html:54
 #: twahifoundation/page/templates/page/project/detail.html:44
@@ -189,6 +231,9 @@ msgid "Delete"
 msgstr "Supprimer"
 
 #: twahifoundation/account/templates/account/user/delete.html:28
+#: twahifoundation/blog/templates/blog/page/delete.html:22
+#: twahifoundation/blog/templates/blog/post/delete.html:22
+#: twahifoundation/blog/templates/blog/tags/delete.html:21
 msgid "Are you sure you want to delete"
 msgstr "Êtes-vous sûr de vouloir supprimer"
 
@@ -212,16 +257,20 @@ msgstr "Email"
 msgid "Language"
 msgstr "Langue"
 
-#: twahifoundation/account/templates/account/user/detail.html:89
+#: twahifoundation/account/templates/account/user/detail.html:78
+msgid "Update groups"
+msgstr "Changer les permissions"
+
+#: twahifoundation/account/templates/account/user/detail.html:95
+#: twahifoundation/blog/templates/blog/page/detail.html:106
+#: twahifoundation/blog/templates/blog/post/detail.html:148
+#: twahifoundation/blog/templates/blog/tags/list.html:71
+#: twahifoundation/blog/templates/blog/tags/list.html:107
 #: twahifoundation/page/templates/page/event/detail.html:37
 #: twahifoundation/page/templates/page/news/detail.html:48
 #: twahifoundation/page/templates/page/project/detail.html:38
 msgid "Edit"
 msgstr "Modifier"
-
-#: twahifoundation/account/templates/account/user/detail.html:97
-msgid "Update groups"
-msgstr "Changer les permissions"
 
 #: twahifoundation/account/templates/account/user/detail.html:104
 msgid "Deactivate"
@@ -235,15 +284,14 @@ msgstr "Activer"
 msgid "Member list"
 msgstr "Liste des membres"
 
-#: twahifoundation/account/templates/account/user/list.html:20
-msgid "Manage Members and Groups"
-msgstr "Gérer les membres et les groupes"
-
 #: twahifoundation/account/templates/account/user/list.html:28
 msgid "Members"
 msgstr "Membres"
 
 #: twahifoundation/account/templates/account/user/list.html:38
+#: twahifoundation/blog/templates/blog/page/list.html:48
+#: twahifoundation/blog/templates/blog/post/list.html:48
+#: twahifoundation/blog/templates/blog/tags/list.html:48
 msgid "Add"
 msgstr "Ajouter"
 
@@ -267,16 +315,149 @@ msgid "No member"
 msgstr "Aucun membre"
 
 #: twahifoundation/account/templates/account/user/list.html:129
+#: twahifoundation/blog/templates/blog/page/list.html:137
+#: twahifoundation/blog/templates/blog/post/list.html:164
+#: twahifoundation/blog/templates/blog/tags/list.html:143
 msgid "create one"
 msgstr "en créer un"
 
 #: twahifoundation/account/templates/account/user/list.html:133
-msgid "No results found"
+#: twahifoundation/blog/templates/blog/page/list.html:133
+#: twahifoundation/blog/templates/blog/post/list.html:160
+#: twahifoundation/blog/templates/blog/tags/list.html:139
+msgid "No result found"
 msgstr "Aucun résultat trouvé"
 
 #: twahifoundation/account/templates/account/user/update_group.html:20
 msgid "Select group for the user"
 msgstr "Sélectionner un groupe pour l'utilisateur"
+
+#: twahifoundation/blog/templates/blog/components/navlist.html:10
+#: twahifoundation/blog/templates/blog/post/list.html:38
+msgid "Posts"
+msgstr "Postes"
+
+#: twahifoundation/blog/templates/blog/components/navlist.html:19
+#: twahifoundation/blog/templates/blog/page/list.html:38
+msgid "Pages"
+msgstr "Pages"
+
+#: twahifoundation/blog/templates/blog/components/navlist.html:28
+#: twahifoundation/blog/templates/blog/page/detail.html:69
+#: twahifoundation/blog/templates/blog/post/detail.html:90
+msgid "Tags"
+msgstr "Tags"
+
+#: twahifoundation/blog/templates/blog/page/detail.html:29
+#: twahifoundation/blog/templates/blog/page/list.html:69
+#: twahifoundation/blog/templates/blog/page/list.html:98
+#: twahifoundation/blog/templates/blog/post/detail.html:42
+#: twahifoundation/blog/templates/blog/post/list.html:70
+#: twahifoundation/blog/templates/blog/post/list.html:117
+msgid "Author"
+msgstr "Auteur"
+
+#: twahifoundation/blog/templates/blog/page/detail.html:37
+#: twahifoundation/blog/templates/blog/page/list.html:70
+#: twahifoundation/blog/templates/blog/page/list.html:99
+#: twahifoundation/blog/templates/blog/post/detail.html:50
+#: twahifoundation/blog/templates/blog/post/list.html:71
+#: twahifoundation/blog/templates/blog/post/list.html:118
+msgid "Created date"
+msgstr "Date de création"
+
+#: twahifoundation/blog/templates/blog/page/detail.html:45
+#: twahifoundation/blog/templates/blog/page/list.html:71
+#: twahifoundation/blog/templates/blog/page/list.html:100
+#: twahifoundation/blog/templates/blog/post/detail.html:58
+#: twahifoundation/blog/templates/blog/post/list.html:72
+#: twahifoundation/blog/templates/blog/post/list.html:119
+msgid "Updated by"
+msgstr "Mis à jour par"
+
+#: twahifoundation/blog/templates/blog/page/detail.html:57
+#: twahifoundation/blog/templates/blog/page/list.html:72
+#: twahifoundation/blog/templates/blog/page/list.html:101
+#: twahifoundation/blog/templates/blog/post/detail.html:70
+#: twahifoundation/blog/templates/blog/post/list.html:73
+#: twahifoundation/blog/templates/blog/post/list.html:120
+msgid "Updated date"
+msgstr "Date de mise à jour"
+
+#: twahifoundation/blog/templates/blog/page/detail.html:83
+#: twahifoundation/blog/templates/blog/post/detail.html:112
+msgid "Content"
+msgstr "Contenu"
+
+#: twahifoundation/blog/templates/blog/page/detail.html:101
+#: twahifoundation/blog/templates/blog/post/detail.html:143
+msgid "View on site"
+msgstr "Voir sur le site"
+
+#: twahifoundation/blog/templates/blog/page/list.html:9
+msgid "Page list"
+msgstr "Liste des pages"
+
+#: twahifoundation/blog/templates/blog/page/list.html:20
+#: twahifoundation/blog/templates/blog/post/list.html:20
+#: twahifoundation/blog/templates/blog/tags/list.html:20
+msgid "Manage Blog"
+msgstr "Gérer le blog"
+
+#: twahifoundation/blog/templates/blog/page/list.html:68
+#: twahifoundation/blog/templates/blog/page/list.html:97
+#: twahifoundation/blog/templates/blog/post/list.html:69
+#: twahifoundation/blog/templates/blog/post/list.html:116
+msgid "Title"
+msgstr "Titre"
+
+#: twahifoundation/blog/templates/blog/page/list.html:137
+msgid "No page"
+msgstr "Aucune page"
+
+#: twahifoundation/blog/templates/blog/page/update.html:9
+#: twahifoundation/blog/templates/blog/page/update.html:13
+#: twahifoundation/blog/templates/blog/post/update.html:9
+#: twahifoundation/blog/templates/blog/post/update.html:13
+#: twahifoundation/blog/templates/blog/tags/update.html:9
+#: twahifoundation/blog/templates/blog/tags/update.html:13
+msgid "Update"
+msgstr "Mis à jour :"
+
+#: twahifoundation/blog/templates/blog/post/detail.html:82
+#: twahifoundation/blog/templates/blog/post/list.html:74
+#: twahifoundation/blog/templates/blog/post/list.html:121
+#: twahifoundation/newsletter/templates/newsletter/subscriber/list.html:48
+msgid "Status"
+msgstr "Statut"
+
+#: twahifoundation/blog/templates/blog/post/detail.html:104
+msgid "Description"
+msgstr "Description"
+
+#: twahifoundation/blog/templates/blog/post/detail.html:134
+msgid "Publish"
+msgstr "Publier"
+
+#: twahifoundation/blog/templates/blog/post/detail.html:136
+msgid "Draft"
+msgstr "Brouillon"
+
+#: twahifoundation/blog/templates/blog/post/list.html:9
+msgid "Post list"
+msgstr "Liste des postes"
+
+#: twahifoundation/blog/templates/blog/post/list.html:164
+msgid "No post"
+msgstr "Aucun poste"
+
+#: twahifoundation/blog/templates/blog/tags/list.html:9
+msgid "Tags list"
+msgstr "Liste de tags"
+
+#: twahifoundation/blog/templates/blog/tags/list.html:143
+msgid "No tag"
+msgstr "Aucun tag"
 
 #: twahifoundation/message/models/message.py:57
 msgid "Subject"
@@ -350,10 +531,6 @@ msgstr "Abonnés"
 #: twahifoundation/newsletter/templates/newsletter/subscriber/list.html:47
 msgid "Date added"
 msgstr "Date d'ajout"
-
-#: twahifoundation/newsletter/templates/newsletter/subscriber/list.html:48
-msgid "Status"
-msgstr "Statut"
 
 #: twahifoundation/newsletter/templates/newsletter/subscriber/list.html:65
 msgid "No subscribers"
