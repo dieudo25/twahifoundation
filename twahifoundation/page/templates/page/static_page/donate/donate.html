@@ -2,14 +2,16 @@
 
 {% load static %}
 
+{% load i18n %}
+
 {% load crispy_forms_tags %}
 
-{% block title %} Donate {% endblock title %}
+{% block title %} {% trans "Donate" %} {% endblock title %}
 
 {% block header %}
     <div class="sub-header bg-image">
         <div class="content-width-wrapper">
-            <h3>Donate</h3>
+            <h3>{% trans "Donate" %}</h3>
         </div>
     </div>  
     <div class="sub-clearfix"></div>
@@ -28,12 +30,12 @@
 
     <div class="donate-content bg-white pt-4"> 
         <div class="donate-info text-center">
-            <h2 class=" mb-5">To support a project of Twahi Foundation, you can make a donation.</h2>
+            <h2 class=" mb-5">{% trans "To support a project of Twahi Foundation, you can make a donation." %}</h2>
             <p class=" mb-5">
-                <span class="font-weight-bold">TWAHIFOUNDATION BELGIUM ACCOUNT</span><br>BEXX XXXX XXXX XXXX - <span>BIC XXXXXXXX</span>
+                <span class="font-weight-bold">{% trans "BELGIUM ACCOUNT" %}</span><br>BEXX XXXX XXXX XXXX - <span>BIC XXXXXXXX</span>
             </p>
-            <p class="text-center font-weight-bold or mb-5">OR<p>
-            <p class="font-weight-bold mb-5">WITH PAYPAL</p>
+            <p class="text-center font-weight-bold or mb-5">{% trans "OR" %}<p>
+            <p class="font-weight-bold mb-5">{% trans "WITH PAYPAL" %}</p>
             <form method="POST" class="paypal-form">
 
                 {% csrf_token %}
@@ -44,9 +46,9 @@
 
                 {{ price_form | crispy }}
 
-                <button type="submit" class="btn-green mt-4">Confirm</button>
+                <button type="submit" class="btn-green mt-4">{% trans "Confirm" %}</button>
             </form>
-            <p class="mt-4">THANKS TO OUR GENEROUS DONORS </p>
+            <p class="mt-4">{% trans "THANKS TO OUR GENEROUS DONORS"%} </p>
         </div>
     </div>
 {% endblock content_with_sidebar %}

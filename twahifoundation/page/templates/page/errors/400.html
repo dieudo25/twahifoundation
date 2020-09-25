@@ -1,5 +1,7 @@
 {% extends 'page/errors/base.html' %}
 
+{% load i18n %}
+
 {% load group_tags %}
 
 {% load static %}
@@ -9,24 +11,24 @@
     <div class="error-container bg-orange-light">
         <div class="error">
             <div class="error-title">
-                Error
+                {% trans "Error" %}
             </div>
             <div class="error-number">
                 400
             </div>
             <div class="error-description text-white">
-                Bad request
+                {% trans "Bad request" %}
             </div>
             <div class="error-or">
                 <div class="or bg-orange-light">
-                    <a class="text-link" href="{% url 'page:home' %}">HOME</a>
+                    <a class="text-link" href="{% url 'page:home' %}">{% trans "HOME" %}</a>
                 </div>
             </div>
             
             {% if user|has_group:"Administrator" or user|has_group:"Member"%}
                 <div class="error-or">
                     <div class="or-line"></div>
-                    <div class="or bg-orange-light">Or</div>
+                    <div class="or bg-orange-light">{% trans "Or" %}</div>
                 </div>
                 <div class="error-or">
                     <div class="or bg-orange-light">

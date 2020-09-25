@@ -1,15 +1,17 @@
 {% load static %}
 
+{% load i18n %}
+
 {% load group_tags %}
 
 <div class="projects-list">
   <div class="page-title">
-    <h2 class="title-h2">Our project{{ page_project_list|pluralize }}</h2>
+    <h2 class="title-h2">{% trans "Our projects" %}</h2>
 
     {% if user|has_group:"Administrator" or user|has_group:"Project manager"%}
       <div class="object-control-link">
         <a class="control-link text-white" href="{% url 'project:project-create' %}">
-            <p class="btn-green text-center">New</p>
+            <p class="btn-green text-center">{% trans "New" %}</p>
         </a>
       </div>
     {% endif %}
@@ -29,7 +31,7 @@
         </div>
         </div>
         <div>
-          <p><span>Created on</span> {{ project.date_created }}</p>
+          <p><span>{% trans "Created on" %}</span> {{ project.date_created }}</p>
           <p>
             {{ project.description|truncatewords:30|safe }}
           </p>
@@ -38,8 +40,7 @@
     {% endfor %}
     
   {% else %}
-  <p>No projects for the moment.</p>
+  <p>{% trans "No project for the moment." %}</p>
   {% endif %}
-  
   
 </div>

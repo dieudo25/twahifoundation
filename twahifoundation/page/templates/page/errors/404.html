@@ -4,29 +4,31 @@
 
 {% load static %}
 
+{% load i18n %}
+
 {% block body %}
 <div class="error-wrapper">
     <div class="error-container">
         <div class="error">
             <div class="error-title">
-                Error
+                {% trans "Error" %}
             </div>
             <div class="error-number">
                 404
             </div>
             <div class="error-description text-white">
-                Sorry, The page you were looking for doesn't exist
+                {% trans "Sorry, The page you were looking for doesn't exist" %}
             </div>
             <div class="error-or">
                 <div class="or">
-                    <a class="text-link" href="{% url 'page:home' %}">HOME</a>
+                    <a class="text-link" href="{% url 'page:home' %}">{% trans "HOME" %}</a>
                 </div>
             </div>
             
             {% if user|has_group:"Administrator" or user|has_group:"Member"%}
                 <div class="error-or">
                     <div class="or-line"></div>
-                    <div class="or">Or</div>
+                    <div class="or">{% trans "Or" %}</div>
                 </div>
                 <div class="error-or">
                     <div class="or">

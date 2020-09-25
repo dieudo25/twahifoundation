@@ -2,7 +2,9 @@
 
 {% load static %}
 
-{% block title %} Portal | {{ user_profile.username }} {% endblock title %}
+{% load i18n %}
+
+{% block title %} {% trans "Portal" %} | {{ user_profile.username }} {% endblock title %}
 
 {% block css %}
 
@@ -21,7 +23,7 @@
       </div>
       <div class="detail-info-group">
         <div class="detail-info-item-1">
-          <p>Permissions :</p>
+          <p>{% trans "Permissions" %} :</p>
         </div>
           <div class="detail-info-item-2">
 
@@ -36,7 +38,7 @@
   <div class="detail-bar">
     <div class="detail-bar-col-1">
       <a href="{% url 'group-list' %}">
-        <p class="detail-bar-btn btn-black">Back</p>
+        <p class="detail-bar-btn btn-black">{% trans "Back" %}</p>
       </a>
     </div>
   </div>

@@ -4,7 +4,9 @@
 
 {% load static %}
 
-{% block title %} Portal | Update profile {{ user_profile }} {% endblock title %}
+{% load i18n %}
+
+{% block title %} {% trans "Portal" %} | {% trans "Update profile" %} {{ user_profile }} {% endblock title %}
 
 {% block css %}
 
@@ -15,7 +17,7 @@
 
 {% block portal_content %}
   <div class="portal-content-title">
-    <h1>Select group for the user</h1>
+    <h1>{% trans "Select group for the user" %}</h1>
   </div>
   <div class="portal-wrapper">
     <div class="portal-update-form-wrapper">
@@ -31,11 +33,11 @@
   <div class="detail-bar">
     <div class="detail-bar-col-1">
       <a href="../">
-        <p class="detail-bar-btn btn-black">Back</p>
+        <p class="detail-bar-btn btn-black">{% trans "Back" %}</p>
       </a>
     </div>
     <div class="detail-bar-col-2">
-      <button form="update-form" class="detail-bar-btn btn-green btn-last" type="submit">Confirm</button>
+      <button form="update-form" class="detail-bar-btn btn-green btn-last" type="submit">{% trans "Confirm" %}</button>
     </div>
   </div>
 {% endblock portal_content %}

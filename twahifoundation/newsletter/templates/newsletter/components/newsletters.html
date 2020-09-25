@@ -1,7 +1,9 @@
+{% load i18n %}
+
 <div id="newsletters-bar">
   <div id="newsletters-title">
-    <h2>Sign up for our newsletter & stay updated!</h2>
-    <p>We'll never share your email with anyone else.</p>
+    <h2>{% trans "Sign up for our newsletter & stay updated !" %}</h2>
+    <p>{% trans "We'll never share your email with anyone else." %}</p>
   </div>
   <div class="newsletters-form">
     <form method="POST" action="{% url 'newsletter:subcriber-add' %}">
@@ -9,9 +11,9 @@
       {% csrf_token %}
     
       <div class="form-group">
-        <input type="email" id="email_id" name="email" class="form-control" placeholder="Your email address">
+        <input type="email" id="email_id" name="email" class="form-control" placeholder="{% trans "Your email address" %}">
       </div>
-        <button type="submit" class="btn-green">Sign up</button>
+        <button type="submit" class="btn-green">{% trans "Sign up" %}</button>
     </form>
   </div>
 </div>

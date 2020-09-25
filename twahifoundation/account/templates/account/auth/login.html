@@ -1,10 +1,12 @@
 {% extends 'page/base.html'%}
 
+{% load i18n %}
+
 {% load crispy_forms_tags %}
 
 {% load static %}
 
-{% block title %} Sign in {% endblock title %}
+{% block title %} {% trans "Sign in" %} {% endblock title %}
 
 {% block css %}
 
@@ -28,10 +30,10 @@
 
           {{ form|crispy}}
           
-          <button class="btn-green" type="submit" value="login">Sign in</button>
+          <button class="btn-green" type="submit" value="login">{% trans "Sign in" %}</button>
           <div class="text-center">
         </form>
-        <a class="small text-blue" href="{% url 'password-reset' %}">Forgot password?</a></div>  
+        <a class="small text-blue" href="{% url 'password-reset' %}">{% trans "Forgot password ?" %}</a></div>  
       {% endblock auth %}
       
     </div>

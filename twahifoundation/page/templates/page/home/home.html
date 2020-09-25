@@ -1,8 +1,10 @@
 {% extends '../base.html'%}
 
+{% load i18n %}
+
 {% load static %}
 
-{% block title %} Home {% endblock title %}
+{% block title %}{% trans 'Home' %}{% endblock title %}
 
 {% block css %}
 
@@ -24,14 +26,14 @@
       <div class="header-p-wrapper">
         <div class="header-p">
           <div>
-            <h1>Together for welfare, advocacy, harmony and innovation
+            <h1>{% trans 'Together for welfare, advocacy, harmony and innovation' %}
               </br></br>
-              <small>Let's improve the standard of living of the African population through our different actions</small>
+              <small>{% trans "Let's improve the standard of living of the African population through ours differents actions" %}</small>
             </h1>
           </div>
           <div class="header-btn">
-            <a href="{% url 'page:page-detail' 'about-us' %}"><span class="btn-blue">Learn more</span></a>
-            <a href="{% url 'page:donate' %}"><span class="btn-green">Donate</span></a>
+            <a href="{% url 'page:page-detail' 'about-us' %}"><span class="btn-blue">{% trans "Learn more" %}</span></a>
+            <a href="{% url 'page:donate' %}"><span class="btn-green">{% trans "Donate" %}</span></a>
           </div>
         </div>
       </div>
@@ -50,7 +52,7 @@
       <img src="{% static 'page/img/welcome_1.jpg' %}">
     </div>
     <div class="welcome-p">
-      <h2>Welcome to the Twahi Foundation association</h2>
+      <h2>{% trans "Welcome to the Twahi Foundation association" %}</h2>
     </div>
     <div class="img-wrapper">
       <img src="{% static 'page/img/welcome_2.jpg' %}">

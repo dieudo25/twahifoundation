@@ -2,12 +2,14 @@
 
 {% load static %}
 
-{% block title %} Events {% endblock title %}
+{% load i18n %}
+
+{% block title %} {% trans "Events" %} {% endblock title %}
 
 {% block header %}
     <div class="sub-header bg-image">
         <div class="content-width-wrapper">
-            <h3>Events</h3>
+            <h3>{% trans "Events" %}</h3>
         </div>
     </div>  
     <div class="sub-clearfix"></div>

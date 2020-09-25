@@ -1,9 +1,11 @@
 {% load static %}
 
+{% load i18n %}
+
 <div class="home-project">
   <h2 class="title-h2 text-center text-white content-width-wrapper">
     <span class="material-icons slide-nav prev">keyboard_arrow_left</span>
-    <span class="title">Our project{{ page_project_list|pluralize }}</span>
+    <span class="title">{% trans "Our projects" %}</span>
     <span class="material-icons slide-nav next">keyboard_arrow_right</span>
   </h2>
   <div class="projects-list content-width-wrapper project-home">
@@ -23,7 +25,7 @@
                 <h3 class="project-home">{{ project.title }}</h3>
               </a>
             </div>
-            <p><span>Created on</span> {{ project.date_created }}</p>
+            <p><span>{% trans "Created on" %}</span> {{ project.date_created }}</p>
             <p class="description">
               {{ project.description|truncatewords:30|safe }}
             </p>
@@ -32,7 +34,7 @@
       {% endfor %}
 
     {% else %}
-    <p class="text-white text-center">No projects for the moment.</p>
+    <p class="text-white text-center">{% trans "No project for the moment." %}</p>
     {% endif %}  
 
   </div>

@@ -1,10 +1,11 @@
+{% load i18n %}
+
 <div class='nav-menu-wrapper'>
   <div class="list-group">
-    <a href="#" class="list-group-item list-group-item-action">Get involved</a>
-    <a href="{% url 'page:news-list' %}" class="list-group-item list-group-item-action">News</a>
-    <a href="{% url 'page:project-list' %}" class="list-group-item list-group-item-action">Projects</a>
-    <a href="{% url 'page:event-list' %}" class="list-group-item list-group-item-action">Events</a>
-    <a href="{% url 'page:page-detail' 'about-us' %}" class="list-group-item list-group-item-action">About</a>
-    <a href="{% url 'page:contact' %}" class="list-group-item list-group-item-action">Contact us</a>
+    <a href="{% url 'page:news-list' %}" class="list-group-item list-group-item-action">{% trans "News" %}</a>
+    <a href="{% url 'page:project-list' %}" class="list-group-item list-group-item-action">{% trans "Projects" %}</a>
+    <a href="{% url 'page:event-list' %}" class="list-group-item list-group-item-action">{% trans "Events" %}</a>
+    <a href="{% url 'page:page-detail' 'about-us' %}" class="list-group-item list-group-item-action">{% trans "About" %}</a>
+    <a href="{% url 'page:contact' %}" class="list-group-item list-group-item-action">{% trans "Contact us" %}</a>
   </div>
 </div>

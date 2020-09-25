@@ -1,14 +1,16 @@
 {% load static %}
 
+{% load i18n %}
+
 {% load group_tags %}
 
 <div class="page-title title-event">
-    <h2 class="title-h2">Upcoming Event{{ page_event_list|pluralize }}</h2>
+    <h2 class="title-h2">{% trans "Upcoming Event" %}{{ page_event_list|pluralize }}</h2>
 
     {% if user|has_group:"Administrator" or user|has_group:"Project manager"%}
       <div class="object-control-link">
         <a class="control-link text-white" href="{% url 'project:event-create' %}">
-            <p class="btn-green text-center">New</p>
+            <p class="btn-green text-center">{% trans "New" %}</p>
         </a>
       </div>
     {% endif %}
@@ -32,7 +34,7 @@
               <a href="{% url 'page:event-detail' event.slug %}"><h3>{{ event.title }}</h3></a>
               <p>
                 {{ event.location }}</br>
-                {{ event.time_started}} – to – {{ event.time_ended }}
+                {{ event.time_started}} – {% trans "to" %} – {{ event.time_ended }}
               </p>
             </div>
           </div>
@@ -41,7 +43,7 @@
     {% endfor %}
 
   {% else %}
-    <p>No events for the moment.</p>
+    <p>{% trans "No event for the moment." %}</p>
   {% endif %}
   
 </div>

@@ -21,6 +21,8 @@ from page.views.page import (
     NewsDetailView,
 )
 
+from page.views.language import change_language
+
 app_name = 'page'
 
 urlpatterns = [
@@ -61,5 +63,10 @@ urlpatterns = [
     re_path(r'^news/$', NewsListView.as_view(), name="news-list"),
     re_path(r'^news/(?P<slug>[a-z0-9-]+)/$',
             NewsDetailView.as_view(), name="news-detail"),
+
+    # Language
+    re_path(r'^change_language/(?P<language>[a-zA-Z-]+)$',
+            change_language, name="language-change"),
+
 
 ]

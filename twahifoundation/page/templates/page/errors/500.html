@@ -2,6 +2,8 @@
 
 {% load group_tags %}
 
+{% load i18n %}
+
 {% load static %}
 
 {% block body %}
@@ -9,17 +11,17 @@
     <div class="error-container bg-blue">
         <div class="error">
             <div class="error-title">
-                Error
+                {% trans "Error" %}
             </div>
             <div class="error-number">
                 500
             </div>
             <div class="error-description text-white">
-                Ooops!! Something went wrong!
+                {% trans "Ooops!! Something went wrong!" %}
             </div>
             <div class="error-or">
                 <div class="or bg-blue">
-                    <a class="text-link" href="{% url 'page:home' %}">HOME</a>
+                    <a class="text-link" href="{% url 'page:home' %}">{% trans "HOME" %}</a>
                 </div>
             </div>
             

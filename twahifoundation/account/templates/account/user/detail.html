@@ -2,9 +2,11 @@
 
 {% load static %}
 
+{% load i18n %}
+
 {% load group_tags %}
 
-{% block title %} Portal | {{ user_profile.username }} {% endblock title %}
+{% block title %} {% trans "Portal" %} | {{ user_profile.username }} {% endblock title %}
 
 {% block css %}
 
@@ -28,7 +30,7 @@
     <div class="detail-info">
       <div class="detail-info-group">
         <div class="detail-info-item-1">
-          <p>First name :</p>
+          <p>{% trans "First name" %} :</p>
         </div>
         <div class="detail-info-item-2">
           <p>{{  user_profile.first_name }}</p>
@@ -36,7 +38,7 @@
       </div>
       <div class="detail-info-group">
         <div class="detail-info-item-1">
-          <p>Last name :</p>
+          <p>{% trans "Last name" %} :</p>
         </div>
         <div class="detail-info-item-2">
           <p>{{  user_profile.last_name }}</p>
@@ -44,7 +46,7 @@
       </div>
       <div class="detail-info-group">
         <div class="detail-info-item-1">
-          <p>Email :</p>
+          <p>{% trans "Email" %} :</p>
         </div>
         <div class="detail-info-item-2">
           <p>{{  user_profile.email }}</p>
@@ -52,7 +54,7 @@
       </div>
       <div class="detail-info-group">
         <div class="detail-info-item-1">
-          <p>Language :</p>
+          <p>{% trans "Language" %} :</p>
         </div>
         <div class="detail-info-item-2">
           <p>{{  user_profile.language }}</p>
@@ -62,7 +64,7 @@
       {% if user|has_group:"Administrator" or user|has_group:"President" %} 
         <div class="detail-info-group">
           <div class="detail-info-item-1">
-            <p>Groups :</p>
+            <p>{% trans "Groups" %} :</p>
           </div>
           <div class="detail-info-item-2">
             {% for group in user_profile.groups.all %}
@@ -70,6 +72,12 @@
             {% endfor %}
           </div>
         </div>
+
+        {% if user_profile.is_active %}
+          <a href="{% url 'user-update-group' user_profile.slug %}">
+            <p class="detail-bar-btn btn-black btn-last">{% trans "Update groups" %}</p>
+          </a> 
+        {% endif %}
       {% endif %}
 
     </div>
@@ -77,31 +85,25 @@
   <div class="detail-bar">
     <div class="detail-bar-col-1">
       <a href="{% url 'user-list' %}">
-        <p class="detail-bar-btn btn-black">Back</p>
+        <p class="detail-bar-btn btn-black">{% trans "Back" %}</p>
       </a>
     </div>
     <div class="detail-bar-col-2">
 
       {% if user|has_group:"Administrator" or user_profile == user%} 
         <a href="{% url 'user-update' user_profile.slug %}">
-          <p class="detail-bar-btn btn-black">Edit</p>
+          <p class="detail-bar-btn btn-black">{% trans "Edit" %}</p>
         </a>
       {% endif %}
 
       {% if user|has_group:"Administrator" or user|has_group:"President" %}
 
-        {% if user_profile.is_active %}
-          <a href="{% url 'user-update-group' user_profile.slug %}">
-            <p class="detail-bar-btn btn-black btn-last">Edit groups</p>
-          </a> 
-        {% endif %}
-
         <a href="{% url 'user-update-status' user_profile.slug %}">
 
           {% if user_profile.is_active %}
-            <p class="detail-bar-btn btn-red btn-last">Deactivate</p>
+            <p class="detail-bar-btn btn-red btn-last">{% trans "Deactivate" %}</p>
           {% else %}
-            <p class="detail-bar-btn btn-green btn-last">Activate</p>
+            <p class="detail-bar-btn btn-green btn-last">{% trans "Activate" %}</p>
           {% endif %}
           
         </a>
@@ -109,7 +111,7 @@
 
       {% if user|has_group:"Administrator" %} 
         <a href="{% url 'user-delete' user_profile.slug %}">
-          <p class="detail-bar-btn btn-red btn-last">Delete</p>
+          <p class="detail-bar-btn btn-red btn-last">{% trans "Delete" %}</p>
         </a>
       {% endif %}
 

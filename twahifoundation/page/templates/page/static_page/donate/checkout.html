@@ -2,12 +2,14 @@
 
 {% load static %}
 
-{% block title %} Donate {% endblock title %}
+{% load i18n %}
+
+{% block title %} {% trans "Donate" %} {% endblock title %}
 
 {% block header %}
     <div class="sub-header bg-image">
         <div class="content-width-wrapper">
-            <h3>Donate</h3>
+            <h3>{% trans "Donate" %}</h3>
         </div>
     </div>  
     <div class="sub-clearfix"></div>
@@ -27,11 +29,11 @@
     
     <div class="donate-content bg-white pt-4"> 
         <div class="donate-info text-center">
-            <h2 class="mb-5">To support a project of Twahi Foundation, you can make a donation.</h2>
+            <h2 class="mb-5">{% trans "To support a project of Twahi Foundation, you can make a donation." %}</h2>
                
             {{ form.render }}  
             
-            <p class="mt-4">THANKS TO OUR GENEROUS DONORS </p>
+            <p class="mt-4">{% trans "THANKS TO OUR GENEROUS DONORS" %}</p>
         </div>
     </div>
 {% endblock content_with_sidebar %}

@@ -1,15 +1,17 @@
 {% load static %}
 
+{% load i18n %}
+
 {% load group_tags %}
 
 <div class="projects-list">
   <div class="page-title">
-    <h2 class="title-h2">Latest news</h2>
+    <h2 class="title-h2">{% trans "Latest news" %}</h2>
 
     {% if user|has_group:"Administrator" or user|has_group:"Project manager" or user|has_group:"Editor" %}
       <div class="object-control-link">
         <a class="control-link text-white" href="{% url 'blog:post-create' %}">
-            <p class="btn-green text-center">New</p>
+            <p class="btn-green text-center">{% trans "New" %}</p>
         </a>
       </div>
     {% endif %}
@@ -30,9 +32,9 @@
         <div>
 
           {% if post.updated_on %}
-            <p><span>Updated on</span> {{ post.updated_on }}</p>
+            <p><span>{% trans "Updated on" %}</span> {{ post.updated_on }}</p>
           {% else %}
-            <p><span>Created on</span> {{ post.created_on }}</p>
+            <p><span>{% trans "Created on" %}</span> {{ post.created_on }}</p>
           {% endif %}
 
           <p>
@@ -43,7 +45,7 @@
     {% endfor %}
 
   {% else %}
-  <p>No posts for the moment.</p>
+  <p>{% trans "No post for the moment." %}</p>
   {% endif %}
   
 

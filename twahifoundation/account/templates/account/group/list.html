@@ -2,7 +2,9 @@
 
 {% load static %}
 
-{% block title %} Portal | Group list {% endblock title %}
+{% load i18n %}
+
+{% block title %} {% trans "Portal" %} | {% trans "Group list" %} {% endblock title %}
 
 {% block css %}
 
@@ -13,7 +15,7 @@
 
 {% block portal_content %}
   <div class="portal-content-title">
-    <h1>Manage Group and Permissions</h1>
+    <h1>{% trans "Manage Members and Groups" %}</h1>
   </div>
   
   {% include 'account/components/navlist.html' %}
@@ -21,10 +23,8 @@
   <div class="portal-content-body">
     <div class="portal-content-nav">
       <div class="portal-content-nav-title">
-        <h2>Permissions</h2>
+        <h2>{% trans "Permissions" %}</h2>
       </div>
-    </div>
-    <div class="portal-content-search">
     </div>
     <div class="portal-content-table">
       <table class="table table-hover">
@@ -33,7 +33,7 @@
           <table class="table table-hover">
             <thead>
               <tr>
-                <th scope="col">Name</th>
+                <th scope="col">{% trans "Name" %}</th>
               </tr>
             </thead>
             <tbody>
@@ -49,7 +49,7 @@
         {% elif group_list %}
           <thead>
             <tr>
-              <th scope="col">Name</th>
+              <th scope="col">{% trans "Name" %}</th>
             </tr>
           </thead>
           <tbody>

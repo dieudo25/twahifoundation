@@ -1,5 +1,7 @@
 {% extends 'page/errors/base.html' %}
 
+{% load i18n %}
+
 {% load group_tags %}
 
 {% load static %}
@@ -9,24 +11,24 @@
     <div class="error-container bg-red">
         <div class="error">
             <div class="error-title">
-                Error
+                {% trans "Error" %}
             </div>
             <div class="error-number">
                 403
             </div>
             <div class="error-description text-white">
-                You do not have permission to view this page with the credentials that you supplied
+                {% trans "You do not have permission to view this page with the credentials that you supplied" %}
             </div>
             <div class="error-or">
                 <div class="or bg-red">
-                    <a class="text-link" href="{% url 'page:home' %}">HOME</a>
+                    <a class="text-link" href="{% url 'page:home' %}">{% trans "HOME" %}</a>
                 </div>
             </div>
             
             {% if user|has_group:"Administrator" or user|has_group:"Member"%}
                 <div class="error-or">
                     <div class="or-line"></div>
-                    <div class="or bg-red">Or</div>
+                    <div class="or bg-red">{% trans "Or" %}</div>
                 </div>
                 <div class="error-or">
                     <div class="or bg-red">

@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% load i18n %}
+
 {% block title %} Portal | Newsletter list {% endblock title %}
 
 {% block css %}
@@ -13,7 +15,7 @@
 
 {% block portal_content %}
   <div class="portal-content-title">
-    <h1>Manage Newsletter</h1>
+    <h1>{% trans "Manage Newsletter" %}</h1>
   </div>
   <div class="portal-top-bar">
   <ul class="portal-app-nav">
@@ -21,7 +23,7 @@
           <li class="poratl-app-nav-item">
             <div class="add-text">
               <span class="material-icons">person</span>
-              <span>Subscribers</span>
+              <span>{% trans "Subscribers" %}</span>
             </div>
           </li>
         </a>
@@ -30,7 +32,7 @@
   <div class="portal-content-body list-with-btn">
     <div class="portal-content-nav">
       <div class="portal-content-nav-title">
-        <h2>Subscribers</h2>
+        <h2>{% trans "Subscribers" %}</h2>
       </div>
     </div>
     <div class="portal-content-search">
@@ -41,9 +43,9 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <th scope="col">Name</th>
-              <th scope="col" class="">Date added</th>
-              <th scope="col" class="">Status</th>
+              <th scope="col">{% trans "Name" %}</th>
+              <th scope="col" class="">{% trans "Date added" %}</th>
+              <th scope="col" class="">{% trans "Status" %}</th>
             </tr>
           </thead>
           <tbody>
@@ -58,13 +60,9 @@
 
           </tbody>
         </table>
-      {% elif data|length == 0 %}
-        <div id="empty-table">
-          <p>No category yet, <a href="{% url 'stock:category-create' %}">create one</a></p>
-        </div>
       {% else %}
         <div id="search-no-result">
-          <p>No results found</p>
+          <p>{% trans "No subscribers" %}</p>
         </div>
       {% endif%}
       

@@ -4,12 +4,12 @@
 
 {% load crispy_forms_tags %}
 
-{% block title %} Donate {% endblock title %}
+{% block title %} {% trans "Donate" %} {% endblock title %}
 
 {% block header %}
     <div class="sub-header bg-image">
         <div class="content-width-wrapper">
-            <h3>Donate</h3>
+            <h3>{% trans "Donate" %}</h3>
         </div>
     </div>  
     <div class="sub-clearfix"></div>
@@ -28,7 +28,7 @@
     
     <div class="donate-content bg-white pt-4"> 
         <div class="donate-info text-center">
-            <h2 class="my-4">THANKS FOR YOUR GENEROUS DONOTION </h2>
+            <h2 class="my-4">{% trans "THANKS FOR YOUR GENEROUS DONOTION" %}</h2>
         </div>
     </div>
 {% endblock content_with_sidebar %}

@@ -2,14 +2,16 @@
 
 {% load static %}
 
+{% load i18n %}
+
 {% load group_tags %}
 
-{% block title %} News {% endblock title %}
+{% block title %} {% trans "News" %} {% endblock title %}
 
 {% block header %}
     <div class="sub-header bg-image">
         <div class="content-width-wrapper">
-            <h3>News</h3>
+            <h3>{% trans "News" %}</h3>
         </div>
     </div>  
     <div class="sub-clearfix"></div>
@@ -22,11 +24,11 @@
         <div class="page-content-detail">
             {% if post.updated_on %}
                 <p>
-                    <span class="font-weight-bold">Updated on</span> {{ post.updated_on }} <span class="font-weight-bold">by</span> {{ post.updated_by }}
+                    <span class="font-weight-bold">{% trans "Updated on" %}</span> {{ post.updated_on }} <span class="font-weight-bold">by</span> {{ post.updated_by }}
                 </p>
             {% else %}
                 <p>
-                    <span class="font-weight-bold">Created on</span> {{ post.created_on }} <span class="font-weight-bold">by</span> {{ post.created_by }}
+                    <span class="font-weight-bold">{% trans "Created on" %}</span> {{ post.created_on }} <span class="font-weight-bold">by</span> {{ post.created_by }}
                 </p>
             {% endif %}
             
@@ -36,20 +38,20 @@
     <div class="detail-bar">
         <div class="detail-bar-col-1">
         <a href="{% url 'page:news-list' %}">
-            <p class="detail-bar-btn btn-blue text-center">Back</p>
+            <p class="detail-bar-btn btn-blue text-center">{% trans "Back" %}</p>
         </a>
         </div>
         <div class="detail-bar-col-2">
 
             {% if user|has_group:"Administrator" or user|has_group:"Project manager" or user|has_group:"Editor" %}
                 <a class="control-link text-white" href="{% url 'blog:post-update' post.slug %}">
-                    <p class="detail-bar-btn btn-blue text-center">Edit</p>
+                    <p class="detail-bar-btn btn-blue text-center">{% trans "Edit" %}</p>
                 </a>
             {% endif %}
 
             {% if user|has_group:"Administrator" %}
                 <a class="control-link text-white" href="{% url 'blog:post-delete' post.slug %}">
-                    <p class="detail-bar-btn btn-red text-center">Delete</p>
+                    <p class="detail-bar-btn btn-red text-center">{% trans "Delete" %}</p>
                 </a>
             {% endif %}
             

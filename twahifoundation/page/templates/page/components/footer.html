@@ -1,3 +1,5 @@
+{% load i18n %}
+
 <div class="footer-wrapper">
     <div class="footer-head">
         <h2>
@@ -19,9 +21,9 @@
         </div>
     </div>
     <div id="legal-bar">
-        <p><a href="{% url 'page:page-detail' 'attributions' %}">Attributions</a></p>
-        <p id="cookie-select" class="">Cookies preferences</p>
-        <p><a href="{% url 'page:page-detail' 'legal-mentions' %}">Legal mentions</a></p>
+        <p><a href="{% url 'page:page-detail' 'attributions' %}">{% trans "Attributions" %}</a></p>
+        <p id="cookie-select" class="">{% trans "Cookies preferences" %}</p>
+        <p><a href="{% url 'page:page-detail' 'legal-mentions' %}">{% trans "Legal mentions" %}</a></p>
     </div>
     <div id="copyrights">
         <p>© 2020 TwahiFoundation Association. All Rights Reserved.</p>

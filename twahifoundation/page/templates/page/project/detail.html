@@ -2,14 +2,16 @@
 
 {% load static %}
 
+{% load i18n %}
+
 {% load group_tags %}
 
-{% block title %} Projects {% endblock title %}
+{% block title %}{% trans "Projects" %}{% endblock title %}
 
 {% block header %}
     <div class="sub-header bg-image">
         <div class="content-width-wrapper">
-            <h3>Projects</h3>
+            <h3>{% trans "Projects" %}</h3>
         </div>
     </div>  
     <div class="sub-clearfix"></div>
@@ -20,26 +22,26 @@
         <h1 class="title-h1">{{ project.title }}</h1>
     </div>
     <div class="page-content-detail">
-        <p><span class="font-weight-bold">Created on </span>{{ project.date_created }}</p>
+        <p><span class="font-weight-bold">{% trans "Created on" %}</span> {{ project.date_created }}</p>
         <p>{{ project.content|safe }}</p>
     </div>
     <div class="detail-bar">
         <div class="detail-bar-col-1">
         <a href="{% url 'page:project-list' %}">
-            <p class="detail-bar-btn btn-blue text-center">Back</p>
+            <p class="detail-bar-btn btn-blue text-center">{% trans "Back" %}</p>
         </a>
         </div>
         <div class="detail-bar-col-2">
 
             {% if request.user|has_group:"Administrator" or request.user|has_group:"Project manager" %}
                 <a class="control-link text-white" href="{% url 'project:project-update' project.slug %}">
-                    <p class="detail-bar-btn btn-blue text-center">Edit</p>
+                    <p class="detail-bar-btn btn-blue text-center">{% trans "Edit" %}</p>
                 </a>
             {% endif %}
 
             {% if request.user|has_group:"Administrator" %}
                 <a class="control-link text-white" href="{% url 'project:project-delete' project.slug %}">
-                    <p class="detail-bar-btn btn-red text-center">Delete</p>
+                    <p class="detail-bar-btn btn-red text-center">{% trans "Delete" %}</p>
                 </a>
             {% endif %}
 
