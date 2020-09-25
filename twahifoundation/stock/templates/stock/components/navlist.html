@@ -1,9 +1,11 @@
+{% load i18n %}
+
 <ul class="portal-app-nav">
   <a href="{% url 'stock:stock-list' %}" class="btn-black custom-btn">
     <li class="poratl-app-nav-item">
       <div class="add-text">
         <span class="custom-icon stock-icon"></span>
-        <span>Stock</span>
+        <span>{% trans "Stock" %}</span>
       </div>
     </li>
   </a>
@@ -11,7 +13,7 @@
     <li class="poratl-app-nav-item">
       <div class="add-text">
         <span class="custom-icon product-icon"></span>
-        <span>Product</span>
+        <span>{% trans "Product" %}</span>
       </div>
     </li>
   </a>
@@ -19,7 +21,7 @@
     <li class="poratl-app-nav-item">
       <div class="add-text">
         <span class="material-icons">category</span>
-        <span>Category</span>
+        <span>{% trans "Category" %}</span>
       </div>
     </li>
   </a>

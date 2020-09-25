@@ -2,9 +2,11 @@
 
 {% load static %}
 
+{% load i18n %}
+
 {% load group_tags %}
 
-{% block title %} Portal | Product list {% endblock title %}
+{% block title %} {% trans "Portal" %} | {% trans "Product list" %} {% endblock title %}
 
 {% block css %}
 
@@ -15,7 +17,7 @@
 
 {% block portal_content %}
   <div class="portal-content-title">
-    <h1>Manage Products</h1>
+    <h1>{% trans "Manage Products" %}</h1>
   </div>
   <div class="portal-top-bar">
 
@@ -33,7 +35,7 @@
   <div class="portal-content-body">
     <div class="portal-content-nav">
       <div class="portal-content-nav-title">
-        <h2>Products</h2>
+        <h2>{% trans "Products" %}</h2>
       </div>
 
       {% if user|has_group:"Administrator" or user|has_group:"Stock manager"%}
@@ -43,7 +45,7 @@
               <li class="nav-item-add">
                 <div class="add-text">
                   <span class="material-icons">add_circle_outline</span>
-                  <span>Add</span>
+                  <span>{% trans "Add" %}</span>
                 </div>
               </li>
             </a>
@@ -63,12 +65,12 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <th scope="col">Name</th>
-              <th scope="col">image</th>
-              <th scope="col">Price</th>
-              <th scope="col">Category</th>
-              <th scope="col">Is saleable</th>
-              <th scope="col">Is purchasable</th>
+              <th scope="col">{% trans "Name" %}</th>
+              <th scope="col">{% trans "Image" %}</th>
+              <th scope="col">{% trans "Price" %}</th>
+              <th scope="col">{% trans "Category" %}</th>
+              <th scope="col">{% trans "Is saleable" %}</th>
+              <th scope="col">{% trans "Is purchasable" %}</th>
             </tr>
           </thead>
           <tbody>
@@ -114,12 +116,12 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <th scope="col">Name</th>
-              <th scope="col">image</th>
-              <th scope="col">Price</th>
-              <th scope="col">Category</th>
-              <th scope="col">Is saleable</th>
-              <th scope="col">Is purchasable</th>
+              <th scope="col">{% trans "Name" %}</th>
+              <th scope="col">{% trans "Image" %}</th>
+              <th scope="col">{% trans "Price" %}</th>
+              <th scope="col">{% trans "Category" %}</th>
+              <th scope="col">{% trans "Is saleable" %}</th>
+              <th scope="col">{% trans "Is purchasable" %}</th>
             </tr>
           </thead>
           <tbody>
@@ -163,11 +165,11 @@
         </table>
       {% elif product_list|length == 0 %}
         <div id="empty-table">
-          <p>No product yet, <a href="{% url 'stock:product-create' %}">create one</a></p>
+          <p>{% trans "No product" %}, <a href="{% url 'stock:product-create' %}">{% trans "create one" %}</a></p>
         </div>
       {% else %}
         <div id="search-no-result">
-          <p>No result found</p>
+          <p>{% trans "No result found" %}</p>
         </div>
       {% endif%}
       

@@ -287,7 +287,7 @@ tr.cke_dialog_ui_hbox > td {
 }
 
 .app-item {
-  margin: 20px 0;
+  margin: 20px 2px;
   color: white;
   display: flex;
   justify-content: center;
@@ -295,7 +295,6 @@ tr.cke_dialog_ui_hbox > td {
   flex-direction: column;
   width: 125px;
   height: 125px;
-  /* margin-left: 10px; */
   transition: all 0.3s ease-in-out;
 }
 
@@ -524,6 +523,13 @@ form .control-group .django-ckeditor-widget > div {
     max-width: 320px;
   }
 }
+
+@media (min-width: 425px) {
+  .app-item {
+    margin: 20px 34px;
+  }
+}
+
 @media (min-width: 768px) {
   /* CKEDITOR */
 

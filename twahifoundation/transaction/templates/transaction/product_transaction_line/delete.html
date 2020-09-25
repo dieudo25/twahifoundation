@@ -2,13 +2,15 @@
 
 {% load crispy_forms_tags %}
 
+{% load i18n %}
+
 {% load static %}
 
-{% block title %} Portal | Delete {{ transaction_line }} {% endblock title %}
+{% block title %} {% trans "Portal" %} | {% trans "Delete" %} {{ transaction_line }} {% endblock title %}
 
 {% block portal_content %}
   <div class="portal-content-title">
-    <h1>Delete {{ transaction_line }}</h1>
+    <h1>{% trans "Delete" %} {{ transaction_line }}</h1>
   </div>
   <div class="portal-wrapper">
     <div class="portal-update-form-wrapper">
@@ -16,11 +18,11 @@
 
           {% csrf_token %}
           <div>
-          <p>Are you sure you want to delete "{{ transaction_line.product.name }}"?</p>
+          <p>{% trans "Are you sure you want to delete" %} "{{ transaction_line.product.name }}"?</p>
             <ul>
-              <li>Price : {{ transaction_line.product.price }} €</li>
-              <li>Quantity : {{ transaction_line.quantity}}</li>
-              <li>Subtotal : {{ transaction_line.subtotal }} €</li>
+              <li>{% trans "Price" %} : {{ transaction_line.product.price }} €</li>
+              <li>{% trans "Quantity" %} : {{ transaction_line.quantity}}</li>
+              <li>{% trans "Subtotal" %} : {{ transaction_line.subtotal }} €</li>
           </div>
       </form>
     </div>
@@ -32,7 +34,7 @@
       </a>
     </div>
     <div class="detail-bar-col-2">
-      <button form="delete-form" class="detail-bar-btn btn-red btn-last" type="submit">Delete</button>
+      <button form="delete-form" class="detail-bar-btn btn-red btn-last" type="submit">{% trans "Delete" %}</button>
     </div>
   </div>
 {% endblock portal_content %}

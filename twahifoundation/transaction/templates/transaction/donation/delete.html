@@ -2,22 +2,24 @@
 
 {% load crispy_forms_tags %}
 
+{% load i18n %}
+
 {% load static %}
 
-{% block title %} Portal | Delete {{ transaction }} {% endblock title %}
+{% block title %} {% trans "Portal" %} | {% trans "Delete" %} {{ transaction }} {% endblock title %}
 
 {% block portal_content %}
   <div class="portal-content-title">
-    <h1>Delete {{ transaction }}</h1>
+    <h1>{% trans "Delete" %} {{ transaction }}</h1>
   </div>
   <div class="detail-bar">
     <div class="detail-bar-col-1">
       <a href="{% url 'transaction:donation-detail' transaction.pk %}">
-        <p class="detail-bar-btn btn-black">Back</p>
+        <p class="detail-bar-btn btn-black">{% trans "Back" %}</p>
       </a>
     </div>
     <div class="detail-bar-col-2">
-      <button form="delete-form" class="detail-bar-btn btn-red btn-last" type="submit">Delete</button>
+      <button form="delete-form" class="detail-bar-btn btn-red btn-last" type="submit">{% trans "Delete" %}</button>
     </div>
   </div>
 {% endblock portal_content %}

@@ -2,7 +2,9 @@
 
 {% load static %}
 
-{% block title %} Portal | {{ transaction }} {% endblock title %}
+{% load i18n %}
+
+{% block title %} {% trans "Portal" %} | {{ transaction }} {% endblock title %}
 
 {% block css %}
 
@@ -17,14 +19,14 @@
     <div class="detail-info-section">
       <div class="detail-card">
         <div class="portal-title">
-          <h1>Sale - {{ transaction }}</h1>
+          <h1>{% trans "Sale" %} - {{ transaction }}</h1>
         </div>
       </div>
       <div class="detail-info border-bottom-3">
         <div class="">
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Created on :</p>
+              <p>{% trans "Created on" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  transaction.date_time_created }}</p>
@@ -32,7 +34,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Created by :</p>
+              <p>{% trans "Created by" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  transaction.user }}</p>
@@ -40,7 +42,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Costumer:</p>
+              <p>{% trans "Costumer" %}:</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  transaction.person }}</p>
@@ -48,7 +50,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Total :</p>
+              <p>{% trans "Total" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  transaction.total }} €</p>
@@ -56,7 +58,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Is valid ? : </p>
+              <p>{% trans "Is valid" %} ? : </p>
             </div>
             <div class="detail-info-item-2 img-bool">
               {% if transaction.is_valid %}
@@ -74,7 +76,7 @@
       </div>
       <div class="portal-content-nav">
         <div class="portal-content-nav-title">
-          <h3>Products</h3>
+          <h3>{% trans "Products" %}</h3>
         </div>
         <div class="portal-content-nav-item">
           <ul>
@@ -83,7 +85,7 @@
                 <li class="nav-item-add">
                   <div class="add-text">
                     <span class="material-icons">add_circle_outline</span>
-                      <span>Add</span>
+                      <span>{% trans "Add" %}</span>
                   </div>
                 </li>
               </a>
@@ -96,21 +98,21 @@
           
           {% if  product_transaction_list|length == 0 %}
             <div id="empty-table">
-              <p>No product yet, <a href="{% url 'transaction:sale-line-create' transaction.pk %}">add one</a></p>
+              <p>{% trans "No product" %}, <a href="{% url 'transaction:sale-line-create' transaction.pk %}">{% trans "create one" %}</a></p>
             </div>
           {% elif product_transaction_list %}
             <table class="table table-hover">
               <thead>
                 <tr>
                   <th scope="col" class="table-icon">N°</th>
-                  <th scope="col">Product name</th>
-                  <th scope="col">Price</th>
-                  <th scope="col">Quantity</th>
-                  <th scope="col">Sub-total</th>
+                  <th scope="col">{% trans "Sub-total" %}</th>
+                  <th scope="col">{% trans "Product name" %}</th>
+                  <th scope="col">{% trans "Price" %}</th>
+                  <th scope="col">{% trans "Quantity" %}</th>
 
                   {% if not transaction.is_valid %}
-                    <th scope="col" class="table-icon">Edit</th>
-                    <th scope="col" class="table-icon">Delete</th>
+                    <th scope="col" class="table-icon">{% trans "Edit" %}</th>
+                    <th scope="col" class="table-icon">{% trans "Delete" %}</th>
                   {% endif %}
                   
                 </tr>
@@ -152,19 +154,19 @@
   <div class="detail-bar">
     <div class="detail-bar-col-1">
       <a href="{% url 'transaction:sale-list' %}">
-        <p class="detail-bar-btn btn-black">Back</p>
+        <p class="detail-bar-btn btn-black">{% trans "Back" %}</p>
       </a>
     </div>
     <div class="detail-bar-col-2">
       {% if not transaction.is_valid %}
         <a href="{% url 'transaction:sale-update' transaction.pk %}">
-          <p class="detail-bar-btn btn-black">Edit</p>
+          <p class="detail-bar-btn btn-black">{% trans "Edit" %}</p>
         </a>
         <a href="{% url 'transaction:sale-delete' transaction.pk %}">
-          <p class="detail-bar-btn btn-red btn-last">Delete</p>
+          <p class="detail-bar-btn btn-red btn-last">{% trans "Delete" %}</p>
         </a>
         <a href="{% url 'transaction:sale-validate' transaction.pk %}">
-          <p class="detail-bar-btn btn-green">Validate</p>
+          <p class="detail-bar-btn btn-green">{% trans "Validate" %}</p>
         </a>
       {% endif %}
     </div>

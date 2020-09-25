@@ -2,7 +2,9 @@
 
 {% load static %}
 
-{% block title %} Portal | {{ transaction }} {% endblock title %}
+{% load i18n %}
+
+{% block title %} {% trans "Portal" %} | {{ transaction }} {% endblock title %}
 
 {% block css %}
 
@@ -17,14 +19,14 @@
     <div class="detail-info-section">
       <div class="detail-card">
         <div class="portal-title">
-          <h1>Donation - {{ transaction }}</h1>
+          <h1>{% trans "Donation" %} - {{ transaction }}</h1>
         </div>
       </div>
       <div class="detail-info">
         <div class="">
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Created on :</p>
+              <p>{% trans "Created on" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  transaction.date_time_created }}</p>
@@ -32,7 +34,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Created by :</p>
+              <p>{% trans "Created by" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  transaction.user }}</p>
@@ -40,7 +42,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Costumer:</p>
+              <p>{% trans "Costumer" %}:</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  transaction.person }}</p>
@@ -48,7 +50,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Total :</p>
+              <p>{% trans "Total" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  transaction.total }} €</p>
@@ -56,7 +58,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Is valid ? : </p>
+              <p>{% trans "Is valid" %} ? : </p>
             </div>
             <div class="detail-info-item-2 img-bool">
               {% if transaction.is_valid %}
@@ -77,19 +79,19 @@
   <div class="detail-bar">
     <div class="detail-bar-col-1">
       <a href="{% url 'transaction:donation-list' %}">
-        <p class="detail-bar-btn btn-black">Back</p>
+        <p class="detail-bar-btn btn-black">{% trans "Back" %}</p>
       </a>
     </div>
     <div class="detail-bar-col-2">
       {% if not transaction.is_valid %}
         <a href="{% url 'transaction:donation-update' transaction.pk %}">
-          <p class="detail-bar-btn btn-black">Edit</p>
+          <p class="detail-bar-btn btn-black">{% trans "Edit" %}</p>
         </a>
         <a href="{% url 'transaction:donation-delete' transaction.pk %}">
-          <p class="detail-bar-btn btn-red btn-last">Delete</p>
+          <p class="detail-bar-btn btn-red btn-last">{% trans "Delete" %}</p>
         </a>
         <a href="{% url 'transaction:donation-validate' transaction.pk %}">
-          <p class="detail-bar-btn btn-green">Validate</p>
+          <p class="detail-bar-btn btn-green">{% trans "Validate" %}</p>
         </a>
       {% endif %}
       

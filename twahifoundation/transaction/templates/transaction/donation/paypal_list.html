@@ -2,7 +2,9 @@
 
 {% load static %}
 
-{% block title %} Portal | Transaction list {% endblock title %}
+{% load i18n %}
+
+{% block title %} {% trans "Transaction list" %} | {% trans "Portal" %} {% endblock title %}
 
 {% block css %}
 
@@ -13,7 +15,7 @@
 
 {% block portal_content %}
   <div class="portal-content-title">
-    <h1>Manage Transactions</h1>
+    <h1>{% trans "Manage Transactions" %}</h1>
   </div>
   <div class="portal-top-bar">
   
@@ -31,15 +33,15 @@
   <div class="portal-content-body">
     <div class="portal-content-nav">
       <div class="portal-content-nav-title">
-        <h2 class="paypal-donation-title">Paypal donations</h2>
+        <h2 class="paypal-donation-title">{% trans "Paypal donations" %}</h2>
       </div>
     </div>
     <div class="donation-list-type">
       <a href="{% url 'transaction:donation-list' %}" class="btn-black custom-btn">
-        Encode
+        {% trans "Encode" %}
       </a>
       <a href="{% url 'transaction:donation-paypal-list' %}" class="btn-black custom-btn">
-        Paypal
+        {% trans "Paypal" %}
       </a> 
     </div>
     <div class="portal-list-paginate-header">
@@ -54,10 +56,10 @@
           <thead>
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">Date created</th>
-              <th scope="col">Costumer</th>
-              <th scope="col">Total</th>
-              <th scope="col">Is valid ?</th>
+              <th scope="col">{% trans "Date created" %}</th>
+              <th scope="col">{% trans "Costumer" %}</th>
+              <th scope="col">{% trans "Costumer" %}</th>
+              <th scope="col">{% trans "Is valid" %} ?</th>
             </tr>
           </thead>
           <tbody>
@@ -89,10 +91,10 @@
           <thead>
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">Date created</th>
-              <th scope="col">Costumer</th>
-              <th scope="col">Total</th>
-              <th scope="col">Is valid ?</th>
+              <th scope="col">{% trans "Date created" %}</th>
+              <th scope="col">{% trans "Costumer" %}</th>
+              <th scope="col">{% trans "Costumer" %}</th>
+              <th scope="col">{% trans "Is valid" %} ?</th>
             </tr>
           </thead>
           <tbody>
@@ -121,11 +123,11 @@
         </table>
       {% elif donation_list|length == 0 %}
         <div id="empty-table">
-          <p>No transaction yet</p>
+          <p>{% trans "No transaction" %}</p>
         </div>
       {% else %}
         <div id="search-no-result">
-          <p>No result found</p>
+          <p>{% trans "No result found" %}</p>
         </div>
       {% endif%}
       

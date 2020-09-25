@@ -2,13 +2,15 @@
 
 {% load crispy_forms_tags %}
 
+{% load i18n %}
+
 {% load static %}
 
-{% block title %} Portal | Create Sale {% endblock title %}
+{% block title %} {% trans "Portal" %} | {% trans "Create Sale" %} {% endblock title %}
 
 {% block portal_content %}
   <div class="portal-content-title">
-    <h1>Create a new sale</h1>
+    <h1>{% trans "Create a new sale" %}</h1>
   </div>
   <div class="portal-wrapper">
     <div class="portal-update-form-wrapper">
@@ -24,11 +26,11 @@
   <div class="detail-bar">
     <div class="detail-bar-col-1">
       <a href="{% url 'transaction:sale-list' %}">
-        <p class="detail-bar-btn btn-black">Back</p>
+        <p class="detail-bar-btn btn-black">{% trans "Back" %}</p>
       </a>
     </div>
     <div class="detail-bar-col-2">
-      <button form="update-form" class="detail-bar-btn btn-green btn-last" type="submit">Create</button>
+      <button form="update-form" class="detail-bar-btn btn-green btn-last" type="submit">{% trans "Create" %}</button>
     </div>
   </div>
 {% endblock portal_content %}

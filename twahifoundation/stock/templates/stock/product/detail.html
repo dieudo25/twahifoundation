@@ -2,9 +2,11 @@
 
 {% load static %}
 
+{% load i18n %}
+
 {% load group_tags %}
 
-{% block title %} Portal | {{ product.name }} {% endblock title %}
+{% block title %} {% trans "Portal" %} | {{ product.name }} {% endblock title %}
 
 {% block css %}
 
@@ -31,7 +33,7 @@
         <div class="column">
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Category :</p>
+              <p>{% trans "Category" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  product.category }}</p>
@@ -39,7 +41,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Price :</p>
+              <p>{% trans "Price" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  product.price }} €</p>
@@ -47,7 +49,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Quantity :</p>
+              <p>{% trans "Quantity" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  product.quantity }}</p>
@@ -55,7 +57,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Created date :</p>
+              <p>{% trans "Created date" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  product.date_created }}</p>
@@ -63,7 +65,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Is saleable ? :</p>
+              <p>{% trans "Is saleable" %} ? :</p>
             </div>
             <div class="detail-info-item-2 img-bool">
               {% if product.is_saleable %}
@@ -79,7 +81,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Is purchasable ? :</p>
+              <p>{% trans "Is purchasable" %} ? :</p>
             </div>
             <div class="detail-info-item-2 img-bool">
               {% if product.is_purchasable %}
@@ -97,7 +99,7 @@
         <div class="column">
           <div class="">
             <div class="detail-info-item-1">
-              <p>Description :</p>
+              <p>{% trans "Description" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  product.description|linebreaks }}</p>
@@ -110,14 +112,14 @@
   <div class="detail-bar">
     <div class="detail-bar-col-1">
       <a href="{% url 'stock:product-list' %}">
-        <p class="detail-bar-btn btn-black">Back</p>
+        <p class="detail-bar-btn btn-black">{% trans "Back" %}</p>
       </a>
     </div>
     <div class="detail-bar-col-2">
 
       {% if user|has_group:"Administrator" or user|has_group:"Stock manager"%}
       <a href="{% url 'stock:product-update' product.slug %}">
-        <p class="detail-bar-btn btn-black">Edit</p>
+        <p class="detail-bar-btn btn-black">{% trans "Edit" %}</p>
       </a>
       {% endif %}
 
@@ -125,11 +127,11 @@
 
         {% if not product.is_deleted %}
           <a href="{% url 'stock:product-delete' product.slug %}">
-            <p class="detail-bar-btn btn-red btn-last">Delete</p>
+            <p class="detail-bar-btn btn-red btn-last">{% trans "Delete" %}</p>
           </a>
         {% else %}
           <a href="{% url 'stock:product-delete-toggle' product.slug %}">
-            <p class="detail-bar-btn btn-green btn-last">Restore</p>
+            <p class="detail-bar-btn btn-green btn-last">{% trans "Restore" %}</p>
           </a>
         {% endif %}
 

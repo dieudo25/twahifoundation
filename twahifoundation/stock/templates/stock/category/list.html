@@ -2,9 +2,11 @@
 
 {% load static %}
 
+{% load i18n %}
+
 {% load group_tags %}
 
-{% block title %} Portal | Category list {% endblock title %}
+{% block title %} {% trans "Portal" %} | {% trans "Category list" %} {% endblock title %}
 
 {% block css %}
 
@@ -15,7 +17,7 @@
 
 {% block portal_content %}
   <div class="portal-content-title">
-    <h1>Manage Categories</h1>
+    <h1>{% trans "Manage Categories" %}</h1>
   </div>
   <div class="portal-top-bar">
 
@@ -33,7 +35,7 @@
   <div class="portal-content-body list-with-btn">
     <div class="portal-content-nav">
       <div class="portal-content-nav-title">
-        <h2>Categories</h2>
+        <h2>{% trans "Categories" %}</h2>
       </div>
 
       {% if user|has_group:"Administrator" or user|has_group:"Stock manager"%}
@@ -43,7 +45,7 @@
               <li class="nav-item-add">
                 <div class="add-text">
                   <span class="material-icons">add_circle_outline</span>
-                  <span>Add</span>
+                  <span>{% trans "Add" %}</span>
                 </div>
               </li>
             </a>
@@ -63,11 +65,11 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <th scope="col">Name</th>
+              <th scope="col">{% trans "Name" %}</th>
 
               {% if user|has_group:"Administrator" or user|has_group:"Stock manager"%}
-                <th scope="col" class="table-icon">Edit</th>
-                <th scope="col" class="table-icon">Delete</th>
+                <th scope="col" class="table-icon">{% trans "Edit" %}</th>
+                <th scope="col" class="table-icon">{% trans "Delete" %}</th>
               {% endif %}
 
             </tr>
@@ -100,11 +102,11 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <th scope="col"><span>Name</span></th>
+              <th scope="col"><span>{% trans "Name" %}</span></th>
 
               {% if user|has_group:"Administrator" or user|has_group:"Stock manager"%}
-                <th scope="col" class="table-icon">Edit</th>
-                <th scope="col" class="table-icon">Delete</th>
+                <th scope="col" class="table-icon">{% trans "Edit" %}</th>
+                <th scope="col" class="table-icon">{% trans "Delete" %}</th>
               {% endif %}
 
             </tr>
@@ -135,11 +137,11 @@
         </table>
       {% elif category_list|length == 0 %}
         <div id="empty-table">
-          <p>No category yet, <a href="{% url 'stock:category-create' %}">create one</a></p>
+          <p>{% trans "No category" %}, <a href="{% url 'stock:category-create' %}">{% trans "create one" %}</a></p>
         </div>
       {% else %}
         <div id="search-no-result">
-          <p>No result found</p>
+          <p>{% trans "No result found" %}</p>
         </div>
       {% endif%}
       

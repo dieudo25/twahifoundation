@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-25 17:23+0200\n"
+"POT-Creation-Date: 2020-09-26 00:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,6 +79,44 @@ msgstr "Oublié votre mot de passe ?"
 #: project/templates/project/task/detail.html:9
 #: project/templates/project/task/list.html:7
 #: project/templates/project/task/update.html:9
+#: stock/templates/stock/category/create.html:9
+#: stock/templates/stock/category/delete.html:9
+#: stock/templates/stock/category/list.html:9
+#: stock/templates/stock/category/update.html:9
+#: stock/templates/stock/delivery/create.html:9
+#: stock/templates/stock/delivery/delete.html:9
+#: stock/templates/stock/delivery/update.html:9
+#: stock/templates/stock/product/create.html:9
+#: stock/templates/stock/product/delete.html:9
+#: stock/templates/stock/product/detail.html:9
+#: stock/templates/stock/product/list.html:9
+#: stock/templates/stock/product/update.html:9
+#: stock/templates/stock/reception/create.html:9
+#: stock/templates/stock/reception/delete.html:9
+#: stock/templates/stock/reception/update.html:9
+#: stock/templates/stock/stock/create.html:9
+#: stock/templates/stock/stock/delete.html:9
+#: stock/templates/stock/stock/detail_delivery.html:9
+#: stock/templates/stock/stock/detail_reception.html:9
+#: stock/templates/stock/stock/list.html:9
+#: stock/templates/stock/stock/update.html:9
+#: transaction/templates/transaction/donation/delete.html:9
+#: transaction/templates/transaction/donation/detail.html:7
+#: transaction/templates/transaction/donation/list.html:7
+#: transaction/templates/transaction/donation/paypal_list.html:7
+#: transaction/templates/transaction/donation/update.html:9
+#: transaction/templates/transaction/product_transaction_line/delete.html:9
+#: transaction/templates/transaction/product_transaction_line/update.html:9
+#: transaction/templates/transaction/purchase/create.html:9
+#: transaction/templates/transaction/purchase/delete.html:9
+#: transaction/templates/transaction/purchase/detail.html:9
+#: transaction/templates/transaction/purchase/list.html:9
+#: transaction/templates/transaction/purchase/update.html:9
+#: transaction/templates/transaction/sale/create.html:9
+#: transaction/templates/transaction/sale/delete.html:9
+#: transaction/templates/transaction/sale/detail.html:7
+#: transaction/templates/transaction/sale/list.html:7
+#: transaction/templates/transaction/sale/update.html:9
 msgid "Portal"
 msgstr "Portail"
 
@@ -138,6 +176,37 @@ msgstr "Le mot de passe a été modifié avec succès"
 #: project/templates/project/task/delete.html:28
 #: project/templates/project/task/detail.html:155
 #: project/templates/project/task/update.html:35
+#: stock/templates/stock/category/create.html:29
+#: stock/templates/stock/category/delete.html:29
+#: stock/templates/stock/category/update.html:29
+#: stock/templates/stock/delivery/create.html:29
+#: stock/templates/stock/delivery/delete.html:32
+#: stock/templates/stock/delivery/update.html:29
+#: stock/templates/stock/product/create.html:29
+#: stock/templates/stock/product/delete.html:25
+#: stock/templates/stock/product/detail.html:115
+#: stock/templates/stock/product/update.html:29
+#: stock/templates/stock/reception/create.html:29
+#: stock/templates/stock/reception/delete.html:32
+#: stock/templates/stock/reception/update.html:29
+#: stock/templates/stock/stock/create.html:29
+#: stock/templates/stock/stock/delete.html:46
+#: stock/templates/stock/stock/detail_delivery.html:200
+#: stock/templates/stock/stock/detail_reception.html:191
+#: stock/templates/stock/stock/update.html:29
+#: transaction/templates/transaction/donation/create.html:29
+#: transaction/templates/transaction/donation/delete.html:18
+#: transaction/templates/transaction/donation/detail.html:82
+#: transaction/templates/transaction/donation/update.html:29
+#: transaction/templates/transaction/product_transaction_line/update.html:29
+#: transaction/templates/transaction/purchase/create.html:29
+#: transaction/templates/transaction/purchase/delete.html:29
+#: transaction/templates/transaction/purchase/detail.html:172
+#: transaction/templates/transaction/purchase/update.html:29
+#: transaction/templates/transaction/sale/create.html:29
+#: transaction/templates/transaction/sale/delete.html:29
+#: transaction/templates/transaction/sale/detail.html:157
+#: transaction/templates/transaction/sale/update.html:29
 msgid "Back"
 msgstr "Retour"
 
@@ -154,6 +223,12 @@ msgstr "Retour"
 #: project/templates/project/event/update.html:37
 #: project/templates/project/project/update.html:35
 #: project/templates/project/task/update.html:39
+#: stock/templates/stock/category/update.html:33
+#: stock/templates/stock/product/update.html:33
+#: stock/templates/stock/stock/update.html:33
+#: transaction/templates/transaction/product_transaction_line/update.html:33
+#: transaction/templates/transaction/purchase/update.html:33
+#: transaction/templates/transaction/sale/update.html:33
 msgid "Confirm"
 msgstr "Confirmer"
 
@@ -252,6 +327,12 @@ msgstr "Gérer les membres et les groupes"
 #: contact/templates/contact/person/list.html:70
 #: contact/templates/contact/person/list.html:129
 #: newsletter/templates/newsletter/subscriber/list.html:46
+#: stock/templates/stock/category/list.html:68
+#: stock/templates/stock/category/list.html:105
+#: stock/templates/stock/product/list.html:68
+#: stock/templates/stock/product/list.html:119
+#: stock/templates/stock/stock/list.html:67
+#: stock/templates/stock/stock/list.html:100
 msgid "Name"
 msgstr "Nom"
 
@@ -266,6 +347,17 @@ msgstr "Créer un nouvel utilisateur"
 #: account/templates/account/user/create.html:40
 #: contact/templates/contact/person/create.html:33
 #: project/templates/project/task/create.html:40
+#: stock/templates/stock/category/create.html:33
+#: stock/templates/stock/delivery/create.html:33
+#: stock/templates/stock/delivery/update.html:33
+#: stock/templates/stock/product/create.html:33
+#: stock/templates/stock/reception/create.html:33
+#: stock/templates/stock/reception/update.html:33
+#: stock/templates/stock/stock/create.html:33
+#: transaction/templates/transaction/donation/create.html:33
+#: transaction/templates/transaction/donation/update.html:33
+#: transaction/templates/transaction/purchase/create.html:33
+#: transaction/templates/transaction/sale/create.html:33
 msgid "Create"
 msgstr "Créer"
 
@@ -314,6 +406,45 @@ msgstr "Créer"
 #: project/templates/project/task/delete.html:13
 #: project/templates/project/task/delete.html:32
 #: project/templates/project/task/detail.html:165
+#: stock/templates/stock/category/delete.html:9
+#: stock/templates/stock/category/delete.html:13
+#: stock/templates/stock/category/delete.html:33
+#: stock/templates/stock/category/list.html:72
+#: stock/templates/stock/category/list.html:109
+#: stock/templates/stock/delivery/delete.html:9
+#: stock/templates/stock/delivery/delete.html:13
+#: stock/templates/stock/delivery/delete.html:36
+#: stock/templates/stock/product/delete.html:9
+#: stock/templates/stock/product/delete.html:13
+#: stock/templates/stock/product/delete.html:30
+#: stock/templates/stock/product/detail.html:130
+#: stock/templates/stock/reception/delete.html:9
+#: stock/templates/stock/reception/delete.html:13
+#: stock/templates/stock/reception/delete.html:36
+#: stock/templates/stock/stock/delete.html:9
+#: stock/templates/stock/stock/delete.html:13
+#: stock/templates/stock/stock/delete.html:50
+#: stock/templates/stock/stock/detail_delivery.html:138
+#: stock/templates/stock/stock/detail_delivery.html:213
+#: stock/templates/stock/stock/detail_reception.html:127
+#: stock/templates/stock/stock/detail_reception.html:205
+#: transaction/templates/transaction/donation/delete.html:9
+#: transaction/templates/transaction/donation/delete.html:13
+#: transaction/templates/transaction/donation/delete.html:22
+#: transaction/templates/transaction/donation/detail.html:91
+#: transaction/templates/transaction/product_transaction_line/delete.html:9
+#: transaction/templates/transaction/product_transaction_line/delete.html:13
+#: transaction/templates/transaction/product_transaction_line/delete.html:37
+#: transaction/templates/transaction/purchase/delete.html:9
+#: transaction/templates/transaction/purchase/delete.html:13
+#: transaction/templates/transaction/purchase/delete.html:33
+#: transaction/templates/transaction/purchase/detail.html:124
+#: transaction/templates/transaction/purchase/detail.html:184
+#: transaction/templates/transaction/sale/delete.html:9
+#: transaction/templates/transaction/sale/delete.html:13
+#: transaction/templates/transaction/sale/delete.html:33
+#: transaction/templates/transaction/sale/detail.html:115
+#: transaction/templates/transaction/sale/detail.html:166
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -326,6 +457,14 @@ msgstr "Supprimer"
 #: project/templates/project/event/delete.html:21
 #: project/templates/project/project/delete.html:18
 #: project/templates/project/task/delete.html:21
+#: stock/templates/stock/category/delete.html:21
+#: stock/templates/stock/delivery/delete.html:21
+#: stock/templates/stock/product/delete.html:18
+#: stock/templates/stock/reception/delete.html:21
+#: stock/templates/stock/stock/delete.html:21
+#: transaction/templates/transaction/product_transaction_line/delete.html:21
+#: transaction/templates/transaction/purchase/delete.html:21
+#: transaction/templates/transaction/sale/delete.html:21
 msgid "Are you sure you want to delete"
 msgstr "Êtes-vous sûr de vouloir supprimer"
 
@@ -373,6 +512,18 @@ msgstr "Changer les permissions"
 #: project/templates/project/event/detail.html:189
 #: project/templates/project/project/detail.html:125
 #: project/templates/project/task/detail.html:162
+#: stock/templates/stock/category/list.html:71
+#: stock/templates/stock/category/list.html:108
+#: stock/templates/stock/product/detail.html:122
+#: stock/templates/stock/stock/detail_delivery.html:137
+#: stock/templates/stock/stock/detail_delivery.html:207
+#: stock/templates/stock/stock/detail_reception.html:126
+#: stock/templates/stock/stock/detail_reception.html:199
+#: transaction/templates/transaction/donation/detail.html:88
+#: transaction/templates/transaction/purchase/detail.html:123
+#: transaction/templates/transaction/purchase/detail.html:181
+#: transaction/templates/transaction/sale/detail.html:114
+#: transaction/templates/transaction/sale/detail.html:163
 msgid "Edit"
 msgstr "Modifier"
 
@@ -406,6 +557,16 @@ msgstr "Membres"
 #: project/templates/project/event/list.html:45
 #: project/templates/project/project/list.html:38
 #: project/templates/project/task/list.html:49
+#: stock/templates/stock/category/list.html:48
+#: stock/templates/stock/product/list.html:48
+#: stock/templates/stock/stock/detail_delivery.html:110
+#: stock/templates/stock/stock/detail_reception.html:99
+#: stock/templates/stock/stock/list.html:48
+#: transaction/templates/transaction/donation/list.html:44
+#: transaction/templates/transaction/purchase/detail.html:93
+#: transaction/templates/transaction/purchase/list.html:48
+#: transaction/templates/transaction/sale/detail.html:88
+#: transaction/templates/transaction/sale/list.html:44
 msgid "Add"
 msgstr "Ajouter"
 
@@ -436,6 +597,16 @@ msgstr "Aucun membre"
 #: contact/templates/contact/person/list.html:186
 #: project/templates/project/event/list.html:161
 #: project/templates/project/project/list.html:146
+#: stock/templates/stock/category/list.html:140
+#: stock/templates/stock/product/list.html:168
+#: stock/templates/stock/stock/detail_delivery.html:125
+#: stock/templates/stock/stock/detail_reception.html:114
+#: stock/templates/stock/stock/list.html:131
+#: transaction/templates/transaction/donation/list.html:146
+#: transaction/templates/transaction/purchase/detail.html:108
+#: transaction/templates/transaction/purchase/list.html:144
+#: transaction/templates/transaction/sale/detail.html:101
+#: transaction/templates/transaction/sale/list.html:134
 msgid "create one"
 msgstr "en créer un"
 
@@ -450,6 +621,15 @@ msgstr "en créer un"
 #: message/templates/message/trash/list.html:181
 #: project/templates/project/event/list.html:165
 #: project/templates/project/project/list.html:150
+#: stock/templates/stock/category/list.html:144
+#: stock/templates/stock/product/list.html:172
+#: stock/templates/stock/stock/detail_delivery.html:189
+#: stock/templates/stock/stock/detail_reception.html:180
+#: stock/templates/stock/stock/list.html:135
+#: transaction/templates/transaction/donation/list.html:150
+#: transaction/templates/transaction/donation/paypal_list.html:130
+#: transaction/templates/transaction/purchase/list.html:140
+#: transaction/templates/transaction/sale/list.html:138
 msgid "No result found"
 msgstr "Aucun résultat trouvé"
 
@@ -488,6 +668,10 @@ msgstr "Auteur"
 #: project/templates/project/project/list.html:60
 #: project/templates/project/project/list.html:105
 #: project/templates/project/task/detail.html:56
+#: stock/templates/stock/product/detail.html:60
+#: stock/templates/stock/stock/detail_delivery.html:39
+#: stock/templates/stock/stock/detail_delivery.html:134
+#: stock/templates/stock/stock/detail_reception.html:123
 msgid "Created date"
 msgstr "Date de création"
 
@@ -557,6 +741,23 @@ msgstr "Aucune page"
 #: project/templates/project/project/update.html:13
 #: project/templates/project/task/update.html:9
 #: project/templates/project/task/update.html:17
+#: stock/templates/stock/category/update.html:9
+#: stock/templates/stock/category/update.html:13
+#: stock/templates/stock/delivery/update.html:9
+#: stock/templates/stock/delivery/update.html:13
+#: stock/templates/stock/product/update.html:9
+#: stock/templates/stock/product/update.html:13
+#: stock/templates/stock/reception/update.html:9
+#: stock/templates/stock/reception/update.html:13
+#: stock/templates/stock/stock/update.html:9
+#: stock/templates/stock/stock/update.html:13
+#: transaction/templates/transaction/donation/update.html:13
+#: transaction/templates/transaction/product_transaction_line/update.html:9
+#: transaction/templates/transaction/product_transaction_line/update.html:13
+#: transaction/templates/transaction/purchase/update.html:9
+#: transaction/templates/transaction/purchase/update.html:13
+#: transaction/templates/transaction/sale/update.html:9
+#: transaction/templates/transaction/sale/update.html:13
 msgid "Update"
 msgstr "Mis à jour :"
 
@@ -576,6 +777,7 @@ msgstr "Statut"
 #: blog/templates/blog/post/detail.html:104
 #: project/templates/project/project/detail.html:70
 #: project/templates/project/task/detail.html:74
+#: stock/templates/stock/product/detail.html:102
 msgid "Description"
 msgstr "Description"
 
@@ -689,6 +891,7 @@ msgstr "Est un fournisseur"
 #: contact/templates/contact/person/detail.html:138
 #: message/templates/message/trash/detail.html:73
 #: project/templates/project/project/detail.html:134
+#: stock/templates/stock/product/detail.html:134
 msgid "Restore"
 msgstr "Restaurer"
 
@@ -698,6 +901,8 @@ msgstr "Liste des particuliers"
 
 #: contact/templates/contact/person/list.html:74
 #: contact/templates/contact/person/list.html:133
+#: transaction/templates/transaction/purchase/detail.html:47
+#: transaction/templates/transaction/purchase/list.html:72
 msgid "Supplier"
 msgstr "Fournisseur"
 
@@ -1006,6 +1211,9 @@ msgstr "Mis à jour le"
 #: page/templates/page/event/detail.html:25
 #: page/templates/page/news/detail.html:31
 #: page/templates/page/project/detail.html:25
+#: transaction/templates/transaction/donation/detail.html:29
+#: transaction/templates/transaction/purchase/detail.html:31
+#: transaction/templates/transaction/sale/detail.html:29
 msgid "Created on"
 msgstr "Créé le"
 
@@ -1317,6 +1525,7 @@ msgstr "Projet"
 #: portal/templates/portal/components/portal-navbar.html:44
 #: portal/templates/portal/components/portal_sidebar.html:89
 #: portal/templates/portal/home.html:66
+#: stock/templates/stock/components/navlist.html:8
 msgid "Stock"
 msgstr "Stock"
 
@@ -1371,6 +1580,10 @@ msgstr "Se termine à"
 #: project/templates/project/event/detail.html:81
 #: project/templates/project/event/list.html:69
 #: project/templates/project/event/list.html:118
+#: stock/templates/stock/stock/detail_delivery.html:31
+#: stock/templates/stock/stock/detail_reception.html:31
+#: stock/templates/stock/stock/list.html:68
+#: stock/templates/stock/stock/list.html:101
 msgid "Location"
 msgstr "Lieu"
 
@@ -1474,7 +1687,7 @@ msgstr "EN RETARD"
 #: project/templates/project/task/detail.html:117
 #: project/templates/project/task/list.html:117
 msgid "DONE"
-msgstr "FAIT"
+msgstr "TERMINÉ"
 
 #: project/templates/project/task/detail.html:128
 msgid "Participants"
@@ -1491,3 +1704,365 @@ msgstr "Gérer les tâches"
 #: project/templates/project/task/list.html:41
 msgid "Tasks"
 msgstr "Tâches"
+
+#: stock/templates/stock/category/create.html:9
+msgid "Create Category"
+msgstr "Créer une catégorie"
+
+#: stock/templates/stock/category/create.html:13
+msgid "Create a new category"
+msgstr "Créer une nouvelle catégorie"
+
+#: stock/templates/stock/category/list.html:9
+msgid "Category list"
+msgstr "Liste des catégories"
+
+#: stock/templates/stock/category/list.html:20
+msgid "Manage Categories"
+msgstr "Gérer les catégories"
+
+#: stock/templates/stock/category/list.html:38
+msgid "Categories"
+msgstr "Catégories"
+
+#: stock/templates/stock/category/list.html:140
+msgid "No category"
+msgstr "Aucune catégorie"
+
+#: stock/templates/stock/components/navlist.html:16
+#: stock/templates/stock/delivery/delete.html:23
+#: stock/templates/stock/reception/delete.html:23
+msgid "Product"
+msgstr "Produit"
+
+#: stock/templates/stock/components/navlist.html:24
+#: stock/templates/stock/product/detail.html:36
+#: stock/templates/stock/product/list.html:71
+#: stock/templates/stock/product/list.html:122
+msgid "Category"
+msgstr "Catégorie"
+
+#: stock/templates/stock/delivery/create.html:9
+#: stock/templates/stock/reception/create.html:9
+msgid "Create Product Transfert"
+msgstr "Créer un transfert de produit"
+
+#: stock/templates/stock/delivery/create.html:13
+#: stock/templates/stock/reception/create.html:13
+msgid "Create a new product transfert"
+msgstr "Créer un nouveau transfert de produit"
+
+#: stock/templates/stock/delivery/delete.html:24
+#: stock/templates/stock/product/detail.html:52
+#: stock/templates/stock/reception/delete.html:24
+#: stock/templates/stock/stock/detail_delivery.html:133
+#: stock/templates/stock/stock/detail_reception.html:122
+#: transaction/templates/transaction/product_transaction_line/delete.html:24
+#: transaction/templates/transaction/purchase/detail.html:117
+#: transaction/templates/transaction/sale/detail.html:111
+msgid "Quantity"
+msgstr "Quantité"
+
+#: stock/templates/stock/product/create.html:9
+msgid "Create Product"
+msgstr "Créer un produit"
+
+#: stock/templates/stock/product/create.html:13
+msgid "Create a new product"
+msgstr "Créer un nouveau produit"
+
+#: stock/templates/stock/product/detail.html:44
+#: stock/templates/stock/product/list.html:70
+#: stock/templates/stock/product/list.html:121
+#: transaction/templates/transaction/product_transaction_line/delete.html:23
+#: transaction/templates/transaction/purchase/detail.html:116
+#: transaction/templates/transaction/sale/detail.html:110
+msgid "Price"
+msgstr "Prix"
+
+#: stock/templates/stock/product/detail.html:68
+#: stock/templates/stock/product/list.html:72
+#: stock/templates/stock/product/list.html:123
+msgid "Is saleable"
+msgstr "Est vendable"
+
+#: stock/templates/stock/product/detail.html:84
+#: stock/templates/stock/product/list.html:73
+#: stock/templates/stock/product/list.html:124
+msgid "Is purchasable"
+msgstr "Est achetable"
+
+#: stock/templates/stock/product/list.html:9
+msgid "Product list"
+msgstr "Liste des produits"
+
+#: stock/templates/stock/product/list.html:20
+msgid "Manage Products"
+msgstr "Gérer les produits"
+
+#: stock/templates/stock/product/list.html:38
+#: transaction/templates/transaction/purchase/detail.html:81
+#: transaction/templates/transaction/sale/detail.html:79
+msgid "Products"
+msgstr "Produits"
+
+#: stock/templates/stock/product/list.html:69
+#: stock/templates/stock/product/list.html:120
+msgid "Image"
+msgstr "Image"
+
+#: stock/templates/stock/product/list.html:168
+#: transaction/templates/transaction/purchase/detail.html:108
+#: transaction/templates/transaction/sale/detail.html:101
+msgid "No product"
+msgstr "Aucun produit"
+
+#: stock/templates/stock/stock/create.html:9
+msgid "Create Stock"
+msgstr "Créer un stock"
+
+#: stock/templates/stock/stock/create.html:13
+msgid "Create a new stock"
+msgstr "Créer un nouveau stock"
+
+#: stock/templates/stock/stock/delete.html:24
+msgid "If you confirm, these items will also be deleted"
+msgstr "Si vous confirmez, ces éléments seront également supprimés"
+
+#: stock/templates/stock/stock/delete.html:27
+msgid "Product pransfert"
+msgstr "Transfert de produits"
+
+#: stock/templates/stock/stock/detail_delivery.html:47
+#: stock/templates/stock/stock/detail_reception.html:47
+#: stock/templates/stock/stock/list.html:70
+#: stock/templates/stock/stock/list.html:103
+msgid "Is full"
+msgstr "Est plein"
+
+#: stock/templates/stock/stock/detail_delivery.html:64
+#: stock/templates/stock/stock/detail_reception.html:64
+msgid "Manage transferts"
+msgstr "Gérer les transferts"
+
+#: stock/templates/stock/stock/detail_delivery.html:83
+#: stock/templates/stock/stock/detail_reception.html:72
+msgid "Reception"
+msgstr "Réception"
+
+#: stock/templates/stock/stock/detail_delivery.html:91
+#: stock/templates/stock/stock/detail_reception.html:80
+msgid "Delivery"
+msgstr "Livraison"
+
+#: stock/templates/stock/stock/detail_delivery.html:100
+msgid "Deliveries"
+msgstr "Livraisons"
+
+#: stock/templates/stock/stock/detail_delivery.html:125
+msgid "No delivery"
+msgstr "Pas de livraison"
+
+#: stock/templates/stock/stock/detail_delivery.html:132
+#: stock/templates/stock/stock/detail_reception.html:121
+#: transaction/templates/transaction/purchase/detail.html:115
+#: transaction/templates/transaction/sale/detail.html:109
+msgid "Product name"
+msgstr "Nom du produit"
+
+#: stock/templates/stock/stock/detail_delivery.html:139
+#: stock/templates/stock/stock/detail_reception.html:128
+#: transaction/templates/transaction/donation/detail.html:94
+#: transaction/templates/transaction/purchase/detail.html:187
+#: transaction/templates/transaction/sale/detail.html:169
+msgid "Validate"
+msgstr "Valider"
+
+#: stock/templates/stock/stock/detail_reception.html:39
+msgid "Creation date"
+msgstr "Date de création"
+
+#: stock/templates/stock/stock/detail_reception.html:89
+msgid "Receptions"
+msgstr "Réceptions"
+
+#: stock/templates/stock/stock/detail_reception.html:114
+msgid "No reception"
+msgstr "Aucune réception"
+
+#: stock/templates/stock/stock/list.html:9
+msgid "Stock list"
+msgstr "Liste des stocks"
+
+#: stock/templates/stock/stock/list.html:20
+msgid "Manage Stocks"
+msgstr "Gérer les stocks"
+
+#: stock/templates/stock/stock/list.html:38
+msgid "Stocks"
+msgstr "Stocks"
+
+#: stock/templates/stock/stock/list.html:69
+#: stock/templates/stock/stock/list.html:102
+#: transaction/templates/transaction/donation/list.html:71
+#: transaction/templates/transaction/donation/list.html:110
+#: transaction/templates/transaction/donation/paypal_list.html:59
+#: transaction/templates/transaction/donation/paypal_list.html:94
+#: transaction/templates/transaction/purchase/list.html:69
+#: transaction/templates/transaction/purchase/list.html:106
+#: transaction/templates/transaction/sale/list.html:63
+#: transaction/templates/transaction/sale/list.html:100
+msgid "Date created"
+msgstr "Date de création"
+
+#: stock/templates/stock/stock/list.html:131
+msgid "No stock"
+msgstr "Aucun stock"
+
+#: transaction/templates/transaction/components/navlist.html:8
+#: transaction/templates/transaction/donation/list.html:36
+msgid "Donations"
+msgstr "Dons"
+
+#: transaction/templates/transaction/components/navlist.html:16
+#: transaction/templates/transaction/purchase/list.html:38
+msgid "Purchases"
+msgstr "Achats"
+
+#: transaction/templates/transaction/components/navlist.html:24
+#: transaction/templates/transaction/sale/list.html:36
+msgid "Sales"
+msgstr "Ventes"
+
+#: transaction/templates/transaction/donation/create.html:9
+#: transaction/templates/transaction/donation/update.html:9
+msgid "Create Donation"
+msgstr "Créer un don"
+
+#: transaction/templates/transaction/donation/create.html:13
+msgid "Create a new donation"
+msgstr "Créer un nouveau don"
+
+#: transaction/templates/transaction/donation/detail.html:22
+msgid "Donation"
+msgstr "Don"
+
+#: transaction/templates/transaction/donation/detail.html:37
+#: transaction/templates/transaction/donation/list.html:72
+#: transaction/templates/transaction/donation/list.html:111
+#: transaction/templates/transaction/purchase/detail.html:39
+#: transaction/templates/transaction/purchase/list.html:70
+#: transaction/templates/transaction/purchase/list.html:107
+#: transaction/templates/transaction/sale/detail.html:37
+#: transaction/templates/transaction/sale/list.html:64
+#: transaction/templates/transaction/sale/list.html:101
+msgid "Created by"
+msgstr "Créé par"
+
+#: transaction/templates/transaction/donation/detail.html:45
+#: transaction/templates/transaction/donation/list.html:73
+#: transaction/templates/transaction/donation/list.html:112
+#: transaction/templates/transaction/donation/paypal_list.html:60
+#: transaction/templates/transaction/donation/paypal_list.html:61
+#: transaction/templates/transaction/donation/paypal_list.html:95
+#: transaction/templates/transaction/donation/paypal_list.html:96
+#: transaction/templates/transaction/purchase/list.html:108
+#: transaction/templates/transaction/sale/detail.html:45
+#: transaction/templates/transaction/sale/list.html:65
+#: transaction/templates/transaction/sale/list.html:102
+msgid "Costumer"
+msgstr "Client"
+
+#: transaction/templates/transaction/donation/detail.html:53
+#: transaction/templates/transaction/donation/list.html:74
+#: transaction/templates/transaction/donation/list.html:113
+#: transaction/templates/transaction/purchase/detail.html:55
+#: transaction/templates/transaction/purchase/list.html:73
+#: transaction/templates/transaction/purchase/list.html:109
+#: transaction/templates/transaction/sale/detail.html:53
+#: transaction/templates/transaction/sale/list.html:66
+#: transaction/templates/transaction/sale/list.html:103
+msgid "Total"
+msgstr "Total"
+
+#: transaction/templates/transaction/donation/detail.html:61
+#: transaction/templates/transaction/donation/list.html:75
+#: transaction/templates/transaction/donation/list.html:114
+#: transaction/templates/transaction/donation/paypal_list.html:62
+#: transaction/templates/transaction/donation/paypal_list.html:97
+#: transaction/templates/transaction/purchase/detail.html:63
+#: transaction/templates/transaction/purchase/list.html:71
+#: transaction/templates/transaction/purchase/list.html:110
+#: transaction/templates/transaction/sale/detail.html:61
+#: transaction/templates/transaction/sale/list.html:67
+#: transaction/templates/transaction/sale/list.html:104
+msgid "Is valid"
+msgstr "Est valide"
+
+#: transaction/templates/transaction/donation/list.html:7
+#: transaction/templates/transaction/donation/paypal_list.html:7
+#: transaction/templates/transaction/purchase/list.html:9
+#: transaction/templates/transaction/sale/list.html:7
+msgid "Transaction list"
+msgstr "Liste des transactions"
+
+#: transaction/templates/transaction/donation/list.html:18
+#: transaction/templates/transaction/donation/paypal_list.html:18
+#: transaction/templates/transaction/purchase/list.html:20
+#: transaction/templates/transaction/sale/list.html:18
+msgid "Manage Transactions"
+msgstr "Gérer les transactions"
+
+#: transaction/templates/transaction/donation/list.html:53
+#: transaction/templates/transaction/donation/paypal_list.html:41
+msgid "Encode"
+msgstr "Encoder"
+
+#: transaction/templates/transaction/donation/list.html:56
+#: transaction/templates/transaction/donation/paypal_list.html:44
+msgid "Paypal"
+msgstr "Paypal"
+
+#: transaction/templates/transaction/donation/list.html:146
+#: transaction/templates/transaction/donation/paypal_list.html:126
+#: transaction/templates/transaction/purchase/list.html:140
+#: transaction/templates/transaction/sale/list.html:134
+msgid "No transaction"
+msgstr "Aucune transaction"
+
+#: transaction/templates/transaction/donation/paypal_list.html:36
+msgid "Paypal donations"
+msgstr "Dons par Paypal"
+
+#: transaction/templates/transaction/product_transaction_line/delete.html:25
+msgid "Subtotal"
+msgstr "Sous-total"
+
+#: transaction/templates/transaction/purchase/create.html:9
+msgid "Create Purchase"
+msgstr "Créer un achat"
+
+#: transaction/templates/transaction/purchase/create.html:13
+msgid "Create a new purchase"
+msgstr "Créer un nouvel achat"
+
+#: transaction/templates/transaction/purchase/detail.html:24
+msgid "Purchase"
+msgstr "Achat"
+
+#: transaction/templates/transaction/purchase/detail.html:118
+#: transaction/templates/transaction/sale/detail.html:108
+msgid "Sub-total"
+msgstr "Sous-total"
+
+#: transaction/templates/transaction/sale/create.html:9
+msgid "Create Sale"
+msgstr "Créer une vente"
+
+#: transaction/templates/transaction/sale/create.html:13
+msgid "Create a new sale"
+msgstr "Créer une nouvelle vente"
+
+#: transaction/templates/transaction/sale/detail.html:22
+msgid "Sale"
+msgstr "Vente"
