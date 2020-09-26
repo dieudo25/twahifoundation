@@ -24,7 +24,7 @@ from django.conf.urls.static import static
 from django.views.static import serve
 
 
-urlpatterns = i18n_patterns(
+urlpatterns = [
     re_path(r'^account/', include('account.urls')),
     re_path(r'^admin/', admin.site.urls),
     re_path(r'^blog/', include('blog.urls')),
@@ -40,7 +40,7 @@ urlpatterns = i18n_patterns(
     re_path(r'^stock/', include('stock.urls')),
     re_path(r'^transaction/', include('transaction.urls')),
     re_path(r'^', include('page.urls')),
-)
+]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
