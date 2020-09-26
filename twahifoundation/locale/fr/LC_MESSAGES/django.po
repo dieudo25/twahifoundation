@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-26 00:54+0200\n"
+"POT-Creation-Date: 2020-09-26 14:42+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,12 +40,15 @@ msgstr "Oublié votre mot de passe ?"
 #: account/templates/account/user/list.html:9
 #: account/templates/account/user/update.html:9
 #: account/templates/account/user/update_group.html:9
+#: blog/templates/blog/page/create.html:9
 #: blog/templates/blog/page/delete.html:9
 #: blog/templates/blog/page/detail.html:9 blog/templates/blog/page/list.html:9
 #: blog/templates/blog/page/update.html:9
+#: blog/templates/blog/post/create.html:9
 #: blog/templates/blog/post/delete.html:9
 #: blog/templates/blog/post/detail.html:9 blog/templates/blog/post/list.html:9
 #: blog/templates/blog/post/update.html:9
+#: blog/templates/blog/tags/create.html:9
 #: blog/templates/blog/tags/delete.html:9 blog/templates/blog/tags/list.html:9
 #: blog/templates/blog/tags/update.html:9
 #: contact/templates/contact/company/delete.html:9
@@ -57,19 +60,24 @@ msgstr "Oublié votre mot de passe ?"
 #: contact/templates/contact/person/detail.html:7
 #: contact/templates/contact/person/list.html:7
 #: contact/templates/contact/person/update.html:9
+#: message/templates/message/inbox/detail.html:7
 #: message/templates/message/inbox/list.html:7
+#: message/templates/message/message/create.html:9
 #: message/templates/message/message/delete.html:9
 #: message/templates/message/message/detail.html:7
 #: message/templates/message/outbox/detail.html:7
 #: message/templates/message/outbox/list.html:7
 #: message/templates/message/trash/detail.html:7
 #: message/templates/message/trash/list.html:7
+#: newsletter/templates/newsletter/subscriber/list.html:7
 #: portal/templates/portal/home.html:7
 #: portal/templates/portal/notification/list.html:9
+#: project/templates/project/event/create.html:13
 #: project/templates/project/event/delete.html:9
 #: project/templates/project/event/detail.html:9
 #: project/templates/project/event/list.html:9
 #: project/templates/project/event/update.html:13
+#: project/templates/project/project/create.html:9
 #: project/templates/project/project/delete.html:9
 #: project/templates/project/project/detail.html:9
 #: project/templates/project/project/list.html:9
@@ -100,11 +108,13 @@ msgstr "Oublié votre mot de passe ?"
 #: stock/templates/stock/stock/detail_reception.html:9
 #: stock/templates/stock/stock/list.html:9
 #: stock/templates/stock/stock/update.html:9
+#: transaction/templates/transaction/donation/create.html:9
 #: transaction/templates/transaction/donation/delete.html:9
 #: transaction/templates/transaction/donation/detail.html:7
 #: transaction/templates/transaction/donation/list.html:7
 #: transaction/templates/transaction/donation/paypal_list.html:7
 #: transaction/templates/transaction/donation/update.html:9
+#: transaction/templates/transaction/product_transaction_line/create.html:9
 #: transaction/templates/transaction/product_transaction_line/delete.html:9
 #: transaction/templates/transaction/product_transaction_line/update.html:9
 #: transaction/templates/transaction/purchase/create.html:9
@@ -144,12 +154,15 @@ msgstr "Le mot de passe a été modifié avec succès"
 #: account/templates/account/user/detail.html:88
 #: account/templates/account/user/update.html:36
 #: account/templates/account/user/update_group.html:36
+#: blog/templates/blog/page/create.html:31
 #: blog/templates/blog/page/delete.html:30
 #: blog/templates/blog/page/detail.html:96
 #: blog/templates/blog/page/update.html:31
+#: blog/templates/blog/post/create.html:31
 #: blog/templates/blog/post/delete.html:30
 #: blog/templates/blog/post/detail.html:125
 #: blog/templates/blog/post/update.html:31
+#: blog/templates/blog/tags/create.html:29
 #: blog/templates/blog/tags/delete.html:29
 #: blog/templates/blog/tags/update.html:29
 #: contact/templates/contact/company/delete.html:35
@@ -159,6 +172,8 @@ msgstr "Le mot de passe a été modifié avec succès"
 #: contact/templates/contact/person/delete.html:23
 #: contact/templates/contact/person/detail.html:124
 #: contact/templates/contact/person/update.html:29
+#: message/templates/message/inbox/detail.html:78
+#: message/templates/message/message/create.html:31
 #: message/templates/message/message/delete.html:30
 #: message/templates/message/message/detail.html:68
 #: message/templates/message/outbox/detail.html:68
@@ -166,9 +181,11 @@ msgstr "Le mot de passe a été modifié avec succès"
 #: page/templates/page/event/detail.html:31
 #: page/templates/page/news/detail.html:41
 #: page/templates/page/project/detail.html:31
+#: project/templates/project/event/create.html:35
 #: project/templates/project/event/delete.html:28
 #: project/templates/project/event/detail.html:153
 #: project/templates/project/event/update.html:33
+#: project/templates/project/project/create.html:31
 #: project/templates/project/project/delete.html:25
 #: project/templates/project/project/detail.html:91
 #: project/templates/project/project/update.html:31
@@ -198,6 +215,7 @@ msgstr "Le mot de passe a été modifié avec succès"
 #: transaction/templates/transaction/donation/delete.html:18
 #: transaction/templates/transaction/donation/detail.html:82
 #: transaction/templates/transaction/donation/update.html:29
+#: transaction/templates/transaction/product_transaction_line/create.html:29
 #: transaction/templates/transaction/product_transaction_line/update.html:29
 #: transaction/templates/transaction/purchase/create.html:29
 #: transaction/templates/transaction/purchase/delete.html:29
@@ -345,7 +363,13 @@ msgid "Create a new user"
 msgstr "Créer un nouvel utilisateur"
 
 #: account/templates/account/user/create.html:40
+#: blog/templates/blog/page/create.html:35
+#: blog/templates/blog/post/create.html:35
+#: blog/templates/blog/tags/create.html:33
 #: contact/templates/contact/person/create.html:33
+#: message/templates/message/message/create.html:35
+#: project/templates/project/event/create.html:39
+#: project/templates/project/project/create.html:35
 #: project/templates/project/task/create.html:40
 #: stock/templates/stock/category/create.html:33
 #: stock/templates/stock/delivery/create.html:33
@@ -356,6 +380,7 @@ msgstr "Créer un nouvel utilisateur"
 #: stock/templates/stock/stock/create.html:33
 #: transaction/templates/transaction/donation/create.html:33
 #: transaction/templates/transaction/donation/update.html:33
+#: transaction/templates/transaction/product_transaction_line/create.html:33
 #: transaction/templates/transaction/purchase/create.html:33
 #: transaction/templates/transaction/sale/create.html:33
 msgid "Create"
@@ -385,6 +410,7 @@ msgstr "Créer"
 #: contact/templates/contact/person/delete.html:13
 #: contact/templates/contact/person/delete.html:28
 #: contact/templates/contact/person/detail.html:134
+#: message/templates/message/inbox/detail.html:83
 #: message/templates/message/message/delete.html:9
 #: message/templates/message/message/delete.html:13
 #: message/templates/message/message/delete.html:34
@@ -653,6 +679,14 @@ msgstr "Pages"
 msgid "Tags"
 msgstr "Tags"
 
+#: blog/templates/blog/page/create.html:9
+msgid "Create page"
+msgstr "Créer une page"
+
+#: blog/templates/blog/page/create.html:13
+msgid "Create a new page"
+msgstr "Créer une nouvelle page"
+
 #: blog/templates/blog/page/detail.html:29
 #: blog/templates/blog/page/list.html:69 blog/templates/blog/page/list.html:98
 #: blog/templates/blog/post/detail.html:42
@@ -761,6 +795,14 @@ msgstr "Aucune page"
 msgid "Update"
 msgstr "Mis à jour :"
 
+#: blog/templates/blog/post/create.html:9
+msgid "Create Post"
+msgstr "Créer un poste"
+
+#: blog/templates/blog/post/create.html:13
+msgid "Create a new post"
+msgstr "Créer un nouveau poste"
+
 #: blog/templates/blog/post/detail.html:82
 #: blog/templates/blog/post/list.html:74 blog/templates/blog/post/list.html:121
 #: newsletter/templates/newsletter/subscriber/list.html:48
@@ -800,6 +842,14 @@ msgstr "Liste des postes"
 #: blog/templates/blog/post/list.html:164
 msgid "No post"
 msgstr "Aucun poste"
+
+#: blog/templates/blog/tags/create.html:9
+msgid "Create Tags"
+msgstr "Créer un tag"
+
+#: blog/templates/blog/tags/create.html:13
+msgid "Create a new tags"
+msgstr "Créer une nouveau tag"
 
 #: blog/templates/blog/tags/list.html:9
 msgid "Tags list"
@@ -929,7 +979,8 @@ msgstr "Aucun particulier"
 msgid "Subject"
 msgstr "Sujet"
 
-#: message/models/message.py:60 message/templates/message/inbox/list.html:85
+#: message/models/message.py:60 message/templates/message/inbox/detail.html:29
+#: message/templates/message/inbox/list.html:85
 #: message/templates/message/inbox/list.html:114
 #: message/templates/message/message/detail.html:29
 #: message/templates/message/outbox/detail.html:29
@@ -939,7 +990,7 @@ msgstr "Sujet"
 msgid "Sender"
 msgstr "Expéditeur"
 
-#: message/models/message.py:62
+#: message/models/message.py:62 message/templates/message/inbox/detail.html:37
 #: message/templates/message/message/detail.html:37
 #: message/templates/message/outbox/detail.html:37
 #: message/templates/message/outbox/list.html:85
@@ -972,7 +1023,7 @@ msgstr "Expéditeur supprimé à"
 msgid "Recipient deleted at"
 msgstr "Destinataire supprimé à"
 
-#: message/models/message.py:174
+#: message/models/message.py:174 message/templates/message/inbox/detail.html:55
 #: message/templates/message/message/detail.html:55
 #: message/templates/message/outbox/detail.html:55
 #: message/templates/message/trash/detail.html:55
@@ -985,6 +1036,19 @@ msgstr "Message"
 #: message/models/message.py:175
 msgid "Messages"
 msgstr "Messages"
+
+#: message/templates/message/inbox/detail.html:45
+#: message/templates/message/inbox/list.html:87
+#: message/templates/message/inbox/list.html:116
+#: message/templates/message/message/detail.html:45
+#: message/templates/message/outbox/detail.html:45
+#: message/templates/message/trash/detail.html:45
+msgid "Received at"
+msgstr "Reçu à"
+
+#: message/templates/message/inbox/detail.html:65
+msgid "File"
+msgstr "Fichier"
 
 #: message/templates/message/inbox/list.html:7
 #: message/templates/message/outbox/list.html:7
@@ -1019,17 +1083,17 @@ msgstr "Boîte d'envoi"
 msgid "Trash"
 msgstr "Corbeille"
 
-#: message/templates/message/inbox/list.html:87
-#: message/templates/message/inbox/list.html:116
-#: message/templates/message/message/detail.html:45
-#: message/templates/message/outbox/detail.html:45
-#: message/templates/message/trash/detail.html:45
-msgid "Received at"
-msgstr "Reçu à"
-
 #: message/templates/message/inbox/list.html:141
 msgid "No message received"
 msgstr "Aucun message reçu"
+
+#: message/templates/message/message/create.html:9
+msgid "Create Message"
+msgstr "Créer un message"
+
+#: message/templates/message/message/create.html:13
+msgid "Create a new message"
+msgstr "Créer une nouveau message"
 
 #: message/templates/message/message/delete.html:22
 msgid "Are you sure you want to delete the message"
@@ -1072,6 +1136,10 @@ msgstr "Votre adresse e-mail"
 #: newsletter/templates/newsletter/components/newsletters.html:16
 msgid "Sign up"
 msgstr "S'inscrire"
+
+#: newsletter/templates/newsletter/subscriber/list.html:7
+msgid "Subscribers list"
+msgstr "Liste des abonnés"
 
 #: newsletter/templates/newsletter/subscriber/list.html:18
 msgid "Manage Newsletter"
@@ -1296,7 +1364,7 @@ msgstr "En savoir plus"
 
 #: page/templates/page/home/home.html:55
 msgid "Welcome to the Twahi Foundation association"
-msgstr "Bienvenue à l'association Twahi Fondation"
+msgstr "Bienvenue à Twahi Fondation"
 
 #: page/templates/page/static_page/contact/contact.html:24
 msgid ""
@@ -1561,6 +1629,14 @@ msgstr "Effacer tout"
 msgid "ago"
 msgstr " "
 
+#: project/templates/project/event/create.html:13
+msgid "Create Event"
+msgstr "Créer un événement"
+
+#: project/templates/project/event/create.html:17
+msgid "Create event"
+msgstr "Créer un événement"
+
 #: project/templates/project/event/detail.html:57
 msgid "Date of creation"
 msgstr "Date de création"
@@ -1616,6 +1692,14 @@ msgstr "Gérer les événements"
 #: project/templates/project/event/list.html:161
 msgid "No event"
 msgstr "Aucun événement"
+
+#: project/templates/project/project/create.html:9
+msgid "Create Project"
+msgstr "Créer un projet"
+
+#: project/templates/project/project/create.html:13
+msgid "Create a new project"
+msgstr "Créer un nouveau projet"
 
 #: project/templates/project/project/detail.html:44
 #: project/templates/project/project/list.html:61
@@ -2033,6 +2117,14 @@ msgstr "Aucune transaction"
 #: transaction/templates/transaction/donation/paypal_list.html:36
 msgid "Paypal donations"
 msgstr "Dons par Paypal"
+
+#: transaction/templates/transaction/product_transaction_line/create.html:9
+msgid "Add product"
+msgstr "Ajouter un produit"
+
+#: transaction/templates/transaction/product_transaction_line/create.html:13
+msgid "Add a product"
+msgstr "Ajouter un produit"
 
 #: transaction/templates/transaction/product_transaction_line/delete.html:25
 msgid "Subtotal"

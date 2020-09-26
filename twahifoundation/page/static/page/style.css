@@ -207,9 +207,7 @@ p.help-block {
 
 .title-h2 {
   font-weight: 600;
-  font-size: 26px;
-  border-bottom: 1px solid #2125294d;
-  padding-bottom: 11px;
+  font-size: 23px;
 }
 
 .page-title {
@@ -219,14 +217,10 @@ p.help-block {
   margin-bottom: 10px;
 }
 
-.page-title .title-h2 {
-  border-bottom: unset;
-  padding-bottom: unset;
-}
-
 .page-title .object-control-link p {
   position: relative;
   bottom: 4px;
+  min-width: 96px;
 }
 
 /* Navbar */
@@ -391,7 +385,7 @@ a span.btn-involved {
   height: 50px;
   clear: both;
   overflow: hidden;
-  font-size: 15px;
+  font-size: 12px;
 }
 
 .newsletters-form form button {
@@ -508,7 +502,7 @@ a span.btn-involved {
 
 .projects-title h3 {
   font-weight: 600;
-  font-size: 23px;
+  font-size: 18px;
 }
 
 .projects-item {
@@ -824,6 +818,10 @@ footer #newsletters-title h2 {
   .header-p small {
     font-size: 16px;
   }
+
+  .newsletters-form form input {
+    font-size: 15px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -960,10 +958,6 @@ footer #newsletters-title h2 {
     padding-bottom: 0;
   }
 
-  .projects-title h3 {
-    font-size: 22px;
-  }
-
   #projects-section .projects-list {
     display: block;
   }
@@ -1035,10 +1029,6 @@ footer #newsletters-title h2 {
     max-width: 380px;
   }
 
-  .projects-item h3 {
-    max-width: 330px;
-  }
-
   .projects-item p,
   .page-content-detail p {
     max-width: 330px;
@@ -1061,8 +1051,9 @@ footer #newsletters-title h2 {
     margin-right: 10px;
   }
 
-  .object-control-link p {
+  .page-title .object-control-link p {
     padding: 7px 30px;
+    min-width: 132px;
   }
 }
 
@@ -1191,6 +1182,10 @@ footer #newsletters-title h2 {
     width: 250px;
   }
 
+  .title-h2 {
+    font-size: 26px;
+  }
+
   /* HOME PROJECTS */
 
   .content-width-wrapper {
@@ -1277,10 +1272,6 @@ footer #newsletters-title h2 {
   #projects-section .project-home .img-wrapper {
     width: 400px;
     height: 220px;
-  }
-
-  .projects-item h3 {
-    max-width: 280px;
   }
 
   .projects-wrapper h1 {

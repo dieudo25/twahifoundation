@@ -2,7 +2,9 @@
 
 {% load static %}
 
-{% block title %} Portal | {{ message.subject }} {% endblock title %}
+{% load i18n %}
+
+{% block title %} {% trans "Portal" %} | {{ message.subject }} {% endblock title %}
 
 {% block css %}
 
@@ -24,7 +26,7 @@
         <div class="column">
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Sender :</p>
+              <p>{% trans "Sender" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  message.sender }}</p>
@@ -32,7 +34,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Recipient :</p>
+              <p>{% trans "Recipient" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  message.recipient }}</p>
@@ -40,7 +42,7 @@
           </div>
           <div class="detail-info-group">
             <div class="detail-info-item-1">
-              <p>Received at :</p>
+              <p>{% trans "Received at" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  message.sent_at }}</p>
@@ -50,7 +52,7 @@
         <div class="column">
           <div class="">
             <div class="detail-info-item-1">
-              <p>Message :</p>
+              <p>{% trans "Message" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  message.body|safe|linebreaks }}</p>
@@ -60,7 +62,7 @@
         <div class="column">
           <div class="">
             <div class="detail-info-item-1">
-              <p>File :</p>
+              <p>{% trans "File" %} :</p>
             </div>
             <div class="detail-info-item-2">
               <p>{{  message.uploaded_file }}</p>
@@ -73,12 +75,12 @@
   <div class="detail-bar">
     <div class="detail-bar-col-1">
       <a href="{% url 'message:inbox' %}">
-        <p class="detail-bar-btn btn-black">Back</p>
+        <p class="detail-bar-btn btn-black">{% trans "Back" %}</p>
       </a>
     </div>
     <div class="detail-bar-col-2">
       <a href="{% url 'message:inbox-delete' message.id %}">
-        <p class="detail-bar-btn btn-red btn-last">Delete</p>
+        <p class="detail-bar-btn btn-red btn-last">{% trans "Delete" %}</p>
       </a>
     </div>
   </div>
