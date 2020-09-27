@@ -80,9 +80,9 @@
                 <td>{{ page.user }}</td>
                 <td>{{ page.created_on }}</td>
                 
-                {% if post.updated_on and post.updated_by %}
-                  <td>{{ post.updated_by }}</td>
-                  <td>{{ post.updated_on }}</td>
+                {% if page.updated_on and page.updated_by %}
+                  <td>{{ page.updated_by }}</td>
+                  <td>{{ page.updated_on }}</td>
                 {% endif %}
 
               </tr>
@@ -110,15 +110,15 @@
                 <td>{{ page.created_on }}</td>
                 <td>
                   
-                  {% if post.updated_by %}
-                    {{ post.updated_by }}
+                  {% if page.updated_by %}
+                    {{ page.updated_by }}
                   {% endif %}
 
                 </td>
                 <td>
                   
-                  {% if post.updated_on %}
-                    {{ post.updated_on }}
+                  {% if page.updated_on %}
+                    {{ page.updated_on }}
                   {% endif %}
 
                 </td>

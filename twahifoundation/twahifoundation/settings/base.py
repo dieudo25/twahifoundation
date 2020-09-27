@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+from django.utils.translation import ugettext_lazy as _
+
 from django_archive import archivers
 from dotenv import load_dotenv
 
@@ -49,6 +51,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'paypal.standard.ipn',
     'import_export',
+    'modeltranslation',
     'notifications',
 
     'account.apps.AccountConfig',
@@ -136,8 +139,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 LANGUAGES = [
-    ('en', 'English'),
-    ('fr', 'French'),
+    ('en', _('English')),
+    ('fr', _('French')),
 ]
 
 TIME_ZONE = 'Europe/Brussels'

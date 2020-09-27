@@ -1,4 +1,5 @@
 from django import forms
+from django.utils.translation import ugettext_lazy as _
 
 from project.models.project import Project
 
@@ -16,3 +17,8 @@ class ProjectCreateUpdateForm(forms.ModelForm):
             'description',
             'content',
         ]
+        labels = {
+            'title': _('Title [en]'),
+            'description': _('Description [en]'),
+            'content': _('Content [en]'),
+        }

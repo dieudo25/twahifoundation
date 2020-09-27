@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 
 
 def change_language(request, language):
-    response = HttpResponseRedirect('/')
+    response = HttpResponseRedirect(request.META.get("HTTP_REFERER"))
 
     translation.activate(language)
     response.set_cookie(settings.LANGUAGE_COOKIE_NAME, language)

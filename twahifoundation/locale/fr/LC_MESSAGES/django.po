@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-26 14:42+0200\n"
+"POT-Creation-Date: 2020-09-27 14:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -566,7 +566,7 @@ msgid "Member list"
 msgstr "Liste des membres"
 
 #: account/templates/account/user/list.html:28
-#: portal/templates/portal/components/portal-navbar.html:53
+#: portal/templates/portal/components/portal-navbar.html:69
 #: portal/templates/portal/components/portal_sidebar.html:125
 #: portal/templates/portal/home.html:90
 msgid "Members"
@@ -662,6 +662,20 @@ msgstr "Aucun résultat trouvé"
 #: account/templates/account/user/update_group.html:20
 msgid "Select group for the user"
 msgstr "Sélectionner un groupe pour l'utilisateur"
+
+#: blog/forms/post.py:24 blog/forms/post.py:45 project/forms/event.py:32
+#: project/forms/project.py:21
+msgid "Title [en]"
+msgstr "Titre [fr]"
+
+#: blog/forms/post.py:25 project/forms/project.py:22
+msgid "Description [en]"
+msgstr "Description [fr]"
+
+#: blog/forms/post.py:26 blog/forms/post.py:46 project/forms/event.py:34
+#: project/forms/project.py:23
+msgid "Content [en]"
+msgstr "Contenu [fr]"
 
 #: blog/templates/blog/components/navlist.html:10
 #: blog/templates/blog/post/list.html:38
@@ -793,7 +807,7 @@ msgstr "Aucune page"
 #: transaction/templates/transaction/sale/update.html:9
 #: transaction/templates/transaction/sale/update.html:13
 msgid "Update"
-msgstr "Mis à jour :"
+msgstr "Mettre à jour : "
 
 #: blog/templates/blog/post/create.html:9
 msgid "Create Post"
@@ -877,7 +891,7 @@ msgstr "Adresse"
 #: contact/templates/contact/company/detail.html:51
 #: contact/templates/contact/company/list.html:81
 #: contact/templates/contact/company/list.html:118
-#: portal/templates/portal/components/portal-navbar.html:23
+#: portal/templates/portal/components/portal-navbar.html:39
 msgid "Web site"
 msgstr "Site Web"
 
@@ -1027,7 +1041,7 @@ msgstr "Destinataire supprimé à"
 #: message/templates/message/message/detail.html:55
 #: message/templates/message/outbox/detail.html:55
 #: message/templates/message/trash/detail.html:55
-#: portal/templates/portal/components/portal-navbar.html:35
+#: portal/templates/portal/components/portal-navbar.html:51
 #: portal/templates/portal/components/portal_sidebar.html:53
 #: portal/templates/portal/home.html:42
 msgid "Message"
@@ -1229,19 +1243,19 @@ msgstr "À propos"
 #: page/templates/page/static_page/contact/contact.html:14
 #: page/templates/page/static_page/contact/success.html:7
 #: page/templates/page/static_page/contact/success.html:12
-#: portal/templates/portal/components/portal-navbar.html:29
+#: portal/templates/portal/components/portal-navbar.html:45
 #: portal/templates/portal/components/portal_sidebar.html:29
 #: portal/templates/portal/home.html:26
 msgid "Contact"
 msgstr "Contact"
 
 #: page/templates/page/components/navbar.html:58
-#: portal/templates/portal/components/portal-navbar.html:71
+#: portal/templates/portal/components/portal-navbar.html:87
 msgid "Profile"
 msgstr "Profil"
 
 #: page/templates/page/components/navbar.html:59
-#: portal/templates/portal/components/portal-navbar.html:72
+#: portal/templates/portal/components/portal-navbar.html:88
 msgid "Sign out"
 msgstr "Déconnexion"
 
@@ -1340,7 +1354,7 @@ msgid "Ooops!! Something went wrong!"
 msgstr "Ooops ! Quelque chose a mal tourné !"
 
 #: page/templates/page/event/detail.html:9
-#: portal/templates/portal/components/portal-navbar.html:32
+#: portal/templates/portal/components/portal-navbar.html:48
 #: portal/templates/portal/components/portal_sidebar.html:41
 #: portal/templates/portal/home.html:34
 msgid "Event"
@@ -1365,6 +1379,11 @@ msgstr "En savoir plus"
 #: page/templates/page/home/home.html:55
 msgid "Welcome to the Twahi Foundation association"
 msgstr "Bienvenue à Twahi Fondation"
+
+#: page/templates/page/news/detail.html:27
+#: page/templates/page/news/detail.html:31
+msgid "by"
+msgstr "par"
 
 #: page/templates/page/static_page/contact/contact.html:24
 msgid ""
@@ -1566,23 +1585,23 @@ msgstr "produit"
 msgid "stock"
 msgstr "stock"
 
-#: portal/templates/portal/components/portal-navbar.html:18
+#: portal/templates/portal/components/portal-navbar.html:34
 msgid "Administration"
 msgstr "Administration"
 
-#: portal/templates/portal/components/portal-navbar.html:26
+#: portal/templates/portal/components/portal-navbar.html:42
 #: portal/templates/portal/components/portal_sidebar.html:17
 #: portal/templates/portal/home.html:18
 msgid "Blog"
 msgstr "Blog"
 
-#: portal/templates/portal/components/portal-navbar.html:38
+#: portal/templates/portal/components/portal-navbar.html:54
 #: portal/templates/portal/components/portal_sidebar.html:65
 #: portal/templates/portal/home.html:50
 msgid "Newsletter"
 msgstr "Newsletter"
 
-#: portal/templates/portal/components/portal-navbar.html:41
+#: portal/templates/portal/components/portal-navbar.html:57
 #: portal/templates/portal/components/portal_sidebar.html:77
 #: portal/templates/portal/home.html:58
 #: project/templates/project/event/detail.html:47
@@ -1590,20 +1609,20 @@ msgstr "Newsletter"
 msgid "Project"
 msgstr "Projet"
 
-#: portal/templates/portal/components/portal-navbar.html:44
+#: portal/templates/portal/components/portal-navbar.html:60
 #: portal/templates/portal/components/portal_sidebar.html:89
 #: portal/templates/portal/home.html:66
 #: stock/templates/stock/components/navlist.html:8
 msgid "Stock"
 msgstr "Stock"
 
-#: portal/templates/portal/components/portal-navbar.html:47
+#: portal/templates/portal/components/portal-navbar.html:63
 #: portal/templates/portal/components/portal_sidebar.html:101
 #: portal/templates/portal/home.html:74
 msgid "Task"
 msgstr "Tâche"
 
-#: portal/templates/portal/components/portal-navbar.html:50
+#: portal/templates/portal/components/portal-navbar.html:66
 #: portal/templates/portal/components/portal_sidebar.html:113
 #: portal/templates/portal/home.html:82
 msgid "Transaction"
@@ -1628,6 +1647,19 @@ msgstr "Effacer tout"
 #: portal/templates/portal/notification/list.html:98
 msgid "ago"
 msgstr " "
+
+#: project/forms/event.py:33
+msgid "Location [en]"
+msgstr "Lieu [fr]"
+
+#: project/forms/event.py:50
+msgid "The beginning of an event cannot be in the past !"
+msgstr "Le début d'un événement ne peut pas être dans le passé !"
+
+#: project/forms/event.py:54
+msgid "The end time of a event cannot be earlier than its start time !"
+msgstr ""
+"L'heure de fin d'un événement ne peut être antérieure à son heure de début !"
 
 #: project/templates/project/event/create.html:13
 msgid "Create Event"
@@ -2158,3 +2190,11 @@ msgstr "Créer une nouvelle vente"
 #: transaction/templates/transaction/sale/detail.html:22
 msgid "Sale"
 msgstr "Vente"
+
+#: twahifoundation/settings/base.py:142
+msgid "English"
+msgstr "Anglais"
+
+#: twahifoundation/settings/base.py:143
+msgid "French"
+msgstr "Français"

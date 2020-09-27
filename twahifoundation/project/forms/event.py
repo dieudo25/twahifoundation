@@ -3,6 +3,7 @@ import pytz
 from datetime import datetime
 from django import forms
 from django.contrib.auth import get_user
+from django.utils.translation import ugettext_lazy as _
 
 from bootstrap_datepicker_plus import DateTimePickerInput
 
@@ -27,8 +28,10 @@ class EventCreateUpdateForm(forms.ModelForm):
             'image',
             'content',
         ]
-        help_texts = {
-
+        labels = {
+            'title': _('Title [en]'),
+            'location': _('Location [en]'),
+            'content': _('Content [en]'),
         }
         widgets = {
             'time_started': DateTimePickerInput(),
@@ -44,10 +47,10 @@ class EventCreateUpdateForm(forms.ModelForm):
         if time_started and time_ended:
             if time_started < now:
                 raise forms.ValidationError(
-                    "The beginning of an event cannot be in the past !")
+                    _("The beginning of an event cannot be in the past !"))
 
             elif time_ended < time_started:
                 raise forms.ValidationError(
-                    "The end time of a event cannot be earlier than its start time !")
+                    _("The end time of a event cannot be earlier than its start time !"))
 
         return cleaned_data

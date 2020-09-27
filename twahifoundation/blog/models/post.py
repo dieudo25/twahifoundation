@@ -19,7 +19,7 @@ STATUS_CHOICE = (
 
 
 class Post(models.Model):
-    title = models.CharField(max_length=100, unique=True)
+    title = models.CharField(max_length=100, )
     slug = models.SlugField(max_length=100, unique=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)

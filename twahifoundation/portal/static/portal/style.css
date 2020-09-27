@@ -6,6 +6,10 @@
 
 /* ALL */
 
+.navlang .dropdown-item:hover {
+  background-color: #666a6f;
+}
+
 #portal-navbar .navbar-toggler {
   border-color: #212529;
 }

@@ -62,7 +62,7 @@ def event_created(sender, instance, created, **kwargs):
 
         for recipient in recipients:
             notify.send(
-                instance.user,
+                instance.updated_by,
                 recipient=recipient,
                 verb=verb,
                 action_object=instance
@@ -71,7 +71,7 @@ def event_created(sender, instance, created, **kwargs):
 
         context = {
             'verb': verb,
-            'user': instance.user,
+            'user': instance.updated_by,
         }
         html_message = render_to_string(
             'portal/notification/email.html', context)
