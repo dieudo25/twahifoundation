@@ -143,6 +143,12 @@ LANGUAGES = [
     ('fr', _('French')),
 ]
 
+MODELTRANSLATION_FALLBACK_LANGUAGES = {
+    'default': ('en', 'fr'),
+    'fr': ('en',),
+    'en': ('fr',),
+}
+
 TIME_ZONE = 'Europe/Brussels'
 
 USE_I18N = True
