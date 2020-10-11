@@ -15,8 +15,6 @@ class Person(models.Model):
 
     company = models.ForeignKey(
         Company, on_delete=models.SET_NULL, null=True, blank=True)
-    created_by = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.PROTECT, null=True, blank=True)
     first_name = models.CharField(
         max_length=60,)
     last_name = models.CharField(

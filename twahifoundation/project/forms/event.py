@@ -20,22 +20,28 @@ class EventCreateUpdateForm(forms.ModelForm):
         model = Event
         fields = [
             'title',
+            'title_fr',
+            'title_en',
             'project',
             'location',
+            'location_fr',
+            'location_en',
             'time_started',
             'time_ended',
             'event_type',
             'image',
             'content',
+            'content_fr',
+            'content_en',
         ]
-        labels = {
+        """ labels = {
             'title': _('Title [en]'),
             'location': _('Location [en]'),
             'content': _('Content [en]'),
-        }
+        } """
         widgets = {
-            'time_started': DateTimePickerInput(),
-            'time_ended': DateTimePickerInput(),
+            'time_started': DateTimePickerInput(format='%d/%m/%Y %H:%M'),
+            'time_ended': DateTimePickerInput(format='%d/%m/%Y %H:%M'),
         }
 
     def clean(self):

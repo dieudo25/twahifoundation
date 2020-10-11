@@ -62,11 +62,11 @@ class Event(models.Model):
         auto_now_add=True,
         null=True,
         blank=True,
-        verbose_name="Creation date"
+        verbose_name="Creation date",
     )
     time_started = models.DateTimeField(
         blank=True,
-        verbose_name="Start of the event"
+        verbose_name="Start of the event",
     )
     time_ended = models.DateTimeField(
         blank=True,

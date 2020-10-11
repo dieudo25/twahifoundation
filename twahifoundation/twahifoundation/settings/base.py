@@ -153,11 +153,23 @@ TIME_ZONE = 'Europe/Brussels'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
 USE_TZ = True
 
 LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
+
+DATE_FORMAT = 'j/m/Y'
+
+DATE_INPUT_FORMATS = [
+    '%d/%m/%Y %H:%M', # '10/25/06'
+]
+
+DATETIME_FORMAT = 'j/m/Y h\hm'
+
+DATETIME_INPUT_FORMATS = [
+    '%d/%m/%Y %H:%M', # '10/25/06 20:12'
+]
 
 # Static
 STATIC_URL = '/static/'

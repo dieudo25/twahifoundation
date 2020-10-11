@@ -5,7 +5,7 @@ from django.views.generic import CreateView, TemplateView, FormView
 
 from paypal.standard.forms import PayPalPaymentsForm
 
-from page.forms.donate import DonationForm, ExtPayPalPaymentsForm, PriceFieldDonationForm
+from page.forms.donate import DonationForm, ExtPayPalPaymentsForm, GDPRForm, PriceFieldDonationForm
 from contact.forms.person import DonatorForm
 from contact.models.person import Person
 from transaction.models.transaction import Transaction
@@ -28,6 +28,7 @@ class DonateView(CreateView):
         context = super().get_context_data(**kwargs)
         context['donator_form'] = DonatorForm
         context['price_form'] = PriceFieldDonationForm
+        context['gdpr_form'] = GDPRForm
         return context
 
     def form_valid(self, form):

@@ -8,7 +8,14 @@ from django.urls import reverse_lazy, reverse
 from notifications.models import Notification
 
 from account.permissions.group import group_required, GroupRequiredMixin
-from blog.forms.post import PostCreateUpdateForm, PageCreateUpdateForm
+from blog.forms.post import (
+    PostCreateUpdateForm, 
+    PageCreateUpdateForm, 
+    PostENCreateUpdateForm, 
+    PostFRCreateUpdateForm, 
+    PostMultiLNCreateUpdateForm,
+    PostAllCreateUpdateForm,
+)
 from blog.models.post import Post
 from blog.models.category import Category
 
@@ -144,7 +151,7 @@ class PageListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
 
 
 class PageListFilteredView(LoginRequiredMixin, GroupRequiredMixin, ListView):
-    "Page list filterd by title, location"
+    "Page list filterd by title, author name"
 
     model = Post
     group_required = [u'Administrator',

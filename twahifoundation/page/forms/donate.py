@@ -1,5 +1,6 @@
 from paypal.standard.forms import PayPalPaymentsForm
 from django.utils.html import format_html
+from django.utils.translation import ugettext_lazy as _
 from django import forms
 
 from paypal.standard.conf import (
@@ -36,6 +37,11 @@ class PriceFieldDonationForm(forms.Form):
 
     total = forms.ChoiceField(
         choices=AMOUNT, widget=forms.RadioSelect(), label='Amount')
+
+class GDPRForm(forms.Form):
+
+    gdpr = forms.BooleanField(required=True,
+        label=_("<span>Yes, I consent to my data being stored according to the guidelines set out in the <a href='/page/legal-mentions/'>Privacy Policy</a>.</span>"))
 
 
 class ExtPayPalPaymentsForm(PayPalPaymentsForm):

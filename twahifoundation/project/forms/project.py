@@ -13,12 +13,18 @@ class ProjectCreateUpdateForm(forms.ModelForm):
         model = Project
         fields = [
             'title',
+            'title_fr',
+            'title_en',
             'image',
             'description',
+            'description_fr',
+            'description_en',
             'content',
+            'content_fr',
+            'content_en',
         ]
-        labels = {
+        """ labels = {
             'title': _('Title [en]'),
             'description': _('Description [en]'),
             'content': _('Content [en]'),
-        }
+        } """

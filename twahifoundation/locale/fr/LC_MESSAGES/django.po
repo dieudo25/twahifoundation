@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-27 14:59+0200\n"
+"POT-Creation-Date: 2020-10-09 17:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1171,6 +1171,14 @@ msgstr "Date d'ajout"
 #: newsletter/templates/newsletter/subscriber/list.html:65
 msgid "No subscribers"
 msgstr "Aucun abonné"
+
+#: page/forms/contact.py:11
+msgid ""
+"<span>Yes, I consent to my data being stored according to the guidelines set "
+"out in the <a href='/page/legal-mentions/'>Privacy Policy</a>.</span>"
+msgstr ""
+"<span>Oui, je consens à ce que mes données soient stockées conformément aux lignes directrices établies "
+"dans les <a href='/page/legal-mentions/'>mentions légales</a>.</span>"
 
 #: page/templates/page/components/events_list.html:8
 msgid "Upcoming Event"

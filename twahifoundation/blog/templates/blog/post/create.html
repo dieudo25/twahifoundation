@@ -8,6 +8,22 @@
 
 {% block title %} {% trans "Portal" %} | {% trans "Create Post" %} {% endblock title %}
 
+{% block css %}
+
+  {{ block.super }}
+
+  <link rel="stylesheet" href="{% static 'blog/style.css' %}" type="text/css">
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+{% endblock css %}
+
+{% block scripts %}
+
+  {{ block.super }}
+  
+  <script src="{% static 'blog/main.js' %}"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+{% endblock scripts %}
+
 {% block portal_content %}
   <div class="portal-content-title">
     <h1>{% trans "Create a new post" %}</h1>
@@ -19,9 +35,34 @@
           {% csrf_token %}
 
           {{ form.media }}
-          
-          {{ form | crispy }}
+          <div>
+            {% comment %} <div class="slider-form-langage">
+              <div class="ln-form-item" title="{% if request.COOKIES.django_language == 'en' %}EN{% else %}FR{% endif %}">
 
+                {{ form_all | crispy }}
+
+              </div>
+
+              {% if request.COOKIES.django_language == 'en' %}
+                <div class="ln-form-item" title="FR">
+
+                  {{ form_fr | crispy }}
+
+                </div>
+              {% else %}
+                <div class="ln-form-item" title="EN">
+
+                  {{ form_en | crispy }}
+
+                </div>
+              {% endif %}
+
+            </div> {% endcomment %}
+    
+            <div>
+              {{ form | crispy }}
+            </div>
+          </div>
       </form>
     </div>
   </div>

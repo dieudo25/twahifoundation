@@ -20,8 +20,7 @@ class PersonListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
 
     def get_queryset(self):
         current_user = get_user(self.request)
-        object_list = Person.objects.filter(
-            created_by=current_user.pk, is_deleted=False)
+        object_list = Person.objects.exclude(is_deleted=True)
         return object_list
 
 

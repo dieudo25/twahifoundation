@@ -50,7 +50,7 @@ def event_created(sender, instance, created, **kwargs):
         mail.send_mail(subject, plain_message, from_email,
                        send_to, html_message=html_message)
 
-    else:
+    """ else:
         send_to = []
 
         if instance.category.name == 'Post':
@@ -81,4 +81,4 @@ def event_created(sender, instance, created, **kwargs):
         mail.send_mail(subject, plain_message, from_email,
                        send_to, html_message=html_message)
         print(mail.send_mail(subject, plain_message, from_email,
-                             send_to, html_message=html_message))
+                             send_to, html_message=html_message)) """
