@@ -1,7 +1,9 @@
+{% load i18n %}
+
 {% if not request.COOKIES.cookie_consent %}
   <div id="cookie-consent">
       <div class="bg-green text-white py-2">
-        <p>By using this website, you agree with our <a class="text-white" href="/page/legal-mentions/#cookie-policy"><u>cookie policy</u></a></p>
+        <p>{% trans "By using this website, you agree with our" %} <a class="text-white" href="/page/legal-mentions/#cookie-policy"><u>{% trans "cookie policy" %}</u></a></p>
         <button  id="hide-cookie-consent" class="btn-black ml-3">OK</button>
       </div>
   </div>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-09 17:17+0200\n"
+"POT-Creation-Date: 2020-10-11 16:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -158,7 +158,7 @@ msgstr "Le mot de passe a été modifié avec succès"
 #: blog/templates/blog/page/delete.html:30
 #: blog/templates/blog/page/detail.html:96
 #: blog/templates/blog/page/update.html:31
-#: blog/templates/blog/post/create.html:31
+#: blog/templates/blog/post/create.html:73
 #: blog/templates/blog/post/delete.html:30
 #: blog/templates/blog/post/detail.html:125
 #: blog/templates/blog/post/update.html:31
@@ -237,7 +237,7 @@ msgstr "Retour"
 #: blog/templates/blog/tags/update.html:33
 #: contact/templates/contact/company/update.html:39
 #: contact/templates/contact/person/update.html:33
-#: page/templates/page/static_page/donate/donate.html:49
+#: page/templates/page/static_page/donate/donate.html:51
 #: project/templates/project/event/update.html:37
 #: project/templates/project/project/update.html:35
 #: project/templates/project/task/update.html:39
@@ -364,7 +364,7 @@ msgstr "Créer un nouvel utilisateur"
 
 #: account/templates/account/user/create.html:40
 #: blog/templates/blog/page/create.html:35
-#: blog/templates/blog/post/create.html:35
+#: blog/templates/blog/post/create.html:77
 #: blog/templates/blog/tags/create.html:33
 #: contact/templates/contact/person/create.html:33
 #: message/templates/message/message/create.html:35
@@ -663,20 +663,6 @@ msgstr "Aucun résultat trouvé"
 msgid "Select group for the user"
 msgstr "Sélectionner un groupe pour l'utilisateur"
 
-#: blog/forms/post.py:24 blog/forms/post.py:45 project/forms/event.py:32
-#: project/forms/project.py:21
-msgid "Title [en]"
-msgstr "Titre [fr]"
-
-#: blog/forms/post.py:25 project/forms/project.py:22
-msgid "Description [en]"
-msgstr "Description [fr]"
-
-#: blog/forms/post.py:26 blog/forms/post.py:46 project/forms/event.py:34
-#: project/forms/project.py:23
-msgid "Content [en]"
-msgstr "Contenu [fr]"
-
 #: blog/templates/blog/components/navlist.html:10
 #: blog/templates/blog/post/list.html:38
 msgid "Posts"
@@ -813,7 +799,7 @@ msgstr "Mettre à jour : "
 msgid "Create Post"
 msgstr "Créer un poste"
 
-#: blog/templates/blog/post/create.html:13
+#: blog/templates/blog/post/create.html:29
 msgid "Create a new post"
 msgstr "Créer un nouveau poste"
 
@@ -1172,13 +1158,22 @@ msgstr "Date d'ajout"
 msgid "No subscribers"
 msgstr "Aucun abonné"
 
-#: page/forms/contact.py:11
+#: page/forms/contact.py:11 page/forms/donate.py:44
 msgid ""
 "<span>Yes, I consent to my data being stored according to the guidelines set "
 "out in the <a href='/page/legal-mentions/'>Privacy Policy</a>.</span>"
 msgstr ""
-"<span>Oui, je consens à ce que mes données soient stockées conformément aux lignes directrices établies "
-"dans les <a href='/page/legal-mentions/'>mentions légales</a>.</span>"
+"<span>Oui, je consens à ce que mes données soient stockées conformément aux "
+"lignes directrices établies dans les <a href='/page/legal-"
+"mentions/'>mentions légales</a>.</span>"
+
+#: page/templates/page/components/cookie_preferences.html:6
+msgid "By using this website, you agree with our"
+msgstr "En utilisant ce site web, vous acceptez notre"
+
+#: page/templates/page/components/cookie_preferences.html:6
+msgid "cookie policy"
+msgstr "politique de cookies"
 
 #: page/templates/page/components/events_list.html:8
 msgid "Upcoming Event"
@@ -1203,10 +1198,6 @@ msgid "Attributions"
 msgstr "Attributions"
 
 #: page/templates/page/components/footer.html:25
-msgid "Cookies preferences"
-msgstr "Préférences des cookies"
-
-#: page/templates/page/components/footer.html:26
 msgid "Legal mentions"
 msgstr "Mentions légales"
 
@@ -1419,7 +1410,7 @@ msgid "To support a project of Twahi Foundation, you can make a donation."
 msgstr "Pour soutenir un projet de Twahi Fondation, vous pouvez faire un don."
 
 #: page/templates/page/static_page/donate/checkout.html:36
-#: page/templates/page/static_page/donate/donate.html:51
+#: page/templates/page/static_page/donate/donate.html:53
 msgid "THANKS TO OUR GENEROUS DONORS"
 msgstr "MERCI À NOS GÉNÉREUX DONATEURS"
 
@@ -1656,15 +1647,11 @@ msgstr "Effacer tout"
 msgid "ago"
 msgstr " "
 
-#: project/forms/event.py:33
-msgid "Location [en]"
-msgstr "Lieu [fr]"
-
-#: project/forms/event.py:50
+#: project/forms/event.py:56
 msgid "The beginning of an event cannot be in the past !"
 msgstr "Le début d'un événement ne peut pas être dans le passé !"
 
-#: project/forms/event.py:54
+#: project/forms/event.py:60
 msgid "The end time of a event cannot be earlier than its start time !"
 msgstr ""
 "L'heure de fin d'un événement ne peut être antérieure à son heure de début !"
@@ -2206,3 +2193,18 @@ msgstr "Anglais"
 #: twahifoundation/settings/base.py:143
 msgid "French"
 msgstr "Français"
+
+#~ msgid "Title [en]"
+#~ msgstr "Titre [fr]"
+
+#~ msgid "Description [en]"
+#~ msgstr "Description [fr]"
+
+#~ msgid "Content [en]"
+#~ msgstr "Contenu [fr]"
+
+#~ msgid "Cookies preferences"
+#~ msgstr "Préférences des cookies"
+
+#~ msgid "Location [en]"
+#~ msgstr "Lieu [fr]"
