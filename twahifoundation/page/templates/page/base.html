@@ -1,3 +1,5 @@
+{% load static %}
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -10,11 +12,15 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href={% static 'page/favicon/apple-touch-icon.png' %}>
+    <link rel="icon" type="image/png" sizes="32x32" href={% static 'page/favicon/favicon-32x32.png' %}>
+    <link rel="icon" type="image/png" sizes="16x16" href={% static 'page/favicon/favicon-16x16.png' %}>
+    <link rel="manifest" href={% static 'page/favicon/site.webmanifest' %}>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
     <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/fff70aa756de5fbdb0f9fb818/501950e1bd3d68972d797cb09.js");</script>
-    {% load static %}
     
     {% block css %}
       <link rel="stylesheet" href="{% static 'page/style.css' %}" type="text/css">
