@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% load group_tags %}
+
 {% load i18n %}
 
 {% block title %} {% trans "Portal" %} | {% trans "Home" %} {% endblock title %}
@@ -9,6 +11,15 @@
 {% block portal_content %}
   <section id="portal-home">
     <div class="wrapper">
+
+    {% if messages %}
+      <div class="messages">
+          {% for message in messages %}
+          <div{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
+          {% endfor %}
+      </div>
+    {% endif %}
+
       <div class="app-list">
       <a href="{% url 'blog:post-list' %}" class="app-link">
           <div class="app-item bg-purple">
@@ -32,6 +43,14 @@
               <img src="{% static 'portal/img/event.svg' %}">
             </div>
             <p>{% trans "Event" %}</p>
+          </div>
+        </a>
+        <a href="{% url 'user-list' %}" class="app-link">
+          <div class="app-item bg-green-light">
+            <div class="img-wrapper">
+              <img src="{% static 'portal/img/user.svg' %}">
+            </div>
+            <p>{% trans "Members" %}</p>
           </div>
         </a>
         <a href="{% url 'message:inbox' %}" class="app-link">
@@ -82,14 +101,20 @@
             <p>{% trans "Transaction" %}</p>
           </div>
         </a>
-        <a href="{% url 'user-list' %}" class="app-link">
-          <div class="app-item bg-green-light">
-            <div class="img-wrapper">
-              <img src="{% static 'portal/img/user.svg' %}">
+
+        {% if user|has_group:"Administrator" %} 
+          <a href="{% url 'portal:backup' %}" class="app-link">
+            <div class="app-item bg-blue-grey">
+              <div class="img-wrapper">
+                <span class="material-icons">backup</span>
+              </div>
+              <p>{% trans "Backup" %}</p>
             </div>
-            <p>{% trans "Members" %}</p>
-          </div>
-        </a>
+          </a>
+        {% endif %}
+
+    </div>
+  </section>
       </div>
     </div>
   </section>

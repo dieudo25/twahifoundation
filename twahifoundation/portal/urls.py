@@ -5,6 +5,7 @@ from portal.views.views import (
     NotificationList,
     mark_as_read,
     mark_all_as_read,
+    backup,
 )
 
 app_name = 'portal'
@@ -17,6 +18,7 @@ urlpatterns = [
     re_path(r'^notifications/$', NotificationList.as_view(),
             name="user-notifications"),
     re_path(r'^$', Home.as_view(), name="portal-home"),
+    re_path(r'^backup$', backup, name="backup"),
 
 
 ]

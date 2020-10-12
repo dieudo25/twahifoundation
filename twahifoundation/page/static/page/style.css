@@ -130,6 +130,10 @@ body {
   background-color: #5f002e;
 }
 
+.bg-blue-grey {
+  background-color: #7887ab;
+}
+
 p.help-block {
   color: #6c757d;
 }

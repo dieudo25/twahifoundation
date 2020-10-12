@@ -83,5 +83,4 @@ urlpatterns = [
 
     re_path(r'^user/(?P<slug>[a-z0-9-]*)/$',
             UserDetailView.as_view(), name="user-detail"),
-
 ]

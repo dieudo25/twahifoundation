@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'crispy_forms',
     'django_archive',
-    'django_cron',
     'django_extensions',
     'paypal.standard.ipn',
     'import_export',

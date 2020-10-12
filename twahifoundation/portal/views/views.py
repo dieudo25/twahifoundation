@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth import get_user
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
@@ -51,3 +52,15 @@ def mark_all_as_read(request):
     notices = current_user.notifications.unread()
     notices.delete()
     return redirect(reverse_lazy("portal:user-notifications"))
+
+
+import subprocess
+
+def backup(request):
+    # give the absolute path to your `text4midiAllMilisecs.py`
+    # and for `tiger.mid`
+    # subprocess.call(['python', '/path/to/text4midiALLMilisecs.py', '/path/to/tiger.mid'])
+
+    subprocess.call('/home/dieudo/Dev/twahifoundation/twahifoundation/scripts/archive.sh')
+    messages.add_message(request, messages.SUCCESS, 'Backup successful')
+    return redirect(reverse_lazy("portal:portal-home"))

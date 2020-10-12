@@ -523,6 +523,10 @@ form .control-group .django-ckeditor-widget > div {
   background-color: #f9f9f9;
 }
 
+#portal-home .app-item .material-icons {
+  font-size: 50px;
+}
+
 @media (min-width: 375px) {
   .portal-title h1 {
     max-width: 320px;
@@ -780,6 +784,10 @@ form .control-group .django-ckeditor-widget > div {
 
   .portal-title h1 {
     max-width: 285px;
+  }
+
+  #portal-home .app-item .material-icons {
+    font-size: 80px;
   }
 }
 
