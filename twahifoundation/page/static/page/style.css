@@ -877,6 +877,18 @@ span.dot {
   height: 40px;
 }
 
+.scroll-top-btn {
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
+}
+
+.scroll-top-btn span {
+  font-size: 50px;
+  color: white;
+  opacity: 0.5;
+}
+
 @media (min-width: 375px) {
   #cookie-consent p {
     max-width: unset;

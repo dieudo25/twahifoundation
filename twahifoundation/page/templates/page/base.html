@@ -72,5 +72,13 @@
 
   {% include 'page/components/cookie_preferences.html' %}
 
+  {% block scrollToTop %}
+    <div class="scroll-top-btn">
+      <a href="#top">
+        <span class="material-icons bg-black">keyboard_arrow_up</span>
+      </a>
+    </div>
+  {% endblock scrollToTop %}
+
   </body>
 </html>

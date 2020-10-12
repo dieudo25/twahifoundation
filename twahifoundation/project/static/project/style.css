@@ -174,7 +174,8 @@
 
   .event-detail .detail-info .column:first-child {
     border-right: 4px solid #212529;
-    width: 220px;
+    min-width: 220px;
+    max-width: 220px;
   }
 
   .project.event-detail .detail-info .column:first-child {
