@@ -75,6 +75,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #'middleware.cookie_processor.DjangoLanguageCookieProcessingMiddleware',
 ]
 
 ROOT_URLCONF = 'twahifoundation.urls'
