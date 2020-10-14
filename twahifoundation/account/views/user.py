@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model, get_user
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import Group
 from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import CreateView, DetailView, DeleteView, ListView, UpdateView
@@ -72,6 +73,17 @@ class UserCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
     group_required = [u'Administrator', u'President']
     form_class = UserCreateForm
     template_name = 'account/user/create.html'
+
+    def form_valid(self, form):
+        # This method is called when valid form data has been POSTed.
+        # It should return an HttpResponse.
+
+        # perform a action here
+        group = Group.objects.get(name="Member")
+        user = form.save()
+        user.groups.add(group)
+        return super().form_valid(form)
+
 
 
 class UserPasswordChangeView(LoginRequiredMixin, GroupRequiredMixin, UpdateView):

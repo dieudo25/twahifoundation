@@ -10,11 +10,10 @@ from notifications.models import Notification
 from account.permissions.group import group_required, GroupRequiredMixin
 from blog.forms.post import (
     PostCreateUpdateForm, 
-    PageCreateUpdateForm, 
-    PostENCreateUpdateForm, 
-    PostFRCreateUpdateForm, 
-    PostMultiLNCreateUpdateForm,
-    PostAllCreateUpdateForm,
+    PageCreateUpdateForm,
+    PostCreateFormFR,
+    PostCreateFormEN,
+    PostUpdateFormLN,
 )
 from blog.models.post import Post
 from blog.models.category import Category
@@ -86,7 +85,7 @@ class PostUpdateView(LoginRequiredMixin, GroupRequiredMixin, UpdateView):
     group_required = [u'Administrator', u'Project manager', u'Editor']
     template_name = 'blog/post/update.html'
     context_object_name = 'post'
-    form_class = PostCreateUpdateForm
+    form_class = PostUpdateFormLN
 
     def get_success_url(self):
         "Get the absolute url of the object"
@@ -119,6 +118,17 @@ class PostCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
     group_required = [u'Administrator', u'Project manager', u'Editor']
     template_name = 'blog/post/create.html'
     form_class = PostCreateUpdateForm
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        cookie_language = self.request.COOKIES.get('django_language')
+
+        if cookie_language == 'en':
+            context["form_ln"] =  PostCreateFormEN
+        else:
+            context["form_ln"] =  PostCreateFormFR
+        return context
+    
 
     def get_success_url(self):
         "Get the absolute url of the object"
@@ -178,6 +188,16 @@ class PageCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
     template_name = 'blog/page/create.html'
     form_class = PageCreateUpdateForm
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        cookie_language = self.request.COOKIES.get('django_language')
+
+        if cookie_language == 'en':
+            context["form_ln"] =  PostCreateFormEN
+        else:
+            context["form_ln"] =  PostCreateFormFR
+        return context
+
     def get_success_url(self):
         "Get the absolute url of the object"
         return reverse_lazy("blog:page-detail", kwargs={"slug": self.object.slug})
@@ -202,7 +222,7 @@ class PageUpdateView(LoginRequiredMixin, GroupRequiredMixin, UpdateView):
     group_required = [u'Administrator', u'Project manager']
     template_name = 'blog/page/update.html'
     context_object_name = 'post'
-    form_class = PageCreateUpdateForm
+    form_class = PostUpdateFormLN
 
     def get_success_url(self):
         "Get the absolute url of the object"

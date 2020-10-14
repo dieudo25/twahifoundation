@@ -26,6 +26,66 @@ class PostCreateUpdateForm(forms.ModelForm):
             'keywords',
             'image',
         ]
+
+class PostUpdateFormLN(forms.ModelForm):
+    """PostCreateForm custom made class"""
+
+    class Meta:
+        """Meta definition of PostCreateForm"""
+
+        model = Post
+        fields = [
+            'title_fr',
+            'title_en',
+            'meta_description',
+            'description_fr',
+            'description_en',
+            'content_fr',
+            'content_en',
+            'tags',
+            'keywords',
+            'image',
+        ]
+
+class PostCreateFormEN(forms.ModelForm):
+    """PostCreateForm custom made class"""
+
+    class Meta:
+        """Meta definition of PostCreateForm"""
+
+        model = Post
+        fields = [
+            'title',
+            'title_fr',
+            'meta_description',
+            'description',
+            'description_fr',
+            'content',
+            'content_fr',
+            'tags',
+            'keywords',
+            'image',
+        ]
+
+class PostCreateFormFR(forms.ModelForm):
+    """PostCreateForm custom made class"""
+
+    class Meta:
+        """Meta definition of PostCreateForm"""
+
+        model = Post
+        fields = [
+            'title',
+            'title_en',
+            'meta_description',
+            'description',
+            'description_en',
+            'content',
+            'content_en',
+            'tags',
+            'keywords',
+            'image',
+        ]
         """ labels = {
             'title': _('Title [en]'),
             'description': _('Description [en]'),

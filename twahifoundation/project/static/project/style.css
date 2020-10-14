@@ -175,6 +175,9 @@
   .event-detail .detail-info .column:first-child {
     border-right: 4px solid #212529;
     min-width: 220px;
+  }
+
+  .event-detail.event .detail-info .column:first-child {
     max-width: 220px;
   }
 

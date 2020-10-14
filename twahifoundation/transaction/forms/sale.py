@@ -13,10 +13,4 @@ class TransactionSaleCreateUpdateForm(forms.ModelForm):
         model = Transaction
         fields = [
             'project',
-            'person',
         ]
-
-    def __init__(self, **kwargs):
-        super(TransactionSaleCreateUpdateForm, self).__init__(**kwargs)
-        self.fields['person'].queryset = Person.objects.filter(
-            is_donor=True)

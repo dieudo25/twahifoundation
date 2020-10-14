@@ -62,7 +62,6 @@
               <th scope="col">ID</th>
               <th scope="col">{% trans "Date created" %}</th>
               <th scope="col">{% trans "Created by" %}</th>
-              <th scope="col">{% trans "Costumer" %}</th>
               <th scope="col">{% trans "Total" %}</th>
               <th scope="col">{% trans "Is valid" %} ?</th>
             </tr>
@@ -74,7 +73,6 @@
                 <th scope="row"><a href="{% url 'transaction:sale-detail' transaction.pk %}">{{ transaction }}</a></th>
                 <td>{{ transaction.date_time_created }}</td>
                 <td>{{ transaction.user }}</td>
-                <td>{{ transaction.person }}</td>
                 <td>{{ transaction.total }} €</td>
                 <td class="img-bool">
                   {% if transaction.is_valid %}
@@ -99,7 +97,6 @@
               <th scope="col">ID</th>
               <th scope="col">{% trans "Date created" %}</th>
               <th scope="col">{% trans "Created by" %}</th>
-              <th scope="col">{% trans "Costumer" %}</th>
               <th scope="col">{% trans "Total" %}</th>
               <th scope="col">{% trans "Is valid" %} ?</th>
             </tr>
@@ -111,7 +108,6 @@
                 <th scope="row"><a href="{% url 'transaction:sale-detail' transaction.pk %}">{{ transaction }}</a></th>
                 <td>{{ transaction.date_time_created }}</td>
                 <td>{{ transaction.user }}</td>
-                <td>{{ transaction.person }}</td>
                 <td>{{ transaction.total }} €</td>
                 <td class="img-bool">
                   {% if transaction.is_valid %}

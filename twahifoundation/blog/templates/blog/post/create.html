@@ -34,7 +34,7 @@
 
           {% csrf_token %}
 
-          {{ form.media }}
+          {{ form_ln.media }}
           <div>
             {% comment %} <div class="slider-form-langage">
               <div class="ln-form-item" title="{% if request.COOKIES.django_language == 'en' %}EN{% else %}FR{% endif %}">
@@ -60,7 +60,7 @@
             </div> {% endcomment %}
     
             <div>
-              {{ form | crispy }}
+              {{ form_ln | crispy }}
             </div>
           </div>
       </form>

@@ -9,7 +9,12 @@ from notifications.models import Notification
 
 from account.permissions.group import group_required, GroupRequiredMixin
 from project.models.event import Event
-from project.forms.event import EventCreateUpdateForm
+from project.forms.event import (
+    EventCreateUpdateForm,
+    EventCreateFormEN,
+    EventCreateFormFR,
+    EventUpdateFormLN,
+)
 
 
 class EventListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
@@ -55,6 +60,16 @@ class EventCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
     group_required = [u'Administrator', u'Project manager']
     template_name = 'project/event/create.html'
     form_class = EventCreateUpdateForm
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        cookie_language = self.request.COOKIES.get('django_language')
+
+        if cookie_language == 'en':
+            context["form_ln"] =  EventCreateFormEN
+        else:
+            context["form_ln"] =  EventCreateFormFR
+        return context
 
     def form_valid(self, form):
         # This method is called when valid form data has been POSTed.
@@ -103,7 +118,7 @@ class EventUpdateView(LoginRequiredMixin, GroupRequiredMixin, UpdateView):
     group_required = [u'Administrator', u'Project manager']
     template_name = 'project/event/update.html'
     context_object_name = 'event'
-    form_class = EventCreateUpdateForm
+    form_class = EventUpdateFormLN
 
 
 class EventDeleteView(LoginRequiredMixin, GroupRequiredMixin, DeleteView):

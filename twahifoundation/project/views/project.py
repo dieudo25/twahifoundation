@@ -10,7 +10,12 @@ from notifications.models import Notification
 
 from account.permissions.group import group_required, GroupRequiredMixin
 from project.models.project import Project
-from project.forms.project import ProjectCreateUpdateForm
+from project.forms.project import (
+    ProjectCreateUpdateForm,
+    ProjectCreateFormEN,
+    ProjectCreateFormFR,
+    ProjectUpdateForm,
+)
 
 
 class ProjectListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
@@ -79,7 +84,7 @@ class ProjectUpdateView(LoginRequiredMixin, GroupRequiredMixin, UpdateView):
     group_required = [u'Administrator', u'Project manager']
     template_name = 'project/project/update.html'
     context_object_name = 'project'
-    form_class = ProjectCreateUpdateForm
+    form_class = ProjectUpdateForm
 
 
 class ProjectDeleteView(LoginRequiredMixin, GroupRequiredMixin, DetailView):
@@ -98,6 +103,16 @@ class ProjectCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
     group_required = [u'Administrator', u'Project manager']
     template_name = 'project/project/create.html'
     form_class = ProjectCreateUpdateForm
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        cookie_language = self.request.COOKIES.get('django_language')
+
+        if cookie_language == 'en':
+            context["form_ln"] =  ProjectCreateFormEN
+        else:
+            context["form_ln"] =  ProjectCreateFormFR
+        return context
 
     def form_valid(self, form):
         # This method is called when valid form data has been POSTed.

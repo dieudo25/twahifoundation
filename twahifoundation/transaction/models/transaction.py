@@ -35,6 +35,8 @@ class Transaction(models.Model):
     person = models.ForeignKey(
         Person,
         on_delete=models.PROTECT,
+        null=True,
+        blank=True,
     )
     products_transaction = models.ManyToManyField(
         Product,

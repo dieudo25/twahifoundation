@@ -14,7 +14,7 @@
   </div>
   <div class="portal-wrapper">
     <div class="portal-update-form-wrapper">
-      <form method="POST" id="update-form">
+      <form method="POST" id="update-form" enctype="multipart/form-data">
 
           {% csrf_token %}
 
@@ -26,11 +26,11 @@
   <div class="detail-bar">
     <div class="detail-bar-col-1">
       <a href="../">
-        <p class="detail-bar-btn btn-black">{% trans "Back" %}/p>
+        <p class="detail-bar-btn btn-black">{% trans "Back" %}</p>
       </a>
     </div>
     <div class="detail-bar-col-2">
-      <button form="update-form" class="detail-bar-btn btn-green btn-last" type="submit">{% trans "Confirm" %}/button>
+      <button form="update-form" class="detail-bar-btn btn-green btn-last" type="submit">{% trans "Confirm" %}</button>
     </div>
   </div>
 {% endblock portal_content %}

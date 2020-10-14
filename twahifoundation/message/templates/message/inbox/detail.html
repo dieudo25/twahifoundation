@@ -65,7 +65,7 @@
               <p>{% trans "File" %} :</p>
             </div>
             <div class="detail-info-item-2">
-              <p>{{  message.uploaded_file }}</p>
+              <p><a target="_blank" href="{{ MEDIA_URL }}{{  message.uploaded_file }}">{{  message.uploaded_file.name }}</a></p>
             </div>
           </div>
         </div>

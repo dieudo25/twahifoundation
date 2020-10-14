@@ -3,6 +3,8 @@ import itertools
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
+from PIL import Image
+
 
 from stock.models.category import Category
 
@@ -30,10 +32,9 @@ class Product(models.Model):
     name = models.CharField(max_length=100,)
     price = models.DecimalField(
         max_digits=20, decimal_places=2,)
-    image = models.URLField(
-        max_length=255,
-        null=True,
-        blank=True,
+    image = models.ImageField(
+        upload_to='stock/product/%Y/%m/%D',
+        default='stock/product/product.png'
     )
     description = models.TextField(
         null=True,
@@ -91,6 +92,14 @@ class Product(models.Model):
             self._generate_slug()
 
         super().save(*args, **kwargs)
+
+        if self.image != None:
+            img = Image.open(self.image.path)
+
+            if img.height > 450 or img.width > 450:
+                output_size = (450, 450)
+                img.thumbnail(output_size)
+                img.save(self.image.path)
 
     def get_absolute_url(self):
         """

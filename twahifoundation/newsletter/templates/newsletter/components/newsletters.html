@@ -11,9 +11,34 @@
       {% csrf_token %}
     
       <div class="form-group">
-        <input type="email" id="email_id" name="email" class="form-control" placeholder="{% trans "Your email address" %}">
+        <input type="email" id="email_id" name="email" class="form-control" placeholder="{% trans "Your email address" %}" required="">
       </div>
-        <button type="submit" class="btn-green">{% trans "Sign up" %}</button>
+        <button type="button" class="btn-green" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">{% trans "Sign up" %}</button>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <div id="div_id_gdpr" class="control-group"> 
+                  <div class="controls"> 
+                    <label for="id_gdpr" class="checkbox requiredField">
+                      <input type="checkbox" name="gdpr" class="checkboxinput" required="" id="id_gdpr">
+                      <span>
+                        Oui, je consens à ce que mes données soient stockées conformément aux lignes directrices établies dans les
+                        <a href="/page/legal-mentions/">mentions légales</a>.
+                      </span>
+                      <span class="asteriskField">*</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-red" data-dismiss="modal">{% trans "Cancel" %}</button>
+                <button type="submit" class="btn btn-green">OK</button>
+              </div>
+            </div>
+          </div>
+        </div>
     </form>
   </div>
 </div>

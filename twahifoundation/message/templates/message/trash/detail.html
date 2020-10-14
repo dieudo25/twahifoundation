@@ -58,6 +58,16 @@
               <p>{{  message.body|safe|linebreaks }}</p>
             </div>
           </div>
+          <div class="column">
+          <div class="">
+            <div class="detail-info-item-1">
+              <p>{% trans "File" %} :</p>
+            </div>
+            <div class="detail-info-item-2">
+              <p><a target="_blank" href="{{ MEDIA_URL }}{{  message.uploaded_file.name }}">{{  message.uploaded_file.name }}</a></p>
+            </div>
+          </div>
+        </div>
         </div>
       </div>
     </div>

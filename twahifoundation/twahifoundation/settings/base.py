@@ -162,7 +162,7 @@ LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
 DATE_FORMAT = 'j/m/Y'
 
 DATE_INPUT_FORMATS = [
-    '%d/%m/%Y %H:%M', # '10/25/06'
+    '%d/%m/%Y', # '10/25/06'
 ]
 
 DATETIME_FORMAT = 'j/m/Y h\hm'
