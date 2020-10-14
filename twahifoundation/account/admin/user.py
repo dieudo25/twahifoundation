@@ -24,6 +24,12 @@ class CustomUserAdmin(ImportExportModelAdmin):
     readonly_fields = ["slug"]
     resource_class = CustomUserResource
 
+    list_display = ('username', 'last_name', 'first_name', 'email', 'is_active')
+    ordering = ('last_name', 'first_name', )
+
+    list_filter = ['is_active']
+    search_fields = ('first_name', 'last_name')
+
     fieldsets = (
         (None, {
             'classes': ('grp-collapse grp-closed'),

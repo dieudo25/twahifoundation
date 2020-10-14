@@ -20,5 +20,10 @@ class EventAdmin(ImportExportModelAdmin):
     readonly_fields = ["slug"]
     resource_class = EventResource
 
+    ordering = ('title', 'project', 'location' )
+    list_filter = ['event_type', 'status', 'project']
+    list_display = ('title', 'location', 'time_started', 'time_ended',)
+    search_fields = ['title', 'project', 'email',]
+
 
 admin.site.register(Event, EventAdmin)

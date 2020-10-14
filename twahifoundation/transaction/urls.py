@@ -17,6 +17,7 @@ from transaction.views.purchase import (
     TransactionPurchaseCreateView,
     TransactionPurchaseDetailView,
     TransactionPurchaseListView,
+    TransactionPurchaseDeleteView,
     TransactionListPurchaseFilteredView,
     TransactionPurchaseUpdateView,
     ProductTransactionPurchaseLineCreateView,
@@ -76,7 +77,7 @@ urlpatterns = [
     re_path(r'^purchase/(?P<pk>\d+)/update/$',
             TransactionPurchaseUpdateView.as_view(), name="purchase-update"),
     re_path(r'^purchase/(?P<pk>\d+)/delete/$',
-            TransactionDonationDeleteView.as_view(), name="purchase-delete"),
+            TransactionPurchaseDeleteView.as_view(), name="purchase-delete"),
     re_path(r'^purchase/(?P<pk>\d+)/validate/$',
             purchase_validate, name="purchase-validate"),
 

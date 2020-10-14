@@ -20,5 +20,10 @@ class CompanyAdmin(ImportExportModelAdmin):
     readonly_fields = ["slug"]
     resource_class = CompanyResource
 
+    ordering = ('name', 'address', 'email' )
+    list_filter = ['is_partner']
+    list_display = ('name', 'address', 'email', 'phone_number', 'website', 'is_partner')
+    search_fields = ['name', 'email',]
+
 
 admin.site.register(Company, CompanyAdmin)

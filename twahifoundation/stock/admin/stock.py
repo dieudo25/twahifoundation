@@ -27,5 +27,10 @@ class StockAdmin(ImportExportModelAdmin):
     inlines = [ProductStockTransfertInline, ]
     resource_class = StockResource
 
+    ordering = ('name', 'location', 'date_created', )
+    list_filter = ['is_full']
+    list_display = ('name', 'location', 'date_created', 'is_full',)
+    search_fields = ['is_full']
+
 
 admin.site.register(Stock, StockAdmin)

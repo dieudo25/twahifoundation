@@ -30,6 +30,11 @@ class TransactionAdmin(ImportExportModelAdmin):
     inlines = [ProductTransactionLineInline]
     readonly_fields = ['total']
 
+    ordering = ('-id', 'user', 'person', 'company', 'date_time_created' )
+    list_filter = ['transaction_type', 'is_valid', 'with_paypal']
+    list_display = ('transaction_id', 'user', 'person', 'company', 'date_time_created', 'transaction_type', 'total')
+    search_fields = ['transaction_type', 'user', 'person']
+
     def total(self, obj):
         """
         Fonction that return the total price of the purchasing transaction
@@ -40,6 +45,18 @@ class TransactionAdmin(ImportExportModelAdmin):
         for transaction_line in obj.producttransactionline_set.all():
             total += transaction_line.product.price * transaction_line.quantity
         return str(total) + "€"
+
+    def transaction_id(self, obj):
+        """
+        Unicode representation of Transaction.
+        """
+        transaction_id = str(obj.pk)
+        add_zero = ''
+
+        while len(add_zero) + len(transaction_id) < 5:
+            add_zero += '0'
+        return 'T' + add_zero + transaction_id
+        
 
 
 admin.site.register(Transaction, TransactionAdmin)

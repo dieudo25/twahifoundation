@@ -20,5 +20,10 @@ class ProductAdmin(ImportExportModelAdmin):
     readonly_fields = ["slug"]
     resource_class = ProductResource
 
+    ordering = ('name', 'price', 'quantity', )
+    list_filter = ['is_saleable', 'is_purchasable', 'is_deleted']
+    list_display = ('name', 'price', 'quantity', 'is_saleable', 'is_purchasable', 'is_deleted')
+    search_fields = ['name']
+
 
 admin.site.register(Product, ProductAdmin)

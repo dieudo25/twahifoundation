@@ -13,21 +13,11 @@ class Person(models.Model):
     Person model definition
     """
 
-    company = models.ForeignKey(
-        Company, on_delete=models.SET_NULL, null=True, blank=True)
     first_name = models.CharField(
         max_length=60,)
     last_name = models.CharField(
         max_length=60,)
     email = models.EmailField(max_length=254,)
-    phone_number = models.CharField(
-        max_length=60, null=True, blank=True)
-    is_supplier = models.BooleanField(
-        default=False, verbose_name="Is a supplier")
-    is_donor = models.BooleanField(
-        default=False, verbose_name="Is a donor")
-    is_subscribed = models.BooleanField(
-        default=False, verbose_name="Is subscribed to the newsletter")
     slug = models.SlugField(max_length=60, unique=True)
     is_deleted = models.BooleanField(default=False)
 

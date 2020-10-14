@@ -19,5 +19,10 @@ class TaskResource(resources.ModelResource):
 class TaskAdmin(ImportExportModelAdmin):
     resource_class = TaskResource
 
+    ordering = ('title', 'created_by', 'date_created', 'deadline' )
+    list_filter = ['state', 'project']
+    list_display = ('title', 'created_by', 'date_created', 'deadline', 'state',)
+    search_fields = ['title', 'project',]
+
 
 admin.site.register(Task, TaskAdmin)

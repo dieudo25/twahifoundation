@@ -16,10 +16,13 @@ class MessageResource(resources.ModelResource):
         skip_unchanged = True
 
 
-class MessageAdmin(ImportExportModelAdmin):
+""" class MessageAdmin(ImportExportModelAdmin):
 
     readonly_fields = ["slug"]
     resource_class = MessageResource
 
+    
+
 
 admin.site.register(Message, MessageAdmin)
+ """

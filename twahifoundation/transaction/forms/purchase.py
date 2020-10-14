@@ -13,10 +13,5 @@ class TransactionPurchaseCreateUpdateForm(forms.ModelForm):
         model = Transaction
         fields = [
             'project',
-            'person',
+            'company',
         ]
-
-    def __init__(self, user=None, **kwargs):
-        super(TransactionPurchaseCreateUpdateForm, self).__init__(**kwargs)
-        self.fields['person'].queryset = Person.objects.filter(
-            is_supplier=True)

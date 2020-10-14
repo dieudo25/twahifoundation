@@ -6,6 +6,7 @@ from django.urls import reverse
 from project.models.project import Project
 from stock.models.product import Product
 from contact.models.person import Person
+from contact.models.company import Company
 
 
 class Transaction(models.Model):
@@ -34,6 +35,12 @@ class Transaction(models.Model):
     )
     person = models.ForeignKey(
         Person,
+        on_delete=models.PROTECT,
+        null=True,
+        blank=True,
+    )
+    company = models.ForeignKey(
+        Company,
         on_delete=models.PROTECT,
         null=True,
         blank=True,

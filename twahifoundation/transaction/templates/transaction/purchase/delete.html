@@ -17,9 +17,8 @@
       <form method="POST" id="delete-form">
 
           {% csrf_token %}
-          <div>
           <p>{% trans "Are you sure you want to delete" %} "{{ transaction }}"?</p>
-          </div>
+          
       </form>
     </div>
   </div>

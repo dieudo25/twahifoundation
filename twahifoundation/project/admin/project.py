@@ -20,5 +20,10 @@ class ProjectAdmin(ImportExportModelAdmin):
     readonly_fields = ["slug"]
     resource_class = ProjectResource
 
+    ordering = ('title', 'created_by', 'date_created', 'date_ended' )
+    list_filter = ['status', 'is_deleted']
+    list_display = ('title', 'created_by', 'date_created', 'date_ended', 'status', 'is_deleted')
+    search_fields = ['title', 'project', 'email',]
+
 
 admin.site.register(Project, ProjectAdmin)

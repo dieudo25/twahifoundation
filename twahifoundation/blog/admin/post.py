@@ -20,5 +20,10 @@ class PostAdmin(ImportExportModelAdmin):
     readonly_fields = ["slug"]
     resource_class = PostResource
 
+    list_display = ('title', 'user', 'created_on', 'updated_by', 'updated_on')
+    ordering = ('title', 'user', 'created_on', 'updated_by', 'updated_on')
+    list_filter = ('status',)
+    search_fields = ('user', 'title', 'updated_by',)
+
 
 admin.site.register(Post, PostAdmin)

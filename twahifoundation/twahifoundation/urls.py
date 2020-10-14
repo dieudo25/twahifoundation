@@ -59,3 +59,7 @@ handler404 = 'page.views.error.custom_page_not_found_view'
 handler500 = 'page.views.error.custom_error_view'
 handler403 = 'page.views.error.custom_permission_denied_view'
 handler400 = 'page.views.error.custom_bad_request_view'
+
+admin.site.site_header = "Twahi Foundation"
+admin.site.site_title = "Twahi Foundation"
+admin.site.index_title = "Welcome to Twahi Foundation"

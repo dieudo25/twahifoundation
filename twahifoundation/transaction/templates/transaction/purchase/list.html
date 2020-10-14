@@ -80,7 +80,7 @@
                 <th scope="row"><a href="{% url 'transaction:purchase-detail' transaction.pk %}">{{ transaction }}</a></th>
                 <td>{{ transaction.date_time_created }}</td>
                 <td>{{ transaction.user }}</td>
-                <td>{{ transaction.person }}</td>
+                <td><a href="{% url 'contact:company-detail' transaction.company.slug %}">{{ transaction.company }}</a></td>
                 <td>{{ transaction.total }} €</td>
                 <td class="img-bool">
                   {% if transaction.is_valid %}
@@ -117,7 +117,7 @@
                 <th scope="row"><a href="{% url 'transaction:purchase-detail' transaction.pk %}">{{ transaction }}</a></th>
                 <td>{{ transaction.date_time_created }}</td>
                 <td>{{ transaction.user }}</td>
-                <td>{{ transaction.person }}</td>
+                <td><a href="{% url 'contact:company-detail' transaction.company.slug %}">{{ transaction.company }}</a></td>
                 <td>{{ transaction.total }} €</td>
                 <td class="img-bool">
                   {% if transaction.is_valid %}

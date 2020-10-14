@@ -47,7 +47,7 @@
               <p>{% trans "Supplier" %}:</p>
             </div>
             <div class="detail-info-item-2">
-              <p>{{  transaction.person }}</p>
+              <p><a href="{% url 'contact:company-detail' transaction.company.slug %}">{{ transaction.company }}</a></p>
             </div>
           </div>
           <div class="detail-info-group">
