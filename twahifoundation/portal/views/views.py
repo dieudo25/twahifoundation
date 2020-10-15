@@ -61,6 +61,6 @@ def backup(request):
     # and for `tiger.mid`
     # subprocess.call(['python', '/path/to/text4midiALLMilisecs.py', '/path/to/tiger.mid'])
 
-    subprocess.call('/home/dieudo/Dev/twahifoundation/twahifoundation/scripts/archive.sh')
+    subprocess.call('/home/dieudo/app/twahifoundation/scripts/archive.sh')
     messages.add_message(request, messages.SUCCESS, 'Backup successful')
     return redirect(reverse_lazy("portal:portal-home"))
