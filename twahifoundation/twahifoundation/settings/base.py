@@ -238,6 +238,8 @@ BOOTSTRAP4 = {
 
 ARCHIVE_FORMAT = archivers.ZIP
 
+ARCHIVE_DIRECTORY = os.path.join(BASE_DIR, 'archive/')
+
 # CKEditor
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
