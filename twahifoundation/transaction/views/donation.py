@@ -103,12 +103,12 @@ class TransactionDonationCreateView(LoginRequiredMixin, GroupRequiredMixin, Crea
         "Get the absolute url of the object"
         return reverse_lazy("transaction:donation-detail", kwargs={"pk": self.object.pk})
 
-    def form_valid(self, TransactionDonationCreateUpdateForm):
+    def form_valid(self, form):
         user = self.request.user
-        transfert_type = 'Donation'
-        TransactionDonationCreateUpdateForm.instance.user = user
-        TransactionDonationCreateUpdateForm.instance.tranfert_type = transfert_type
-        return super(TransactionDonationCreateView, self).form_valid(TransactionDonationCreateUpdateForm)
+        transaction_type = 'Donation'
+        form.instance.user = user
+        form.instance.transaction_type = transaction_type
+        return super(TransactionDonationCreateView, self).form_valid(form)
 
 
 class TransactionPaypalDonationList(LoginRequiredMixin, GroupRequiredMixin, ListView):
