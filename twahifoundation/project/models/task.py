@@ -40,7 +40,10 @@ class Task(models.Model):
         verbose_name="Statut"
     )
     title = models.CharField(max_length=255)
-    description = RichTextUploadingField()
+    description = RichTextUploadingField(
+        null=True,
+        blank=True,
+    )
     date_created = models.DateField(
         auto_now_add=True,
         null=True,

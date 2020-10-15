@@ -18,7 +18,7 @@ def transaction_paypal_validated(sender, instance, created, **kwargs):
     if not created:
         send_to = []
         recipients = User.objects.filter(
-            groups__name="Treasurer")
+            groups__name="Project manager")
         transaction = get_object_or_404(Transaction, pk=instance.pk)
         verb = 'made a donation'
 

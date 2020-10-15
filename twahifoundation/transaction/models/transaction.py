@@ -132,3 +132,4 @@ class ProductTransactionLine(models.Model):
             self.set_total()
 
         super().save(*args, **kwargs)
+

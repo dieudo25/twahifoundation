@@ -90,7 +90,7 @@
     </div>
     <div class="detail-bar-col-2">
 
-      {% if user|has_group:"Administrator" or user_profile == user%} 
+      {% if user_profile == user %} 
         <a href="{% url 'user-update' user_profile.slug %}">
           <p class="detail-bar-btn btn-black">{% trans "Edit" %}</p>
         </a>

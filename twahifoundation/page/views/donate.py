@@ -48,13 +48,11 @@ class DonateView(CreateView):
             first_name=first_name,
             last_name=last_name,
             email=email,
-            is_donor=True,
         )
         person = Person.objects.get(
             first_name=first_name,
             last_name=last_name,
             email=email,
-            is_donor=True,
         )
         form.instance.person = person
 

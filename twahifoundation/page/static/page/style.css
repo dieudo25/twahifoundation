@@ -1202,7 +1202,7 @@ span.dot {
   }
 
   .nav-item.dropdown-menu {
-    left: -77px;
+    left: -66px;
     top: 57px;
     text-align: right;
     border-radius: 0;
@@ -1481,6 +1481,10 @@ span.dot {
   .page-content-detail p {
     max-width: 730px;
   }
+
+  .nav-item.dropdown-menu {
+    left: -57px;
+  }
 }
 
 @media (min-width: 1440px) {
@@ -1490,6 +1494,10 @@ span.dot {
     padding-top: 0px;
     justify-content: space-around;
     top: 215px;
+  }
+
+  .nav-item.dropdown-menu {
+    left: -58px;
   }
 }
 

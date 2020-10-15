@@ -81,7 +81,7 @@ urlpatterns = [
             name="task-list-search"),
     re_path(r'^task/create/$', TaskCreateView.as_view(),
             name="task-create"),
-    re_path(r'^post/(?P<slug>[a-z0-9-]*)/(?P<notice_pk>[0-9]*)$',
+    re_path(r'^task/(?P<slug>[a-z0-9-]*)/(?P<notice_pk>[0-9]*)$',
             TaskDetailView.as_view(), name="task-detail-notice"),
     re_path(r'^task/(?P<slug>[a-z0-9-]*)/$',
             TaskDetailView.as_view(), name="task-detail"),
