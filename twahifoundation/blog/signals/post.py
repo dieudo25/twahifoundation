@@ -38,7 +38,7 @@ def event_created(sender, instance, created, **kwargs):
             )
             send_to.append(recipient.email)
 
-        context = {
+        """ context = {
             'verb': verb,
             'user': instance.user,
         }
@@ -48,7 +48,7 @@ def event_created(sender, instance, created, **kwargs):
         from_email = f'{ settings.EMAIL_HOST_USER }'
 
         mail.send_mail(subject, plain_message, from_email,
-                       send_to, html_message=html_message)
+                       send_to, html_message=html_message) """
 
     """ else:
         send_to = []

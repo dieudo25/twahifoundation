@@ -37,14 +37,14 @@ def transaction_paypal_validated(sender, instance, created, **kwargs):
                 'verb': verb,
                 'user': instance.person,
             }
-            subject = f'A new donation was made : { instance }'
+            """ subject = f'A new donation was made : { instance }'
             html_message = render_to_string(
                 'portal/notification/email.html', context)
             plain_message = strip_tags(html_message)
             from_email = f'{ settings.EMAIL_HOST_USER }'
 
             mail.send_mail(subject, plain_message, from_email,
-                           send_to, html_message=html_message)
+                           send_to, html_message=html_message) """
 
 
 @receiver(post_save, sender=ProductTransactionLine)

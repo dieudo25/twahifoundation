@@ -25,7 +25,7 @@ def message_sent_event(sender, instance, created, **kwargs):
         )
         send_to.append(instance.recipient.email)
 
-        context = {
+        """ context = {
             'verb': verb,
             'user': instance.sender,
         }
@@ -36,4 +36,4 @@ def message_sent_event(sender, instance, created, **kwargs):
         from_email = f'{ settings.EMAIL_HOST_USER }'
 
         mail.send_mail(subject, plain_message, from_email,
-                       send_to, html_message=html_message)
+                       send_to, html_message=html_message) """

@@ -32,7 +32,7 @@ def task_user(sender, instance, action, pk_set, ** kwargs):
             )
             send_to.append(recipient.email)
 
-        context = {
+        """ context = {
             'verb': verb,
             'user': instance.created_by,
         }
@@ -43,7 +43,7 @@ def task_user(sender, instance, action, pk_set, ** kwargs):
         from_email = f'{ settings.EMAIL_HOST_USER }'
 
         mail.send_mail(subject, plain_message, from_email,
-                       send_to, html_message=html_message)
+                       send_to, html_message=html_message) """
 
     if action == 'pre_remove':
         users = {}
