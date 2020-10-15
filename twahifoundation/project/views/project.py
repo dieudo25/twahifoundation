@@ -131,8 +131,10 @@ def open_close_project(request, slug):
 
     if not project.date_ended:
         project.date_ended = datetime.now()
+        project.is_closed = True
     else:
         project.date_ended = None
+        project.is_closed = False
     project.save()
 
     return redirect(reverse_lazy("project:project-detail", kwargs={"slug": project.slug}))

@@ -7,7 +7,7 @@ from django.urls import reverse_lazy
 from account.permissions.group import group_required, GroupRequiredMixin
 from transaction.models.transaction import Transaction, ProductTransactionLine
 from transaction.forms.purchase import TransactionPurchaseCreateUpdateForm
-from transaction.forms.transaction_line import ProductTransactionLineCreateUpdateForm
+from transaction.forms.transaction_line import ProductPurchaseTransactionLineCreateUpdateForm
 
 
 class TransactionPurchaseListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
@@ -114,7 +114,7 @@ class ProductTransactionPurchaseLineCreateView(LoginRequiredMixin, GroupRequired
     model = ProductTransactionLine
     group_required = [u'Administrator', u'President', ]
     template_name = 'transaction/product_transaction_line/create.html'
-    form_class = ProductTransactionLineCreateUpdateForm
+    form_class = ProductPurchaseTransactionLineCreateUpdateForm
 
     def get_success_url(self):
         "Get the absolute url of the object"
@@ -133,7 +133,7 @@ class ProductTransactionPurchaseLineUpdateView(LoginRequiredMixin, GroupRequired
     group_required = [u'Administrator', u'President', ]
     template_name = 'transaction/product_transaction_line/update.html'
     context_object_name = 'transaction_line'
-    form_class = ProductTransactionLineCreateUpdateForm
+    form_class = ProductPurchaseTransactionLineCreateUpdateForm
 
     def get_success_url(self):
         "Get the absolute url of the object"

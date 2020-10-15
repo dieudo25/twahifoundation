@@ -242,6 +242,8 @@
   .task-state-update {
     flex-direction: unset;
     align-items: unset;
+    max-width: 1100px;
+    margin: 0 auto;
   }
 
   .task-state-update .detail-bar-col-1 {

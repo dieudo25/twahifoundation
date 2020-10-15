@@ -44,6 +44,7 @@ class Project(models.Model):
     status = models.CharField(
         max_length=10, choices=STATUS_CHOICE, default='Drafted')
     is_deleted = models.BooleanField(default=False)
+    is_closed = models.BooleanField(default=False)
 
     class Meta:
         """
