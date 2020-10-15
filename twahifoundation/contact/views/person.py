@@ -65,9 +65,9 @@ class PersonUpdateView(LoginRequiredMixin, GroupRequiredMixin, UpdateView):
         'email',
         'phone_number',
         'company',
-        'is_supplier',
+        """ 'is_supplier',
         'is_donor',
-        'is_subscribed',
+        'is_subscribed', """
     ]
 
 
@@ -92,9 +92,9 @@ class PersonCreateView(LoginRequiredMixin, GroupRequiredMixin, CreateView):
         'email',
         'phone_number',
         'company',
-        'is_supplier',
+        """ 'is_supplier',
         'is_donor',
-        'is_subscribed',
+        'is_subscribed', """
     ]
 
 

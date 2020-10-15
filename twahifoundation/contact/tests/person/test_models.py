@@ -24,9 +24,9 @@ class TestModels(TestCase):
             last_name='Avendick',
             email="avendicM@gmail.com",
             phone_number="0476543298",
-            is_supplier=True,
+            """ is_supplier=True,
             is_donor=False,
-            is_subscribed=True,
+            is_subscribed=True, """
             company=self.company1
         )
 

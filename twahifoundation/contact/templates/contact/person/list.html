@@ -71,9 +71,9 @@
               <th scope="col">{% trans "Email" %}</th>
               <th scope="col">{% trans "Phone number" %}</th>
               <th scope="col">{% trans "Company" %}</th>
-              <th scope="col">{% trans "Supplier" %}</th>
+              {% comment %} <th scope="col">{% trans "Supplier" %}</th>
               <th scope="col">{% trans "Donor" %}</th>
-              <th scope="col">{% trans "Subscriber" %}</th>
+              <th scope="col">{% trans "Subscriber" %}</th> {% endcomment %}
             </tr>
           </thead>
           <tbody>
@@ -84,7 +84,7 @@
                 <td>{{ person.email}}</td>
                 <td>{{ person.phone_number }}</td>
                 <td>{{ person.company }}</td>
-                <td class="img-bool">
+                {% comment %} <td class="img-bool">
                   {% if person.is_supplier %}
                     <div class="img-wrapper">
                       <img src="{% static 'portal/img/true.svg' %}">
@@ -116,7 +116,7 @@
                       <img src="{% static 'portal/img/false.svg' %}">
                     </div>
                   {% endif %}
-                </td>
+                </td> {% endcomment %}
               </tr>
             {% endfor %}
 
@@ -130,9 +130,9 @@
               <th scope="col">{% trans "Email" %}</th>
               <th scope="col">{% trans "Phone number" %}</th>
               <th scope="col">{% trans "Company" %}</th>
-              <th scope="col">{% trans "Supplier" %}</th>
+              {% comment %} <th scope="col">{% trans "Supplier" %}</th>
               <th scope="col">{% trans "Donor" %}</th>
-              <th scope="col">{% trans "Subscriber" %}</th>
+              <th scope="col">{% trans "Subscriber" %}</th> {% endcomment %}
             </tr>
           </thead>
           <tbody>
@@ -143,7 +143,7 @@
                 <td>{{ person.email}}</td>
                 <td>{{ person.phone_number }}</td>
                 <td>{{ person.company }}</td>
-                <td class="img-bool">
+                {% comment %} <td class="img-bool">
                   {% if person.is_supplier %}
                     <div class="img-wrapper">
                       <img src="{% static 'portal/img/true.svg' %}">
@@ -175,7 +175,7 @@
                       <img src="{% static 'portal/img/false.svg' %}">
                     </div>
                   {% endif %}
-                </td>
+                </td> {% endcomment %}
               </tr>
             {% endfor %}
 

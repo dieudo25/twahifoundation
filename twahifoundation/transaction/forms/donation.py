@@ -20,7 +20,7 @@ class TransactionDonationCreateUpdateForm(forms.ModelForm):
             'total': 'Amount'
         }
 
-    def __init__(self, user=None, **kwargs):
+    """ def __init__(self, user=None, **kwargs):
         super(TransactionDonationCreateUpdateForm, self).__init__(**kwargs)
         self.fields['person'].queryset = Person.objects.filter(
-            is_donor=True)
+            is_donor=True) """
