@@ -102,7 +102,7 @@
           </div>
         </a>
 
-        {% if user|has_group:"Administrator" %} 
+        {% comment %} {% if user|has_group:"Administrator" %} 
           <a href="{% url 'portal:backup' %}" class="app-link">
             <div class="app-item bg-blue-grey">
               <div class="img-wrapper">
@@ -111,7 +111,7 @@
               <p>{% trans "Backup" %}</p>
             </div>
           </a>
-        {% endif %}
+        {% endif %} {% endcomment %}
 
     </div>
   </section>
