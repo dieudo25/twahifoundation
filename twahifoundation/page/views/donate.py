@@ -71,9 +71,9 @@ def donate_checkout_view(request, pk):
         "item_name": item_name,
         "invoice": transaction.pk,
         "currency_code": "EUR",
-        "notify_url": 'https://www.twahifoundation.eu/' + (reverse('paypal-ipn')),
-        "return": 'https://www.twahifoundation.eu/' + (reverse('page:donate-success', kwargs={'pk': transaction.pk})),
-        "cancel_return": 'https://www.twahifoundation.eu/' + (reverse('page:donate-cancel', kwargs={'pk': transaction.pk})),
+        "notify_url": 'http://www.twahifoundation.eu' + (reverse('paypal-ipn')),
+        "return": 'http://www.twahifoundation.eu' + (reverse('page:donate-success', kwargs={'pk': transaction.pk})),
+        "cancel_return": 'http://www.twahifoundation.eu' + (reverse('page:donate-cancel', kwargs={'pk': transaction.pk})),
     }
 
     # Create the instance.
