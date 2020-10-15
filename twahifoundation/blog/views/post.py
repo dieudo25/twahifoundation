@@ -32,6 +32,7 @@ class PostListView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     queryset = Post.objects.filter(
         category__name="Post").order_by('-created_on')
     paginate_by = 10
+    ordering = '-created_on'
 
 
 class PostListFilteredView(LoginRequiredMixin, GroupRequiredMixin, ListView):
@@ -43,6 +44,7 @@ class PostListFilteredView(LoginRequiredMixin, GroupRequiredMixin, ListView):
     template_name = 'blog/post/list.html'
     context_object_name = 'filtered_post_list'
     paginate_by = 10
+    ordering = '-created_on'
 
     def get_queryset(self):
         query = self.request.GET.get('search')

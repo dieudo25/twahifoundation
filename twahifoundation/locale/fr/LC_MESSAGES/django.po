@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-11 16:08+0200\n"
+"POT-Creation-Date: 2020-10-15 18:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,13 +22,19 @@ msgstr ""
 #: account/templates/account/auth/login.html:33
 #: account/templates/account/auth/password_reset_complete.html:13
 #: account/templates/account/auth/password_reset_confirm.html:40
-#: page/templates/page/components/navbar.html:64
+#: page/templates/page/components/navbar.html:65
 msgid "Sign in"
 msgstr "S'identifier"
 
 #: account/templates/account/auth/login.html:36
 msgid "Forgot password ?"
 msgstr "Oublié votre mot de passe ?"
+
+#: account/templates/account/auth/login.html:39
+#: page/templates/page/components/navbar.html:16
+#: page/templates/page/home/home.html:7 portal/templates/portal/home.html:9
+msgid "Home"
+msgstr "Accueil"
 
 #: account/templates/account/auth/password_change_done.html:9
 #: account/templates/account/auth/password_change_form.html:9
@@ -70,7 +76,7 @@ msgstr "Oublié votre mot de passe ?"
 #: message/templates/message/trash/detail.html:7
 #: message/templates/message/trash/list.html:7
 #: newsletter/templates/newsletter/subscriber/list.html:7
-#: portal/templates/portal/home.html:7
+#: portal/templates/portal/home.html:9
 #: portal/templates/portal/notification/list.html:9
 #: project/templates/project/event/create.html:13
 #: project/templates/project/event/delete.html:9
@@ -170,14 +176,14 @@ msgstr "Le mot de passe a été modifié avec succès"
 #: contact/templates/contact/company/update.html:35
 #: contact/templates/contact/person/create.html:29
 #: contact/templates/contact/person/delete.html:23
-#: contact/templates/contact/person/detail.html:124
+#: contact/templates/contact/person/detail.html:125
 #: contact/templates/contact/person/update.html:29
 #: message/templates/message/inbox/detail.html:78
 #: message/templates/message/message/create.html:31
 #: message/templates/message/message/delete.html:30
-#: message/templates/message/message/detail.html:68
-#: message/templates/message/outbox/detail.html:68
-#: message/templates/message/trash/detail.html:68
+#: message/templates/message/message/detail.html:76
+#: message/templates/message/outbox/detail.html:76
+#: message/templates/message/trash/detail.html:78
 #: page/templates/page/event/detail.html:31
 #: page/templates/page/news/detail.html:41
 #: page/templates/page/project/detail.html:31
@@ -218,12 +224,12 @@ msgstr "Le mot de passe a été modifié avec succès"
 #: transaction/templates/transaction/product_transaction_line/create.html:29
 #: transaction/templates/transaction/product_transaction_line/update.html:29
 #: transaction/templates/transaction/purchase/create.html:29
-#: transaction/templates/transaction/purchase/delete.html:29
+#: transaction/templates/transaction/purchase/delete.html:28
 #: transaction/templates/transaction/purchase/detail.html:172
 #: transaction/templates/transaction/purchase/update.html:29
 #: transaction/templates/transaction/sale/create.html:29
 #: transaction/templates/transaction/sale/delete.html:29
-#: transaction/templates/transaction/sale/detail.html:157
+#: transaction/templates/transaction/sale/detail.html:149
 #: transaction/templates/transaction/sale/update.html:29
 msgid "Back"
 msgstr "Retour"
@@ -341,9 +347,9 @@ msgstr "Gérer les membres et les groupes"
 #: account/templates/account/group/list.html:52
 #: blog/templates/blog/tags/list.html:68 blog/templates/blog/tags/list.html:104
 #: contact/templates/contact/company/list.html:77
-#: contact/templates/contact/company/list.html:114
+#: contact/templates/contact/company/list.html:112
 #: contact/templates/contact/person/list.html:70
-#: contact/templates/contact/person/list.html:129
+#: contact/templates/contact/person/list.html:131
 #: newsletter/templates/newsletter/subscriber/list.html:46
 #: stock/templates/stock/category/list.html:68
 #: stock/templates/stock/category/list.html:105
@@ -409,14 +415,14 @@ msgstr "Créer"
 #: contact/templates/contact/person/delete.html:9
 #: contact/templates/contact/person/delete.html:13
 #: contact/templates/contact/person/delete.html:28
-#: contact/templates/contact/person/detail.html:134
+#: contact/templates/contact/person/detail.html:135
 #: message/templates/message/inbox/detail.html:83
 #: message/templates/message/message/delete.html:9
 #: message/templates/message/message/delete.html:13
 #: message/templates/message/message/delete.html:34
-#: message/templates/message/message/detail.html:73
-#: message/templates/message/outbox/detail.html:73
-#: message/templates/message/trash/detail.html:82
+#: message/templates/message/message/detail.html:81
+#: message/templates/message/outbox/detail.html:81
+#: message/templates/message/trash/detail.html:92
 #: page/templates/page/event/detail.html:43
 #: page/templates/page/news/detail.html:54
 #: page/templates/page/project/detail.html:44
@@ -463,14 +469,14 @@ msgstr "Créer"
 #: transaction/templates/transaction/product_transaction_line/delete.html:37
 #: transaction/templates/transaction/purchase/delete.html:9
 #: transaction/templates/transaction/purchase/delete.html:13
-#: transaction/templates/transaction/purchase/delete.html:33
+#: transaction/templates/transaction/purchase/delete.html:32
 #: transaction/templates/transaction/purchase/detail.html:124
 #: transaction/templates/transaction/purchase/detail.html:184
 #: transaction/templates/transaction/sale/delete.html:9
 #: transaction/templates/transaction/sale/delete.html:13
 #: transaction/templates/transaction/sale/delete.html:33
-#: transaction/templates/transaction/sale/detail.html:115
-#: transaction/templates/transaction/sale/detail.html:166
+#: transaction/templates/transaction/sale/detail.html:107
+#: transaction/templates/transaction/sale/detail.html:158
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -489,7 +495,7 @@ msgstr "Supprimer"
 #: stock/templates/stock/reception/delete.html:21
 #: stock/templates/stock/stock/delete.html:21
 #: transaction/templates/transaction/product_transaction_line/delete.html:21
-#: transaction/templates/transaction/purchase/delete.html:21
+#: transaction/templates/transaction/purchase/delete.html:20
 #: transaction/templates/transaction/sale/delete.html:21
 msgid "Are you sure you want to delete"
 msgstr "Êtes-vous sûr de vouloir supprimer"
@@ -511,10 +517,10 @@ msgstr "Nom de famille"
 #: account/templates/account/user/detail.html:49
 #: contact/templates/contact/company/detail.html:27
 #: contact/templates/contact/company/list.html:79
-#: contact/templates/contact/company/list.html:116
+#: contact/templates/contact/company/list.html:114
 #: contact/templates/contact/person/detail.html:43
 #: contact/templates/contact/person/list.html:71
-#: contact/templates/contact/person/list.html:130
+#: contact/templates/contact/person/list.html:132
 msgid "Email"
 msgstr "Email"
 
@@ -531,7 +537,7 @@ msgstr "Changer les permissions"
 #: blog/templates/blog/post/detail.html:148
 #: blog/templates/blog/tags/list.html:71 blog/templates/blog/tags/list.html:107
 #: contact/templates/contact/company/detail.html:83
-#: contact/templates/contact/person/detail.html:129
+#: contact/templates/contact/person/detail.html:130
 #: page/templates/page/event/detail.html:37
 #: page/templates/page/news/detail.html:48
 #: page/templates/page/project/detail.html:38
@@ -548,8 +554,8 @@ msgstr "Changer les permissions"
 #: transaction/templates/transaction/donation/detail.html:88
 #: transaction/templates/transaction/purchase/detail.html:123
 #: transaction/templates/transaction/purchase/detail.html:181
-#: transaction/templates/transaction/sale/detail.html:114
-#: transaction/templates/transaction/sale/detail.html:163
+#: transaction/templates/transaction/sale/detail.html:106
+#: transaction/templates/transaction/sale/detail.html:155
 msgid "Edit"
 msgstr "Modifier"
 
@@ -568,7 +574,7 @@ msgstr "Liste des membres"
 #: account/templates/account/user/list.html:28
 #: portal/templates/portal/components/portal-navbar.html:69
 #: portal/templates/portal/components/portal_sidebar.html:125
-#: portal/templates/portal/home.html:90
+#: portal/templates/portal/home.html:53
 msgid "Members"
 msgstr "Membres"
 
@@ -591,7 +597,7 @@ msgstr "Membres"
 #: transaction/templates/transaction/donation/list.html:44
 #: transaction/templates/transaction/purchase/detail.html:93
 #: transaction/templates/transaction/purchase/list.html:48
-#: transaction/templates/transaction/sale/detail.html:88
+#: transaction/templates/transaction/sale/detail.html:80
 #: transaction/templates/transaction/sale/list.html:44
 msgid "Add"
 msgstr "Ajouter"
@@ -619,8 +625,8 @@ msgstr "Aucun membre"
 #: blog/templates/blog/page/list.html:137
 #: blog/templates/blog/post/list.html:164
 #: blog/templates/blog/tags/list.html:143
-#: contact/templates/contact/company/list.html:149
-#: contact/templates/contact/person/list.html:186
+#: contact/templates/contact/company/list.html:145
+#: contact/templates/contact/person/list.html:190
 #: project/templates/project/event/list.html:161
 #: project/templates/project/project/list.html:146
 #: stock/templates/stock/category/list.html:140
@@ -631,8 +637,8 @@ msgstr "Aucun membre"
 #: transaction/templates/transaction/donation/list.html:146
 #: transaction/templates/transaction/purchase/detail.html:108
 #: transaction/templates/transaction/purchase/list.html:144
-#: transaction/templates/transaction/sale/detail.html:101
-#: transaction/templates/transaction/sale/list.html:134
+#: transaction/templates/transaction/sale/detail.html:93
+#: transaction/templates/transaction/sale/list.html:130
 msgid "create one"
 msgstr "en créer un"
 
@@ -640,8 +646,8 @@ msgstr "en créer un"
 #: blog/templates/blog/page/list.html:133
 #: blog/templates/blog/post/list.html:160
 #: blog/templates/blog/tags/list.html:139
-#: contact/templates/contact/company/list.html:153
-#: contact/templates/contact/person/list.html:190
+#: contact/templates/contact/company/list.html:149
+#: contact/templates/contact/person/list.html:194
 #: message/templates/message/inbox/list.html:145
 #: message/templates/message/outbox/list.html:145
 #: message/templates/message/trash/list.html:181
@@ -655,7 +661,7 @@ msgstr "en créer un"
 #: transaction/templates/transaction/donation/list.html:150
 #: transaction/templates/transaction/donation/paypal_list.html:130
 #: transaction/templates/transaction/purchase/list.html:140
-#: transaction/templates/transaction/sale/list.html:138
+#: transaction/templates/transaction/sale/list.html:134
 msgid "No result found"
 msgstr "Aucun résultat trouvé"
 
@@ -860,23 +866,19 @@ msgid "No tag"
 msgstr "Aucun tag"
 
 #: contact/templates/contact/company/detail.html:35
-#: contact/templates/contact/company/list.html:80
-#: contact/templates/contact/company/list.html:117
 #: contact/templates/contact/person/detail.html:51
 #: contact/templates/contact/person/list.html:72
-#: contact/templates/contact/person/list.html:131
+#: contact/templates/contact/person/list.html:133
 msgid "Phone number"
 msgstr "Numéro de téléphone"
 
 #: contact/templates/contact/company/detail.html:43
 #: contact/templates/contact/company/list.html:78
-#: contact/templates/contact/company/list.html:115
+#: contact/templates/contact/company/list.html:113
 msgid "Address"
 msgstr "Adresse"
 
 #: contact/templates/contact/company/detail.html:51
-#: contact/templates/contact/company/list.html:81
-#: contact/templates/contact/company/list.html:118
 #: portal/templates/portal/components/portal-navbar.html:39
 msgid "Web site"
 msgstr "Site Web"
@@ -897,8 +899,8 @@ msgstr "Gérer les contacts"
 #: contact/templates/contact/company/list.html:26
 #: contact/templates/contact/person/list.html:19
 #: contact/templates/contact/person/list.html:44
-msgid "Individuals"
-msgstr "Particuliers"
+msgid "Donator"
+msgstr "Donateur"
 
 #: contact/templates/contact/company/list.html:34
 #: contact/templates/contact/company/list.html:51
@@ -906,12 +908,12 @@ msgstr "Particuliers"
 msgid "Companies"
 msgstr "Entreprises"
 
-#: contact/templates/contact/company/list.html:82
-#: contact/templates/contact/company/list.html:119
+#: contact/templates/contact/company/list.html:80
+#: contact/templates/contact/company/list.html:115
 msgid "Partner"
 msgstr "Partenaire"
 
-#: contact/templates/contact/company/list.html:149
+#: contact/templates/contact/company/list.html:145
 msgid "No company"
 msgstr "Pas d'entreprise"
 
@@ -922,24 +924,12 @@ msgstr "Créer un particulier"
 
 #: contact/templates/contact/person/detail.html:59
 #: contact/templates/contact/person/list.html:73
-#: contact/templates/contact/person/list.html:132
+#: contact/templates/contact/person/list.html:134
 msgid "Company"
 msgstr "Entreprise"
 
-#: contact/templates/contact/person/detail.html:73
-msgid "Is a donor"
-msgstr "Est un donateur"
-
-#: contact/templates/contact/person/detail.html:89
-msgid "Is subscribed"
-msgstr "Est abonné"
-
-#: contact/templates/contact/person/detail.html:105
-msgid "Is a supplier"
-msgstr "Est un fournisseur"
-
-#: contact/templates/contact/person/detail.html:138
-#: message/templates/message/trash/detail.html:73
+#: contact/templates/contact/person/detail.html:139
+#: message/templates/message/trash/detail.html:83
 #: project/templates/project/project/detail.html:134
 #: stock/templates/stock/product/detail.html:134
 msgid "Restore"
@@ -949,24 +939,7 @@ msgstr "Restaurer"
 msgid "Individuals list"
 msgstr "Liste des particuliers"
 
-#: contact/templates/contact/person/list.html:74
-#: contact/templates/contact/person/list.html:133
-#: transaction/templates/transaction/purchase/detail.html:47
-#: transaction/templates/transaction/purchase/list.html:72
-msgid "Supplier"
-msgstr "Fournisseur"
-
-#: contact/templates/contact/person/list.html:75
-#: contact/templates/contact/person/list.html:134
-msgid "Donor"
-msgstr "Donateur"
-
-#: contact/templates/contact/person/list.html:76
-#: contact/templates/contact/person/list.html:135
-msgid "Subscriber"
-msgstr "Abonné"
-
-#: contact/templates/contact/person/list.html:186
+#: contact/templates/contact/person/list.html:190
 msgid "No person"
 msgstr "Aucun particulier"
 
@@ -1029,7 +1002,7 @@ msgstr "Destinataire supprimé à"
 #: message/templates/message/trash/detail.html:55
 #: portal/templates/portal/components/portal-navbar.html:51
 #: portal/templates/portal/components/portal_sidebar.html:53
-#: portal/templates/portal/home.html:42
+#: portal/templates/portal/home.html:61
 msgid "Message"
 msgstr "Message"
 
@@ -1047,6 +1020,9 @@ msgid "Received at"
 msgstr "Reçu à"
 
 #: message/templates/message/inbox/detail.html:65
+#: message/templates/message/message/detail.html:63
+#: message/templates/message/outbox/detail.html:63
+#: message/templates/message/trash/detail.html:64
 msgid "File"
 msgstr "Fichier"
 
@@ -1121,6 +1097,16 @@ msgstr "Supprimer à"
 msgid "No message deleted"
 msgstr "Aucun message supprimé"
 
+#: newsletter/forms/newsletter.py:11 page/forms/contact.py:11
+#: page/forms/donate.py:44
+msgid ""
+"<span>Yes, I consent to my data being stored according to the guidelines set "
+"out in the <a href='/page/legal-mentions/'>Privacy Policy</a>.</span>"
+msgstr ""
+"<span>Oui, je consens à ce que mes données soient stockées conformément aux "
+"lignes directrices établies dans les <a href='/page/legal-"
+"mentions/'>mentions légales</a>.</span>"
+
 #: newsletter/templates/newsletter/components/newsletters.html:5
 msgid "Sign up for our newsletter & stay updated !"
 msgstr "Inscrivez-vous à notre newsletter et restez informé !"
@@ -1136,6 +1122,10 @@ msgstr "Votre adresse e-mail"
 #: newsletter/templates/newsletter/components/newsletters.html:16
 msgid "Sign up"
 msgstr "S'inscrire"
+
+#: newsletter/templates/newsletter/components/newsletters.html:36
+msgid "Cancel"
+msgstr "Annuler"
 
 #: newsletter/templates/newsletter/subscriber/list.html:7
 msgid "Subscribers list"
@@ -1157,23 +1147,6 @@ msgstr "Date d'ajout"
 #: newsletter/templates/newsletter/subscriber/list.html:65
 msgid "No subscribers"
 msgstr "Aucun abonné"
-
-#: page/forms/contact.py:11 page/forms/donate.py:44
-msgid ""
-"<span>Yes, I consent to my data being stored according to the guidelines set "
-"out in the <a href='/page/legal-mentions/'>Privacy Policy</a>.</span>"
-msgstr ""
-"<span>Oui, je consens à ce que mes données soient stockées conformément aux "
-"lignes directrices établies dans les <a href='/page/legal-"
-"mentions/'>mentions légales</a>.</span>"
-
-#: page/templates/page/components/cookie_preferences.html:6
-msgid "By using this website, you agree with our"
-msgstr "En utilisant ce site web, vous acceptez notre"
-
-#: page/templates/page/components/cookie_preferences.html:6
-msgid "cookie policy"
-msgstr "politique de cookies"
 
 #: page/templates/page/components/events_list.html:8
 msgid "Upcoming Event"
@@ -1198,13 +1171,12 @@ msgid "Attributions"
 msgstr "Attributions"
 
 #: page/templates/page/components/footer.html:25
+msgid "Cookie preference"
+msgstr "Préférences des cookies"
+
+#: page/templates/page/components/footer.html:26
 msgid "Legal mentions"
 msgstr "Mentions légales"
-
-#: page/templates/page/components/navbar.html:16
-#: page/templates/page/home/home.html:7 portal/templates/portal/home.html:7
-msgid "Home"
-msgstr "Accueil"
 
 #: page/templates/page/components/navbar.html:19
 #: page/templates/page/components/navmenu.html:5
@@ -1244,21 +1216,21 @@ msgstr "À propos"
 #: page/templates/page/static_page/contact/success.html:12
 #: portal/templates/portal/components/portal-navbar.html:45
 #: portal/templates/portal/components/portal_sidebar.html:29
-#: portal/templates/portal/home.html:26
+#: portal/templates/portal/home.html:37
 msgid "Contact"
 msgstr "Contact"
 
-#: page/templates/page/components/navbar.html:58
+#: page/templates/page/components/navbar.html:59
 #: portal/templates/portal/components/portal-navbar.html:87
 msgid "Profile"
 msgstr "Profil"
 
-#: page/templates/page/components/navbar.html:59
+#: page/templates/page/components/navbar.html:60
 #: portal/templates/portal/components/portal-navbar.html:88
 msgid "Sign out"
 msgstr "Déconnexion"
 
-#: page/templates/page/components/navbar.html:67
+#: page/templates/page/components/navbar.html:68
 #: page/templates/page/home/home.html:36
 #: page/templates/page/static_page/donate/cancel.html:9
 #: page/templates/page/static_page/donate/cancel.html:14
@@ -1266,8 +1238,8 @@ msgstr "Déconnexion"
 #: page/templates/page/static_page/donate/checkout.html:12
 #: page/templates/page/static_page/donate/donate.html:9
 #: page/templates/page/static_page/donate/donate.html:14
-#: page/templates/page/static_page/donate/success.html:7
-#: page/templates/page/static_page/donate/success.html:12
+#: page/templates/page/static_page/donate/success.html:9
+#: page/templates/page/static_page/donate/success.html:14
 msgid "Donate"
 msgstr "Faire un don"
 
@@ -1355,7 +1327,7 @@ msgstr "Ooops ! Quelque chose a mal tourné !"
 #: page/templates/page/event/detail.html:9
 #: portal/templates/portal/components/portal-navbar.html:48
 #: portal/templates/portal/components/portal_sidebar.html:41
-#: portal/templates/portal/home.html:34
+#: portal/templates/portal/home.html:45
 msgid "Event"
 msgstr "Événement"
 
@@ -1426,7 +1398,7 @@ msgstr "OU"
 msgid "WITH PAYPAL"
 msgstr "AVEC PAYPAL"
 
-#: page/templates/page/static_page/donate/success.html:31
+#: page/templates/page/static_page/donate/success.html:33
 msgid "THANKS FOR YOUR GENEROUS DONOTION"
 msgstr "MERCI POUR VOTRE GÉNÉREUX DON"
 
@@ -1590,19 +1562,19 @@ msgstr "Administration"
 
 #: portal/templates/portal/components/portal-navbar.html:42
 #: portal/templates/portal/components/portal_sidebar.html:17
-#: portal/templates/portal/home.html:18
+#: portal/templates/portal/home.html:29
 msgid "Blog"
 msgstr "Blog"
 
 #: portal/templates/portal/components/portal-navbar.html:54
 #: portal/templates/portal/components/portal_sidebar.html:65
-#: portal/templates/portal/home.html:50
+#: portal/templates/portal/home.html:69
 msgid "Newsletter"
 msgstr "Newsletter"
 
 #: portal/templates/portal/components/portal-navbar.html:57
 #: portal/templates/portal/components/portal_sidebar.html:77
-#: portal/templates/portal/home.html:58
+#: portal/templates/portal/home.html:77
 #: project/templates/project/event/detail.html:47
 #: project/templates/project/task/detail.html:40
 msgid "Project"
@@ -1610,20 +1582,20 @@ msgstr "Projet"
 
 #: portal/templates/portal/components/portal-navbar.html:60
 #: portal/templates/portal/components/portal_sidebar.html:89
-#: portal/templates/portal/home.html:66
+#: portal/templates/portal/home.html:85
 #: stock/templates/stock/components/navlist.html:8
 msgid "Stock"
 msgstr "Stock"
 
 #: portal/templates/portal/components/portal-navbar.html:63
 #: portal/templates/portal/components/portal_sidebar.html:101
-#: portal/templates/portal/home.html:74
+#: portal/templates/portal/home.html:93
 msgid "Task"
 msgstr "Tâche"
 
 #: portal/templates/portal/components/portal-navbar.html:66
 #: portal/templates/portal/components/portal_sidebar.html:113
-#: portal/templates/portal/home.html:82
+#: portal/templates/portal/home.html:101
 msgid "Transaction"
 msgstr "Transaction"
 
@@ -1647,11 +1619,15 @@ msgstr "Effacer tout"
 msgid "ago"
 msgstr " "
 
-#: project/forms/event.py:56
+#: project/forms/event.py:56 project/forms/event.py:103
+#: project/forms/event.py:151 project/forms/event.py:198
+#: project/forms/task.py:46 project/forms/task.py:85 project/forms/task.py:124
+#: project/forms/task.py:163
 msgid "The beginning of an event cannot be in the past !"
 msgstr "Le début d'un événement ne peut pas être dans le passé !"
 
-#: project/forms/event.py:60
+#: project/forms/event.py:60 project/forms/event.py:107
+#: project/forms/event.py:155 project/forms/event.py:202
 msgid "The end time of a event cannot be earlier than its start time !"
 msgstr ""
 "L'heure de fin d'un événement ne peut être antérieure à son heure de début !"
@@ -1870,7 +1846,7 @@ msgstr "Créer un nouveau transfert de produit"
 #: stock/templates/stock/stock/detail_reception.html:122
 #: transaction/templates/transaction/product_transaction_line/delete.html:24
 #: transaction/templates/transaction/purchase/detail.html:117
-#: transaction/templates/transaction/sale/detail.html:111
+#: transaction/templates/transaction/sale/detail.html:103
 msgid "Quantity"
 msgstr "Quantité"
 
@@ -1887,7 +1863,7 @@ msgstr "Créer un nouveau produit"
 #: stock/templates/stock/product/list.html:121
 #: transaction/templates/transaction/product_transaction_line/delete.html:23
 #: transaction/templates/transaction/purchase/detail.html:116
-#: transaction/templates/transaction/sale/detail.html:110
+#: transaction/templates/transaction/sale/detail.html:102
 msgid "Price"
 msgstr "Prix"
 
@@ -1913,7 +1889,7 @@ msgstr "Gérer les produits"
 
 #: stock/templates/stock/product/list.html:38
 #: transaction/templates/transaction/purchase/detail.html:81
-#: transaction/templates/transaction/sale/detail.html:79
+#: transaction/templates/transaction/sale/detail.html:71
 msgid "Products"
 msgstr "Produits"
 
@@ -1924,7 +1900,7 @@ msgstr "Image"
 
 #: stock/templates/stock/product/list.html:168
 #: transaction/templates/transaction/purchase/detail.html:108
-#: transaction/templates/transaction/sale/detail.html:101
+#: transaction/templates/transaction/sale/detail.html:93
 msgid "No product"
 msgstr "Aucun produit"
 
@@ -1977,7 +1953,7 @@ msgstr "Pas de livraison"
 #: stock/templates/stock/stock/detail_delivery.html:132
 #: stock/templates/stock/stock/detail_reception.html:121
 #: transaction/templates/transaction/purchase/detail.html:115
-#: transaction/templates/transaction/sale/detail.html:109
+#: transaction/templates/transaction/sale/detail.html:101
 msgid "Product name"
 msgstr "Nom du produit"
 
@@ -1985,7 +1961,7 @@ msgstr "Nom du produit"
 #: stock/templates/stock/stock/detail_reception.html:128
 #: transaction/templates/transaction/donation/detail.html:94
 #: transaction/templates/transaction/purchase/detail.html:187
-#: transaction/templates/transaction/sale/detail.html:169
+#: transaction/templates/transaction/sale/detail.html:161
 msgid "Validate"
 msgstr "Valider"
 
@@ -2022,7 +1998,7 @@ msgstr "Stocks"
 #: transaction/templates/transaction/purchase/list.html:69
 #: transaction/templates/transaction/purchase/list.html:106
 #: transaction/templates/transaction/sale/list.html:63
-#: transaction/templates/transaction/sale/list.html:100
+#: transaction/templates/transaction/sale/list.html:98
 msgid "Date created"
 msgstr "Date de création"
 
@@ -2066,7 +2042,7 @@ msgstr "Don"
 #: transaction/templates/transaction/purchase/list.html:107
 #: transaction/templates/transaction/sale/detail.html:37
 #: transaction/templates/transaction/sale/list.html:64
-#: transaction/templates/transaction/sale/list.html:101
+#: transaction/templates/transaction/sale/list.html:99
 msgid "Created by"
 msgstr "Créé par"
 
@@ -2074,25 +2050,21 @@ msgstr "Créé par"
 #: transaction/templates/transaction/donation/list.html:73
 #: transaction/templates/transaction/donation/list.html:112
 #: transaction/templates/transaction/donation/paypal_list.html:60
-#: transaction/templates/transaction/donation/paypal_list.html:61
 #: transaction/templates/transaction/donation/paypal_list.html:95
-#: transaction/templates/transaction/donation/paypal_list.html:96
-#: transaction/templates/transaction/purchase/list.html:108
-#: transaction/templates/transaction/sale/detail.html:45
-#: transaction/templates/transaction/sale/list.html:65
-#: transaction/templates/transaction/sale/list.html:102
 msgid "Costumer"
 msgstr "Client"
 
 #: transaction/templates/transaction/donation/detail.html:53
 #: transaction/templates/transaction/donation/list.html:74
 #: transaction/templates/transaction/donation/list.html:113
+#: transaction/templates/transaction/donation/paypal_list.html:61
+#: transaction/templates/transaction/donation/paypal_list.html:96
 #: transaction/templates/transaction/purchase/detail.html:55
 #: transaction/templates/transaction/purchase/list.html:73
 #: transaction/templates/transaction/purchase/list.html:109
-#: transaction/templates/transaction/sale/detail.html:53
-#: transaction/templates/transaction/sale/list.html:66
-#: transaction/templates/transaction/sale/list.html:103
+#: transaction/templates/transaction/sale/detail.html:45
+#: transaction/templates/transaction/sale/list.html:65
+#: transaction/templates/transaction/sale/list.html:100
 msgid "Total"
 msgstr "Total"
 
@@ -2104,9 +2076,9 @@ msgstr "Total"
 #: transaction/templates/transaction/purchase/detail.html:63
 #: transaction/templates/transaction/purchase/list.html:71
 #: transaction/templates/transaction/purchase/list.html:110
-#: transaction/templates/transaction/sale/detail.html:61
-#: transaction/templates/transaction/sale/list.html:67
-#: transaction/templates/transaction/sale/list.html:104
+#: transaction/templates/transaction/sale/detail.html:53
+#: transaction/templates/transaction/sale/list.html:66
+#: transaction/templates/transaction/sale/list.html:101
 msgid "Is valid"
 msgstr "Est valide"
 
@@ -2137,7 +2109,7 @@ msgstr "Paypal"
 #: transaction/templates/transaction/donation/list.html:146
 #: transaction/templates/transaction/donation/paypal_list.html:126
 #: transaction/templates/transaction/purchase/list.html:140
-#: transaction/templates/transaction/sale/list.html:134
+#: transaction/templates/transaction/sale/list.html:130
 msgid "No transaction"
 msgstr "Aucune transaction"
 
@@ -2169,8 +2141,14 @@ msgstr "Créer un nouvel achat"
 msgid "Purchase"
 msgstr "Achat"
 
+#: transaction/templates/transaction/purchase/detail.html:47
+#: transaction/templates/transaction/purchase/list.html:72
+#: transaction/templates/transaction/purchase/list.html:108
+msgid "Supplier"
+msgstr "Fournisseur"
+
 #: transaction/templates/transaction/purchase/detail.html:118
-#: transaction/templates/transaction/sale/detail.html:108
+#: transaction/templates/transaction/sale/detail.html:100
 msgid "Sub-total"
 msgstr "Sous-total"
 
@@ -2186,13 +2164,37 @@ msgstr "Créer une nouvelle vente"
 msgid "Sale"
 msgstr "Vente"
 
-#: twahifoundation/settings/base.py:142
+#: twahifoundation/settings/base.py:143
 msgid "English"
 msgstr "Anglais"
 
-#: twahifoundation/settings/base.py:143
+#: twahifoundation/settings/base.py:144
 msgid "French"
 msgstr "Français"
+
+#~ msgid "Individuals"
+#~ msgstr "Particuliers"
+
+#~ msgid "Is a donor"
+#~ msgstr "Est un donateur"
+
+#~ msgid "Is subscribed"
+#~ msgstr "Est abonné"
+
+#~ msgid "Is a supplier"
+#~ msgstr "Est un fournisseur"
+
+#~ msgid "Donor"
+#~ msgstr "Donateur"
+
+#~ msgid "Subscriber"
+#~ msgstr "Abonné"
+
+#~ msgid "By using this website, you agree with our"
+#~ msgstr "En utilisant ce site web, vous acceptez notre"
+
+#~ msgid "cookie policy"
+#~ msgstr "politique de cookies"
 
 #~ msgid "Title [en]"
 #~ msgstr "Titre [fr]"
@@ -2202,9 +2204,6 @@ msgstr "Français"
 
 #~ msgid "Content [en]"
 #~ msgstr "Contenu [fr]"
-
-#~ msgid "Cookies preferences"
-#~ msgstr "Préférences des cookies"
 
 #~ msgid "Location [en]"
 #~ msgstr "Lieu [fr]"
