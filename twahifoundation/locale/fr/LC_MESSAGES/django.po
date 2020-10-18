@@ -1155,7 +1155,6 @@ msgstr "Prochain événement"
 #: page/templates/page/components/events_list.html:13
 #: page/templates/page/components/news_list.html:14
 #: page/templates/page/components/projects_list.html:14
-msgid "New"
 msgstr "Nouveau"
 
 #: page/templates/page/components/events_list.html:37
