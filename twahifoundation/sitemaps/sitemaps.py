@@ -58,6 +58,10 @@ class StaticViewSitemap(Sitemap):
             'page:home',
             'page:donate',
             'page:contact',
+            'blog:post-list',
+            'project:event-list',
+            'project:project-list',
+            'login',
         ]
 
     def location(self, item):
