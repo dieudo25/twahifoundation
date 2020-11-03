@@ -18,10 +18,20 @@ Including another URLconf
 import notifications.urls
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
 from django.urls import path, include, re_path
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.static import serve
+
+from sitemaps.sitemaps import PostSitemap, EventSitemap, ProjectSitemap, StaticViewSitemap
+
+sitemaps = {
+    'static': StaticViewSitemap,
+    'posts': PostSitemap,
+    'events': EventSitemap,
+    'projects': ProjectSitemap,
+}
 
 
 urlpatterns = [
@@ -37,6 +47,7 @@ urlpatterns = [
     re_path(r'^paypal/', include('paypal.standard.ipn.urls')),
     re_path(r'^portal/', include('portal.urls')),
     re_path(r'^project/', include('project.urls')),
+    re_path(r'^sitemap.xml/', sitemap, {'sitemaps': sitemaps}),
     re_path(r'^stock/', include('stock.urls')),
     re_path(r'^transaction/', include('transaction.urls')),
     re_path(r'^', include('page.urls')),
