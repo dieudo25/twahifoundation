@@ -23,6 +23,7 @@ from django.urls import path, include, re_path
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.static import serve
+from django.views.generic.base import RedirectView
 
 from sitemaps.sitemaps import PostSitemap, EventSitemap, ProjectSitemap, StaticViewSitemap
 
@@ -40,6 +41,7 @@ urlpatterns = [
     re_path(r'^blog/', include('blog.urls')),
     re_path(r'^ckeditor/', include('ckeditor_uploader.urls')),
     re_path(r'^contact/', include('contact.urls')),
+    re_path(r'^favicon.ico$', RedirectView.as_view(url='/static/page/favicon/favicon-16x16.png')),
     re_path(r'^message/', include('message.urls')),
     re_path(r'^newsletter/', include('newsletter.urls')),
     re_path(r'^inbox/notifications/',
