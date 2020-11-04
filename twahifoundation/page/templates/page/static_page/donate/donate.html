@@ -24,6 +24,13 @@
   <script src="{% static 'page/main.js' %}"></script>
 {% endblock scripts %}
 
+{% block extra_head %}
+  <meta name="description" content="Les différent évènement de l'association Twahi foundation">
+  <meta name="keywords" content="organisation, but, non, lucratif, Ouganda, Belgique, twahi, foundation, accueil, actualité, blog, news, newsletter, donation, projet, project, donate contact, contactez, email, telephone, contacter, numéro">
+  <meta name="author" content="Twahirwa Dieudonné">
+{% endblock extra_head %}
+
+
 {% block content_with_sidebar %}
     
     {% include 'page/components/fight_with_us.html' %}
