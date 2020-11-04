@@ -13,22 +13,22 @@
         <div class="nav-column-1">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'page:home' %}">{% trans "Home" %}<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{% url 'page:home' %}">{% trans "Home" %}<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                        <a class="nav-link" href="{% url 'page:news-list' %}">{% trans "News" %}</a>
+                    <a class="nav-link" href="{% url 'page:page-detail' 'about-us' %}">{% trans "About" %}</a>
                 </li>
                 <li class="nav-item">
-                        <a class="nav-link" href="{% url 'page:project-list' %}">{% trans "Projects" %}</a>
+                    <a class="nav-link" href="{% url 'page:news-list' %}">{% trans "News" %}</a>
                 </li>
                 <li class="nav-item">
-                        <a class="nav-link" href="{% url 'page:event-list' %}">{% trans "Events" %}</a>
+                    <a class="nav-link" href="{% url 'page:project-list' %}">{% trans "Projects" %}</a>
                 </li>
                 <li class="nav-item">
-                        <a class="nav-link" href="{% url 'page:page-detail' 'about-us' %}">{% trans "About" %}</a>
+                    <a class="nav-link" href="{% url 'page:event-list' %}">{% trans "Events" %}</a>
                 </li>
                 <li class="nav-item">
-                        <a class="nav-link" href="{% url 'page:contact' %}">{% trans "Contact" %}</a>
+                    <a class="nav-link" href="{% url 'page:contact' %}">{% trans "Contact" %}</a>
                 </li>
             </ul>
         </div>
