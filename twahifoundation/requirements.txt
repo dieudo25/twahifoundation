@@ -28,6 +28,7 @@ django-modeltranslation==0.15.2
 django-mptt==0.10.0
 django-notifications-hq==1.6.0
 django-paypal==1.0.0
+django-robots==4.0
 django-storages==1.10.1
 dropbox==10.4.1
 enum34==1.1.10
