@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'import_export',
     'modeltranslation',
     'notifications',
+    'robots',
 
     'account.apps.AccountConfig',
     'blog.apps.BlogConfig',
