@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 .portal-app-nav .custom-icon.donation-icon {
   background-image: url(img/donation.svg);
 }
@@ -14,6 +21,8 @@
 
 @media (min-width: 768px) {
   .donation-list-type {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
   }
 

@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 /* FONT-SIZE */
 
 .portal-section h3 {
@@ -21,7 +28,11 @@
 .bg-notice {
   margin: 0;
   border-bottom: 1px solid;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
@@ -42,6 +53,8 @@
 }
 
 .notice-content {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
   flex-grow: 1;
 }
 
@@ -93,7 +106,12 @@
 /* CKEDITOR */
 
 .cke_dialog_ui_hbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
 }
 
@@ -128,6 +146,9 @@ tr.cke_dialog_ui_hbox > td {
 }
 
 .cke_dialog_ui_hbox.cke_dialog_footer_buttons .cke_dialog_ui_hbox {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
   width: 290px;
 }
@@ -138,11 +159,18 @@ tr.cke_dialog_ui_hbox > td {
 }
 
 #cke_122_uiElement .cke_dialog_ui_hbox {
+  -webkit-box-orient: horizontal !important;
+  -webkit-box-direction: normal !important;
+  -ms-flex-direction: row !important;
   flex-direction: row !important;
 }
 
 #cke_120_uiElement tbody {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
@@ -180,9 +208,16 @@ tr.cke_dialog_ui_hbox > td {
 
 .portal-content-nav {
   border-bottom: 1px solid #dee2e6;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-sizing: unset;
   box-sizing: unset;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -217,8 +252,14 @@ tr.cke_dialog_ui_hbox > td {
 
 .nav-item-add {
   font-size: 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -232,7 +273,11 @@ tr.cke_dialog_ui_hbox > td {
 
 .nav-item-add .add-text {
   height: 34px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -281,8 +326,12 @@ tr.cke_dialog_ui_hbox > td {
 /* HOME */
 
 .app-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -ms-flex-pack: distribute;
   justify-content: space-around;
 }
 
@@ -293,17 +342,30 @@ tr.cke_dialog_ui_hbox > td {
 .app-item {
   margin: 20px 2px;
   color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   width: 125px;
   height: 125px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 
 .app-item:hover {
   padding-bottom: 8px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 
@@ -313,10 +375,14 @@ tr.cke_dialog_ui_hbox > td {
 }
 
 .portal-app-nav .custom-btn .add-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
 .portal-app-nav .custom-btn .poratl-app-nav-item {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   margin: 0 auto;
 }
@@ -375,7 +441,11 @@ p.help-block {
 /* LIST SEARCH FILTER */
 
 #list-search form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
   justify-content: flex-end;
 }
 
@@ -430,7 +500,12 @@ p.help-block {
 }
 
 .form-width-checkbox .controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
 }
 
@@ -457,7 +532,11 @@ input[type="radio"] {
 }
 
 .notification-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
@@ -476,8 +555,15 @@ input[type="radio"] {
 
 .portal-app-nav {
   padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
@@ -501,7 +587,11 @@ input[type="radio"] {
 
 .list-with-btn th span {
   height: 33px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
   align-items: flex-end;
 }
 
@@ -547,6 +637,9 @@ form .control-group .django-ckeditor-widget > div {
   }
 
   .cke_dialog_ui_hbox {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
   }
 
@@ -564,7 +657,11 @@ form .control-group .django-ckeditor-widget > div {
   }
 
   .portal-app-nav a:not(.custom-btn) .add-text {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
   }
 
@@ -575,12 +672,19 @@ form .control-group .django-ckeditor-widget > div {
   /* HOME */
 
   #portal-home {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
   }
 
   .app-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
   }
 
@@ -598,6 +702,8 @@ form .control-group .django-ckeditor-widget > div {
   /* SIDERBAR */
 
   #portal-sidebar-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     height: calc(100vh - 76px);
   }
@@ -606,9 +712,12 @@ form .control-group .django-ckeditor-widget > div {
     width: 230px;
     padding-bottom: 35px;
     display: unset;
+    -ms-flex-negative: 0;
     flex-shrink: 0;
     position: absolute;
     height: calc(100vh - 56px);
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     z-index: 100;
   }
@@ -637,20 +746,28 @@ form .control-group .django-ckeditor-widget > div {
     width: 20px;
     height: 20px;
     background-image: url(img/back.svg);
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
   }
 
   #toggle-collapse:hover {
     background-image: url(img/back_hover.svg);
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
   }
 
   .portal-sidebar-app {
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
   }
 
   .portal-sidebar-app:hover {
     background-color: #666a6f;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
   }
 
@@ -661,6 +778,8 @@ form .control-group .django-ckeditor-widget > div {
 
   .portal-section {
     overflow: auto;
+    -webkit-box-flex: 2;
+    -ms-flex-positive: 2;
     flex-grow: 2;
     padding: 20px;
   }
@@ -676,7 +795,11 @@ form .control-group .django-ckeditor-widget > div {
   }
 
   .img-text-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
   }
 
@@ -697,6 +820,7 @@ form .control-group .django-ckeditor-widget > div {
   }
 
   .rotateY180 {
+    -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
   }
 
@@ -707,11 +831,17 @@ form .control-group .django-ckeditor-widget > div {
   }
 
   .portal-top-bar {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
   }
 
   .portal-top-bar.no-button {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
     justify-content: flex-end;
   }
 
@@ -720,11 +850,16 @@ form .control-group .django-ckeditor-widget > div {
   }
 
   .portal-app-nav {
+    -webkit-box-orient: unset;
+    -webkit-box-direction: unset;
+    -ms-flex-direction: unset;
     flex-direction: unset;
     margin-bottom: 0;
   }
 
   .portal-app-nav a {
+    width: -webkit-max-content;
+    width: -moz-max-content;
     width: max-content;
     margin-right: 10px;
     margin-bottom: unset;
@@ -755,6 +890,8 @@ form .control-group .django-ckeditor-widget > div {
   /* PORTAL FORM */
 
   .portal-update-form-wrapper .control-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
   }
 
@@ -764,11 +901,17 @@ form .control-group .django-ckeditor-widget > div {
   }
 
   .portal-update-form-wrapper .controls {
+    -webkit-box-flex: 2;
+    -ms-flex-positive: 2;
     flex-grow: 2;
   }
 
   .form-width-checkbox .controls {
+    -webkit-box-orient: unset;
+    -webkit-box-direction: unset;
+    -ms-flex-direction: unset;
     flex-direction: unset;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
   }
 
@@ -800,6 +943,8 @@ form .control-group .django-ckeditor-widget > div {
 
   .portal-app-nav a:not(.custom-btn) .add-text {
     display: unset;
+    -webkit-box-align: unset;
+    -ms-flex-align: unset;
     align-items: unset;
   }
 
@@ -830,6 +975,8 @@ form .control-group .django-ckeditor-widget > div {
   /* HOME */
 
   #portal-navbar #navbarNavDropdown {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
     justify-content: flex-end;
   }
 

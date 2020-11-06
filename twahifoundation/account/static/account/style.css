@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 /* DIMENSIONS */
 
 .wrapper {
@@ -17,6 +24,7 @@
   background-repeat: no-repeat;
   background-position: center;
   height: 120px;
+  -webkit-filter: brightness(0.7);
   filter: brightness(0.7);
 }
 
@@ -44,7 +52,11 @@
 
 #login-section {
   height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -68,8 +80,15 @@
 }
 
 .login-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin: 50px auto;
 }
@@ -157,7 +176,12 @@
 }
 
 #div_id_groups .controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
 }
 
@@ -216,8 +240,15 @@
   /* PROFILE */
 
   .portal-wrapper.profile {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
   }
 
@@ -226,6 +257,8 @@
   }
 
   .detail-info-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
   }
 
@@ -278,6 +311,7 @@
   /* USER DETAIL */
 
   .profile.portal-wrapper {
+    -ms-flex-pack: distribute;
     justify-content: space-around;
   }
 
