@@ -7,6 +7,20 @@
             </br>
             <small>Together for welfare, advocacy, harmony and innovation</small>
         </h2>
+        <div class="">
+            <ul class="navbar-nav">
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="text-white" href="{% url 'portal:portal-home' %}">Portal</a>
+                    </li>
+                    
+                {% else %}
+                    <li class="nav-item">
+                        <a class="text-white" href="{% url 'login' %}"><span class="sign-in">{% trans "Sign in" %}</span></a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
         
     </div>
     <div class="footer-content">

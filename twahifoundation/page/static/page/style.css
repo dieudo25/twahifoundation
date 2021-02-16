@@ -687,8 +687,22 @@ footer {
   margin: 0 auto;
 }
 
+.footer-head .navbar-nav li {
+  margin: 20px 0;
+}
+
+.footer-head .navbar-nav li {
+  max-width: fit-content;
+}
+
+.footer-head .navbar-nav li a {
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
 .footer-content > div {
-  margin: 30px 0;
+  margin: 0px 0 30px;
 }
 
 footer h2 {

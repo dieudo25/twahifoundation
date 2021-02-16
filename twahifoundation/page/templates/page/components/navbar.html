@@ -47,27 +47,9 @@
                         {% endfor %}
                     </div>
                 </div>
-                {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link " href="{% url 'portal:portal-home' %}">Portal</a>
-                    </li>
-                    <div class="dropdown nav-item">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ user.username }}
-                        </a>
-                        <div class="nav-item dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item nav-link" href="{% url 'user-detail' user.slug %}"><span class="sign-in text-grey">{% trans "Profile" %}</span></a>
-                            <a class="dropdown-item nav-link" href="{% url 'logout' %}"><span class="sign-in text-red">{% trans "Sign out" %}</span></a>
-                        </div>
-                    </div>
-                {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'login' %}"><span class="sign-in">{% trans "Sign in" %}</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'page:donate' %}"><span class="btn-involved btn-green">{% trans "Donate" %}</span></a>
-                    </li>
-                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'page:donate' %}"><span class="btn-involved btn-green">{% trans "Donate" %}</span></a>
+                </li>
             </ul>
         </div> 
     </div>
