@@ -1,4 +1,4 @@
-ansible==2.9.13
+ansible==4.2.0
 asgiref==3.2.10
 astroid==2.4.2
 autopep8==1.5.3
