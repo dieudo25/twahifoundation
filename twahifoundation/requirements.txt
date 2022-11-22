@@ -50,7 +50,7 @@ microurl==0.1.1
 odfpy==1.4.1
 openpyxl==3.0.4
 paypalhttp==1.0.0
-Pillow==7.1.2
+Pillow==9.3.0
 psycopg2==2.8.5
 pycodestyle==2.6.0
 pycparser==2.20
